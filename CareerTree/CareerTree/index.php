@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	<meta name="viewport" content="width=device-width initial-scale=1">
-	<title>CareerPeek</title>
+	<title>CareerTree</title>
 	<link rel="icon" href="./images/title.ico" />
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/style.css">

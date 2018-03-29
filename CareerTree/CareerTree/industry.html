@@ -2,115 +2,142 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width initial-scale=1">
-	<meta name="viewport" content="width=device-width initial-scale=1">
-	<title>CareerPeek</title>
-	<link rel="icon" href="./images/title.ico" />
-	<link rel="stylesheet" href="./css/bootstrap.min.css">
-	<link rel="stylesheet" href="./css/style2.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>CareerTree</title>
+    <link rel="icon" href="./images/title.ico" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style2.css">
 
 </head>
 
 <body>
 
-	<div class="navbar  navbar-dark navbar-expand-md fixed-top">
+    <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
-		<div class="container">
-			<a class="navbar-brand" href="#">
-				<img src="./images/logo.png" />
-			</a>
-			
-			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<div class="collapse navbar-collapse navCollapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="nav-item active" href="#">Home</a>
-					</li>
-					<li>
-						<a class="nav-item" href="#">About Us</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./images/logo.png" />
+            </a>
+
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse navCollapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="nav-item active" href="#">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-item" href="#">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 
-	<div class="indus">
+    <div class="indus">
 
-		<h2>Choose your previous industry</h2>
+        <h2>Choose your previous industry</h2>
 
-		<div class="grid-container">
+        <div class="grid-container">
 
-			<div class="col-sm-2 item1">
-				<figure class="image1">
-					<a href="./occ.html"><img src="./images/acco.png" /></a>
-					<figcaption>Accomodation and food services </figcaption>
-				</figure>
-			</div>
+          
 
-			<div class="col-sm-2 item2">
-				<figure class="image2">
-						<a href="./occ.html"><img src="./images/agri.png" /></a>
-					<figcaption>Agriculture, forestry and fishing</figcaption>
-				</figure>
-			</div>
+                <div class="col-sm-2 item1">
+                    <figure class="image1">
+                        <form method="post" action="occ.php">
+                            <input type="image" name="submit1" class="thumbnail" src="./images/acco.png" onsubmit="occ.php">
+                            
+                            <figcaption>Accomodation and food services </figcaption>
+                            </form>
+                    </figure>
+                </div>
 
-			<div class="col-sm-2 item3">
-				<figure class="image3">
-						<a href="./occ.html"><img src="./images/C.png" /></a>
-					<figcaption>Construction</figcaption>
-				</figure>
-			</div>
+                <div class="col-sm-2 item2">
+                    <figure class="image2">
+                        <form method="post" action="occ.php">
+                            <input type="image" name="submit2" class="thumbnail" src="./images/agri.png" onsubmit="occ.php">
+                            
+                            <figcaption>Agriculture, forestry and fishing</figcaption>
+                        </form>
+                    </figure>
+                </div>
 
-			<div class="col-sm-2 item4">
-				<figure class="image4">
-						<a href="./occ.html"><img src="./images/infomedia.png" /></a>
-					<figcaption>Information media and telecommunications</figcaption>
-				</figure>
-			</div>
+                <div class="col-sm-2 item3">
+                    <figure class="image3">
+                        <form method="post" action="occ.php">
+                            <input type="image" name="submit3" class="thumbnail" src="./images/C.png" onsubmit="occ.php">
+                            
+                            <figcaption>Construction</figcaption>
+                        </form>
+                    </figure>
+                </div>
 
-			<div class="col-sm-2 item5">
-				<figure class="image5">
-						<a href="./occ.html"><img src="./images/manufacturing.png" /></a>
-					<figcaption>Manufacturing</figcaption>
-				</figure>
-			</div>
+                <div class="col-sm-2 item4">
+                    <figure class="image4">
+                        <form method="post" action="occ.php">
+                            <input type="image" name="submit4" class="thumbnail" src="./images/acco.png" onsubmit="occ.php">
+                            
+                            <figcaption>Information media and telecommunications</figcaption>
+                        </form>
+                    </figure>
+                </div>
 
-			<div class="col-sm-2 item6">
-				<figure class="image6">
-						<a href="./occ.html"><img src="./images/mining.png" /></a>
-					<figcaption>Mining</figcaption>
-				</figure>
-			</div>
+                <div class="col-sm-2 item5">
+                    <figure class="image5">
 
-			<div class="col-sm-2 item7">
-				<figure class="image7">
-						<a href="./occ.html"><img src="./images/transport.png" /></a>
-					<figcaption>Transport postal and warehousing</figcaption>
-				</figure>
-			</div>
+                        <form method="post" action="occ.php">
+                            <input type="image" name="submit5" class="thumbnail" src="./images/manufacturing.png" onsubmit="occ.php">
+                                                    
+                            <figcaption>Manufacturing</figcaption>
+                        </form>
+                    </figure>
+                </div>
 
-			<div class="col-sm-2 item8">
-				<figure class="image1">
-						<a href="./occ.html"><img src="./images/wholesale.png" /></a>
-					<figcaption>Wholesale trade</figcaption>
-				</figure>
-			</div>
+                <div class="col-sm-2 item6">
+                    <figure class="image6">
+                        <form method="post" action="occ.php">
+                            <input type="image" name="submit6" class="thumbnail" src="./images/mining.png" onsubmit="occ.php">
+                            
+                            <figcaption>Mining</figcaption>
+                        </form>
+                    </figure>
+                </div>
 
-		</div>
+                <div class="col-sm-2 item7">
+                    <figure class="image7">
+                        <form method="post" action="occ.php">
+                            <input type="image" name="submit7" class="thumbnail" src="./images/transport.png" onsubmit="occ.php">
+                            
+                            <figcaption>Transport postal and warehousing</figcaption>
+                        </form>
+                    </figure>
+                </div>
 
-		<div class="footer">
-				<div class="pull-right">
-					<a href="#">Back to top</a>
-				</div>
-			</div>
+                <div class="col-sm-2 item8">
+                    <figure class="image8">
+                        <form method="post" action="occ.php">
+                            <input type="image" name="submit8"  class="thumbnail" src="./images/wholesale.png" onsubmit="occ.php">
+                            
+                            <figcaption>Wholesale trade</figcaption>
+                        </form>
+                    </figure>
+                </div>
+           
+        </div>
 
-	</div>
+        <div class="footer">
+            <div class="pull-right">
+                <a href="#">Back to top</a>
+            </div>
+        </div>
+
+    </div>
 </body>
 
 

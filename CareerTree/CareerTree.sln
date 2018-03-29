@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "CareerTree", "CareerTree\CareerTree.phpproj", "{1CF2EA94-6403-4AEC-BF0D-563D309079E2}"
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "CareerTree", "CareerTree\CareerTree.phpproj", "{BB61B9BE-89EC-4055-ABDA-3BF2910BE00E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +11,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1CF2EA94-6403-4AEC-BF0D-563D309079E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1CF2EA94-6403-4AEC-BF0D-563D309079E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB61B9BE-89EC-4055-ABDA-3BF2910BE00E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB61B9BE-89EC-4055-ABDA-3BF2910BE00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {49996009-1287-4AC9-AF00-BEB36804BA11}
+		SolutionGuid = {C2ADEB97-1DA4-4039-B870-046E5314E7E2}
 	EndGlobalSection
 EndGlobal

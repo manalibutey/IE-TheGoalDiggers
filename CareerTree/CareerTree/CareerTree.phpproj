@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Name>CareerTree</Name>
-    <ProjectGuid>1cf2ea94-6403-4aec-bf0d-563d309079e2</ProjectGuid>
+    <ProjectGuid>bb61b9be-89ec-4055-abda-3bf2910be00e</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>
     </RootNamespace>

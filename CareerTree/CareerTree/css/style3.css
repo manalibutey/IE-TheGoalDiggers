@@ -1,4 +1,4 @@
-.fixed-top {
+﻿.fixed-top {
     position: fixed;
     top: 0;
     right: 0;
@@ -6,7 +6,7 @@
     z-index: 1030;
 }
 
-.navbar-dark  {
+.navbar-dark {
     color: rgba(255,255,255,.5);
     border-color: rgba(255,255,255,.1);
 }
@@ -33,6 +33,7 @@ body {
 .navbar-dark .navbar-brand {
     color: #fff;
 }
+
 .navbar-brand {
     display: inline-block;
     padding-top: .3125rem;
@@ -43,85 +44,81 @@ body {
     white-space: nowrap;
 }
 
-.container p{
-    color: #020529;
-    padding-top: 5px;
-    font-size: 10px;
-    position: relative;
-}
-
 .container .navbar-brand img {
     height: 50px;
 }
 
-.container .nav-item {
-    color: #020529;
-    font-size: 14px;
-}
-
-
-
-.indus {
-    margin-top: 150px;
+.full {
+    margin-top: 120px;
     position: absolute;
     width: 100%;
     height: auto;
     z-index: -1;
 }
 
-.indus h2{
+.selection {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 10px;
+}
+.mid{
+    position: relative;
+}
+
+.headme {
+    width:100%;
+    height: auto;
+    position: relative;
+}
+  .headme h1 {
+        padding-left: 20px;
+        font-weight:bold;
+    }
+
+.headme h2 {
     padding-left: 20px;
 }
 
-.grid-container {
-    position: relative;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+.cbut {
     width: 100%;
     height: auto;
-    text-align: center;
-    z-index: 1;
-    background-color: aquamarine;
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
+    position: relative;
+    margin-left: 900px;
 }
 
-.grid-container>div {
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding:90px 90px;
-    font-size: 20px;
-  }
-
-.col-sm-2 {
-    width: 100%;
-}
-
-.footer {
+footer {
     position: static;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(56, 56, 56);
-    color: white;
+    background-color: gray;
     
 }
 
-.pull-right{
+.pull-right {
     position: relative;
     font-size: 14px;
 }
 
-.thumbnail:hover {
-    position: relative;
-    top: -15px;
-    left: -25px;
-    width: 200px;
+input {
+    padding: 5px 5px;
+    width: 80%;
     height: auto;
-    display: block;
-    z-index: 999;
+    font-size:20px;
 }
-.thumbnail{
-    background-color:transparent;
-    border:none;
+
+
+
+.mid label {
+    padding: 20px 20px;
+    font-size: 22px;
+    
+}
+
+input.but {
+    width: 15%;
+    height: auto;
+    font-weight:bold;
+    font-size: 20px;
 }
