@@ -68,47 +68,47 @@
         }
         /*DB connection end*/
 
-            $sql = "Select b.SkName
-    From Skill_Occupation as a, Skill as b, Occupation as c
-Where a.SkID = b.SkID and c.OccID = a.OccID
-And c.OccName = '$occp'
-and a.Rank > 3.5
-Order by c.OccName, a.Rank desc";
+        $sql = "select allSkill.skname, allSkill.description,
+	            (Select b.SkName
+	            From Skill_Occupation as a, Skill as b, Occupation as c
+	            Where a.SkID = b.SkID and c.OccID = a.OccID
+	            And c.OccName = '$occp'
+	            and allSkill.skid = b.skid
+	            Order by c.OccName, a.Rank desc
+	            Limit 10) as checked
+                from skill as allSkill
+                order by checked";
 
-
- $result = pg_query($dbconn4, $sql);
-
- if (!pg_fetch_row($result)){
-     $sql = "Select  b.SkName
-            From Skill_Occupation as a, Skill as b, Occupation as c
-            Where a.SkID = b.SkID and c.OccID = a.OccID
-            And c.OccName = '$occp'
-            Order by c.OccName, a.Rank desc";
-
-          $result = pg_query($dbconn4, $sql);
-          }
-
-                if (!$result) {
-                    echo "An error occurred.\n";
-                    exit;
-                }
-
-    echo '<div class="midskill">';
-                while ($res = pg_fetch_row($result)) {
-    $result1 = $res[0];
-    //echo $res[0] ;
-    echo '<input type="checkbox" name="skill[]" value = "'. $result1 .'" checked>'. $result1 .'</br>';
-    }
+ $resultSkill = pg_query($dbconn4, $sql);
+ //-------------------------------------------------
+             if (!$resultSkill) {
+                 echo "An error occurred.\n";
+                 exit;
+             }
+             echo '<div class="midskill">';
+             while ($res = pg_fetch_row($resultSkill)) {
+                 $resultsk = $res[0];
+                 if($res[2] == ''){
+                     echo '<input type="checkbox" name="skill[]" value = "'. $resultsk .'">'. $resultsk .'</br>';
+                 }else {
+                     echo '<input type="checkbox" name="skill[]" value = "'. $resultsk .'" checked>'. $resultsk .'</br>';
+                 }
+             }
+ //-------------------------------------------------
     //echo '<input type="submit" name="submit" value="SKILLS" />';
     echo '</div>';
 
-
-     $sql = "Select b.KnwName
-        From Knowledge_Occupation as a, Knowledge as b, Occupation as c
-        Where a.KnwID = b.KnwID and c.OccID = a.OccID
-        and c.OccName = '$occp'
-        Order by c.OccName, a.Rank desc
-        limit 10";
+//--------------------------------------------------
+    $sql = "select allKnowledge.knwname, allKnowledge.description,
+	                (Select b.knwName
+	                From Knowledge_Occupation as a, Knowledge as b, Occupation as c
+	                Where a.knwID = b.knwID and c.OccID = a.OccID
+	                And c.OccName = '$occp'
+	                and allKnowledge.knwid = b.knwid
+	                Order by c.OccName, a.Rank desc
+	                Limit 10) as checked
+                from knowledge as allKnowledge
+                order by checked";
         $resultknw = pg_query($dbconn4, $sql);
 
          if (!$resultknw) {
@@ -122,10 +122,14 @@ Order by c.OccName, a.Rank desc";
 
     echo '<div class="midsk">';
                 while ($res = pg_fetch_row($resultknw)) {
-    $resultk = $res[0];
-    //echo $res[0] ;
-    echo '<input type="checkbox" name="knw[]" value = "'. $resultk .'" checked>'. $resultk .'</br>';
+                    $resultk = $res[0];
+                    if($res[2] == ''){
+                        echo '<input type="checkbox" name="knw[]" value = "'. $resultk .'">'. $resultk .'</br>';
+                    }else {
+                        echo '<input type="checkbox" name="knw[]" value = "'. $resultk .'" checked>'. $resultk .'</br>';
+                    }
     }
+//-------------------------------------------------
      echo '</div>';
      echo '<div class="cbut">';
     echo '<input class="but" type="submit" name="submit" value="FIND MY OCCUPATIONS" />';
