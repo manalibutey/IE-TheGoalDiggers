@@ -111,17 +111,19 @@ body {
     position: relative;
     font-size: 14px;
 }
-
 .thumbnail:hover {
-    position: relative;
+    /*position: relative;
     top: -15px;
     left: -25px;
     width: 200px;
     height: auto;
     display: block;
-    z-index: 999;
+    z-index: 999;*/
+    transform: scale(1.5);
 }
-.thumbnail{
-    background-color:transparent;
-    border:none;
+
+.thumbnail {
+    background-color: transparent;
+    border: none;
+    transition: all .2s ease-in-out;
 }
