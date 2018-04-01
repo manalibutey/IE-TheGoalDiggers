@@ -67,50 +67,70 @@
             echo "error";
         }
         /*DB connection end*/
+    //-------------------------------------------------
+        $sql = "Select * from (
+                Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
+	                From skill_Occupation as a, skill as b, Occupation as c
+	                Where a.skID = b.skID and c.OccID = a.OccID
+	                And c.OccName = '$occp'
+	                Order by c.OccName, a.Rank desc
+	                Limit 10) as default_checked
+                union
+                select * from (
+                select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
+                from skill as allskill
+                where allskill.skid not in (Select b.skid
+	                From skill_Occupation as a, skill as b, Occupation as c
+	                Where a.skID = b.skID and c.OccID = a.OccID
+	                And c.OccName = '$occp'
+	                Order by c.OccName, a.Rank desc
+	                Limit 10)
+                order by allskill.skid
+                ) as default_no_checked	
+                order by checked desc, id";
 
-            $sql = "Select b.SkName
-    From Skill_Occupation as a, Skill as b, Occupation as c
-Where a.SkID = b.SkID and c.OccID = a.OccID
-And c.OccName = '$occp'
-and a.Rank > 3.5
-Order by c.OccName, a.Rank desc";
-
-
- $result = pg_query($dbconn4, $sql);
-
- if (!pg_fetch_row($result)){
-     $sql = "Select  b.SkName
-            From Skill_Occupation as a, Skill as b, Occupation as c
-            Where a.SkID = b.SkID and c.OccID = a.OccID
-            And c.OccName = '$occp'
-            Order by c.OccName, a.Rank desc";
-
-          $result = pg_query($dbconn4, $sql);
-          }
-
-                if (!$result) {
-                    echo "An error occurred.\n";
-                    exit;
-                }
-
-    echo '<div class="midskill">';
-                while ($res = pg_fetch_row($result)) {
-    $result1 = $res[0];
-    //echo $res[0] ;
-    echo '<input type="checkbox" name="skill[]" value = "'. $result1 .'" checked>'. $result1 .'</br>';
-    }
+            $resultSkill = pg_query($dbconn4, $sql);
+ 
+             if (!$resultSkill) {
+                 echo "An error occurred.\n";
+                 exit;
+             }
+             echo '<div class="midskill">';
+             while ($res = pg_fetch_row($resultSkill)) {
+                 $resultsk = $res[1];
+                 if($res[3] == 1){
+                  echo '<input type="checkbox" name="skill[]" value = "'. $resultsk .'" checked>'. $resultsk .'</br>';  
+                 }else{
+                  echo '<input type="checkbox" name="skill[]" value = "'. $resultsk .'">'. $resultsk .'</br>';   
+                 }
+             }
+             
+ //-------------------------------------------------
     //echo '<input type="submit" name="submit" value="SKILLS" />';
     echo '</div>';
 
-
-     $sql = "Select b.KnwName
-        From Knowledge_Occupation as a, Knowledge as b, Occupation as c
-        Where a.KnwID = b.KnwID and c.OccID = a.OccID
-        and c.OccName = '$occp'
-        Order by c.OccName, a.Rank desc
-        limit 10";
+//--------------------------------------------------
+    $sql = "Select * from (
+            Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked
+	            From knowledge_Occupation as a, knowledge as b, Occupation as c
+	            Where a.knwID = b.knwID and c.OccID = a.OccID
+	            And c.OccName = '$occp'
+	            Order by c.OccName, a.Rank desc
+	            Limit 10) as default_checked
+            union
+            select * from (
+            select allknowledge.knwid as ID,allknowledge.knwname as name, allknowledge.description as description, 0 as checked
+            from knowledge as allknowledge
+            where allknowledge.knwid not in (Select b.knwid
+	            From knowledge_Occupation as a, knowledge as b, Occupation as c
+	            Where a.knwID = b.knwID and c.OccID = a.OccID
+	            And c.OccName = '$occp'
+	            Order by c.OccName, a.Rank desc
+	            Limit 10)
+            order by allknowledge.knwid
+            ) as default_no_checked	
+            order by checked desc, id";
         $resultknw = pg_query($dbconn4, $sql);
-
          if (!$resultknw) {
                     echo "An error occurred.\n";
                     exit;
@@ -122,10 +142,14 @@ Order by c.OccName, a.Rank desc";
 
     echo '<div class="midsk">';
                 while ($res = pg_fetch_row($resultknw)) {
-    $resultk = $res[0];
-    //echo $res[0] ;
-    echo '<input type="checkbox" name="knw[]" value = "'. $resultk .'" checked>'. $resultk .'</br>';
+                    $resultk = $res[1];
+                    if($res[3] == 1){
+                        echo '<input type="checkbox" name="knw[]" value = "'. $resultk .'" checked>'. $resultk .'</br>';
+                    }else {
+                        echo '<input type="checkbox" name="knw[]" value = "'. $resultk .'">'. $resultk .'</br>';
+                    }
     }
+//-------------------------------------------------
      echo '</div>';
      echo '<div class="cbut">';
     echo '<input class="but" type="submit" name="submit" value="FIND MY OCCUPATIONS" />';

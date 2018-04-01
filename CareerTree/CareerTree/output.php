@@ -151,7 +151,7 @@ $knw .=  '\''.$select.'\''.',';
              $stringconcat = $stringconcat."'".$relatedOccParameter."'"."-".$percentageMatch."% :";
              $reldb = pg_query($dbconn4, "INSERT INTO percentage (
 	title, relatedtitle, percentage)
-	 VALUES ('$occp','$relatedOccParameter',$percentageMatch);"); 
+	 VALUES ('$occp','$relatedOccParameter',$percentageMatch);");
                     if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
              echo $percentageMatch;
              echo '<br />';
@@ -161,7 +161,7 @@ $knw .=  '\''.$select.'\''.',';
      //exec("app.R");
      header("Location: /shiny",TRUE,302);
      //exec("app.R");
-    
+     pg_close($dbconn4);
     ?>  
 
         </body>

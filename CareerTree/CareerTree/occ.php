@@ -98,6 +98,7 @@
             $sql = "Select Occname From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
                                         Where IndOcc.IndID = Ind.IndID and Occ.OccID = IndOcc.OccID
                                         and Ind.IndID = '$ind'
+                                        and Occ.occid in (select occid from Career_Changer_Matrix )
                                         Order by Ind.IndName, Occ.OccName";
           $result = pg_query($dbconn4, $sql);
                 
