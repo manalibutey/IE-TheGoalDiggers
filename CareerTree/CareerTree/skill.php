@@ -9,7 +9,34 @@
     <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style4.css">
-     
+    <script>
+         function validate_submit() {
+             var result1 = false;
+             var result2 = false;
+             var result = false;
+             var checkboxs1 = document.getElementsByName('skill[]');
+             var checkboxs2 = document.getElementsByName('knw[]');
+             for (var i = 0, l = checkboxs1.length; i < l; i++) {
+                 if (checkboxs1[i].checked) {
+                     result1 = true;
+                     break;
+                 }
+             }
+             for (var i = 0, l = checkboxs2.length; i < l; i++) {
+                 if (checkboxs2[i].checked) {
+                     result2 = true;
+                     break;
+                 }
+             }
+             if (result1 && result2) {
+                 result = true;
+             }
+             else {
+                 alert("Please specify at least one skill and knowledge");
+             }
+             return result;
+         }
+    </script>
 
 </head>
 
@@ -152,7 +179,7 @@
 //-------------------------------------------------
      echo '</div>';
      echo '<div class="cbut">';
-    echo '<input class="but" type="submit" name="submit" value="FIND MY OCCUPATIONS" />';
+     echo '<input class="but" type="submit" name="submit" value="FIND MY OCCUPATIONS" onclick = "return validate_submit()"/>';
      echo '</div>';
      echo '</form>';
 

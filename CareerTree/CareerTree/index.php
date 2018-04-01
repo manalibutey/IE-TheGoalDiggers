@@ -17,13 +17,13 @@
 <SCRIPT>
 function passWord() {
 var testV = 1;
-var pass1 = prompt('Please Enter Your Password',' ');
+var pass1 = prompt('Please Enter Your Password','');
 while (testV < 3) {
 if (!pass1) 
 history.go(-1);
 if (pass1.toLowerCase() == "ideservehd") {
 alert('You Got it Right!');
-window.open('p1.php');
+window.location.replace('p1.php');
 break;
 } 
 testV+=1;

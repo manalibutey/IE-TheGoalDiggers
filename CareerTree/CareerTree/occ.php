@@ -10,7 +10,21 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style3.css">
      <link rel="stylesheet" href="./css/awesomplete.css" />
-
+     <script>
+         function validate_submit() {
+             var result = false;
+             var options = document.getElementById("mylist").options;
+             for (var i = 0; i < options.length; i++) {
+                 if (document.getElementById('pcategory').value == options[i].value) {
+                     result = true;  
+                 }
+             }
+             if (!result) {
+                 alert("Please select occupations from the list");
+             }
+             return result;
+         }
+     </script>
 </head>
 
 <body>
@@ -109,7 +123,7 @@
 
                 
                 echo '<div class="selection">';
-                echo '<form method="post" action="skill.php">';
+                echo '<form method="post" action="skill.php" >';
                 echo '<div class="mid">';
                 echo '<label for="pcategory">Occupation</label>' ;
                 echo '<input type="text" id="pcategory" name="occ"autocomplete="off" list="mylist">';
@@ -123,7 +137,7 @@
     }
     echo '</datalist>';
     echo '<div class="cbut">';
-    echo '<input class="but" type="submit" name="submit" value="GO" />';
+    echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="return validate_submit()"/>';
     echo '</div>';
     echo '</form>';
     
