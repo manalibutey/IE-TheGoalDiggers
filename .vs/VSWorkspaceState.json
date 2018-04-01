@@ -4,6 +4,10 @@
     "\\CareerTree",
     "\\CareerTree\\CareerTree"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\CareerTree\\CareerTree\\output.php",
+=======
+  "SelectedNode": "\\CareerTree\\CareerTree\\skill.php",
+>>>>>>> Fix-Occupation-Selection-query
   "PreviewInSolutionExplorer": false
 }
