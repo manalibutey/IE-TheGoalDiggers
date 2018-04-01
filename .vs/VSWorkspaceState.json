@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\CareerTree",
+<<<<<<< HEAD
     "\\CareerTree\\CareerTree"
   ],
 <<<<<<< HEAD
@@ -9,5 +10,11 @@
 =======
   "SelectedNode": "\\CareerTree\\CareerTree\\skill.php",
 >>>>>>> Fix-Occupation-Selection-query
+=======
+    "\\CareerTree\\CareerTree",
+    "\\CareerTree\\CareerTree\\js"
+  ],
+  "SelectedNode": "\\CareerTree\\CareerTree\\index.php",
+>>>>>>> e6df10396b72fe919be05a00d520327fb45bd6c5
   "PreviewInSolutionExplorer": false
 }

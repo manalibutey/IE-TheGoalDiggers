@@ -13,88 +13,31 @@
 </head>
 
 <body>
-
-	<div class="navbar  navbar-dark navbar-expand-md fixed-top">
-
-		<div class="container">
-			<a class="navbar-brand" href="#">
-				<img src="./images/logo.png" />
-			</a>
-			
-			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<div class="collapse navbar-collapse navCollapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="nav-item active" href="#">Home</a>
-					</li>
-					<li>
-						<a class="nav-item" href="#">About Us</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="full">
-		<div class="back">
-			<img class="back-image" src="./images/background.jpg" />
-
-		</div>
-		<main role="main">
-			<div class="mid-section">
-				<h1>How Career Tree Works</h1>
-
-
-
-			</div>
-
-			<div class="steps">
-				<div class="col-sm-2 i1">
-					<figure class="image1">
-						<img src="./images/Picture1.png" />
-						<figcaption>Choose your previous work</figcaption>
-					</figure>
-				</div>
-
-				<div class="col-sm-2 i2">
-					<figure class="image2">
-						<img src="./images/Picture2.png" />
-						<figcaption>Select your skills and knowledge</figcaption>
-					</figure>
-				</div>
-
-				<div class="col-sm-2 i3">
-					<figure class="image3">
-						<img src="./images/Picture3.png" />
-						<figcaption>Explore suggested occupations</figcaption>
-					</figure>
-				</div>
-
-				<div class="startit">
-
-					<input type="button" value="Let's Start" onclick="start()">
-				</div>
-
-			</div>
-
-		</main>
-
-		<div class="footer">
-			<div class="pull-right">
-				<a href="#">Back to top</a>
-			</div>
-		</div>
-	</div>
-	<script>
-		function start() {
-			window.location.href = "./industry.html";
-		}
-	</script>
 </body>
-
-
+<SCRIPT>
+function passWord() {
+var testV = 1;
+var pass1 = prompt('Please Enter Your Password',' ');
+while (testV < 3) {
+if (!pass1) 
+history.go(-1);
+if (pass1.toLowerCase() == "ideservehd") {
+alert('You Got it Right!');
+window.open('p1.php');
+break;
+} 
+testV+=1;
+var pass1 = 
+prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+}
+if (pass1.toLowerCase()!="password" & testV ==3) 
+history.go(-1);
+return " ";
+} 
+</SCRIPT>
+<CENTER>
+<FORM>
+<input type="button" value="Enter Protected Area" onClick="passWord()">
+</FORM>
+</CENTER>
 </html>
