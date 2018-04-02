@@ -2,8 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\CareerTree",
+<<<<<<< HEAD
     "\\CareerTree\\CareerTree"
   ],
   "SelectedNode": "\\CareerTree\\CareerTree\\p1.php",
+=======
+    "\\CareerTree\\CareerTree",
+    "\\CareerTree\\CareerTree\\css"
+  ],
+  "SelectedNode": "\\CareerTree\\CareerTree\\industry.php",
+>>>>>>> manali_branch
   "PreviewInSolutionExplorer": false
 }

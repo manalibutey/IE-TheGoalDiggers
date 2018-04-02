@@ -66,30 +66,74 @@
     
     }
     else if ( isset($_POST['submit2_x'], $_POST['submit2_y'] ) ) {
-    $ind = 'IND01';
+    $ind = 'IND14';
     
     }
      else if ( isset($_POST['submit3_x'], $_POST['submit3_y'] ) ) {
-    $ind = 'IND05';
+    $ind = 'IND01';
     
     }
      else if ( isset($_POST['submit4_x'], $_POST['submit4_y'] ) ) {
-    $ind = 'IND10';
+    $ind = 'IND18';
     
     }
      else if ( isset($_POST['submit5_x'], $_POST['submit5_y'] ) ) {
-    $ind = 'IND03';
+    $ind = 'IND05';
     
     }
      else if ( isset($_POST['submit6_x'], $_POST['submit6_y'] ) ) {
-    $ind = 'IND02';
+    $ind = 'IND16';
     
     }
      else if ( isset($_POST['submit7_x'], $_POST['submit7_y'] ) ) {
-    $ind = 'IND09';
+    $ind = 'IND04';
     
     }
      else if ( isset($_POST['submit8_x'], $_POST['submit8_y'] ) ) {
+    $ind = 'IND11';
+    
+    }
+    else if ( isset($_POST['submit9_x'], $_POST['submit9_y'] ) ) {
+    $ind = 'IND17';
+    
+    }
+    else if ( isset($_POST['submit10_x'], $_POST['submit10_y'] ) ) {
+    $ind = 'IND10';
+    
+    }
+    else if ( isset($_POST['submit11_x'], $_POST['submit11_y'] ) ) {
+    $ind = 'IND03';
+    
+    }
+    else if ( isset($_POST['submit12_x'], $_POST['submit12_y'] ) ) {
+    $ind = 'IND02';
+    
+    }
+    else if ( isset($_POST['submit13_x'], $_POST['submit13_y'] ) ) {
+    $ind = 'IND19';
+    
+    }
+    else if ( isset($_POST['submit14_x'], $_POST['submit14_y'] ) ) {
+    $ind = 'IND13';
+    
+    }
+    else if ( isset($_POST['submit15_x'], $_POST['submit15_y'] ) ) {
+    $ind = 'IND15';
+    
+    }
+    else if ( isset($_POST['submit16_x'], $_POST['submit16_y'] ) ) {
+    $ind = 'IND12';
+    
+    }
+    else if ( isset($_POST['submit17_x'], $_POST['submit17_y'] ) ) {
+    $ind = 'IND07';
+    
+    }
+    else if ( isset($_POST['submit18_x'], $_POST['submit18_y'] ) ) {
+    $ind = 'IND09';
+    
+    }
+    else if ( isset($_POST['submit19_x'], $_POST['submit19_y'] ) ) {
     $ind = 'IND06';
     
     }
