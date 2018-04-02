@@ -152,21 +152,15 @@ $knw .=  '\''.$select.'\''.',';
              $stringconcat = $stringconcat."'".$relatedOccParameter."'"."-".$percentageMatch."% :";
 
              $reldb = pg_query($dbconn4, "INSERT INTO percentage (
-    title, relatedtitle, percentage, id)
-     VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID);");
-                    if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
-             echo $percentageMatch;
-             echo '<br />';
+                                        title, relatedtitle, percentage, id)
+                                         VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID);");
+             if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
+             //echo $percentageMatch;
+             //echo '<br />';
          }
 
      }
      pg_close($dbconn4);
-     //$n = 10;
-     //echo $n;
-     //exec("App.R $n");
-     //exec("App.R $n");
-    //exec("app.R");
-     //echo $results123;
      header("Location: /shiny?id=$randID",TRUE,302);
      //exec("app.R");
 

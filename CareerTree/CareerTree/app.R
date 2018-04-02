@@ -76,8 +76,8 @@ server <- function(input, output,session) {
 
     percentage <- dbGetQuery(con, paste("SELECT * from percentage where id = ", query))
     #percentage <- dbGetQuery(con, "SELECT * from percentage")
-    dbDisconnect(con)
-    dbUnloadDriver(drv)
+    #dbDisconnect(con)
+    #dbUnloadDriver(drv)
     distance = 100 - percentage$percentage
     nodeTimes = length(percentage$title)
     allNodes = c(unique(percentage$title),percentage$relatedtitle)  
