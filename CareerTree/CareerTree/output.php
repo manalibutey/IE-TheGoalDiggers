@@ -68,7 +68,7 @@ $knw .=  '\''.$select.'\''.',';
     echo $knw."</br>";
     }
     }
-
+ $randID = rand(1,10000);
      /*DB connection*/
         $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
         $dbuser = 'careertreetest';
@@ -145,23 +145,31 @@ $knw .=  '\''.$select.'\''.',';
 	                                Limit 10
                                     ) as knwtotal) as col4";
          $eachRelatedOccupation = pg_query($dbconn4, $sql);
+
          while ($numOfMatch = pg_fetch_row($eachRelatedOccupation)) {
              $percentageMatch = ($numOfMatch[0] + $numOfMatch[2])/($numOfMatch[1] + $numOfMatch[3]);
              $percentageMatch = ceil($percentageMatch * 100);
              $stringconcat = $stringconcat."'".$relatedOccParameter."'"."-".$percentageMatch."% :";
+
              $reldb = pg_query($dbconn4, "INSERT INTO percentage (
-	title, relatedtitle, percentage)
-	 VALUES ('$occp','$relatedOccParameter',$percentageMatch);");
+    title, relatedtitle, percentage, id)
+     VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID);");
                     if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
              echo $percentageMatch;
              echo '<br />';
          }
 
      }
-     //exec("app.R");
-     header("Location: /shiny",TRUE,302);
-     //exec("app.R");
      pg_close($dbconn4);
+     //$n = 10;
+     //echo $n;
+     //exec("App.R $n");
+     //exec("App.R $n");
+    //exec("app.R");
+     //echo $results123;
+     header("Location: /shiny?id=$randID",TRUE,302);
+     //exec("app.R");
+
     ?>  
 
         </body>
