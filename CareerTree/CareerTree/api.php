@@ -1,20 +1,13 @@
 <?php
-  //--------------------------------------------------------------------------
-  // Example php script for fetching data from mysql database
-  //--------------------------------------------------------------------------
-  //$host = "localhost";
-  //$user = "root";
-  //$pass = "root";
-
-  //$databaseName = "ajax01";
-  //$tableName = "variables";
-
+ 
   //--------------------------------------------------------------------------
   // 1) Connect to mysql database
   //--------------------------------------------------------------------------
   //include 'DB.php';
   //$con = mysql_connect($host,$user,$pass);
   //$dbs = mysql_select_db($databaseName, $con);
+
+  header('Access-Control-Allow-Origin: *');
 
   $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
         $dbuser = 'careertreetest';
@@ -31,21 +24,79 @@
   //--------------------------------------------------------------------------
   // 2) Query database for data
   //--------------------------------------------------------------------------
-  //$result = mysql_query("SELECT * FROM $tableName");          //query
-  //$array = mysql_fetch_row($result);                          //fetch result  
 
-$occ = $_POST['occp']; 
-//echo "lkjhgfdsasdgfhgjhkj"; 
-//echo $occ;
-echo $occ;
+  
+$occp = $_POST['occ']; 
+
+$sql = "Select * from (
+                Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
+	                From skill_Occupation as a, skill as b, Occupation as c
+	                Where a.skID = b.skID and c.OccID = a.OccID
+	                And c.OccName = '$occp'
+	                Order by c.OccName, a.Rank desc
+	                Limit 10) as default_checked
+                union
+                select * from (
+                select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
+                from skill as allskill
+                where allskill.skid not in (Select b.skid
+	                From skill_Occupation as a, skill as b, Occupation as c
+	                Where a.skID = b.skID and c.OccID = a.OccID
+	                And c.OccName = '$occp'
+	                Order by c.OccName, a.Rank desc
+	                Limit 10)
+                order by allskill.skid
+                ) as default_no_checked	
+                order by checked desc, id";
+$result = pg_query($dbconn4, $sql);
+while ($row=pg_fetch_array($result)) {
+    echo $row[3];
+ }
 
  
-//$array = pg_fetch_row($result);  
-//echo $array;
 
-  //--------------------------------------------------------------------------
-  // 3) echo result as json 
-  //--------------------------------------------------------------------------
-  //echo json_encode($array);
+  pg_close($dbconn4);
+
+
+ /*$sql = "Select * from (
+                Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
+	                From skill_Occupation as a, skill as b, Occupation as c
+	                Where a.skID = b.skID and c.OccID = a.OccID
+	                And c.OccName = '$occp'
+	                Order by c.OccName, a.Rank desc
+	                Limit 10) as default_checked
+                union
+                select * from (
+                select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
+                from skill as allskill
+                where allskill.skid not in (Select b.skid
+	                From skill_Occupation as a, skill as b, Occupation as c
+	                Where a.skID = b.skID and c.OccID = a.OccID
+	                And c.OccName = '$occp'
+	                Order by c.OccName, a.Rank desc
+	                Limit 10)
+                order by allskill.skid
+                ) as default_no_checked	
+                order by checked desc, id";
+
+            $resultSkill = pg_query($dbconn4, $sql);
+ 
+             if (!$resultSkill) {
+                 echo "An error occurred.\n";
+                 exit;
+             }
+             echo '<div class="midskill">';
+             while ($res = pg_fetch_row($resultSkill)) {
+                 $resultsk = $res[1];
+                 if($res[3] == 1){
+                  echo '<input type="checkbox" name="skill[]" value = "'. $resultsk .'" checked>'. $resultsk .'</br>';  
+                 }else{
+                  echo '<input type="checkbox" name="skill[]" value = "'. $resultsk .'">'. $resultsk .'</br>';   
+                 }
+             }
+              echo '</div>'; 
+
+              */
+
 
 ?>

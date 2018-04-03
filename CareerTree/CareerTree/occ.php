@@ -27,7 +27,7 @@
          }
      </script>
       
-   <script>
+   <script type = "text/javascript">
    
 function skill_list()
 {
@@ -40,21 +40,26 @@ var xhr;
 else if (window.ActiveXObject) { // IE 8 and older
     xhr = new ActiveXObject("Microsoft.XMLHTTP");
 }
-var data = "occp=" + occ;
+var data = "occ=" + occ;
 window.alert(data);
-     xhr.open("POST", "api.php", true); 
-     xhr.setRequestHeader("Content-Type", "text");        
-     xhr.send(data);
+     xhr.open("POST", "http://localhost:43669/api.php", true); 
+     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");        
+      xhr.send(data);
 	 xhr.onreadystatechange = function() {
 	 if (xhr.readyState == 4 && xhr.status == 200) {
-       alert(xhr.responseText);	   
+       alert(xhr.responseText);	
+       console.log(xhr.responseText);
+        console.log("What", xhr.readyState); 	
 	  document.getElementById("skill").innerHTML = xhr.responseText;
       }
      else {
-        alert('There was a problem with the request.');
+        console.log("There was a problem with the request.");
+        console.log("Error", xhr.readyState);  
       }
-     }
+     };
+    
 };
+
 
 </script>
 </head>
@@ -202,7 +207,7 @@ window.alert(data);
                 echo '<form method="post"  >';
                 echo '<div class="mid">';
                 echo '<label for="category">Occupation</label>' ;
-                echo '<input type="text" onchange="skill_list()" id="category" name="occ"autocomplete="off" list="mylist">';
+                echo '<input type="text" onchange="skill_list();" id="category" name="occ" autocomplete="off" list="mylist">';
                 echo '</div>';
                 //echo '</div>';
     echo '<datalist id="mylist" >';
@@ -213,10 +218,12 @@ window.alert(data);
     }
     echo '</datalist>';
     echo '<div class="cbut">';
-    echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="book_suggestion()"/>';
+    //echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="book_suggestion()"/>';
 echo '<div id="skill">Skill displayed here</div>';    
 echo '</div>';
     echo '</form>';
+
+
     
                             
     
@@ -225,57 +232,6 @@ echo '</div>';
 
  
 
- <!--<div id="txtHint">Customer info will be listed here...</div>
-
-<script>
-function showCustomer(str) {
-  var xhttp;    
-  if (str == "") {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  }
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("txtHint").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "getcustomer.asp?q="+str, true);
-  xhttp.send();
-}
-</script> -->
-
-
-<!--<h3>Output: </h3>
-  <div id="output">this element will be accessed by jquery and this text replaced</div>
-
-  <script id="source" language="javascript" type="text/javascript">
-
-  $(function () 
-  {
-    //-----------------------------------------------------------------------
-    // 2) Send a http request with AJAX http://api.jquery.com/jQuery.ajax/
-    //-----------------------------------------------------------------------
-    $.ajax({                                      
-      url: 'api.php',                  //the script to call to get data          
-      data: "",                        //you can insert url argumnets here to pass to api.php
-                                       //for example "id=5&parent=6"
-      dataType: 'array',                //data format      
-      success: function(data)          //on recieve of reply
-      {
-        var id = data[0];              //get id
-        
-        //--------------------------------------------------------------------
-        // 3) Update html content
-        //--------------------------------------------------------------------
-        $('#output').html("<b>id: </b>"+id); //Set output element html
-        //recommend reading up on jquery selectors they are awesome 
-        // http://api.jquery.com/category/selectors/
-      } 
-    });
-  }); 
-
-  </script> -->
 
 
      
