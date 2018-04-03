@@ -83,14 +83,24 @@ $knw .=  '\''.$select.'\''.',';
         }
         /*DB connection end*/
         $stringconcat = "";
+        //---- Clear Percentage Table if the records exceed 200----
+        $sql = "select count(*) as lastrownumber from percentage";
+        $lastrowquery = pg_query($dbconn4, $sql);
+        $countrow = pg_fetch_row($lastrowquery);
+        $lastrownumber = $countrow[0];
+        if ($lastrownumber > 200){
+            $sql = "delete from percentage";
+            pg_query($dbconn4, $sql);
+        }
+        //---------------------------------------------------------
         $sql = "Select RelatedOccName from Career_Changer_Matrix
             Where  OccName = '$occp'
             Order by Rank";
      $relatedOccupation = pg_query($dbconn4, $sql);
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
-         echo $relatedOcc[0] ;
+         //echo $relatedOcc[0] ;
          $relatedOccParameter = $relatedOcc[0];
-         echo " Percentage Match: ";
+         //echo " Percentage Match: ";
          //-----------------------------------------------
          $sql = "Select * from (
                 Select count(*) as SkillMatch from (
