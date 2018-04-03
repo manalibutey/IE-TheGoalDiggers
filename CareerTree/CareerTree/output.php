@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -143,17 +143,62 @@ $knw .=  '\''.$select.'\''.',';
 	                                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
 	                                Order by aa.Rank desc
 	                                Limit 10
-                                    ) as knwtotal) as col4";
+                                    ) as knwtotal) as col4,
+                (select array_to_string(array(
+                select requiredSkill.skname from (
+                Select cc.occname,bb.SkID, bb.skname
+	                From Skill_Occupation as aa, Skill as bb, Occupation as cc
+	                Where aa.SkID = bb.SkID and cc.OccID = aa.OccID
+	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
+	                Order by aa.Rank desc
+	                Limit 10) as requiredSkill
+                where requiredSkill.Skname in ($skills)), ', ') as MatchingSkills) as col5,
+                -------------------------Lacking Skills-------------------------------------
+                (select array_to_string(array(
+                select requiredSkill.skname from (
+                Select cc.occname,bb.SkID, bb.skname
+	                From Skill_Occupation as aa, Skill as bb, Occupation as cc
+	                Where aa.SkID = bb.SkID and cc.OccID = aa.OccID
+	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
+	                Order by aa.Rank desc
+	                Limit 10) as requiredSkill
+                where requiredSkill.Skname not in ($skills)), ', ') as LackingSkills) as col6,
+
+                -------------------------Matching Knowledge-------------------------------------
+                (select array_to_string(array(
+                select requiredKnowledge.knwname from (
+                Select cc.occname,bb.knwID, bb.knwname
+	                From Knowledge_Occupation as aa, Knowledge as bb, Occupation as cc
+	                Where aa.knwID = bb.knwID and cc.OccID = aa.OccID
+	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
+	                Order by aa.Rank desc
+	                Limit 10) as requiredKnowledge
+                where requiredKnowledge.knwname in ($knw)), ', ') as MatchingKnowledge) as col7,
+
+                -------------------------Lacking Knowledge-------------------------------------
+                (select array_to_string(array(
+                select requiredKnowledge.knwname from (
+                Select cc.occname,bb.knwID, bb.knwname
+	                From Knowledge_Occupation as aa, Knowledge as bb, Occupation as cc
+	                Where aa.knwID = bb.knwID and cc.OccID = aa.OccID
+	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
+	                Order by aa.Rank desc
+	                Limit 10) as requiredKnowledge
+                where requiredKnowledge.knwname not in ($knw)), ', ') as LackingKnowledge) as col8";
          $eachRelatedOccupation = pg_query($dbconn4, $sql);
 
          while ($numOfMatch = pg_fetch_row($eachRelatedOccupation)) {
              $percentageMatch = ($numOfMatch[0] + $numOfMatch[2])/($numOfMatch[1] + $numOfMatch[3]);
              $percentageMatch = ceil($percentageMatch * 100);
-             $stringconcat = $stringconcat."'".$relatedOccParameter."'"."-".$percentageMatch."% :";
+             //$stringconcat = $stringconcat."'".$relatedOccParameter."'"."-".$percentageMatch."% :";
+             $matchingSkill = $numOfMatch[4];
+             $lackingSkill = $numOfMatch[5];
+             $matchingKnowledge = $numOfMatch[6];
+             $lackingKnowledge = $numOfMatch[7];
 
              $reldb = pg_query($dbconn4, "INSERT INTO percentage (
-                                        title, relatedtitle, percentage, id)
-                                         VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID);");
+                                        title, relatedtitle, percentage, id, matchingskill, lackingskill, matchingknowledge, lackingknowledge)
+                                         VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID,'$matchingSkill','$lackingSkill','$matchingKnowledge','$lackingKnowledge');");
              if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
              //echo $percentageMatch;
              //echo '<br />';
