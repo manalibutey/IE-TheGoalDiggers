@@ -45,7 +45,7 @@
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="./images/logo.png" />
             </a>
 

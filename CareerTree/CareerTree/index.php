@@ -9,7 +9,8 @@
 	<link rel="icon" href="./images/title.ico" />
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/style.css">
-
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 	<div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="/">
 				<img src="./images/logo.png" />
 			</a>
 			
@@ -49,100 +50,177 @@
         <section class="section2"> 
 		<main role="main">
 			<div class="mid-section">
-				<h1>How Career Tree Works</h1>
+				<h1 data-aos="fade-down">How Career Tree Works</h1>
 			</div>
 
 			<div class="grid">
 				<div class="col-sm-2 i1">
-					<figure class="image1">
-						<img src="./images/Picture1.png" />
-						<figcaption>Choose your previous work</figcaption>
-					</figure>
+					
+                    <div class="column">
+    <img src="./images/Picture1.png" onclick="openModal();currentSlide(1)" class="hover-shadow" data-aos="fade-right"/>
+    <div class="caption">
+                        <p data-aos="fade-right">Choose your previous work</p>
+                    </div>
+  </div>
+            
+                    
 				</div>
 
 				<div class="col-sm-2 i2">
-					<figure class="image2">
-						<img src="./images/Picture2.png" />
-						<figcaption>Select your skills and knowledge</figcaption>
-					</figure>
+					
+           <div class="column">
+    <img src="./images/Picture2.png" onclick="openModal();currentSlide(2)" class="hover-shadow" data-aos="fade-up"/>
+     <div class="caption">
+                        <p data-aos="fade-up">Select your skills and knowledge</p>
+                    </div>
+  </div>
+
+                   
 				</div>
 
 				<div class="col-sm-2 i3">
-					<figure class="image3">
-						<img src="./images/Picture3.png" />
-						<figcaption>Explore suggested occupations</figcaption>
-					</figure>
+					
+
+                               <div class="column">
+    <img src="./images/Picture3.png" onclick="openModal();currentSlide(3)" class="hover-shadow" data-aos="fade-left"/>
+     <div class="caption" data-aos="fade-left">
+                        <p >Explore suggested occupations</p>
+                    </div>
+  </div>
+                    
 				</div>
 
-                <div class="arrow">
-                <figure class="i4">
-						<img src="./images/picture1.png" />
-						
-					</figure>
-                
+               <!--<div class="arrow">
+                <figure class="i4"> 
+						<i class="material-icons" style="font-size: 165px">trending_flat</i>
+                </figure>
                 </div>
 
                 <div class="arrow">
-                <figure class="i5">
-						<img src="./images/picture1.png" />
-						
+                    <figure class="i5">
+						<i class="material-icons" style="font-size: 165px">trending_flat</i>
 					</figure>
-                
-                </div>
+               </div>-->
 
-				<div class="btn">
 
-					<input type="button" value="Let's Start" onclick="start()">
+               <div class="btn" data-aos="fade-up">
+                    <input type="button" value="Let's Start" onclick="start()" >
 				</div>
+               </div>
 
-			</div>
+				
+
+			
 
 		</main>
 
         </section>
+
+        <!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 3</div>
+      <img src="./images/Picture1.png" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 3</div>
+      <img src="./images/Picture2.png" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 3</div>
+      <img src="./images/Picture3.png" style="width:100%">
+    </div>
+
+    
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail image controls -->
+    <div class="column">
+      <img class="demo" src="./images/Picture1.png" onclick="currentSlide(1)" alt="Nature">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="./images/Picture2.png" onclick="currentSlide(2)" alt="Trolltunga">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="./images/Picture3.png" onclick="currentSlide(3)" alt="Mountains">
+    </div>
+
+   
+  </div>
+</div>
+
         </section>
 
-		<div class="footer">
-			<div class="pull-right">
-				<a href="#">Back to top</a>
-			</div>
-		</div>
+		
 	</div>
 	<script>
 		function start() {
 			window.location.href = "./industry.php";
 		}
 	</script>
-</body>
-<<<<<<< HEAD
-<SCRIPT>
-function passWord() {
-var testV = 1;
-var pass1 = prompt('Please Enter Your Password','');
-while (testV < 3) {
-if (!pass1) 
-history.go(-1);
-if (pass1.toLowerCase() == "ideservehd") {
-alert('You Got it Right!');
-window.location.replace('p1.php');
-break;
-} 
-testV+=1;
-var pass1 = 
-prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+    <script>
+// Open the Modal
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
 }
-if (pass1.toLowerCase()!="password" & testV ==3) 
-history.go(-1);
-return " ";
-} 
-</SCRIPT>
-<CENTER>
-<FORM>
-<input type="button" value="Enter Protected Area" onClick="passWord()">
-</FORM>
-</CENTER>
-=======
 
+// Close the Modal
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
 
->>>>>>> manali_branch
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+<script>
+AOS.init({
+  duration: 1100,
+})
+</script>
+</body>
+
 </html>
+

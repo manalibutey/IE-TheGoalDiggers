@@ -122,3 +122,7 @@ input.but {
     font-weight:bold;
     font-size: 20px;
 }
+
+.suggestion{
+    color: chartreuse;
+}

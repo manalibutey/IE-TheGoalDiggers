@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style3.css">
      <link rel="stylesheet" href="./css/awesomplete.css" />
+     <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script>
      <script>
          function validate_submit() {
              var result = false;
              var options = document.getElementById("mylist").options;
              for (var i = 0; i < options.length; i++) {
-                 if (document.getElementById('pcategory').value == options[i].value) {
+                 if (document.getElementById('category').value == options[i].value) {
                      result = true;  
                  }
              }
@@ -25,6 +26,37 @@
              return result;
          }
      </script>
+      
+   <script>
+   
+function skill_list()
+{
+var occ = document.getElementById("category").value;
+
+var xhr;
+ if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+    xhr = new XMLHttpRequest();
+} 
+else if (window.ActiveXObject) { // IE 8 and older
+    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+}
+var data = "occp=" + occ;
+window.alert(data);
+     xhr.open("POST", "api.php", true); 
+     xhr.setRequestHeader("Content-Type", "text");        
+     xhr.send(data);
+	 xhr.onreadystatechange = function() {
+	 if (xhr.readyState == 4 && xhr.status == 200) {
+       alert(xhr.responseText);	   
+	  document.getElementById("skill").innerHTML = xhr.responseText;
+      }
+     else {
+        alert('There was a problem with the request.');
+      }
+     }
+};
+
+</script>
 </head>
 
 <body>
@@ -167,13 +199,13 @@
 
                 
                 echo '<div class="selection">';
-                echo '<form method="post" action="skill.php" >';
+                echo '<form method="post"  >';
                 echo '<div class="mid">';
-                echo '<label for="pcategory">Occupation</label>' ;
-                echo '<input type="text" id="pcategory" name="occ"autocomplete="off" list="mylist">';
+                echo '<label for="category">Occupation</label>' ;
+                echo '<input type="text" onchange="skill_list()" id="category" name="occ"autocomplete="off" list="mylist">';
                 echo '</div>';
                 //echo '</div>';
-    echo '<datalist id="mylist">';
+    echo '<datalist id="mylist" >';
     while ($res = pg_fetch_row($result)) {
     $result1 = $res[0];
     //echo $res[0] ;
@@ -181,8 +213,9 @@
     }
     echo '</datalist>';
     echo '<div class="cbut">';
-    echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="return validate_submit()"/>';
-    echo '</div>';
+    echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="book_suggestion()"/>';
+echo '<div id="skill">Skill displayed here</div>';    
+echo '</div>';
     echo '</form>';
     
                             
@@ -190,14 +223,61 @@
  pg_close($dbconn4); ?> 
  </div>
 
- <footer class="foo">
-            <div class="pull-right">
-                <a href="#">Back to top</a>
-            </div>
-        </div>
+ 
 
-</footer>
-   
+ <!--<div id="txtHint">Customer info will be listed here...</div>
+
+<script>
+function showCustomer(str) {
+  var xhttp;    
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "getcustomer.asp?q="+str, true);
+  xhttp.send();
+}
+</script> -->
+
+
+<!--<h3>Output: </h3>
+  <div id="output">this element will be accessed by jquery and this text replaced</div>
+
+  <script id="source" language="javascript" type="text/javascript">
+
+  $(function () 
+  {
+    //-----------------------------------------------------------------------
+    // 2) Send a http request with AJAX http://api.jquery.com/jQuery.ajax/
+    //-----------------------------------------------------------------------
+    $.ajax({                                      
+      url: 'api.php',                  //the script to call to get data          
+      data: "",                        //you can insert url argumnets here to pass to api.php
+                                       //for example "id=5&parent=6"
+      dataType: 'array',                //data format      
+      success: function(data)          //on recieve of reply
+      {
+        var id = data[0];              //get id
+        
+        //--------------------------------------------------------------------
+        // 3) Update html content
+        //--------------------------------------------------------------------
+        $('#output').html("<b>id: </b>"+id); //Set output element html
+        //recommend reading up on jquery selectors they are awesome 
+        // http://api.jquery.com/category/selectors/
+      } 
+    });
+  }); 
+
+  </script> -->
+
+
      
 </body>
 </html>
