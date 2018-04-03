@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -65,7 +65,7 @@
                 <div class="col-sm-2 item2">
                     <figure class="image2">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit2" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
+                            <input type="image" name="submit2" class="thumbnail" src="./images/admin.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
@@ -87,7 +87,7 @@
                 <div class="col-sm-2 item4">
                     <figure class="image4">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit4" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
+                            <input type="image" name="submit4" class="thumbnail" src="./images/art.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
@@ -98,7 +98,7 @@
                 <div class="col-sm-2 item5">
                     <figure class="image5">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit5" class="thumbnail" src="./images/C.png" onsubmit="occ.php">
+                            <input type="image" name="submit5" class="thumbnail" src="./images/cons.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
@@ -109,7 +109,7 @@
                 <div class="col-sm-2 item6">
                     <figure class="image6">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit6" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
+                            <input type="image" name="submit6" class="thumbnail" src="./images/edu.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
@@ -131,7 +131,7 @@
                 <div class="col-sm-2 item8">
                     <figure class="image8">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit8" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
+                            <input type="image" name="submit8" class="thumbnail" src="./images/Fin.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
@@ -142,7 +142,7 @@
                 <div class="col-sm-2 item9">
                     <figure class="image9">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit9" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
+                            <input type="image" name="submit9" class="thumbnail" src="./images/health.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
@@ -164,7 +164,7 @@
                 <div class="col-sm-2 item11">
                     <figure class="image11">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit11" class="thumbnail" src="./images/manufacturing.png" onsubmit="occ.php">
+                            <input type="image" name="submit11" class="thumbnail" src="./images/manufacture.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
@@ -183,21 +183,21 @@
                     </div>
                 </div>
 
-                <!-- <div class="col-sm-2 item13">
+                 <div class="col-sm-2 item13">
             <figure class="image13">
                 <form method="post" action="occ.php">
-                    <input type="image" name="submit13" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
+                    <input type="image" name="submit13" class="thumbnail" src="./images/other.png" onsubmit="occ.php">
                 </form>
             </figure>
             <div class="caption">
                 Other Services
             </div>
-        </div> -->
+        </div> 
 
                 <div class="col-sm-2 item14">
                     <figure class="image14">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit14" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
+                            <input type="image" name="submit14" class="thumbnail" src="./images/professionals.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
@@ -205,7 +205,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-2 item15">
+                <!--<div class="col-sm-2 item15">
                     <figure class="image15">
                         <form method="post" action="occ.php">
                             <input type="image" name="submit15" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
@@ -214,12 +214,12 @@
                     <div class="caption">
                         Public Administration and Safety
                     </div>
-                </div>
+                </div>-->
 
                 <div class="col-sm-2 item16">
                     <figure class="image16">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit16" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
+                            <input type="image" name="submit16" class="thumbnail" src="./images/rental.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
@@ -230,7 +230,7 @@
                 <div class="col-sm-2 item17">
                     <figure class="image17">
                         <form method="post" action="occ.php">
-                            <input type="image" name="submit17" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
+                            <input type="image" name="submit17" class="thumbnail" src="./images/retail.png" onsubmit="occ.php">
                         </form>
                     </figure>
                     <div class="caption">
