@@ -27,7 +27,43 @@
          }
      </script>
       
+   <script type = "text/javascript">
    
+function skill_list()
+{
+var occ = document.getElementById("category").value;
+
+var xhr;
+ if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+    xhr = new XMLHttpRequest();
+} 
+else if (window.ActiveXObject) { // IE 8 and older
+    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+}
+var data = "occ=" + occ;
+window.alert(data);
+     xhr.open("POST", "http://localhost:43669/api.php", true); 
+     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");        
+      xhr.send(data);
+	 xhr.onreadystatechange = function() {
+	 if (xhr.readyState == 4 && xhr.status == 200) {
+       alert(xhr.responseText);	
+       console.log(xhr.responseText);
+        console.log("What", xhr.readyState); 	
+	  
+      document.myForm.skill.value = xhr.responseText;
+      document.getElementById("midskill").innerHTML = xhr.responseText;
+      }
+     else {
+        console.log("There was a problem with the request.");
+        console.log("Error", xhr.readyState);  
+      }
+     };
+    
+};
+
+
+</script>
 </head>
 
 <body>
@@ -35,7 +71,7 @@
     <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="#">
                 <img src="./images/logo.png" />
             </a>
 
@@ -47,10 +83,10 @@
             <div class="collapse navbar-collapse navCollapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="nav-item active" href="/">HOME</a>
+                        <a class="nav-item active" href="#">Home</a>
                     </li>
                     <li>
-                        <a class="nav-item" href="#">ABOUT US</a>
+                        <a class="nav-item" href="#">About Us</a>
                     </li>
                 </ul>
             </div>
@@ -169,11 +205,11 @@
                 }
 
                 
-                 echo '<div class="selection">';
-                echo '<form method="post" action="skill.php">';
+                echo '<div class="selection">';
+                
                 echo '<div class="mid">';
                 echo '<label for="category">Occupation</label>' ;
-                echo '<input type="text" id="category" name="occ" autocomplete="off" list="mylist">';
+                echo '<input type="text" onchange="skill_list();" id="category" name="occ" autocomplete="off" list="mylist">';
                 echo '</div>';
                 //echo '</div>';
     echo '<datalist id="mylist" >';
@@ -184,10 +220,25 @@
     }
     echo '</datalist>';
     echo '<div class="cbut">';
-    echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="return validate_submit()"/>';
+    //echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="book_suggestion()"/>';
+echo '<div id="skill">Skill displayed here</div>';    
+echo '</div>';
+   
+ echo '<form name="myForm" method="post" action="output.php">';
+ echo '<div class="midskill">';
+            
+                
+                  echo '<input type="checkbox" name="skill" ></br>';  
+                
+                  
+             
+        
+        echo '<div class="cbut">';
+     echo '<input class="but" type="submit" name="submit" value="FIND MY OCCUPATIONS" onclick = "return validate_submit()"/>';
      echo '</div>';
 
-echo '</form>';
+        echo '</form>';                     
+    
  pg_close($dbconn4); ?> 
  </div>
 

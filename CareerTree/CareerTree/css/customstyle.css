@@ -1,0 +1,90 @@
+.indus {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    overflow-x: hidden;
+}
+.thumbnail {
+    background-color: transparent;
+    border: none;
+    transition: all .2s ease-in-out;
+    display: inline !important;
+    margin-bottom: 0px !important;
+    margin-top: 3px;
+}
+.thumbnail:hover {
+   transform: scale(1.125);
+    outline: none !important;
+    }
+.caption {
+    width: 100%;
+}
+.selection {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 10px;
+}
+.mid {
+    position: relative;
+}
+.cbut {
+    /*width: 100%;*/
+    height: auto;
+    position: relative;
+    /*margin-left: 900px;*/
+}
+input.but {
+    width: 15%;
+    height: auto;
+    font-weight: bold;
+    font-size: 20px;
+}
+input.but2 {
+    width: auto;
+    height: auto;
+    font-weight: bold;
+    font-size: 20px;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    background-color:white;
+}
+
+.motto {
+    font-style: italic;
+    color: whitesmoke;
+    margin: 10px;
+    /*float: left;*/
+}
+
+.createdBy {
+    color: whitesmoke;
+    float: right;
+}
+.teammember {
+    color: whitesmoke;
+    float: right;
+}
+
+.logoHeader {
+    width: 85px;
+    height: auto;
+}
+.logoFooter {
+    width: 85px;
+    height: auto;
+    /*float: left;*/
+}
+.FooterTxt {
+    color: whitesmoke;
+    margin:10px;
+    /*float: left;*/
+}
+

@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="./css/style2.css">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+
 </head>
 
 <body>
-    <div class="page2full">
+   
 
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
@@ -31,26 +32,33 @@
                 <div class="collapse navbar-collapse navCollapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a class="nav-item active" href="#">Home</a>
+                            <a class="nav-item active" href="/">HOME</a>
                         </li>
                         <li>
-                            <a class="nav-item" href="#">About Us</a>
+                            <a class="nav-item" href="/aboutus.php">ABOUT US</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-
+         <div class="page2full">
         <section class="section">
             <section class="section1">
-                <!--<div class="indus">-->
-
-                <div class="head">
-                    <h2>Choose your previous industry</h2>
+                
+                <div class="background" data-aos="fade-up">
+                
+                 <input type="image" class="back-image"  src="./images/industry_background1.jpg">
+                 <div class="head" ><h1>Choose an industry</h1></div>
+                 <div class="subhead" ><p>Choose your previous work industry from our wide range of key industries within Australia. </p></div>
+                 <div id="section01" class="demo">
+  
+  <a href="#section02"><span></span>Scroll</a>
+  </div>
                 </div>
+                
             </section>
 
-            <section class="section2">
+            <section id="section02" class="section2">
 
                 <div class="grid-container">
 
@@ -63,7 +71,6 @@
                         <div class="caption" data-aos="zoom-in">Accomodation and Food Services </div>
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item2">
                         <figure class="image2">
                             <form method="post" action="occ.php">
@@ -73,16 +80,6 @@
                         <div class="caption" data-aos="zoom-in">
                             Administrative and Support Service
                         </div>
-=======
-                <div class="col-sm-2 item2">
-                    <figure class="image2">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit2" class="thumbnail" src="./images/admin.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Administrative and Support Service
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
                     <div class="col-sm-2 item3">
@@ -96,7 +93,6 @@
                         </div>
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item4">
                         <figure class="image4">
                             <form method="post" action="occ.php">
@@ -106,19 +102,8 @@
                         <div class="caption" data-aos="zoom-in">
                             Arts and Recreation Services
                         </div>
-=======
-                <div class="col-sm-2 item4">
-                    <figure class="image4">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit4" class="thumbnail" src="./images/art.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Arts and Recreation Services
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item5">
                         <figure class="image5">
                             <form method="post" action="occ.php">
@@ -128,19 +113,8 @@
                         <div class="caption" data-aos="zoom-in">
                             Construction
                         </div>
-=======
-                <div class="col-sm-2 item5">
-                    <figure class="image5">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit5" class="thumbnail" src="./images/cons.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Construction
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item6">
                         <figure class="image6">
                             <form method="post" action="occ.php">
@@ -150,16 +124,6 @@
                         <div class="caption" data-aos="zoom-in">
                             Education and Training
                         </div>
-=======
-                <div class="col-sm-2 item6">
-                    <figure class="image6">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit6" class="thumbnail" src="./images/edu.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Education and Training
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
                     <div class="col-sm-2 item7">
@@ -173,7 +137,6 @@
                         </div>
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item8">
                         <figure class="image8">
                             <form method="post" action="occ.php">
@@ -183,19 +146,8 @@
                         <div class="caption" data-aos="zoom-in">
                             Finance and Insurance Services
                         </div>
-=======
-                <div class="col-sm-2 item8">
-                    <figure class="image8">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit8" class="thumbnail" src="./images/Fin.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Finance and Insurance Services
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item9">
                         <figure class="image9">
                             <form method="post" action="occ.php">
@@ -205,16 +157,6 @@
                         <div class="caption" data-aos="zoom-in">
                             Health Care and Social Assistance
                         </div>
-=======
-                <div class="col-sm-2 item9">
-                    <figure class="image9">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit9" class="thumbnail" src="./images/health.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Health Care and Social Assistance
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
                     <div class="col-sm-2 item10">
@@ -228,7 +170,6 @@
                         </div>
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item11">
                         <figure class="image11">
                             <form method="post" action="occ.php">
@@ -236,16 +177,6 @@
                             </form>
                         </figure>
                         <div class="caption" data-aos="zoom-in">Manufacturing</div>
-=======
-                <div class="col-sm-2 item11">
-                    <figure class="image11">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit11" class="thumbnail" src="./images/manufacture.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Manufacturing
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
                     <div class="col-sm-2 item12">
@@ -257,7 +188,6 @@
                         <div class="caption" data-aos="zoom-in">Mining</div>
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item13">
                         <figure class="image13">
                             <form method="post" action="occ.php">
@@ -265,30 +195,8 @@
                             </form>
                         </figure>
                         <div class="caption" data-aos="zoom-in">Other Services</div>
-=======
-                 <div class="col-sm-2 item13">
-            <figure class="image13">
-                <form method="post" action="occ.php">
-                    <input type="image" name="submit13" class="thumbnail" src="./images/other.png" onsubmit="occ.php">
-                </form>
-            </figure>
-            <div class="caption">
-                Other Services
-            </div>
-        </div> 
-
-                <div class="col-sm-2 item14">
-                    <figure class="image14">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit14" class="thumbnail" src="./images/professionals.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Professional, Scientific, and Technical Services
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item14">
                         <figure class="image14">
                             <form method="post" action="occ.php">
@@ -316,30 +224,8 @@
                             </form>
                         </figure>
                         <div class="caption" data-aos="zoom-in">Rental, Hiring and Real Estate Services</div>
-=======
-                <!--<div class="col-sm-2 item15">
-                    <figure class="image15">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit15" class="thumbnail" src="./images/shop.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Public Administration and Safety
-                    </div>
-                </div>-->
-
-                <div class="col-sm-2 item16">
-                    <figure class="image16">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit16" class="thumbnail" src="./images/rental.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Rental, Hiring and Real Estate Services
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
-<<<<<<< HEAD
                     <div class="col-sm-2 item17">
                         <figure class="image17">
                             <form method="post" action="occ.php">
@@ -347,16 +233,6 @@
                             </form>
                         </figure>
                         <div class="caption" data-aos="zoom-in">Retail Trade</div>
-=======
-                <div class="col-sm-2 item17">
-                    <figure class="image17">
-                        <form method="post" action="occ.php">
-                            <input type="image" name="submit17" class="thumbnail" src="./images/retail.png" onsubmit="occ.php">
-                        </form>
-                    </figure>
-                    <div class="caption">
-                        Retail Trade
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
                     </div>
 
 

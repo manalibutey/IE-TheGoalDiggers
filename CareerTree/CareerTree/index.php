@@ -11,6 +11,14 @@
 	<link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script type="text/javascript">
+$(function() {
+  $('a[href*=#]').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+  });
+});    
+</script>
 </head>
 
 <body>
@@ -30,10 +38,10 @@
 			<div class="collapse navbar-collapse navCollapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a class="nav-item active" href="#">Home</a>
+						<a class="nav-item active" href="/">HOME</a>
 					</li>
 					<li>
-						<a class="nav-item" href="#">About Us</a>
+						<a class="nav-item" href="/aboutus.php">ABOUT US</a>
 					</li>
 				</ul>
 			</div>
@@ -44,10 +52,15 @@
 	<div class="full">
 		<div class="back">
 			<img class="back-image" src="./images/background.jpg" />
+             <div id="section01" class="demo">
+ 
+  <a href="#section02"><span></span><span></span><span></span>Scroll</a>
+</div>
         </div>
+       
         </section>
 
-        <section class="section2"> 
+        <section class="section2" id="section02"> 
 		<main role="main">
 			<div class="mid-section">
 				<h1 data-aos="fade-down">How Career Tree Works</h1>
@@ -224,9 +237,4 @@ AOS.init({
 
 </html>
 
-=======
-</body>
 
->>>>>>> manali_branch-->
-</html>
->>>>>>> e80c09ff9b280b3aa8365523560f818069535a43

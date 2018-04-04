@@ -1,0 +1,14 @@
+
+
+.navbar-nav > li > a:hover {
+    color: #E82830 !important;
+    background-color: transparent !important;
+}
+
+.navbar-nav > li > a:active {
+    color: #E82830 !important;
+}
+
+body {
+    background-color: #E7E7E7;
+}

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -30,10 +30,10 @@
             <div class="collapse navbar-collapse navCollapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="nav-item active" href="#">Home</a>
+                        <a class="nav-item active" href="/">HOME</a>
                     </li>
                     <li>
-                        <a class="nav-item" href="#">About Us</a>
+                        <a class="nav-item" href="#">ABOUT US</a>
                     </li>
                 </ul>
             </div>

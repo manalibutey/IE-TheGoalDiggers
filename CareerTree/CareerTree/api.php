@@ -50,7 +50,7 @@ $sql = "Select * from (
                 order by checked desc, id";
 $result = pg_query($dbconn4, $sql);
 while ($row=pg_fetch_array($result)) {
-    echo $row[3];
+    echo $row[1];
  }
 
  
