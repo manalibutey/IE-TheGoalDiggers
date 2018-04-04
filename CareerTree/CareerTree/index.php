@@ -224,3 +224,9 @@ AOS.init({
 
 </html>
 
+=======
+</body>
+
+>>>>>>> manali_branch-->
+</html>
+>>>>>>> e80c09ff9b280b3aa8365523560f818069535a43

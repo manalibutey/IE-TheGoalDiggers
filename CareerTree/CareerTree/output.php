@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -68,7 +68,7 @@ $knw .=  '\''.$select.'\''.',';
     echo $knw."</br>";
     }
     }
-
+ $randID = rand(1,10000);
      /*DB connection*/
         $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
         $dbuser = 'careertreetest';
@@ -83,14 +83,24 @@ $knw .=  '\''.$select.'\''.',';
         }
         /*DB connection end*/
         $stringconcat = "";
+        //---- Clear Percentage Table if the records exceed 200----
+        $sql = "select count(*) as lastrownumber from percentage";
+        $lastrowquery = pg_query($dbconn4, $sql);
+        $countrow = pg_fetch_row($lastrowquery);
+        $lastrownumber = $countrow[0];
+        if ($lastrownumber > 200){
+            $sql = "delete from percentage";
+            pg_query($dbconn4, $sql);
+        }
+        //---------------------------------------------------------
         $sql = "Select RelatedOccName from Career_Changer_Matrix
             Where  OccName = '$occp'
             Order by Rank";
      $relatedOccupation = pg_query($dbconn4, $sql);
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
-         echo $relatedOcc[0] ;
+         //echo $relatedOcc[0] ;
          $relatedOccParameter = $relatedOcc[0];
-         echo " Percentage Match: ";
+         //echo " Percentage Match: ";
          //-----------------------------------------------
          $sql = "Select * from (
                 Select count(*) as SkillMatch from (
@@ -143,25 +153,72 @@ $knw .=  '\''.$select.'\''.',';
 	                                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
 	                                Order by aa.Rank desc
 	                                Limit 10
-                                    ) as knwtotal) as col4";
+                                    ) as knwtotal) as col4,
+                (select array_to_string(array(
+                select requiredSkill.skname from (
+                Select cc.occname,bb.SkID, bb.skname
+	                From Skill_Occupation as aa, Skill as bb, Occupation as cc
+	                Where aa.SkID = bb.SkID and cc.OccID = aa.OccID
+	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
+	                Order by aa.Rank desc
+	                Limit 10) as requiredSkill
+                where requiredSkill.Skname in ($skills)), ', ') as MatchingSkills) as col5,
+                -------------------------Lacking Skills-------------------------------------
+                (select array_to_string(array(
+                select requiredSkill.skname from (
+                Select cc.occname,bb.SkID, bb.skname
+	                From Skill_Occupation as aa, Skill as bb, Occupation as cc
+	                Where aa.SkID = bb.SkID and cc.OccID = aa.OccID
+	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
+	                Order by aa.Rank desc
+	                Limit 10) as requiredSkill
+                where requiredSkill.Skname not in ($skills)), ', ') as LackingSkills) as col6,
+
+                -------------------------Matching Knowledge-------------------------------------
+                (select array_to_string(array(
+                select requiredKnowledge.knwname from (
+                Select cc.occname,bb.knwID, bb.knwname
+	                From Knowledge_Occupation as aa, Knowledge as bb, Occupation as cc
+	                Where aa.knwID = bb.knwID and cc.OccID = aa.OccID
+	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
+	                Order by aa.Rank desc
+	                Limit 10) as requiredKnowledge
+                where requiredKnowledge.knwname in ($knw)), ', ') as MatchingKnowledge) as col7,
+
+                -------------------------Lacking Knowledge-------------------------------------
+                (select array_to_string(array(
+                select requiredKnowledge.knwname from (
+                Select cc.occname,bb.knwID, bb.knwname
+	                From Knowledge_Occupation as aa, Knowledge as bb, Occupation as cc
+	                Where aa.knwID = bb.knwID and cc.OccID = aa.OccID
+	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
+	                Order by aa.Rank desc
+	                Limit 10) as requiredKnowledge
+                where requiredKnowledge.knwname not in ($knw)), ', ') as LackingKnowledge) as col8";
          $eachRelatedOccupation = pg_query($dbconn4, $sql);
+
          while ($numOfMatch = pg_fetch_row($eachRelatedOccupation)) {
              $percentageMatch = ($numOfMatch[0] + $numOfMatch[2])/($numOfMatch[1] + $numOfMatch[3]);
              $percentageMatch = ceil($percentageMatch * 100);
-             $stringconcat = $stringconcat."'".$relatedOccParameter."'"."-".$percentageMatch."% :";
+             //$stringconcat = $stringconcat."'".$relatedOccParameter."'"."-".$percentageMatch."% :";
+             $matchingSkill = $numOfMatch[4];
+             $lackingSkill = $numOfMatch[5];
+             $matchingKnowledge = $numOfMatch[6];
+             $lackingKnowledge = $numOfMatch[7];
+
              $reldb = pg_query($dbconn4, "INSERT INTO percentage (
-	title, relatedtitle, percentage)
-	 VALUES ('$occp','$relatedOccParameter',$percentageMatch);");
-                    if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
-             echo $percentageMatch;
-             echo '<br />';
+                                        title, relatedtitle, percentage, id, matchingskill, lackingskill, matchingknowledge, lackingknowledge)
+                                         VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID,'$matchingSkill','$lackingSkill','$matchingKnowledge','$lackingKnowledge');");
+             if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
+             //echo $percentageMatch;
+             //echo '<br />';
          }
 
      }
-     //exec("app.R");
-     header("Location: /shiny",TRUE,302);
-     //exec("app.R");
      pg_close($dbconn4);
+     header("Location: /shiny?id=$randID",TRUE,302);
+     //exec("app.R");
+
     ?>  
 
         </body>

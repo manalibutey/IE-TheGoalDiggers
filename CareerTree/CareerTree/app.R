@@ -1,6 +1,9 @@
 # install.packages("RPostgreSQL")
 require("RPostgreSQL")
-
+# ui <- bootstrapPage(
+#   h3("Parsed query string"),
+#   verbatimTextOutput("queryText")
+# )
 # user: careertreetest  
 # careertree2018
 # host: careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com
@@ -27,19 +30,58 @@ dbExistsTable(con, "cartable")
 # TRUE
 #########################################################################################################
 # query the data from postgreSQL 
-percentage <- dbGetQuery(con, "SELECT * from percentage")
+#percentage <- dbGetQuery(con, "SELECT * from percentage")
 
-# create variable use for dataframe
-distance = 100 - percentage$percentage
-nodeTimes = length(percentage$title)
-allNodes = c(unique(percentage$title),percentage$relatedtitle)
+
+# Delete table
+#emptyTable<- dbGetQuery(con, "DELETE FROM percentage")
+
+
+## close the connection
+#dbDisconnect(con)
+
+#dbUnloadDriver(drv)
+
+## create variable use for dataframe
+# distance = 100 - percentage$percentage
+# nodeTimes = length(percentage$title)
+# allNodes = c(unique(percentage$title),percentage$relatedtitle)
 
 # Implement Shiny 
 require(shiny)
 require(visNetwork)
 
-server <- function(input, output) {
+server <- function(input, output,session) {
+#-------------------------------------------
+  # output$queryText <- renderText({
+  #   query <- parseQueryString(session$clientData$url_search)
+  #   #paste(query)
+  #   paste("SELECT * from percentage where id = ", query)
+  # })
+  # percentage <- dbGetQuery(con, paste("SELECT * from percentage where id = ", query))
+  # #percentage <- dbGetQuery(con, "SELECT * from percentage")
+  # dbDisconnect(con)
+  # dbUnloadDriver(drv)
+  #  distance = 100 - percentage$percentage
+  #  nodeTimes = length(percentage$title)
+  #  allNodes = c(unique(percentage$title),percentage$relatedtitle)  
+#-------------------------------------------
   output$network <- renderVisNetwork({
+    
+#-------------------------------------------
+    
+      query <- parseQueryString(session$clientData$url_search)
+      #paste(query)
+      #paste("SELECT * from percentage where id = ", query)
+
+    percentage <- dbGetQuery(con, paste("SELECT * from percentage where id = ", query))
+    #percentage <- dbGetQuery(con, "SELECT * from percentage")
+    #dbDisconnect(con)
+    #dbUnloadDriver(drv)
+    distance = 100 - percentage$percentage
+    nodeTimes = length(percentage$title)
+    allNodes = c(unique(percentage$title),percentage$relatedtitle)  
+#-------------------------------------------
     
     test_nodes01 <- data.frame(id = allNodes,
                                label = allNodes,
@@ -68,12 +110,6 @@ ui <- fluidPage(
 )
 
 # Run Shiny APP
-shinyApp(ui = ui, server = server) 
+shinyApp(ui = ui, server = server)
 
 
-# Delete table
-emptyTable<- dbGetQuery(con, "DELETE FROM percentage")
-
-#close connection
-dbDisconnect(con)
-dbUnloadDriver(drv)

@@ -2,8 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\CareerTree",
+<<<<<<< HEAD
     "\\CareerTree\\CareerTree"
   ],
   "SelectedNode": "\\CareerTree\\CareerTree\\occ.php",
+=======
+    "\\CareerTree\\CareerTree",
+    "\\CareerTree\\CareerTree\\css"
+  ],
+  "SelectedNode": "\\CareerTree\\CareerTree\\industry.php",
+>>>>>>> e80c09ff9b280b3aa8365523560f818069535a43
   "PreviewInSolutionExplorer": false
 }
