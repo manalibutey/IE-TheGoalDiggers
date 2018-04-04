@@ -44,8 +44,8 @@ input.but {
 input.but2 {
     width: auto;
     height: auto;
-    font-weight: bold;
-    font-size: 20px;
+    font-weight: 300;
+    font-size: 18px;
 }
 hr {
     display: block;

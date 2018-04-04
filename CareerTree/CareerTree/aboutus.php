@@ -21,7 +21,7 @@
     <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
             <div class="container">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/home.php">
                     <img src="./images/logo.png" style="height: 50px;" />
                 </a>
 
@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse navCollapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a class="nav-item active" href="/">HOME</a>
+                            <a class="nav-item active" href="/home.php">HOME</a>
                         </li>
                         <li>
                             <a class="nav-item" href="#">ABOUT US</a>

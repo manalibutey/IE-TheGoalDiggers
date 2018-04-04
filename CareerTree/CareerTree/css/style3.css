@@ -16,6 +16,7 @@ body {
     color: #5a5a5a;
     font-family: 'PT Sans', sans-serif !important;
     height: 100%;
+    background-color: #E7E7E7;
 }
 
 body {
@@ -46,6 +47,15 @@ body {
 
 .container .navbar-brand img {
     height: 50px;
+}
+
+.nav > li > a:hover {
+    color: #E82830;
+    background-color: transparent !important;
+}
+
+.nav > li > a:active {
+    color: #E82830;
 }
 
 .full {

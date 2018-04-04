@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style3.css">
      <link rel="stylesheet" href="./css/awesomplete.css" />
-     <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script>
+     <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script> <link href="css/modern-business.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/customstyle.css" />
      <script>
          function validate_submit() {
              var result = false;
              var options = document.getElementById("mylist").options;
              for (var i = 0; i < options.length; i++) {
-                 if (document.getElementById('category').value == options[i].value) {
+                 if (document.getElementById('pcategory').value == options[i].value) {
                      result = true;  
                  }
              }
@@ -26,122 +27,131 @@
              return result;
          }
      </script>
-      
-   
 </head>
 
 <body>
 
-    <div class="navbar  navbar-dark navbar-expand-md fixed-top">
+    
 
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="./images/logo.png" />
-            </a>
+        <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
-            <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <div class="collapse navbar-collapse navCollapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="nav-item active" href="/">HOME</a>
-                    </li>
-                    <li>
-                        <a class="nav-item" href="#">ABOUT US</a>
-                    </li>
-                </ul>
+            <div class="container">
+                <a class="navbar-brand" href="/home.php">
+                    <img src="./images/logo.png" />
+                </a>
+
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse navCollapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="nav-item active" href="/home.php">HOME</a>
+                        </li>
+                        <li>
+                            <a class="nav-item" href="/aboutus.php">ABOUT US</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="full">
-    <div class="headme">
-    
-    <h2>Tell us what's your previous occupation</h2>
-    </div>
-        
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">
+            Tell us what's your previous occupation
+        </h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="/industry.php">Industry</a>
+            </li>
+            <li class="breadcrumb-item active">Occupation</li>
+        </ol>
+
         <?php
-    if ( isset($_POST['submit1_x'], $_POST['submit1_y'] ) ) {
-    $ind = 'IND08';
-    
-    }
-    else if ( isset($_POST['submit2_x'], $_POST['submit2_y'] ) ) {
-    $ind = 'IND14';
-    
-    }
-     else if ( isset($_POST['submit3_x'], $_POST['submit3_y'] ) ) {
-    $ind = 'IND01';
-    
-    }
-     else if ( isset($_POST['submit4_x'], $_POST['submit4_y'] ) ) {
-    $ind = 'IND18';
-    
-    }
-     else if ( isset($_POST['submit5_x'], $_POST['submit5_y'] ) ) {
-    $ind = 'IND05';
-    
-    }
-     else if ( isset($_POST['submit6_x'], $_POST['submit6_y'] ) ) {
-    $ind = 'IND16';
-    
-    }
-     else if ( isset($_POST['submit7_x'], $_POST['submit7_y'] ) ) {
-    $ind = 'IND04';
-    
-    }
-     else if ( isset($_POST['submit8_x'], $_POST['submit8_y'] ) ) {
-    $ind = 'IND11';
-    
-    }
-    else if ( isset($_POST['submit9_x'], $_POST['submit9_y'] ) ) {
-    $ind = 'IND17';
-    
-    }
-    else if ( isset($_POST['submit10_x'], $_POST['submit10_y'] ) ) {
-    $ind = 'IND10';
-    
-    }
-    else if ( isset($_POST['submit11_x'], $_POST['submit11_y'] ) ) {
-    $ind = 'IND03';
-    
-    }
-    else if ( isset($_POST['submit12_x'], $_POST['submit12_y'] ) ) {
-    $ind = 'IND02';
-    
-    }
-    else if ( isset($_POST['submit13_x'], $_POST['submit13_y'] ) ) {
-    $ind = 'IND19';
-    
-    }
-    else if ( isset($_POST['submit14_x'], $_POST['submit14_y'] ) ) {
-    $ind = 'IND13';
-    
-    }
-    else if ( isset($_POST['submit15_x'], $_POST['submit15_y'] ) ) {
-    $ind = 'IND15';
-    
-    }
-    else if ( isset($_POST['submit16_x'], $_POST['submit16_y'] ) ) {
-    $ind = 'IND12';
-    
-    }
-    else if ( isset($_POST['submit17_x'], $_POST['submit17_y'] ) ) {
-    $ind = 'IND07';
-    
-    }
-    else if ( isset($_POST['submit18_x'], $_POST['submit18_y'] ) ) {
-    $ind = 'IND09';
-    
-    }
-    else if ( isset($_POST['submit19_x'], $_POST['submit19_y'] ) ) {
-    $ind = 'IND06';
-    
-    }
-     
-    
+        if ( isset($_POST['submit1_x'], $_POST['submit1_y'] ) ) {
+            $ind = 'IND08';
+
+        }
+        else if ( isset($_POST['submit2_x'], $_POST['submit2_y'] ) ) {
+            $ind = 'IND14';
+
+        }
+        else if ( isset($_POST['submit3_x'], $_POST['submit3_y'] ) ) {
+            $ind = 'IND01';
+
+        }
+        else if ( isset($_POST['submit4_x'], $_POST['submit4_y'] ) ) {
+            $ind = 'IND18';
+
+        }
+        else if ( isset($_POST['submit5_x'], $_POST['submit5_y'] ) ) {
+            $ind = 'IND05';
+
+        }
+        else if ( isset($_POST['submit6_x'], $_POST['submit6_y'] ) ) {
+            $ind = 'IND16';
+
+        }
+        else if ( isset($_POST['submit7_x'], $_POST['submit7_y'] ) ) {
+            $ind = 'IND04';
+
+        }
+        else if ( isset($_POST['submit8_x'], $_POST['submit8_y'] ) ) {
+            $ind = 'IND11';
+
+        }
+        else if ( isset($_POST['submit9_x'], $_POST['submit9_y'] ) ) {
+            $ind = 'IND17';
+
+        }
+        else if ( isset($_POST['submit10_x'], $_POST['submit10_y'] ) ) {
+            $ind = 'IND10';
+
+        }
+        else if ( isset($_POST['submit11_x'], $_POST['submit11_y'] ) ) {
+            $ind = 'IND03';
+
+        }
+        else if ( isset($_POST['submit12_x'], $_POST['submit12_y'] ) ) {
+            $ind = 'IND02';
+
+        }
+        else if ( isset($_POST['submit13_x'], $_POST['submit13_y'] ) ) {
+            $ind = 'IND19';
+
+        }
+        else if ( isset($_POST['submit14_x'], $_POST['submit14_y'] ) ) {
+            $ind = 'IND13';
+
+        }
+        else if ( isset($_POST['submit15_x'], $_POST['submit15_y'] ) ) {
+            $ind = 'IND15';
+
+        }
+        else if ( isset($_POST['submit16_x'], $_POST['submit16_y'] ) ) {
+            $ind = 'IND12';
+
+        }
+        else if ( isset($_POST['submit17_x'], $_POST['submit17_y'] ) ) {
+            $ind = 'IND07';
+
+        }
+        else if ( isset($_POST['submit18_x'], $_POST['submit18_y'] ) ) {
+            $ind = 'IND09';
+
+        }
+        else if ( isset($_POST['submit19_x'], $_POST['submit19_y'] ) ) {
+            $ind = 'IND06';
+
+        }
+
+
         /*DB connection*/
         $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
         $dbuser = 'careertreetest';
@@ -155,46 +165,62 @@
             echo "error";
         }
         /*DB connection end*/
-        
-            $sql = "Select Occname From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
+
+        $sql = "Select Occname From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
                                         Where IndOcc.IndID = Ind.IndID and Occ.OccID = IndOcc.OccID
                                         and Ind.IndID = '$ind'
                                         and Occ.occid in (select occid from Career_Changer_Matrix )
                                         Order by Ind.IndName, Occ.OccName";
-          $result = pg_query($dbconn4, $sql);
-                
-                if (!$result) {
-                    echo "An error occurred.\n";
-                    exit;
-                }
+        $result = pg_query($dbconn4, $sql);
 
-                
-                 echo '<div class="selection">';
-                echo '<form method="post" action="skill.php">';
-                echo '<div class="mid">';
-                echo '<label for="category">Occupation</label>' ;
-                echo '<input type="text" id="category" name="occ" autocomplete="off" list="mylist">';
-                echo '</div>';
-                //echo '</div>';
-    echo '<datalist id="mylist" >';
-    while ($res = pg_fetch_row($result)) {
-    $result1 = $res[0];
-    //echo $res[0] ;
-    echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
-    }
-    echo '</datalist>';
-    echo '<div class="cbut">';
-    echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="return validate_submit()"/>';
-     echo '</div>';
+        if (!$result) {
+            echo "An error occurred.\n";
+            exit;
+        }
 
-echo '</form>';
- pg_close($dbconn4); ?> 
- </div>
 
+        echo '<div class="selection">';
+        echo '<form method="post" action="skill.php" >';
+        echo '<div class="mid">';
+        echo '<label for="pcategory">Occupation: </label>' ;
+        echo '<input type="text" id="pcategory" name="occ"autocomplete="off" list="mylist">';
+        echo '</div>';
+
+        echo '<datalist id="mylist">';
+        while ($res = pg_fetch_row($result)) {
+            $result1 = $res[0];
+
+            echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
+        }
+        echo '</datalist>';
+
+        echo '<div class="cbut">';
+        echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="return validate_submit()"/>';
+        echo '</div>';
+        echo '</form>';
+        pg_close($dbconn4); ?>
+
+    </div>
+    <!--<footer class="py-5 bg-dark" style="position:fixed; bottom:0;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        </div>
+    </footer>-->
+
+    <footer class="py-5 bg-dark" style="position:fixed; bottom:0;">
+        <div class="container">
+            <a href="/">
+                <img src="./images/logo3.png" class="logoFooter" />
+            </a>
+            <label class="motto"> Empowering the unemployed</label>
+        </div>
+        <div class="container">
+            <hr />
+            <a href="#" class="FooterTxt">Sitemap</a>
+            <a href="#" class="FooterTxt">Copyright &copy;2018</a>
+            <a href="#" class="FooterTxt">Contact Us</a>
+        </div>
+    </footer>
  
-
-
-
-     
 </body>
 </html>

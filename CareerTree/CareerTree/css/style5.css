@@ -47,3 +47,12 @@ body {
 .container .navbar-brand img {
     height: 50px;
 }
+
+.nav > li > a:hover {
+    color: #E82830;
+    background-color: transparent !important;
+}
+
+.nav > li > a:active {
+    color: #E82830;
+}
