@@ -81,10 +81,11 @@ position: absolute;
 width: 100%;
 height: 100%;
 }
-.section1{
-position:relative;
-width:100%;
-height:100%;
+.section1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(235, 235, 235);
 }
 
 .section2 {
@@ -526,6 +527,7 @@ width: 100%;
 top: 98% !important;
 left: 50% !important;
 transform: translate(-50%, -50%) !important;
+
 }
 
 #section01::after {

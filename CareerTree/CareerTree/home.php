@@ -51,7 +51,7 @@ $(function() {
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
-			<img class="back-image" src="./images/background.jpg" />
+			<img class="back-image" src="./images/lol.gif" />
              <div id="section01" class="demo">
  
   <a href="#section02"><span></span><span></span><span></span>Scroll</a>
@@ -70,7 +70,7 @@ $(function() {
 				<div class="col-sm-2 i1">
 					
                     <div class="column">
-    <img src="./images/Picture1.png"  class="hover-shadow" data-aos="fade-right"/>
+    <img src="./images/Picture11.png"  class="hover-shadow" data-aos="fade-right"/>
     <div class="caption">
                         <p data-aos="fade-right">Choose your previous work</p>
                     </div>
@@ -82,7 +82,7 @@ $(function() {
 				<div class="col-sm-2 i2">
 					
            <div class="column">
-    <img src="./images/Picture2.png" class="hover-shadow" data-aos="fade-up"/>
+    <img src="./images/Picture22.png" class="hover-shadow" data-aos="fade-up"/>
      <div class="caption">
                         <p data-aos="fade-up">Select your skills and knowledge</p>
                     </div>
@@ -95,7 +95,7 @@ $(function() {
 					
 
                                <div class="column">
-    <img src="./images/Picture3.png"  class="hover-shadow" data-aos="fade-left"/>
+    <img src="./images/Picture33.png"  class="hover-shadow" data-aos="fade-left"/>
      <div class="caption" data-aos="fade-left">
                         <p >Explore suggested occupations</p>
                     </div>
@@ -136,17 +136,17 @@ $(function() {
 
     <div class="mySlides">
       <div class="numbertext">1 / 3</div>
-      <img src="./images/Picture1.png" style="width:100%">
+      <img src="./images/Picture11.png" style="width:100%">
     </div>
 
     <div class="mySlides">
       <div class="numbertext">2 / 3</div>
-      <img src="./images/Picture2.png" style="width:100%">
+      <img src="./images/Picture22.png" style="width:100%">
     </div>
 
     <div class="mySlides">
       <div class="numbertext">3 / 3</div>
-      <img src="./images/Picture3.png" style="width:100%">
+      <img src="./images/Picture33.png" style="width:100%">
     </div>
 
     
