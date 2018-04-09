@@ -5,6 +5,7 @@ top: 0;
 right: 0;
 left: 0;
 z-index: 1030;
+    height: 9%;
 }
 
 .navbar-dark  {
@@ -52,28 +53,30 @@ position: relative;
 }
 
 .container .navbar-brand img {
-height: 50px;
+height: 60px;
 }
 
 .container .nav-item {
-font-weight: 400;
-font-style: normal;
-font-size: 13px;
-letter-spacing: 0.05em !important;
-text-transform: uppercase;
-text-decoration: none;
-line-height: 1em;
-color: #00518C;
-letter-spacing: .1em;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1em;
+    color: #E82830;
+    letter-spacing: .1em;
 }
 
 .nav > li > a:hover {
-color: #E82830;
-background-color: transparent !important;
+    color: #00518C;
+    
+    background-color: transparent !important;
 }
 
 .nav > li > a:active {
-color: #E82830;
+    color: 
+    #00518C;
 }
 
 .section {
@@ -101,6 +104,7 @@ overflow: hidden;
 position: absolute;
 z-index: 1;
 height: 100%;
+width:100%
 }
 
 .back {
@@ -118,6 +122,57 @@ background-size: cover;
 width: 100%;
 height:100%;
 }
+
+.head {
+    position: absolute !important;
+    top: 65% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-weight: 200 !important;
+    text-transform: uppercase !important;
+    line-height: 1.35em !important;
+    width: 100%;
+}
+
+.subhead1 {
+    position: absolute !important;
+    top: 77% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.subhead1::before {
+    background: #a22631;
+    content: "";
+    left: 50%;
+    top: 0;
+    margin-left: -25px;
+    height: 1px;
+    position: absolute;
+    width: 50px;
+}
+.subhead2 {
+position: absolute !important;
+top: 80% !important;
+left: 50% !important;
+transform: translate(-50%, -50%) !important;
+font-weight: 400 !important;
+font-size: 14px !important;
+width: 100%;
+padding-bottom: 40px;
+}
+
+.startbtn {
+    position: absolute !important;
+    top: 86% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
 
 main {
 padding-top: 50px;
@@ -263,6 +318,9 @@ z-index: 10;
 visibility: visible;
 border-radius: 20px;
 }
+
+
+
 
 .footer {
 position: static;

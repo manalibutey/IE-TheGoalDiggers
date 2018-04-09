@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	<title>CareerTree</title>
-	<link rel="icon" href="./images/title.ico" />
+	<link rel="icon" href="./images/2.ico" />
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
@@ -38,10 +38,10 @@ $(function() {
 			<div class="collapse navbar-collapse navCollapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a class="nav-item active" href="#">HOME</a>
+						<a class="nav-item active" href="#" style="margin-top: 7px;">HOME</a>
 					</li>
 					<li>
-						<a class="nav-item" href="/aboutus.php">ABOUT US</a>
+						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">ABOUT US</a>
 					</li>
 				</ul>
 			</div>
@@ -51,7 +51,11 @@ $(function() {
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
-			<img class="back-image" src="./images/lol.gif" />
+			<img class="back-image" src="./images/bck.jpg" />
+             <div class="head" ><h1>IMPROVE YOUR EMPLOYABILITY</h1></div>
+             <div class="subhead1" ><p>Change career like a pro.</p></div>
+                 <div class="subhead2" ><p>Let us help you discover your choices for a career change.</p></div>
+                 
              <div id="section01" class="demo">
  
   <a href="#section02"><span></span><span></span><span></span>Scroll</a>

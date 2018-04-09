@@ -100,11 +100,11 @@ height: 100%;
 }
 
 .section2 {
-position: relative;
-width: 100%;
-height: 100%;
-overflow: hidden;
-background-color: #E7E7E7;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #D8D8D6;
 }
 
 .background {
@@ -144,7 +144,7 @@ width: 100%;
     width: 100%;
     padding-bottom: 40px;
 }
-}
+
 
 .indus {
 position: relative;
@@ -171,12 +171,11 @@ grid-column-gap: 0px;
 grid-row-gap: 0px;
 }
 
-.grid-container>div {
-background-color: rgba(255, 255, 255, 0.8);
-text-align: center;
-    
-font-size: 16px;
-}
+    .grid-container > div {
+        background-color: #D8D8D6;
+        text-align: center;
+        font-size: 16px;
+    }
 
 .col-sm-2 {
 width: 100%;
