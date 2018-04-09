@@ -152,19 +152,21 @@
         }
 
 
-        /*DB connection*/
-        $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
-        $dbuser = 'careertreetest';
-        $dbpass = 'careerree2018';
-        $port = 5432;
-        $dbname ='ctdb_test';
-        $conn = "host=careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com port=5432 dbname=ctdb_test user=careertreetest password=careertree2018";
-        $dbconn4 = pg_connect($conn);
-        if(! $conn )
-        {
-            echo "error";
-        }
-        /*DB connection end*/
+        ///*DB connection*/
+        //$dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
+        //$dbuser = 'careertreetest';
+        //$dbpass = 'careerree2018';
+        //$port = 5432;
+        //$dbname ='ctdb_test';
+        //$conn = "host=careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com port=5432 dbname=ctdb_test user=careertreetest password=careertree2018";
+        //$dbconn4 = pg_connect($conn);
+        //if(! $conn )
+        //{
+        //    echo "error";
+        //}
+        ///*DB connection end*/
+        include 'db_connection.php';
+        $dbconn4 = OpenCon();
 
         $sql = "Select Occname From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
                                         Where IndOcc.IndID = Ind.IndID and Occ.OccID = IndOcc.OccID

@@ -69,19 +69,21 @@ $knw .=  '\''.$select.'\''.',';
     }
     }
  $randID = rand(1,10000);
-     /*DB connection*/
-        $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
-        $dbuser = 'careertreetest';
-        $dbpass = 'careerree2018';
-        $port = 5432;
-        $dbname ='ctdb_test';
-        $conn = "host=careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com port=5432 dbname=ctdb_test user=careertreetest password=careertree2018";
-        $dbconn4 = pg_connect($conn);
-        if(! $conn )
-        {
-            echo "error";
-        }
-        /*DB connection end*/
+     ///*DB connection*/
+     //   $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
+     //   $dbuser = 'careertreetest';
+     //   $dbpass = 'careerree2018';
+     //   $port = 5432;
+     //   $dbname ='ctdb_test';
+     //   $conn = "host=careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com port=5432 dbname=ctdb_test user=careertreetest password=careertree2018";
+     //   $dbconn4 = pg_connect($conn);
+     //   if(! $conn )
+     //   {
+     //       echo "error";
+     //   }
+     //   /*DB connection end*/
+        include 'db_connection.php';
+        $dbconn4 = OpenCon();
         $stringconcat = "";
         //---- Clear Percentage Table if the records exceed 200----
         $sql = "select count(*) as lastrownumber from percentage";

@@ -1,0 +1,16 @@
+diff a/.vs/VSWorkspaceState.json b/.vs/VSWorkspaceState.json	(rejected hunks)
+@@ -1,11 +1,10 @@
+ {
+   "ExpandedNodes": [
+     "",
+     "\\CareerTree",
+     "\\CareerTree\\CareerTree",
+-    "\\CareerTree\\CareerTree\\css",
+-    "\\CareerTree\\CareerTree\\images"
++    "\\CareerTree\\CareerTree\\css"
+   ],
+-  "SelectedNode": "\\CareerTree\\CareerTree\\css\\style.css",
++  "SelectedNode": "\\CareerTree\\CareerTree\\home.php",
+   "PreviewInSolutionExplorer": false
+ }
+\ No newline at end of file

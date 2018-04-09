@@ -103,20 +103,22 @@
     echo '<input type="hidden" name="occ" value="'.$occp.'">';
     echo '</div>';
 
-     /*DB connection*/
-        $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
-        $dbuser = 'careertreetest';
-        $dbpass = 'careerree2018';
-        $port = 5432;
-        $dbname ='ctdb_test';
-        $conn = "host=careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com port=5432 dbname=ctdb_test user=careertreetest password=careertree2018";
-        $dbconn4 = pg_connect($conn);
-        if(! $conn )
-        {
-            echo "error";
-        }
-        /*DB connection end*/
-    //-------------------------------------------------
+    // /*DB connection*/
+    //    $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
+    //    $dbuser = 'careertreetest';
+    //    $dbpass = 'careerree2018';
+    //    $port = 5432;
+    //    $dbname ='ctdb_test';
+    //    $conn = "host=careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com port=5432 dbname=ctdb_test user=careertreetest password=careertree2018";
+    //    $dbconn4 = pg_connect($conn);
+    //    if(! $conn )
+    //    {
+    //        echo "error";
+    //    }
+    //    /*DB connection end*/
+    include 'db_connection.php';
+    $dbconn4 = OpenCon();
+    ////-------------------------------------------------
         $sql = "Select * from (
                 Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
 	                From skill_Occupation as a, skill as b, Occupation as c
