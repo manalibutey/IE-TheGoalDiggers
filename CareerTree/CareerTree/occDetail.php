@@ -111,7 +111,7 @@
         echo '</ul>';
         echo '<hr>';
         //--------- Education, Training, Experience --------------
-        echo '<h3>Education, Training, Experience</h3>';
+        echo '<h3>Education, Training, and Experience</h3>';
         $sql = "select a.categoryname, b.description
                 from education_training_experience as a, education_training_experience_category as b
                 where a.categoryid = b.categoryid
@@ -121,7 +121,8 @@
                 limit 1";
         $result = pg_query($dbconn4, $sql);
         $education = pg_fetch_row($result);
-        echo $education[0].': '.$education[1].'<br/>';
+        echo '<ul>';
+        echo '<li>'.$education[0].': '.$education[1].'</li>';
         $sql = "select a.categoryname, b.description
                 from education_training_experience as a, education_training_experience_category as b
                 where a.categoryid = b.categoryid
@@ -131,7 +132,7 @@
                 limit 1";
         $result = pg_query($dbconn4, $sql);
         $training = pg_fetch_row($result);
-        echo $training[0].': '.$training[1].'<br/>';
+        echo '<li>'.$training[0].': '.$training[1].'</li>';
         $sql = "select a.categoryname, b.description
                 from education_training_experience as a, education_training_experience_category as b
                 where a.categoryid = b.categoryid
@@ -141,7 +142,8 @@
                 limit 1";
         $result = pg_query($dbconn4, $sql);
         $experience = pg_fetch_row($result);
-        echo $experience[0].': '.$experience[1].'<br/>';
+        echo '<li>'.$experience[0].': '.$experience[1].'</li>';
+        echo '</ul>';
         echo '<hr>';
         //--------- Common Skills and Knowledge --------------
         echo '<h3>Common Skills and Knowledge</h3>';
@@ -223,8 +225,29 @@
         echo '</ul>';
         echo '<hr>';
         //--------- Suggested Course and Training --------------
-        echo '<h3>Suggested Course and Training</h3>';
-        echo '<hr>';
+        if ($occDetail[6]||$occDetail[5]){
+            echo '<h3>Suggested Course(s)</h3>';
+            echo '<p>To fill those gaps, you might be interested in following course(s):</p>';
+            $sql = "select a.coursename, a.coursetype,a.description, a.provider,a.duration,a.fee,a.link,c.skname as related
+                    from course as a, course_related as b , skill as c
+                    where a.courseid = b.courseid and b.relatedid = c.skid
+                    and c.skname in ($lackingskill)
+                    union
+                    select a.coursename, a.coursetype,a.description, a.provider,a.duration,a.fee,a.link,c.knwname as related
+                    from course as a, course_related as b , knowledge as c
+                    where a.courseid = b.courseid and b.relatedid = c.knwid
+                    and c.knwname in ($lackingKnowledge)";
+            $result = pg_query($dbconn4, $sql);
+            echo '<ul>';
+            if(!$result){
+                echo '<li>No data available</li>';
+            }
+            while ($course = pg_fetch_row($result)) {
+                echo '<li><a href="'.$course[6].'" target="_blank">'.$course[0].'</a> ('.$course[1].') - By '.$course[3].'</li>';
+            }
+            echo '</ul>';
+            echo '<hr>';
+        }
         echo '</form>';
         pg_close($dbconn4);
         ?>
