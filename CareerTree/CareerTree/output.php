@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -44,7 +44,7 @@
         </div>
         <div class="container">
             <h1 class="mt-4 mb-3">
-                According to your previous occupation, you can be
+                Suggested Occupations
             </h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -58,10 +58,10 @@
                 <li class="breadcrumb-item active">Suggested Occupation</li>
             </ol>
 
-            <h2>Suggested Occupations:</h2>
+            <h2>According to your previous occupation, you can be:</h2>
             <div class="table-responsive">
-                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                    <!--<table class="table table-hover">-->
+                <!--<table id="example" class="table table-striped table-bordered" style="width:100%">-->
+                    <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -229,15 +229,17 @@ $knw .=  '\''.$select.'\''.',';
              if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
          }
      }
-            $sql ="select * from percentage
-            where id = '$randID'
-            order by percentage desc";
+         $sql ="select *
+                from percentage, occupation
+                where relatedoccid = occid
+                and id = '$randID'
+                order by percentage desc";
             $relatedOccupation = pg_query($dbconn4, $sql);
             $occCount = 1;
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
          echo "<tr>";
          echo '<td>'.$occCount.'</td>';
-         echo '<td><a href="/occDetail.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">'.$relatedOcc[1].'</a></td>';
+         echo '<td><a href="/occDetail.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">'.$relatedOcc[1].'</a><br/>'.$relatedOcc[11].'</td>';
          echo '<td>'.$relatedOcc[2].'</td>';
          echo "</tr>";
          $occCount++;

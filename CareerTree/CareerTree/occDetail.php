@@ -80,9 +80,6 @@
         }
         echo '<form method="post" action="skill.php" >';
         echo '<h2>'.$occDetail[1].' ('.$occDetail[7].'%)</h2>';
-        echo '<hr>';
-        //--------- Description --------------
-        echo '<h3>Description</h3>';
         echo '<p>'.$occDetail[2].'</p>';
         echo '<hr>';
         //--------- Task Statement --------------
@@ -101,27 +98,80 @@
         //--------- Common Skills and Knowledge --------------
         echo '<h3>Common Skills and Knowledge</h3>';
         echo '<ul>';
-        $commonSkillsArray = explode(',', $occDetail[3]);
-        for($x = 0; $x < count($commonSkillsArray); $x++) {
-            echo '<li>'.$commonSkillsArray[$x].' (skill)</li>';
+        if ($occDetail[3]){
+            $commonSkillsArray = explode(',', $occDetail[3]);
+            for($x = 0; $x < count($commonSkillsArray); $x++) {
+                $commonSkills .= '\''.trim($commonSkillsArray[$x]).'\',';
+            }
+            $commonSkills = rtrim($commonSkills,",");
+            $sql = "select a.skname as skillname, a.description as description, rank
+            from skill a, skill_occupation b
+            where b.skid = a.skid
+            and b.occid = '$occID'
+            and a.skname in ($commonSkills)
+            order by rank desc";
+            $result = pg_query($dbconn4, $sql);
+            while ($cskill = pg_fetch_row($result)) {
+                echo '<li><h5>'.$cskill[0].' (skill)</h5>'.$cskill[1].'</li><br/>';
+            }
         }
-        $commonKnowledgeArray = explode(',', $occDetail[4]);
-        for($x = 0; $x < count($commonKnowledgeArray); $x++) {
-            echo '<li>'.$commonKnowledgeArray[$x].' (knowledge)</li>';
+        if ($occDetail[4]){
+            $commonKnowledgeArray = explode(',', $occDetail[4]);
+            for($x = 0; $x < count($commonKnowledgeArray); $x++) {
+                $commonKnowledge .= '\''.trim($commonKnowledgeArray[$x]).'\',';
+            }
+            $commonKnowledge = rtrim($commonKnowledge,",");
+            $sql = "select a.knwname as knowledgename, a.description as description, rank
+                    from knowledge a, knowledge_occupation b
+                    where b.knwid = a.knwid
+                    and b.occid = '$occID'
+                    and a.knwname in ($commonKnowledge)
+                    order by rank desc";
+            $result = pg_query($dbconn4, $sql);
+            while ($cknowledge = pg_fetch_row($result)) {
+                echo '<li><h5>'.$cknowledge[0].' (knowledge)</h5>'.$cknowledge[1].'</li><br/>';
+            }
         }
         echo '</ul>';
         echo '<hr>';
         //--------- Lacking Skills and Knowledge --------------
         echo '<h3>Lacking Skills and Knowledge</h3>';
         echo '<ul>';
-        $lackingSkillsArray = explode(',', $occDetail[5]);
-        for($x = 0; $x < count($lackingSkillsArray); $x++) {
-            echo '<li>'.$lackingSkillsArray[$x].' (skill)</li>';
+        if ($occDetail[5]){
+            $lackingSkillsArray = explode(',', $occDetail[5]);
+            for($x = 0; $x < count($lackingSkillsArray); $x++) {
+                $lackingskill .= '\''.trim($lackingSkillsArray[$x]).'\',';
+            }
+            $lackingskill = rtrim($lackingskill,",");
+            $sql = "select a.skname as skillname, a.description as description, rank
+            from skill a, skill_occupation b
+            where b.skid = a.skid
+            and b.occid = '$occID'
+            and a.skname in ($lackingskill)
+            order by rank desc";
+            $result = pg_query($dbconn4, $sql);
+            while ($lskill = pg_fetch_row($result)) {
+                echo '<li><h5>'.$lskill[0].' (skill)</h5>'.$lskill[1].'</li><br/>';
+            }
         }
-        $lackingKnowledgeArray = explode(',', $occDetail[6]);
-        for($x = 0; $x < count($lackingKnowledgeArray); $x++) {
-            echo '<li>'.$lackingKnowledgeArray[$x].' (knowledge)</li>';
+        if ($occDetail[6]){
+            $lackingKnowledgeArray = explode(',', $occDetail[6]);
+            for($x = 0; $x < count($lackingKnowledgeArray); $x++) {
+                $lackingKnowledge .= '\''.trim($lackingKnowledgeArray[$x]).'\',';
+            }
+            $lackingKnowledge = rtrim($lackingKnowledge,",");
+            $sql = "select a.knwname as knowledgename, a.description as description, rank
+                    from knowledge a, knowledge_occupation b
+                    where b.knwid = a.knwid
+                    and b.occid = '$occID'
+                    and a.knwname in ($lackingKnowledge)
+                    order by rank desc";
+            $result = pg_query($dbconn4, $sql);
+            while ($lknowledge = pg_fetch_row($result)) {
+                echo '<li><h5>'.$lknowledge[0].' (knowledge)</h5>'.$lknowledge[1].'</li><br/>';
+            }
         }
+        
         echo '</ul>';
         echo '<hr>';
         //--------- Suggested Course and Training --------------
