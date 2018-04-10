@@ -9,46 +9,75 @@
     <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style4.css">
-     
+    <link href="css/modern-business.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/customstyle.css" />
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script>
 
 </head>
 
 <body>
+    <form method="post" action="output.php">
+        <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
-<div class="navbar  navbar-dark navbar-expand-md fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/home.php">
+                    <img src="./images/logo.png" />
+                </a>
 
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="./images/logo.png" />
-            </a>
-
-            <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <div class="collapse navbar-collapse navCollapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="nav-item active" href="/">HOME</a>
-                    </li>
-                    <li>
-                        <a class="nav-item" href="#">ABOUT US</a>
-                    </li>
-                </ul>
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse navCollapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="nav-item active" href="/home.php">HOME</a>
+                        </li>
+                        <li>
+                            <a class="nav-item" href="/aboutus.php">ABOUT US</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="container">
+            <h1 class="mt-4 mb-3">
+                Suggested Occupations
+            </h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/industry.php">Industry</a>
+                </li>
+                <li class="breadcrumb-item active">Occupation</li>
+                <li class="breadcrumb-item active">Skills and Knowledge</li>
+                <li class="breadcrumb-item active">Suggested Occupation</li>
+            </ol>
 
+            <h2>According to your previous occupation, you can be:</h2>
+            <div class="table-responsive">
+                <!--<table id="example" class="table table-striped table-bordered" style="width:100%">-->
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Occupations</th>
+                            <th>Percentage Matching</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
+<?php
+    if ( isset($_POST['submit'] ) ) {
+        $occp = $_POST['occ'];
 
-    <?php
- if ( isset($_POST['submit'] ) ) {
-    $occp = $_POST['occ'];
+    //echo "You have selected :" .$occp;
 
-    echo "You have selected :" .$occp;
-
-    echo '<br>';
+    //echo '<br>';
     $skills = "";
     $knw = "";
     if(!empty($_POST['skill'])){
@@ -57,7 +86,7 @@ foreach($_POST['skill'] as $selected){
 $skills .=  '\''.$selected.'\''.',';
     }
     $skills = rtrim($skills,",");
-    echo $skills."</br>";
+    //echo $skills."</br>";
     }
     if(!empty($_POST['knw'])){
 // Loop to store and display values of individual checked checkbox.
@@ -65,23 +94,10 @@ foreach($_POST['knw'] as $select){
 $knw .=  '\''.$select.'\''.',';
     }
     $knw = rtrim($knw,",");
-    echo $knw."</br>";
+    //echo $knw."</br>";
     }
     }
  $randID = rand(1,10000);
-     ///*DB connection*/
-     //   $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
-     //   $dbuser = 'careertreetest';
-     //   $dbpass = 'careerree2018';
-     //   $port = 5432;
-     //   $dbname ='ctdb_test';
-     //   $conn = "host=careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com port=5432 dbname=ctdb_test user=careertreetest password=careertree2018";
-     //   $dbconn4 = pg_connect($conn);
-     //   if(! $conn )
-     //   {
-     //       echo "error";
-     //   }
-     //   /*DB connection end*/
         include 'db_connection.php';
         $dbconn4 = OpenCon();
         $stringconcat = "";
@@ -95,15 +111,14 @@ $knw .=  '\''.$select.'\''.',';
             pg_query($dbconn4, $sql);
         }
         //---------------------------------------------------------
-        $sql = "Select RelatedOccName from Career_Changer_Matrix
+        $sql = "Select RelatedOccName, relatedoccid from Career_Changer_Matrix
             Where  OccName = '$occp'
             Order by Rank";
      $relatedOccupation = pg_query($dbconn4, $sql);
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
-         //echo $relatedOcc[0] ;
+
          $relatedOccParameter = $relatedOcc[0];
-         //echo " Percentage Match: ";
-         //-----------------------------------------------
+         $relatedOccID = $relatedOcc[1];
          $sql = "Select * from (
                 Select count(*) as SkillMatch from (
                 Select * from (
@@ -209,19 +224,51 @@ $knw .=  '\''.$select.'\''.',';
              $lackingKnowledge = $numOfMatch[7];
 
              $reldb = pg_query($dbconn4, "INSERT INTO percentage (
-                                        title, relatedtitle, percentage, id, matchingskill, lackingskill, matchingknowledge, lackingknowledge)
-                                         VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID,'$matchingSkill','$lackingSkill','$matchingKnowledge','$lackingKnowledge');");
+                                        title, relatedtitle, percentage, id, matchingskill, lackingskill, matchingknowledge, lackingknowledge, relatedoccid)
+                                         VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID,'$matchingSkill','$lackingSkill','$matchingKnowledge','$lackingKnowledge','$relatedOccID');");
              if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
-             //echo $percentageMatch;
-             //echo '<br />';
          }
-
      }
+         $sql ="select *
+                from percentage, occupation
+                where relatedoccid = occid
+                and id = '$randID'
+                order by percentage desc";
+            $relatedOccupation = pg_query($dbconn4, $sql);
+            $occCount = 1;
+     while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
+         echo "<tr>";
+         echo '<td>'.$occCount.'</td>';
+         echo '<td><a href="/occDetail.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">'.$relatedOcc[1].'</a><br/>'.$relatedOcc[11].'</td>';
+         echo '<td>'.$relatedOcc[2].'</td>';
+         echo "</tr>";
+         $occCount++;
+     }
+
+
      pg_close($dbconn4);
-     header("Location: /shiny?id=$randID",TRUE,302);
+     //header("Location: /shiny?id=$randID",TRUE,302);
      //exec("app.R");
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    ?>  
-
-        </body>
+        <footer class="py-5 bg-dark" >
+            <div class="container">
+                <a href="/">
+                    <img src="./images/logo3.png" class="logoFooter" />
+                </a>
+                <label class="motto"> Empowering the unemployed</label>
+            </div>
+            <div class="container">
+                <hr />
+                <a href="#" class="FooterTxt">Sitemap</a>
+                <a href="#" class="FooterTxt">Copyright &copy;2018</a>
+                <a href="#" class="FooterTxt">Contact Us</a>
+            </div>
+        </footer>
+    </form>
+</body>
         </html>

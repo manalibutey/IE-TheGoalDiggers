@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -9,24 +9,26 @@
     <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style3.css">
-     <link rel="stylesheet" href="./css/awesomplete.css" />
-     <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script> <link href="css/modern-business.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/awesomplete.css" />
+    <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script>
+    <link href="css/modern-business.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/customstyle.css" />
-     <script>
-         function validate_submit() {
-             var result = false;
-             var options = document.getElementById("mylist").options;
-             for (var i = 0; i < options.length; i++) {
-                 if (document.getElementById('pcategory').value == options[i].value) {
-                     result = true;  
-                 }
-             }
-             if (!result) {
-                 alert("Please select occupations from the list");
-             }
-             return result;
-         }
-     </script>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script>
+        function validate_submit() {
+            var result = false;
+            var options = document.getElementById("mylist").options;
+            for (var i = 0; i < options.length; i++) {
+                if (document.getElementById('pcategory').value == options[i].value) {
+                    result = true;
+                }
+            }
+            if (!result) {
+                alert("Please select occupations from the list");
+            }
+            return result;
+        }
+    </script>
 </head>
 
 <body>
