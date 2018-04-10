@@ -23,6 +23,15 @@ $(function() {
 
 <body>
 
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-search" viewBox="0 0 32 32">
+<title>search</title>
+<path d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"></path>
+</symbol>
+</defs>
+</svg>
+
 	<div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
@@ -38,10 +47,10 @@ $(function() {
 			<div class="collapse navbar-collapse navCollapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a class="nav-item active" href="#" style="margin-top: 7px;">HOME</a>
+						<a class="nav-item active" href="#" style="margin-top: 7px;">Home</a>
 					</li>
 					<li>
-						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">ABOUT US</a>
+						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
 					</li>
 				</ul>
 			</div>
@@ -51,10 +60,38 @@ $(function() {
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
-			<img class="back-image" src="./images/bck.jpg" />
-             <div class="head" ><h1>IMPROVE YOUR EMPLOYABILITY</h1></div>
-             <div class="subhead1" ><p>Change career like a pro.</p></div>
-                 <div class="subhead2" ><p>Let us help you discover your choices for a career change.</p></div>
+			<img class="back-image" src="./images/background5.jpg" />
+             <div class="head" >
+<div class="title" ><h1><strong>Welcome To Your Future</strong></h1> </div>
+<h5>The Sky is the Limit</h5>
+</div>
+             <div class="subhead1" ><h4>Improve your employability. Change career like a pro.</h4>
+<h4>Let us help you discover your choices for a career change.</h4>
+</div>
+
+<div class="search">
+<label for="category"></label>
+<form>
+       <input type="text" id="category" name="occ" autocomplete="off" list="mylist" placeholder="Enter your previous or current occupation">
+        
+
+        <datalist id="mylist"> 
+        <option vlaue="1">haha</option>
+        <option vlaue="1">haha</option>
+        <option vlaue="1">haha</option>
+</datalist>
+
+<button type="submit" class="button button-rounded-small" name="ssubmit" id="searchsubmit">
+<span>
+<svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
+</span>
+</button>
+</form>
+<div id="hover-content">
+        "Big things have small beginnings." ~ Prometheus
+    </div>
+
+</div>
                  
              <div id="section01" class="demo">
  

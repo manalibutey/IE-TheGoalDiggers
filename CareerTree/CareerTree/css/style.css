@@ -5,7 +5,7 @@ top: 0;
 right: 0;
 left: 0;
 z-index: 1030;
-    height: 9%;
+   
 }
 
 .navbar-dark  {
@@ -21,15 +21,16 @@ height: 100%;
 }
 
 body {
-margin: 0px;
-padding: 0px;
-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-font-size: 1rem;
-font-weight: 400;
-line-height: 1.5;
-color: #212529;
-text-align: left;
-background-color: #fff;
+    margin: 0px;
+    
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #111E6C;
+    text-align: left;
+    background-color: #fff;
+   
 }
 
 .navbar-dark .navbar-brand {
@@ -61,10 +62,9 @@ height: 60px;
     font-style: normal;
     font-size: 15px;
     letter-spacing: 0.05em !important;
-    text-transform: uppercase;
     text-decoration: none;
     line-height: 1em;
-    color: #E82830;
+    color: #A22631;
     letter-spacing: .1em;
 }
 
@@ -113,7 +113,7 @@ position: relative;
 width: 100%;
 height: 100%;
 text-align: center;
-color: #fff;
+
 background-position: center;
 background-size: cover;
 }
@@ -125,31 +125,36 @@ height:100%;
 
 .head {
     position: absolute !important;
-    top: 65% !important;
+    top: 22% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     font-weight: 200 !important;
-    text-transform: uppercase !important;
+    
     line-height: 1.35em !important;
     width: 100%;
+}
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.head h5 {
+    padding-top: 10px;
 }
 
 .subhead1 {
     position: absolute !important;
-    top: 77% !important;
+    top: 55% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    font-weight: 400 !important;
-    font-size: 14px !important;
+   
     width: 100%;
     padding-bottom: 40px;
 }
 
-.subhead1::before {
-    background: #a22631;
+
+.title::after {
+    background: #A22631;
     content: "";
     left: 50%;
-    top: 0;
     margin-left: -25px;
     height: 1px;
     position: absolute;
@@ -157,7 +162,7 @@ height:100%;
 }
 .subhead2 {
 position: absolute !important;
-top: 80% !important;
+top: 35% !important;
 left: 50% !important;
 transform: translate(-50%, -50%) !important;
 font-weight: 400 !important;
@@ -166,21 +171,128 @@ width: 100%;
 padding-bottom: 40px;
 }
 
-.startbtn {
+.search {
     position: absolute !important;
-    top: 86% !important;
+    top: 60% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    width: fit-content;
+   }
+
+input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.search .button {
+    position: relative;
+    float: none;
+    overflow: hidden;
+    font-size: 18px;
+    margin: 0 !important;
+    right: 48px;
+    z-index: 1;
+    padding: 0 20px;
+    color: #262E51 !important;
+    text-shadow: none;
+    background: 0 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    outline: none;
+}
+
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    color: #111E6C;
+}
+
+.icon:hover{
+    color:#A62231;
+}
+
+
+
+input[name="occ"] {
+    border: 1.3px solid #A62231;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 18px;
+    padding: 5px;
+    height: 30px;
+    width: 400px;
+    background: transparent;
+    outline: #A62231;
+}
+
+
+
+input[type=text], textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+   
+}
+
+    input[type=text]:focus, textarea:focus {
+        box-shadow: 0 0 5px #00ffff;
+        padding: 3px 0px 3px 3px;
+        margin: 5px 1px 3px 0px;
+        border: 1px solid #00ffff;
+    }
+
+#hover-content {
+    display: none;
+}
+
+.search:hover #hover-content {
+    display: block;
+    position: absolute !important;
+    top: 130% !important;
+    left: 37% !important;
+    transform: translate(-50%, -50%) !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    width: 100%;
+    color: #111E6C;
+    
+}
+
+
+::placeholder {
+    color: #111E6C;
+    opacity: 0.7; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: red;
 }
 
 
 main {
-padding-top: 50px;
-background-color: rgb(235, 235, 235);
-background-size: cover;
-position: relative;
-z-index: 1;
-height: 100%;
+    padding-top: 50px;
+    /*background-color: rgb(235, 235, 235);*/
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 .mid-section{
@@ -196,9 +308,9 @@ text-align: center;
 margin-top: 10px;
 margin-bottom: 20px;
 font-weight: 200 !important;
-text-transform: uppercase !important;
+
 line-height: 1.35em;
-color: #00518C;
+color: #111E6C;
 }
 
 .grid {
@@ -310,7 +422,7 @@ font-size: 20px;
 cursor: pointer;
 border-radius: 0px;
 width: 100%;
-background-color: #00518C;
+background-color: #111E6C;
 display: block;
 /*margin-top: 40px;*/
 margin-bottom: 40px;
@@ -603,7 +715,7 @@ transform: translate(-50%, -50%) !important;
     display: inline-block;
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
-    color: #E82830;
+    color: #A22631;
     font: normal 100 12px/1 'Josefin Sans', sans-serif;
     letter-spacing: .1em;
     text-decoration: none;
@@ -624,8 +736,8 @@ padding-top: 60px;
         width: 24px;
         height: 24px;
         margin-left: 5px;
-        border-left: 1px solid #E82830;
-        border-bottom: 1px solid #E82830;
+        border-left: 1px solid #A22631;
+        border-bottom: 1px solid #A22631;
         -webkit-transform: rotateZ(-45deg);
         transform: rotateZ(-45deg);
         -webkit-animation: sdb06 1.5s infinite;
