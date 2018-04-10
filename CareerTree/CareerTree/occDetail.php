@@ -225,7 +225,13 @@
         echo '</ul>';
         echo '<hr>';
         //--------- Suggested Course and Training --------------
-        if ($occDetail[6]||$occDetail[5]){
+        if ($occDetail[5]||$occDetail[6]){
+            if(!$occDetail[5]){
+                $lackingskill = '\'\'';
+            }
+            if(!$occDetail[6]){
+                $lackingKnowledge = '\'\'';
+            }
             echo '<h3>Suggested Course(s)</h3>';
             echo '<p>To fill those gaps, you might be interested in following course(s):</p>';
             $sql = "select a.coursename, a.coursetype,a.description, a.provider,a.duration,a.fee,a.link,c.skname as related
