@@ -110,6 +110,39 @@
         }
         echo '</ul>';
         echo '<hr>';
+        //--------- Education, Training, Experience --------------
+        echo '<h3>Education, Training, Experience</h3>';
+        $sql = "select a.categoryname, b.description
+                from education_training_experience as a, education_training_experience_category as b
+                where a.categoryid = b.categoryid
+                and a.occid = '$occID'
+                and a.scaleid = 'RL'
+                order by rank desc
+                limit 1";
+        $result = pg_query($dbconn4, $sql);
+        $education = pg_fetch_row($result);
+        echo $education[0].': '.$education[1].'<br/>';
+        $sql = "select a.categoryname, b.description
+                from education_training_experience as a, education_training_experience_category as b
+                where a.categoryid = b.categoryid
+                and a.occid = '$occID'
+                and a.scaleid = 'OJ'
+                order by rank desc
+                limit 1";
+        $result = pg_query($dbconn4, $sql);
+        $training = pg_fetch_row($result);
+        echo $training[0].': '.$training[1].'<br/>';
+        $sql = "select a.categoryname, b.description
+                from education_training_experience as a, education_training_experience_category as b
+                where a.categoryid = b.categoryid
+                and a.occid = '$occID'
+                and a.scaleid = 'RW'
+                order by rank desc
+                limit 1";
+        $result = pg_query($dbconn4, $sql);
+        $experience = pg_fetch_row($result);
+        echo $experience[0].': '.$experience[1].'<br/>';
+        echo '<hr>';
         //--------- Common Skills and Knowledge --------------
         echo '<h3>Common Skills and Knowledge</h3>';
         echo '<ul>';
