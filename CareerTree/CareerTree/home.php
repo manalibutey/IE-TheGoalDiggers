@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -51,15 +51,13 @@ $(function() {
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
-<<<<<<< HEAD
+
 			<img class="back-image" src="./images/bck.jpg" />
              <div class="head" ><h1>IMPROVE YOUR EMPLOYABILITY</h1></div>
              <div class="subhead1" ><p>Change career like a pro.</p></div>
                  <div class="subhead2" ><p>Let us help you discover your choices for a career change.</p></div>
                  
-=======
-			<img class="back-image" src="./images/background.jpg" />
->>>>>>> Change-output-and-create-Occ-detail-page
+
              <div id="section01" class="demo">
  
   <a href="#section02"><span></span><span></span><span></span>Scroll</a>
