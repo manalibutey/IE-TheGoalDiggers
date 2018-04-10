@@ -51,7 +51,7 @@ $(function() {
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
-			<img class="back-image" src="./images/lol.gif" />
+			<img class="back-image" src="./images/background.jpg" />
              <div id="section01" class="demo">
  
   <a href="#section02"><span></span><span></span><span></span>Scroll</a>

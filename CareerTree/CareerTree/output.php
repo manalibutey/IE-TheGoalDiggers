@@ -71,7 +71,7 @@
                     </thead>
                     <tbody>
 
-                        <?php
+<?php
     if ( isset($_POST['submit'] ) ) {
         $occp = $_POST['occ'];
 
