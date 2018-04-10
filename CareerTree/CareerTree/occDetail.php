@@ -95,6 +95,21 @@
         }
         echo '</ul>';
         echo '<hr>';
+        //--------- Work Style --------------
+        echo '<h3>Work Style</h3>';
+        echo '<ul>';
+        $sql = "select a.wrkname as workstylename, substring (a.description,14) as description, rank
+                from workstyle a, workstyle_occupation b
+                where b.wrkid = a.wrkid
+                and b.occid = '$occID'
+                order by rank desc
+                limit 5";
+        $result = pg_query($dbconn4, $sql);
+        while ($workstyle = pg_fetch_row($result)) {
+            echo '<li>'.$workstyle[0].' ('.$workstyle[1].')</li>';
+        }
+        echo '</ul>';
+        echo '<hr>';
         //--------- Common Skills and Knowledge --------------
         echo '<h3>Common Skills and Knowledge</h3>';
         echo '<ul>';
@@ -171,7 +186,7 @@
                 echo '<li><h5>'.$lknowledge[0].' (knowledge)</h5>'.$lknowledge[1].'</li><br/>';
             }
         }
-        
+
         echo '</ul>';
         echo '<hr>';
         //--------- Suggested Course and Training --------------
