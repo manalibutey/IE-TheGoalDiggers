@@ -248,10 +248,11 @@
             echo '</ul>';
             echo '<hr>';
         }
+
         echo '</form>';
         pg_close($dbconn4);
         ?>
-
+        <a href="javascript:history.back()">< Go Back</a>
     </div>
     <footer class="py-5 bg-dark">
         <div class="container">
