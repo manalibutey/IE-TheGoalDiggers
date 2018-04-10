@@ -251,7 +251,7 @@
                                 <input type="image" name="submit19" class="thumbnail" src="./images/wholesale.png" onsubmit="occ.php" data-aos="zoom-in">
                             </form>
                         </figure>
-                        <div class="caption" data-aos="zoom-in">Mining</div>
+                        <div class="caption" data-aos="zoom-in">Wholesale Trade</div>
                         <!--<div class="caption" data-aos="zoom-in">Wholesale Trade</div>-->
                     </div>
                     </div>
