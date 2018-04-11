@@ -8,7 +8,7 @@
     <title>CareerTree</title>
     <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/industry.css">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 

@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width initial-scale=1">
     <meta name="viewport" content="width=device-width initial-scale=1">
     <title>CareerTree</title>
-    <link rel="icon" href="./images/title.ico" />
+    <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/modern-business.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/customstyle.css" />
-    <link rel="stylesheet" href="./css/style5.css">
+    <link rel="stylesheet" href="./css/skill.css">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    
     <script>
         function validate_submit() {
             var result1 = false;
@@ -40,7 +41,20 @@
             return result;
         }
     </script>
+    <script>
+AOS.init({
+  duration: 1100,
+})
+</script>
+ <script>
+ function replicate(element) {
+    element = $(element).clone(); //copy
+    //element = $(element); //if move
+    element.appendTo($('#creation'));
+}
 
+
+</script>
 </head>
 
 <body>
@@ -49,74 +63,46 @@
 
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
-            <div class="container">
-                <a class="navbar-brand" href="/home.php">
-                    <img src="./images/logo.png" />
-                </a>
+		<div class="container">
+			<a class="navbar-brand" href="/home.php">
+				<img src="./images/logo.png" />
+			</a>
+			
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="collapse navbar-collapse navCollapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="nav-item active" href="#" style="margin-top: 7px;">Home</a>
+					</li>
+					<li>
+						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="collapse navbar-collapse navCollapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="nav-item active" href="/home.php">HOME</a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="/aboutus.php">ABOUT US</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-<form method="post" action="output.php" style="
-    padding-top: 80px;
-">
-<!--<div class="full">-->
-    <div class="container">
+<form method="post" action="output.php"    >
+<div class="full">
+  <!--  <div class="container">-->
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">
-            Specify your skills and knowledge
-        </h1>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="/">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="/industry.php">Industry</a>
-            </li>
-            <li class="breadcrumb-item active">Occupation</li>
-            <li class="breadcrumb-item active">Skills and Knowledge</li>
-        </ol>
-        <?php
+        <div class="mid-section">
+           
+				<h1><div class="title-line1" >Your Skills and Knowledge</div></h1>
+                
+			</div>
+            <div class="select-box">
+            <div class="select-box-backgnd">
+             <?php
  if ( isset($_POST['submit'] ) ) {
     $occp = $_POST['occ'];
-    //echo "You have selected :" .$occp;
-    //echo '<br>';
-    }
-
-    echo '<div class="container">';
-    echo '<h3>Select your skills: </h3>';
-    echo '<input type="hidden" name="occ" value="'.$occp.'">';
-    echo '</div>';
-
-    // /*DB connection*/
-    //    $dbhost = 'careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com';
-    //    $dbuser = 'careertreetest';
-    //    $dbpass = 'careerree2018';
-    //    $port = 5432;
-    //    $dbname ='ctdb_test';
-    //    $conn = "host=careertreetest.cytukzawpi8t.ap-southeast-2.rds.amazonaws.com port=5432 dbname=ctdb_test user=careertreetest password=careertree2018";
-    //    $dbconn4 = pg_connect($conn);
-    //    if(! $conn )
-    //    {
-    //        echo "error";
-    //    }
-    //    /*DB connection end*/
-    include 'db_connection.php';
+    
+        }
+         include 'db_connection.php';
     $dbconn4 = OpenCon();
     ////-------------------------------------------------
         $sql = "Select * from (
@@ -146,88 +132,26 @@
                  echo "An error occurred.\n";
                  exit;
              }
-             echo '<div class="midskill">';
-             while ($res = pg_fetch_row($resultSkill)) {
+              while ($res = pg_fetch_row($resultSkill)) {
                  $resultsk = $res[1];
-                 if($res[3] == 1){
-                  echo '<input type="checkbox" name="skill[]" value = "'. $resultsk .'" checked>'. $resultsk .'</br>';
-                 }else{
-                  echo '<input type="checkbox" name="skill[]" value = "'. $resultsk .'">'. $resultsk .'</br>';
-                 }
+             echo '<div  class="value" onclick="replicate(this);"><p>'.$resultsk.' </p></div>';
              }
-
- //-------------------------------------------------
-    //echo '<input type="submit" name="submit" value="SKILLS" />';
-    echo '</div>';
-
-//--------------------------------------------------
-    $sql = "Select * from (
-            Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked
-	            From knowledge_Occupation as a, knowledge as b, Occupation as c
-	            Where a.knwID = b.knwID and c.OccID = a.OccID
-	            And c.OccName = '$occp'
-	            Order by c.OccName, a.Rank desc
-	            Limit 10) as default_checked
-            union
-            select * from (
-            select allknowledge.knwid as ID,allknowledge.knwname as name, allknowledge.description as description, 0 as checked
-            from knowledge as allknowledge
-            where allknowledge.knwid not in (Select b.knwid
-	            From knowledge_Occupation as a, knowledge as b, Occupation as c
-	            Where a.knwID = b.knwID and c.OccID = a.OccID
-	            And c.OccName = '$occp'
-	            Order by c.OccName, a.Rank desc
-	            Limit 10)
-            order by allknowledge.knwid
-            ) as default_no_checked
-            order by checked desc, id";
-        $resultknw = pg_query($dbconn4, $sql);
-         if (!$resultknw) {
-                    echo "An error occurred.\n";
-                    exit;
-                }
-
-    echo '<div class="container">';
-    echo '<h3>Select your knowledge: </h3>';
-    echo '</div>';
-
-    echo '<div class="midskill">';
-                while ($res = pg_fetch_row($resultknw)) {
-                    $resultk = $res[1];
-                    if($res[3] == 1){
-                        echo '<input type="checkbox" name="knw[]" value = "'. $resultk .'" checked>'. $resultk .'</br>';
-                    }else {
-                        echo '<input type="checkbox" name="knw[]" value = "'. $resultk .'">'. $resultk .'</br>';
-                    }
-    }
-//-------------------------------------------------
-     echo '</div>';
-     echo '<br/>';
-     echo '<div class="cbut">';
-     echo '<input class="but2" type="submit" name="submit" value="EXPLORE MY OCCUPATIONS" onclick = "return validate_submit()"/>';
-     echo '</div>';
-     echo '<div>';
-     echo '<br/>';
-     echo '</div>';
-
-     pg_close($dbconn4); ?>
+             ?>
+            
+            
+</div>
+</div>
+      
+<div class="skill-box">
+            <div class="skill-box-backgnd">
+            <div  class="value" id="creation"><p></p></div>
+            
+            
+</div>
+</div>
     </div>
 
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <a href="/">
-                <img src="./images/logo3.png" class="logoFooter" />
-            </a>
-            <label class="motto"> Empowering the unemployed</label>
-        </div>
-        <div class="container">
-            <hr />
-            <a href="#" class="FooterTxt">Sitemap</a>
-            <a href="#" class="FooterTxt">Copyright &copy;2018</a>
-            <a href="#" class="FooterTxt">Contact Us</a>
-        </div>
-    </footer>
-
+   
 </form>
 
 </body>

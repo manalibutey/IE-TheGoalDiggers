@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width initial-scale=1">
     <meta name="viewport" content="width=device-width initial-scale=1">
     <title>CareerTree</title>
-    <link rel="icon" href="./images/2.ico" />
+    <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/home.css">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script type="text/javascript">
@@ -75,9 +75,9 @@
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
-			<img class="back-image" src="./images/background5.jpg" />
+			<img class="back-image" src="./images/background.jpg" />
              <div class="head" >
-<div class="title" ><h1><strong>Welcome To Your Future</strong></h1> </div>
+<div class="title-line" ><h1><strong>Welcome To Your Future</strong></h1> </div>
 <h5>The Sky is the Limit</h5>
 </div>
              <div class="subhead1" ><h4>Improve your employability. Change career like a pro.</h4>
@@ -140,14 +140,16 @@
         <section class="section2" id="section02"> 
 		<main role="main">
 			<div class="mid-section">
-				<h1 data-aos="fade-down">How Career Tree Works</h1>
+           
+				<h1 data-aos="fade-down"><div class="title-line1" >How Career Tree Works</div></h1>
+                
 			</div>
 
 			<div class="grid">
 				<div class="col-sm-2 i1">
 					
                     <div class="column">
-    <img src="./images/Picture11.png"  class="hover-shadow" data-aos="fade-right"/>
+    <img src="./images/Picture1.png"  class="hover-shadow" data-aos="fade-right"/>
     <div class="caption">
                         <p data-aos="fade-right">Choose your previous work</p>
                     </div>
@@ -159,7 +161,7 @@
 				<div class="col-sm-2 i2">
 					
            <div class="column">
-    <img src="./images/Picture22.png" class="hover-shadow" data-aos="fade-up"/>
+    <img src="./images/Picture2.png" class="hover-shadow" data-aos="fade-up"/>
      <div class="caption">
                         <p data-aos="fade-up">Select your skills and knowledge</p>
                     </div>
@@ -172,7 +174,7 @@
 					
 
                                <div class="column">
-    <img src="./images/Picture33.png"  class="hover-shadow" data-aos="fade-left"/>
+    <img src="./images/Picture3.png"  class="hover-shadow" data-aos="fade-left"/>
      <div class="caption" data-aos="fade-left">
                         <p >Explore suggested occupations</p>
                     </div>
