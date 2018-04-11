@@ -96,55 +96,55 @@
         echo '</ul>';
         echo '<hr>';
         //--------- Work Style --------------
-        echo '<h3>Work Style</h3>';
-        echo '<ul>';
-        $sql = "select a.wrkname as workstylename, substring (a.description,14) as description, rank
-                from workstyle a, workstyle_occupation b
-                where b.wrkid = a.wrkid
-                and b.occid = '$occID'
-                order by rank desc
-                limit 5";
-        $result = pg_query($dbconn4, $sql);
-        while ($workstyle = pg_fetch_row($result)) {
-            echo '<li>'.$workstyle[0].' ('.$workstyle[1].')</li>';
-        }
-        echo '</ul>';
-        echo '<hr>';
+        //echo '<h3>Work Style</h3>';
+        //echo '<ul>';
+        //$sql = "select a.wrkname as workstylename, substring (a.description,14) as description, rank
+        //        from workstyle a, workstyle_occupation b
+        //        where b.wrkid = a.wrkid
+        //        and b.occid = '$occID'
+        //        order by rank desc
+        //        limit 5";
+        //$result = pg_query($dbconn4, $sql);
+        //while ($workstyle = pg_fetch_row($result)) {
+        //    echo '<li>'.$workstyle[0].' ('.$workstyle[1].')</li>';
+        //}
+        //echo '</ul>';
+        //echo '<hr>';
         //--------- Education, Training, Experience --------------
-        echo '<h3>Education, Training, and Experience</h3>';
-        $sql = "select a.categoryname, b.description
-                from education_training_experience as a, education_training_experience_category as b
-                where a.categoryid = b.categoryid
-                and a.occid = '$occID'
-                and a.scaleid = 'RL'
-                order by rank desc
-                limit 1";
-        $result = pg_query($dbconn4, $sql);
-        $education = pg_fetch_row($result);
-        echo '<ul>';
-        echo '<li>'.$education[0].': '.$education[1].'</li>';
-        $sql = "select a.categoryname, b.description
-                from education_training_experience as a, education_training_experience_category as b
-                where a.categoryid = b.categoryid
-                and a.occid = '$occID'
-                and a.scaleid = 'OJ'
-                order by rank desc
-                limit 1";
-        $result = pg_query($dbconn4, $sql);
-        $training = pg_fetch_row($result);
-        echo '<li>'.$training[0].': '.$training[1].'</li>';
-        $sql = "select a.categoryname, b.description
-                from education_training_experience as a, education_training_experience_category as b
-                where a.categoryid = b.categoryid
-                and a.occid = '$occID'
-                and a.scaleid = 'RW'
-                order by rank desc
-                limit 1";
-        $result = pg_query($dbconn4, $sql);
-        $experience = pg_fetch_row($result);
-        echo '<li>'.$experience[0].': '.$experience[1].'</li>';
-        echo '</ul>';
-        echo '<hr>';
+        //echo '<h3>Education, Training, and Experience</h3>';
+        //$sql = "select a.categoryname, b.description
+        //        from education_training_experience as a, education_training_experience_category as b
+        //        where a.categoryid = b.categoryid
+        //        and a.occid = '$occID'
+        //        and a.scaleid = 'RL'
+        //        order by rank desc
+        //        limit 1";
+        //$result = pg_query($dbconn4, $sql);
+        //$education = pg_fetch_row($result);
+        //echo '<ul>';
+        //echo '<li>'.$education[0].': '.$education[1].'</li>';
+        //$sql = "select a.categoryname, b.description
+        //        from education_training_experience as a, education_training_experience_category as b
+        //        where a.categoryid = b.categoryid
+        //        and a.occid = '$occID'
+        //        and a.scaleid = 'OJ'
+        //        order by rank desc
+        //        limit 1";
+        //$result = pg_query($dbconn4, $sql);
+        //$training = pg_fetch_row($result);
+        //echo '<li>'.$training[0].': '.$training[1].'</li>';
+        //$sql = "select a.categoryname, b.description
+        //        from education_training_experience as a, education_training_experience_category as b
+        //        where a.categoryid = b.categoryid
+        //        and a.occid = '$occID'
+        //        and a.scaleid = 'RW'
+        //        order by rank desc
+        //        limit 1";
+        //$result = pg_query($dbconn4, $sql);
+        //$experience = pg_fetch_row($result);
+        //echo '<li>'.$experience[0].': '.$experience[1].'</li>';
+        //echo '</ul>';
+        //echo '<hr>';
         //--------- Common Skills and Knowledge --------------
         echo '<h3>Common Skills and Knowledge</h3>';
         echo '<ul>';
