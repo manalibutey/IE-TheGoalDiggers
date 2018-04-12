@@ -51,7 +51,7 @@
 
 		<div class="container">
 			<a class="navbar-brand" href="/home.php">
-				<img src="./images/logo.png" />
+				<img src="./images/logo2.png" />
 			</a>
 			
 			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
@@ -123,9 +123,9 @@
 </span>
 </button>
 </form>
-<div id="hover-content">
+<!-- <div id="hover-content">
         "Big things have small beginnings." ~ Prometheus
-    </div>
+    </div> -->
 
 </div>
                  

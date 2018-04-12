@@ -41,16 +41,13 @@
             return result;
         }
     </script>
-    <script>
-AOS.init({
-  duration: 1100,
-})
-</script>
+    
  <script>
  function replicate(element) {
-    element = $(element).clone(); //copy
-    //element = $(element); //if move
-    element.appendTo($('#creation'));
+   // element = $(element).clone(); //copy
+    element = $(element); //if move
+    //alert(element);
+    element.appendTo($('#skill-box-backgnd'));
 }
 
 
@@ -65,7 +62,7 @@ AOS.init({
 
 		<div class="container">
 			<a class="navbar-brand" href="/home.php">
-				<img src="./images/logo.png" />
+				<img src="./images/logo2.png" />
 			</a>
 			
 			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
@@ -91,21 +88,21 @@ AOS.init({
   <!--  <div class="container">-->
         <!-- Page Heading/Breadcrumbs -->
         <div class="mid-section">
-           
-				<h1><div class="title-line1" >Your Skills and Knowledge</div></h1>
-                
-			</div>
-            <div class="select-box">
+           <h1><div class="title-line1" >Your Skills and Knowledge</div></h1>
+        </div>
+
+
+        <div class="select-box">
             <div class="select-box-backgnd">
              <?php
- if ( isset($_POST['submit'] ) ) {
-    $occp = $_POST['occ'];
+            if ( isset($_POST['submit'] ) ) {
+            $occp = $_POST['occ'];
     
-        }
-         include 'db_connection.php';
-    $dbconn4 = OpenCon();
-    ////-------------------------------------------------
-        $sql = "Select * from (
+                }
+            include 'db_connection.php';
+            $dbconn4 = OpenCon();
+            ////-------------------------------------------------
+             $sql = "Select * from (
                 Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
 	                From skill_Occupation as a, skill as b, Occupation as c
 	                Where a.skID = b.skID and c.OccID = a.OccID
@@ -126,7 +123,7 @@ AOS.init({
                 ) as default_no_checked
                 order by checked desc, id";
 
-            $resultSkill = pg_query($dbconn4, $sql);
+             $resultSkill = pg_query($dbconn4, $sql);
 
              if (!$resultSkill) {
                  echo "An error occurred.\n";
@@ -134,23 +131,18 @@ AOS.init({
              }
               while ($res = pg_fetch_row($resultSkill)) {
                  $resultsk = $res[1];
-             echo '<div  class="value" onclick="replicate(this);"><p>'.$resultsk.' </p></div>';
+             echo '<div  class="value" onclick="replicate(this);" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
              }
              ?>
             
-            
-</div>
-</div>
+             </div>
+        </div>
       
-<div class="skill-box">
-            <div class="skill-box-backgnd">
-            <div  class="value" id="creation"><p></p></div>
-            
-            
-</div>
-</div>
+    <div class="skill-box">
+            <div class="skill-box-backgnd"  id="skill-box-backgnd"></div>
     </div>
-
+   
+</div> <!--full div closing-->
    
 </form>
 

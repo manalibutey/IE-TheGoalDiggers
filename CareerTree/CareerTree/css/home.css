@@ -266,7 +266,7 @@ input[type=text]:focus, textarea:focus {
 display: none;
 }
 
-.search:hover #hover-content {
+/*.search:hover #hover-content {
 display: block;
 position: absolute !important;
 top: 130% !important;
@@ -278,7 +278,7 @@ width: 100%;
 color: #111E6C;
     
 }
-
+*/
 
 ::placeholder {
 color: #111E6C;
