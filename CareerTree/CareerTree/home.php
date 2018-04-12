@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="./css/home.css">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+
+    <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
+    <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
+
     <script type="text/javascript">
         $(function () {
             $('a[href*=#]').on('click', function (e) {
@@ -18,15 +23,28 @@
                 $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 500, 'linear');
             });
         });
+        $(document).ready(function () {
+            $('.chosen-select').chosen();
+        });
     </script>
     <script>
+        //function validate_submit() {
+        //    var result = false;
+        //    var options = document.getElementById("mylist").options;
+        //    for (var i = 0; i < options.length; i++) {
+        //        if (document.getElementById('category').value == options[i].value) {
+        //            result = true;
+        //        }
+        //    }
+        //    if (!result) {
+        //        alert("Please select occupations from the list");
+        //    }
+        //    return result;
+        //}
         function validate_submit() {
             var result = false;
-            var options = document.getElementById("mylist").options;
-            for (var i = 0; i < options.length; i++) {
-                if (document.getElementById('category').value == options[i].value) {
+            if (document.getElementById('category').value) {
                     result = true;
-                }
             }
             if (!result) {
                 alert("Please select occupations from the list");
@@ -87,48 +105,57 @@
 <div class="search">
 <label for="category"></label>
 <form method="post" action="skill.php">
-       <input type="text" id="category" name="occ" autocomplete="off" list="mylist" placeholder="Enter your previous or current occupation">
-       <?php
-       include 'db_connection.php';
-       $dbconn4 = OpenCon();
-       $sql = "Select Occname 
-                From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
-                Where IndOcc.IndID = Ind.IndID and Occ.OccID = IndOcc.OccID
-                and Occ.occid in (select occid from Career_Changer_Matrix )
-                Order by Occ.OccName";
-       $result = pg_query($dbconn4, $sql);
+    <!--<input type="text" id="category" name="occ" autocomplete="off" list="mylist" placeholder="Enter your previous or current occupation">-->    
+    <?php
+    include 'db_connection.php';
+    //$dbconn4 = OpenCon();
+    //$sql = "Select Occname
+    //From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
+    //Where IndOcc.IndID = Ind.IndID and Occ.OccID = IndOcc.OccID
+    //and Occ.occid in (select occid from Career_Changer_Matrix )
+    //Order by Occ.OccName";
+    //$result = pg_query($dbconn4, $sql);
+    //if (!$result) {
+    //echo "An error occurred.\n";
+    //exit;
+    //}
+    //echo '<datalist id="mylist">';
+    //while ($res = pg_fetch_row($result)) {
+    //$result1 = $res[0];
+    //echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
+    //}
+    //echo '</datalist>';
+    //pg_close($dbconn4);
 
-       if (!$result) {
-           echo "An error occurred.\n";
-           exit;
-       }
-       echo '<datalist id="mylist">';
-       while ($res = pg_fetch_row($result)) {
-           $result1 = $res[0];
-
-           echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
-       }
-       echo '</datalist>';
-       pg_close($dbconn4);
-       ?>
-        <!--<datalist id="mylist"> 
-            <option vlaue="1">haha</option>
-            <option vlaue="1">haha</option>
-            <option vlaue="1">haha</option>
-        </datalist>-->
-
-<button type="submit" class="button button-rounded-small" name="submit" id="searchsubmit" onclick="return validate_submit()">
-<span>
-<svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
-</span>
-</button>
+    ///////////////////////////////////////////////////////////////////////////////////
+    $dbconn4 = OpenCon();
+    $sql = "Select Occname
+    From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
+    Where IndOcc.IndID = Ind.IndID and Occ.OccID = IndOcc.OccID
+    and Occ.occid in (select occid from Career_Changer_Matrix )
+    Order by Occ.OccName";
+    $result = pg_query($dbconn4, $sql);
+    echo '<select class="chosen-select" id="category" name="occ" style="height:auto;width:500px;">';
+    echo '<option disabled selected value> -- select an option -- </option>';
+        while ($res = pg_fetch_row($result)) {
+            $result1 = $res[0];
+            echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
+        }
+        echo '</select>';
+    pg_close($dbconn4);
+    ?>
+    <button type="submit" class="button button-rounded-small" name="submit" id="searchsubmit" onclick="return validate_submit()">
+        <span>
+            <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
+        </span>
+    </button>
 </form>
 <!-- <div id="hover-content">
         "Big things have small beginnings." ~ Prometheus
     </div> -->
 
 </div>
-                 
+ 
              <div id="section01" class="demo">
  
   <a href="#section02"><span></span><span></span><span></span>Scroll</a>
