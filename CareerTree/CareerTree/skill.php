@@ -160,7 +160,7 @@ AOS.init({
                 $sql = "Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
 	                From skill_Occupation as a, skill as b, Occupation as c
 	                Where a.skID = b.skID and c.OccID = a.OccID
-	                And c.OccName = 'Accountants'
+	                And c.OccName = '$occp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10";
                 $resultSkill = pg_query($dbconn4, $sql);
