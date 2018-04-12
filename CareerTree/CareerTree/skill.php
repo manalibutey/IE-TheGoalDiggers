@@ -97,23 +97,35 @@ AOS.init({
 			</div>
             <div class="select-box">
             <div class="select-box-backgnd">
-             <?php
+                <?php
  if ( isset($_POST['submit'] ) ) {
     $occp = $_POST['occ'];
-    
+
         }
          include 'db_connection.php';
     $dbconn4 = OpenCon();
     ////-------------------------------------------------
-        $sql = "Select * from (
-                Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
-	                From skill_Occupation as a, skill as b, Occupation as c
-	                Where a.skID = b.skID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
-	                Order by c.OccName, a.Rank desc
-	                Limit 10) as default_checked
-                union
-                select * from (
+        //$sql = "Select * from (
+        //        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
+        //            From skill_Occupation as a, skill as b, Occupation as c
+        //            Where a.skID = b.skID and c.OccID = a.OccID
+        //            And c.OccName = '$occp'
+        //            Order by c.OccName, a.Rank desc
+        //            Limit 10) as default_checked
+        //        union
+        //        select * from (
+        //        select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
+        //        from skill as allskill
+        //        where allskill.skid not in (Select b.skid
+        //            From skill_Occupation as a, skill as b, Occupation as c
+        //            Where a.skID = b.skID and c.OccID = a.OccID
+        //            And c.OccName = '$occp'
+        //            Order by c.OccName, a.Rank desc
+        //            Limit 10)
+        //        order by allskill.skid
+        //        ) as default_no_checked
+        //        order by checked desc, id";
+        $sql = "select * from (
                 select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
                 from skill as allskill
                 where allskill.skid not in (Select b.skid
@@ -123,9 +135,7 @@ AOS.init({
 	                Order by c.OccName, a.Rank desc
 	                Limit 10)
                 order by allskill.skid
-                ) as default_no_checked
-                order by checked desc, id";
-
+                ) as default_no_checked";
             $resultSkill = pg_query($dbconn4, $sql);
 
              if (!$resultSkill) {
@@ -136,7 +146,7 @@ AOS.init({
                  $resultsk = $res[1];
              echo '<div  class="value" onclick="replicate(this);"><p>'.$resultsk.' </p></div>';
              }
-             ?>
+                ?>
             
             
 </div>
@@ -144,7 +154,27 @@ AOS.init({
       
 <div class="skill-box">
             <div class="skill-box-backgnd">
-            <div  class="value" id="creation"><p></p></div>
+            <div  class="value" id="creation">
+                <!--<p></p>-->
+                <?php
+                $sql = "Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
+	                From skill_Occupation as a, skill as b, Occupation as c
+	                Where a.skID = b.skID and c.OccID = a.OccID
+	                And c.OccName = 'Accountants'
+	                Order by c.OccName, a.Rank desc
+	                Limit 10";
+                $resultSkill = pg_query($dbconn4, $sql);
+
+                if (!$resultSkill) {
+                    echo "An error occurred.\n";
+                    exit;
+                }
+                while ($res = pg_fetch_row($resultSkill)) {
+                    $resultsk = $res[1];
+                    echo '<div  class="value" onclick="replicate(this);"><p>'.$resultsk.' </p></div>';
+                }
+                ?>
+            </div>
             
             
 </div>
