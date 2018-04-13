@@ -3,9 +3,10 @@
     "",
     "\\CareerTree",
     "\\CareerTree\\CareerTree",
-    "\\CareerTree\\CareerTree\\css",
-    "\\CareerTree\\CareerTree\\js"
+    "\\CareerTree\\CareerTree\\js",
+    "\\CareerTree\\CareerTree\\vendor",
+    "\\CareerTree\\CareerTree\\vendor\\chosen_v1.8.5"
   ],
-  "SelectedNode": "\\CareerTree\\CareerTree\\skill.php",
+  "SelectedNode": "\\CareerTree\\CareerTree\\home.php",
   "PreviewInSolutionExplorer": false
 }

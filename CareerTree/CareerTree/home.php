@@ -136,7 +136,7 @@
     Order by Occ.OccName";
     $result = pg_query($dbconn4, $sql);
     echo '<select class="chosen-select" id="category" name="occ" style="height:auto;width:500px;">';
-    echo '<option disabled selected value> -- select an option -- </option>';
+    echo '<option disabled selected value>Please enter your previous occupation</option>';
         while ($res = pg_fetch_row($result)) {
             $result1 = $res[0];
             echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
@@ -242,17 +242,17 @@
 
     <div class="mySlides">
       <div class="numbertext">1 / 3</div>
-      <img src="./images/Picture11.png" style="width:100%">
+      <img src="./images/Picture1.png" style="width:100%">
     </div>
 
     <div class="mySlides">
       <div class="numbertext">2 / 3</div>
-      <img src="./images/Picture22.png" style="width:100%">
+      <img src="./images/Picture2.png" style="width:100%">
     </div>
 
     <div class="mySlides">
       <div class="numbertext">3 / 3</div>
-      <img src="./images/Picture33.png" style="width:100%">
+      <img src="./images/Picture3.png" style="width:100%">
     </div>
 
     
