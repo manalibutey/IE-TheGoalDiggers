@@ -89,8 +89,13 @@
            <h1><div class="title-line1" >Your Skills and Knowledge</div></h1>
         </div>
 
-
-        <div class="select-box">
+          <div class="boxes">
+          <div class="sub-heading"><h4>Let us know your skills</h4><h4>Choose your skills from the skill box</h4></div>
+        
+<div class="select-box">
+        
+<div class="select-box-heading"><h4>Skill Box</h4></div>
+      
             <div class="select-box-backgnd">
 
                 <?php
@@ -128,6 +133,8 @@
       
 
 <div class="skill-box">
+<div class="select-box-heading"><h4>Your Skill Box</h4></div>
+
             <div class="skill-box-backgnd" id="skill-box">
             
                 <!-- <p></p> -->
@@ -155,7 +162,30 @@
             
 </div>
 </div>
+</div>
 
+ <div class="boxes-2">
+          <div class="sub-heading"><h4>Let us know your knowledge</h4><h4>Choose your knowledge from the knowledge box</h4></div>
+        <div class="select-box">
+        <div class="select-box-heading"><h4>Knowledge Box</h4></div>
+      
+            <div class="select-box-backgnd">
+
+            
+             </div>
+        </div>
+      
+
+<div class="skill-box">
+<div class="select-box-heading"><h4>Your Knowledge Box</h4></div>
+
+            <div class="skill-box-backgnd" >
+
+            
+</div>
+</div>
+
+</div>
 </div>
    
 </form>
