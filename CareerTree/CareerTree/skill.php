@@ -52,9 +52,32 @@
 
 
 </script>
+ <script>
+ function cancel(element) {
+   // element = $(element).clone(); //copy
+    element = $(element); //if move
+    alert(element);
+    element.appendTo($('#select-box'));
+}
+
+
+</script>
 </head>
 
 <body>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-close" viewBox="0 0 24 24">
+<title>close</title>
+<path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
+</symbol>
+<symbol id="icon-cross" viewBox="0 0 16 16">
+<title>cross</title>
+<path d="M15.854 12.854c-0-0-0-0-0-0l-4.854-4.854 4.854-4.854c0-0 0-0 0-0 0.052-0.052 0.090-0.113 0.114-0.178 0.066-0.178 0.028-0.386-0.114-0.529l-2.293-2.293c-0.143-0.143-0.351-0.181-0.529-0.114-0.065 0.024-0.126 0.062-0.178 0.114 0 0-0 0-0 0l-4.854 4.854-4.854-4.854c-0-0-0-0-0-0-0.052-0.052-0.113-0.090-0.178-0.114-0.178-0.066-0.386-0.029-0.529 0.114l-2.293 2.293c-0.143 0.143-0.181 0.351-0.114 0.529 0.024 0.065 0.062 0.126 0.114 0.178 0 0 0 0 0 0l4.854 4.854-4.854 4.854c-0 0-0 0-0 0-0.052 0.052-0.090 0.113-0.114 0.178-0.066 0.178-0.029 0.386 0.114 0.529l2.293 2.293c0.143 0.143 0.351 0.181 0.529 0.114 0.065-0.024 0.126-0.062 0.178-0.114 0-0 0-0 0-0l4.854-4.854 4.854 4.854c0 0 0 0 0 0 0.052 0.052 0.113 0.090 0.178 0.114 0.178 0.066 0.386 0.029 0.529-0.114l2.293-2.293c0.143-0.143 0.181-0.351 0.114-0.529-0.024-0.065-0.062-0.126-0.114-0.178z"></path>
+</symbol>
+</defs>
+</svg>
 
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
@@ -88,15 +111,15 @@
         <div class="mid-section">
            <h1><div class="title-line1" >Your Skills and Knowledge</div></h1>
         </div>
-
+         <div class="sub-heading"><h4>Let us know your skills</h4><h4>Choose your skills from the skill box</h4></div>
           <div class="boxes">
-          <div class="sub-heading"><h4>Let us know your skills</h4><h4>Choose your skills from the skill box</h4></div>
+         
         
 <div class="select-box">
-        
+       
 <div class="select-box-heading"><h4>Skill Box</h4></div>
-      
-            <div class="select-box-backgnd">
+     
+            <div class="select-box-backgnd" id="select-box">
 
                 <?php
  if ( isset($_POST['submit'] ) ) {
@@ -134,7 +157,6 @@
 
 <div class="skill-box">
 <div class="select-box-heading"><h4>Your Skill Box</h4></div>
-
             <div class="skill-box-backgnd" id="skill-box">
             
                 <!-- <p></p> -->
@@ -153,15 +175,17 @@
                 }
                 while ($res = pg_fetch_row($resultSkill)) {
                     $resultsk = $res[1];
-                    echo '<div  class="value"><p>'.$resultsk.' </p></div>';
+                    echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
                 }
                 ?>
                 
  
             
             
+
 </div>
 </div>
+
 </div>
 
  <div class="boxes-2">
