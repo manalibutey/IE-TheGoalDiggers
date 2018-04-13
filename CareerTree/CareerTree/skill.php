@@ -56,8 +56,6 @@
 
 <body>
 
-    
-
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
@@ -94,25 +92,7 @@
 
         <div class="select-box">
             <div class="select-box-backgnd">
-<<<<<<< HEAD
-             <?php
-            if ( isset($_POST['submit'] ) ) {
-            $occp = $_POST['occ'];
-    
-                }
-            include 'db_connection.php';
-            $dbconn4 = OpenCon();
-            ////-------------------------------------------------
-             $sql = "Select * from (
-                Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
-	                From skill_Occupation as a, skill as b, Occupation as c
-	                Where a.skID = b.skID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
-	                Order by c.OccName, a.Rank desc
-	                Limit 10) as default_checked
-                union
-                select * from (
-=======
+
                 <?php
  if ( isset($_POST['submit'] ) ) {
     $occp = $_POST['occ'];
@@ -120,29 +100,7 @@
         }
          include 'db_connection.php';
     $dbconn4 = OpenCon();
-    ////-------------------------------------------------
-        //$sql = "Select * from (
-        //        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
-        //            From skill_Occupation as a, skill as b, Occupation as c
-        //            Where a.skID = b.skID and c.OccID = a.OccID
-        //            And c.OccName = '$occp'
-        //            Order by c.OccName, a.Rank desc
-        //            Limit 10) as default_checked
-        //        union
-        //        select * from (
-        //        select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
-        //        from skill as allskill
-        //        where allskill.skid not in (Select b.skid
-        //            From skill_Occupation as a, skill as b, Occupation as c
-        //            Where a.skID = b.skID and c.OccID = a.OccID
-        //            And c.OccName = '$occp'
-        //            Order by c.OccName, a.Rank desc
-        //            Limit 10)
-        //        order by allskill.skid
-        //        ) as default_no_checked
-        //        order by checked desc, id";
         $sql = "select * from (
->>>>>>> New_Design-with-Chosen
                 select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
                 from skill as allskill
                 where allskill.skid not in (Select b.skid
@@ -152,16 +110,9 @@
 	                Order by c.OccName, a.Rank desc
 	                Limit 10)
                 order by allskill.skid
-<<<<<<< HEAD
                 ) as default_no_checked
                 order by checked desc, id";
-
              $resultSkill = pg_query($dbconn4, $sql);
-=======
-                ) as default_no_checked";
-            $resultSkill = pg_query($dbconn4, $sql);
->>>>>>> New_Design-with-Chosen
-
              if (!$resultSkill) {
                  echo "An error occurred.\n";
                  exit;
@@ -175,10 +126,7 @@
              </div>
         </div>
       
-<<<<<<< HEAD
-    <div class="skill-box">
-            <div class="skill-box-backgnd"  id="skill-box-backgnd"></div>
-=======
+
 <div class="skill-box">
             <div class="skill-box-backgnd">
             <div  class="value" id="creation">
@@ -201,15 +149,12 @@
                     echo '<div  class="value" onclick="replicate(this);"><p>'.$resultsk.' </p></div>';
                 }
                 ?>
-            </div>
+ </div>
             
             
 </div>
 </div>
->>>>>>> New_Design-with-Chosen
-    </div>
-   
-</div> <!--full div closing-->
+
    
 </form>
 
