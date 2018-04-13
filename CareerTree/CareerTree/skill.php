@@ -47,7 +47,7 @@
    // element = $(element).clone(); //copy
     element = $(element); //if move
     //alert(element);
-    element.appendTo($('#skill-box-backgnd'));
+    element.appendTo($('#skill-box'));
 }
 
 
@@ -128,9 +128,9 @@
       
 
 <div class="skill-box">
-            <div class="skill-box-backgnd">
-            <div  class="value" id="creation">
-                <!--<p></p>-->
+            <div class="skill-box-backgnd" id="skill-box">
+            
+                <!-- <p></p> -->
                 <?php
                 $sql = "Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
 	                From skill_Occupation as a, skill as b, Occupation as c
@@ -146,15 +146,17 @@
                 }
                 while ($res = pg_fetch_row($resultSkill)) {
                     $resultsk = $res[1];
-                    echo '<div  class="value" onclick="replicate(this);"><p>'.$resultsk.' </p></div>';
+                    echo '<div  class="value"><p>'.$resultsk.' </p></div>';
                 }
                 ?>
- </div>
+                
+ 
             
             
 </div>
 </div>
 
+</div>
    
 </form>
 
