@@ -40,6 +40,30 @@
             }
             return result;
         }
+        function validate_submit2() {
+            ////////////////Skill/////////////////////////////
+            var element = $("#skill-box").find(".value");
+            var i;
+            var skillValue = '';
+            for (i = 0; i < element.length; i++) { 
+                skillValue += "'" + element[i].innerText.trim() + "'," ;
+                
+            }
+            skillValue = skillValue.replace(/,+$/, '');
+            alert(skillValue);
+            $("#skill").val(skillValue);
+            ////////////////Knowledge/////////////////////////////
+            element = $("#knowledge-box").find(".value");
+            var knowledgeValue = '';
+            for (i = 0; i < element.length; i++) {
+                knowledgeValue += "'" + element[i].innerText.trim() + "'," ;
+
+            }
+            knowledgeValue = knowledgeValue.replace(/,+$/, '');
+            alert(knowledgeValue);
+            $("#knowledge").val(knowledgeValue);
+            return false;
+        }
     </script>
     
  <script>
@@ -133,7 +157,7 @@ function replicateKnw(element) {
                 <?php
  if ( isset($_POST['submit'] ) ) {
     $occp = $_POST['occ'];
-
+    echo '<input type="hidden" name="occ" value="'.$occp.'">';
         }
          include 'db_connection.php';
     $dbconn4 = OpenCon();
@@ -187,6 +211,7 @@ function replicateKnw(element) {
                     $resultsk = $res[1];
                     //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
                     echo '<div  class="value" onclick="cancel(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
+                    
                 }
                 ?>
                 
@@ -256,6 +281,9 @@ function replicateKnw(element) {
 </div>
 
 </div>
+    <input class="but2" type="submit" name="submit" value="EXPLORE MY OCCUPATIONS" onclick="return validate_submit2()" />
+    <input type="hidden" name="skill" id="skill" />
+    <input type="hidden" name="knw" id="knw" />
 </div>
    
 </form>
