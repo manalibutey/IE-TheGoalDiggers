@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\CareerTree",
-    "\\CareerTree\\CareerTree"
+    "\\CareerTree\\CareerTree",
+    "\\CareerTree\\CareerTree\\css"
   ],
+  "SelectedNode": "\\CareerTree\\CareerTree\\home.php",
   "PreviewInSolutionExplorer": false
 }

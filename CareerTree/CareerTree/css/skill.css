@@ -148,6 +148,10 @@ padding-right: 200px;
     display: flex;
 }
 
+.boxes-2 {
+    display: flex;
+    padding-bottom: 60px;
+}
 /*.box-flex{
     flex: 1;
 }
@@ -167,6 +171,8 @@ padding-right: 200px;
     padding-right: 10px;
     flex:1;
 }
+
+
 
 .select-box .value {
     position: relative;
@@ -227,6 +233,8 @@ cursor: pointer;
     flex: 1;
 }
 
+
+
 .select-box-heading{
     text-align:center;
 }
@@ -280,7 +288,101 @@ cursor: pointer;
     display: inline-block;
 }
 
-#creation.value p:hover {
-   
+.sub-heading2 {
+    padding-top: 20px;
+    text-align: center;
+    color: #A22631;
+    width:100%;
 }
 
+
+.knw-select-box {
+    position: relative;
+    width: 49.50%;
+    height: 100%;
+    display: inline-block;
+    padding-top: 10px;
+    padding-right: 10px;
+    flex: 1;
+}
+
+.knw-select-box .value {
+    position: relative;
+    width: fit-content;
+    height: 100%;
+    margin: 5px 5px;
+    background-color: #111E6C;
+    color: white;
+    border-radius: 20px;
+    display: inline-block;
+    /* font-weight: bold; */
+    font-size: 15px;
+}
+
+.knw-box {
+    position: relative;
+    width: 49.50%;
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    display: inline-block;
+    flex: 1;
+}
+
+.knw-box .value {
+    position: relative;
+    width: fit-content;
+    height: 100%;
+    margin: 5px 5px;
+    background-color: #00b300;
+    color: white;
+    border-radius: 20px;
+    display: inline-block;
+    /* font-weight: bold; */
+    font-size: 15px;
+}
+
+.but2 {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.btn {
+    position: relative;
+    /* text-align: center;*/
+    border: none;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 0px;
+    width: fit-content;
+    background-color: #111E6C;
+    display: block;
+    /*margin-top: 40px;*/
+    margin-bottom: 40px;
+    z-index: 10;
+    visibility: visible;
+    border-radius: 20px;
+    transform: translate(-50%, -50%) !important;
+    top: 50%;
+    left: 50%;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+}
+
+    .btn:hover {
+        box-shadow: 0 0 10px #111E6C;
+        padding: 3px 0px 3px 3px;
+        margin: 5px 1px 3px 0px;
+        border: 1px solid #111E6C;
+        color: white;
+    }

@@ -70,38 +70,52 @@
  function replicate(element) {
      $(element).attr("onclick","cancel(this)");
     element = $(element); //if move
-    element.appendTo($('#skill-box'));
+     var skill = $(element).find('p').text();
+     var s = "<div  class=\"value\" onclick=\"cancel(this);\" id=\"+skill+\" value=\"+skill+\" ><p>"+skill+"<span class=\"cross\"> <svg class=\"icon icon-close\"><use xlink:href=\"#icon-close\"></use></svg></span> </p></div>";
+ //alert(v);    
+ $('#skill-box').append(s);
+//element.appendTo($('#skill-box'));
+element.remove();
 }
  function cancel(element) {
      
      $(element).attr("onclick","replicate(this)");
+     
      element = $(element); //if move 
-     //var time = $(element).find('p').text();
+     var skill = $(element).find('p').text();
+     var s = "<div  class=\"value\" onclick=\"replicate(this);\" id=\"+skill+\" value=\"+skill+\"><p>"+skill+"</p></div>";
      //var time = $(element).find("span").contents().unwrap();
-    ele = this.$("span").remove(); 
-     alert(element);
-      alert(ele);
+    //ele = this.$("span").remove(); 
+    //delete element.cross;
+     //alert(v);
+      //alert(ele);
      //alert(Object.values(element));
-     element.appendTo($('#select-box'));
+     $('#select-box').append(s);
+    element.remove();
 
      }
 
 function replicateKnw(element) {
     $(element).attr("onclick","cancelKnw(this)");
     element = $(element); //if move
-    element.appendTo($('#knowledge-box'));
+     var knw = $(element).find('p').text();
+     var k = "<div  class=\"value\" onclick=\"cancelKnw(this);\" id=\"+knw+\" value=\"+knw+\" ><p>"+knw+"<span class=\"cross\"> <svg class=\"icon icon-close\"><use xlink:href=\"#icon-close\"></use></svg></span> </p></div>";
+ //alert(v);    
+ $('#knowledge-box').append(k);
+//element.appendTo($('#skill-box'));
+element.remove();
+   // element.appendTo($('#knowledge-box'));
 }
-//$(document).ready(function() {
-  //$('.value span').click(function(e) { 
-//var a = $('#skill-reverse p').html() 
- //    alert(a);
-  // });
-//});
+
  function cancelKnw(element) {
 
      $(element).attr("onclick","replicateKnw(this)");
      element = $(element); //if move
-     element.appendTo($('#knw-select-box'));
+     var knw = $(element).find('p').text();
+     var k = "<div  class=\"value\" onclick=\"replicateKnw(this);\" id=\"+knw+\" value=\"+knw+\"><p>"+knw+"</p></div>";
+     $('#knw-select-box').append(k);
+     element.remove();
+    
 
 }
 </script>
@@ -227,7 +241,7 @@ function replicateKnw(element) {
                     $resultsk = $res[1];
 
                     //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
-                    echo '<div  class="value" onclick="cancel(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.'<span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span> </p></div>';
+                    echo '<div  class="value" onclick="cancel(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.'<span class="cross"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span> </p></div>';
                     
                 }
                 ?>
@@ -237,9 +251,10 @@ function replicateKnw(element) {
 
 </div>
 
+ <div class="sub-heading2"><h4>Let us know your knowledge</h4><h4>Choose your knowledge from the knowledge box</h4></div>
  <div class="boxes-2">
-          <div class="sub-heading"><h4>Let us know your knowledge</h4><h4>Choose your knowledge from the knowledge box</h4></div>
-        <div class="select-box">
+         
+        <div class="knw-select-box">
         <div class="select-box-heading"><h4>Knowledge Box</h4></div>
       
             <div class="select-box-backgnd" id="knw-select-box">
@@ -271,7 +286,7 @@ function replicateKnw(element) {
         </div>
       
 
-<div class="skill-box">
+<div class="knw-box">
 <div class="select-box-heading"><h4>Your Knowledge Box</h4></div>
 
             <div class="skill-box-backgnd" id="knowledge-box">
@@ -291,16 +306,18 @@ function replicateKnw(element) {
                 while ($res = pg_fetch_row($resultKnowledge)) {
                     $resultknw = $res[1];
                     //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
-                    echo '<div  class="value" onclick="cancelKnw(this);" id="'.$resultknw.'" value="'.$resultknw.'"><p>'.$resultknw.' </p></div>';
+                    echo '<div  class="value" onclick="cancelKnw(this);" id="'.$resultknw.'" value="'.$resultknw.'"><p>'.$resultknw.'  <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span></p></div>';
                 }
                 ?>
             </div>
 </div>
 
 </div>
-    <input class="but2" type="submit" name="submit" value="EXPLORE MY OCCUPATIONS" onclick="return validate_submit2()" />
+<div class="btn">
+    <input class="but2" type="submit" name="submit" value="Explore My Occupations" onclick="return validate_submit2()" />
     <input type="hidden" name="skill" id="skill" />
     <input type="hidden" name="knw" id="knw" />
+    </div>
 </div>
    
 </form>
