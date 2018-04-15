@@ -45,7 +45,7 @@
  <script>
  function replicate(element) {
    // element = $(element).clone(); //copy
-    element = $(element); //if move
+   element = $(element); //if move
     //alert(element);
     element.appendTo($('#skill-box'));
 }
@@ -53,15 +53,23 @@
 
 </script>
  <script>
- function cancel(element) {
-   // element = $(element).clone(); //copy
-    element = $(element); //if move
-    alert(element);
-    element.appendTo($('#select-box'));
+
+ function cancel(element){
+ var a = $('#skill-reverse p').text() 
+   alert(a);
 }
+//$(document).ready(function() {
+  //$('.value span').click(function(e) { 
+//var a = $('#skill-reverse p').html() 
+ //    alert(a);
+  // });
+//});
+
+
 
 
 </script>
+
 </head>
 
 <body>
@@ -147,11 +155,14 @@
              }
               while ($res = pg_fetch_row($resultSkill)) {
                  $resultsk = $res[1];
-             echo '<div  class="value" onclick="replicate(this);" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
+             echo '<div  class="value" onclick="replicate(this)" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
              }
                 ?>
             
-             </div>
+                <div class="reverse-box-backgnd" id="reverse-box" ></div>
+
+             </div> 
+             
         </div>
       
 
@@ -175,7 +186,7 @@
                 }
                 while ($res = pg_fetch_row($resultSkill)) {
                     $resultsk = $res[1];
-                    echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
+                    echo '<div  class="value" id="skill-reverse"><p>'.$resultsk.' <span onclick="cancel(this)"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div>';
                 }
                 ?>
                 

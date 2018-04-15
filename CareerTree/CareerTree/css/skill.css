@@ -272,8 +272,15 @@ cursor: pointer;
 #skill-box-backgnd.value p {
     margin: 0 0;
     padding: 0px 10px;
+    display:inline-block;
+}
+
+#skill-box-backgnd.value span {
+    
+    display: inline-block;
 }
 
 #creation.value p:hover {
    
 }
+
