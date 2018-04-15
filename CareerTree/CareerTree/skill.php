@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -68,26 +68,10 @@
     
  <script>
  function replicate(element) {
-<<<<<<< HEAD
-   // element = $(element).clone(); //copy
-   element = $(element); //if move
-    //alert(element);
-    element.appendTo($('#skill-box'));
-}
-
-
-</script>
- <script>
-
- function cancel(element){
- var a = $('#skill-reverse p').text() 
-   alert(a);
-=======
      $(element).attr("onclick","cancel(this)");
     element = $(element); //if move
     element.appendTo($('#skill-box'));
 }
-
  function cancel(element) {
      
      $(element).attr("onclick","replicate(this)");
@@ -100,7 +84,6 @@ function replicateKnw(element) {
     $(element).attr("onclick","cancelKnw(this)");
     element = $(element); //if move
     element.appendTo($('#knowledge-box'));
->>>>>>> New_Design-Fix-Skill-Page
 }
 //$(document).ready(function() {
   //$('.value span').click(function(e) { 
@@ -108,9 +91,6 @@ function replicateKnw(element) {
  //    alert(a);
   // });
 //});
-
-
-
  function cancelKnw(element) {
 
      $(element).attr("onclick","replicateKnw(this)");
@@ -205,16 +185,14 @@ function replicateKnw(element) {
              }
               while ($res = pg_fetch_row($resultSkill)) {
                  $resultsk = $res[1];
-<<<<<<< HEAD
-             echo '<div  class="value" onclick="replicate(this)" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
-=======
+
              //echo '<div  class="value" onclick="replicate(this);" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
                  echo '<div  class="value" onclick="replicate(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
->>>>>>> New_Design-Fix-Skill-Page
+
              }
                 ?>
             
-                <div class="reverse-box-backgnd" id="reverse-box" ></div>
+                <!--<div class="reverse-box-backgnd" id="reverse-box" ></div>-->
 
              </div> 
              
@@ -241,13 +219,10 @@ function replicateKnw(element) {
                 }
                 while ($res = pg_fetch_row($resultSkill)) {
                     $resultsk = $res[1];
-<<<<<<< HEAD
-                    echo '<div  class="value" id="skill-reverse"><p>'.$resultsk.' <span onclick="cancel(this)"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div>';
-=======
+
                     //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
                     echo '<div  class="value" onclick="cancel(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
                     
->>>>>>> New_Design-Fix-Skill-Page
                 }
                 ?>
                 
