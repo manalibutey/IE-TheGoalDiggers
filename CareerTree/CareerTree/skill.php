@@ -44,23 +44,32 @@
     
  <script>
  function replicate(element) {
-   // element = $(element).clone(); //copy
+     $(element).attr("onclick","cancel(this)");
     element = $(element); //if move
-    //alert(element);
     element.appendTo($('#skill-box'));
 }
 
-
-</script>
- <script>
  function cancel(element) {
-   // element = $(element).clone(); //copy
+     
+     $(element).attr("onclick","replicate(this)");
+     element = $(element); //if move 
+     element.appendTo($('#select-box'));
+
+     }
+
+function replicateKnw(element) {
+    $(element).attr("onclick","cancelKnw(this)");
     element = $(element); //if move
-    alert(element);
-    element.appendTo($('#select-box'));
+    element.appendTo($('#knowledge-box'));
 }
 
+ function cancelKnw(element) {
 
+     $(element).attr("onclick","replicateKnw(this)");
+     element = $(element); //if move
+     element.appendTo($('#knw-select-box'));
+
+}
 </script>
 </head>
 
@@ -147,7 +156,8 @@
              }
               while ($res = pg_fetch_row($resultSkill)) {
                  $resultsk = $res[1];
-             echo '<div  class="value" onclick="replicate(this);" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
+             //echo '<div  class="value" onclick="replicate(this);" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
+                 echo '<div  class="value" onclick="replicate(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
              }
                 ?>
             
@@ -175,15 +185,12 @@
                 }
                 while ($res = pg_fetch_row($resultSkill)) {
                     $resultsk = $res[1];
-                    echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
+                    //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
+                    echo '<div  class="value" onclick="cancel(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
                 }
                 ?>
                 
- 
-            
-            
-
-</div>
+            </div>
 </div>
 
 </div>
@@ -193,20 +200,59 @@
         <div class="select-box">
         <div class="select-box-heading"><h4>Knowledge Box</h4></div>
       
-            <div class="select-box-backgnd">
-
-            
-             </div>
+            <div class="select-box-backgnd" id="knw-select-box">
+                <?php
+                $sql = "select * from (
+                select allknowledge.knwid as ID,allknowledge.knwname as name, allknowledge.description as description, 0 as checked
+                from knowledge as allknowledge
+                where allknowledge.knwid not in (Select b.knwid
+	                From knowledge_Occupation as a, knowledge as b, Occupation as c
+	                Where a.knwID = b.knwID and c.OccID = a.OccID
+	                And c.OccName = '$occp'
+	                Order by c.OccName, a.Rank desc
+	                Limit 10)
+                order by allknowledge.knwid
+                ) as default_no_checked
+                order by checked desc, id";
+                $resultKnowledge = pg_query($dbconn4, $sql);
+                if (!$resultKnowledge) {
+                    echo "An error occurred.\n";
+                    exit;
+                }
+                while ($res = pg_fetch_row($resultKnowledge)) {
+                    $resultknw = $res[1];
+                    //echo '<div  class="value" onclick="replicate(this);" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
+                    echo '<div  class="value" onclick="replicateKnw(this);" id="'.$resultknw.'" value="'.$resultknw.'"><p>'.$resultknw.' </p></div>';
+                }
+                ?>
+            </div>
         </div>
       
 
 <div class="skill-box">
 <div class="select-box-heading"><h4>Your Knowledge Box</h4></div>
 
-            <div class="skill-box-backgnd" >
+            <div class="skill-box-backgnd" id="knowledge-box">
+                <?php
+                $sql = "Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked
+	                From knowledge_Occupation as a, knowledge as b, Occupation as c
+	                Where a.knwID = b.knwID and c.OccID = a.OccID
+	                And c.OccName = '$occp'
+	                Order by c.OccName, a.Rank desc
+	                Limit 10";
+                $resultKnowledge = pg_query($dbconn4, $sql);
 
-            
-</div>
+                if (!$resultKnowledge) {
+                    echo "An error occurred.\n";
+                    exit;
+                }
+                while ($res = pg_fetch_row($resultKnowledge)) {
+                    $resultknw = $res[1];
+                    //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
+                    echo '<div  class="value" onclick="cancelKnw(this);" id="'.$resultknw.'" value="'.$resultknw.'"><p>'.$resultknw.' </p></div>';
+                }
+                ?>
+            </div>
 </div>
 
 </div>
