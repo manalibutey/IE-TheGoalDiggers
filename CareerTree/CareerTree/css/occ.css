@@ -1,0 +1,138 @@
+﻿.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar-dark {
+    color: rgba(255,255,255,.5);
+    border-color: rgba(255,255,255,.1);
+}
+
+
+body {
+    color: #5a5a5a;
+    font-family: 'PT Sans', sans-serif !important;
+    height: 100%;
+    background-color: #E7E7E7;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+.navbar-dark .navbar-brand {
+    color: #fff;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.container .navbar-brand img {
+    height: 50px;
+}
+
+.nav > li > a:hover {
+    color: #E82830;
+    background-color: transparent !important;
+}
+
+.nav > li > a:active {
+    color: #E82830;
+}
+
+.full {
+    margin-top: 120px;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+.selection {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 10px;
+}
+.mid{
+    position: relative;
+}
+
+.headme {
+    width:100%;
+    height: auto;
+    position: relative;
+}
+  .headme h1 {
+        padding-left: 20px;
+        font-weight:bold;
+    }
+
+.headme h2 {
+    padding-left: 20px;
+}
+
+.cbut {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-left: 900px;
+}
+
+footer {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: gray;
+    
+}
+
+.pull-right {
+    position: relative;
+    font-size: 14px;
+}
+
+input {
+    padding: 5px 5px;
+    width: 80%;
+    height: auto;
+    font-size:20px;
+}
+
+
+
+.mid label {
+    padding: 20px 20px;
+    font-size: 22px;
+    
+}
+
+input.but {
+    width: 15%;
+    height: auto;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+.suggestion{
+    color: chartreuse;
+}

@@ -8,7 +8,7 @@
 	<title>CareerTree</title>
 	<link rel="icon" href="./images/title.ico" />
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
-	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/home.css">
 
 </head>
 

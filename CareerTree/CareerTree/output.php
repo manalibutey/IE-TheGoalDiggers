@@ -8,11 +8,16 @@
     <title>CareerTree</title>
     <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="./css/style4.css">
     <link href="css/modern-business.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/customstyle.css" />
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script>
+=======
+    <link rel="stylesheet" href="./css/output.css">
+     
+>>>>>>> New_Design
 
 </head>
 

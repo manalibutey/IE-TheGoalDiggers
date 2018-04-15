@@ -8,6 +8,7 @@
     <title>CareerTree</title>
     <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="./css/style3.css">
     <link rel="stylesheet" href="./css/awesomplete.css" />
     <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script>
@@ -22,13 +23,47 @@
                 if (document.getElementById('pcategory').value == options[i].value) {
                     result = true;
                 }
+=======
+    <link rel="stylesheet" href="./css/occ.css">
+     <link rel="stylesheet" href="./css/awesomplete.css" />
+     <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script> <link href="css/modern-business.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/customstyle.css" />
+    <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
+    <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
+     <script>
+         //function validate_submit() {
+         //    var result = false;
+         //    var options = document.getElementById("mylist").options;
+         //    for (var i = 0; i < options.length; i++) {
+         //        if (document.getElementById('pcategory').value == options[i].value) {
+         //            result = true;  
+         //        }
+         //    }
+         //    if (!result) {
+         //        alert("Please select occupations from the list");
+         //    }
+         //    return result;
+         //}
+        $(document).ready(function () {
+            $('.chosen-select').chosen();
+         });
+
+         function validate_submit() {
+            var result = false;
+            if (document.getElementById('category').value) {
+                    result = true;
+>>>>>>> New_Design
             }
             if (!result) {
                 alert("Please select occupations from the list");
             }
             return result;
         }
+<<<<<<< HEAD
     </script>
+=======
+     </script>
+>>>>>>> New_Design
 </head>
 
 <body>
@@ -187,16 +222,23 @@
         echo '<form method="post" action="skill.php" >';
         echo '<div class="mid">';
         echo '<label for="pcategory">Occupation: </label>' ;
-        echo '<input type="text" id="pcategory" name="occ"autocomplete="off" list="mylist">';
-        echo '</div>';
+        //echo '<input type="text" id="pcategory" name="occ"autocomplete="off" list="mylist">';
+        //echo '</div>';
 
-        echo '<datalist id="mylist">';
+        //echo '<datalist id="mylist">';
+        //while ($res = pg_fetch_row($result)) {
+        //    $result1 = $res[0];
+
+        //    echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
+        //}
+        //echo '</datalist>';
+        echo '<select class="chosen-select" id="category" name="occ" style="height:auto;width:500px;">';
+        echo '<option disabled selected value> -- select an option -- </option>';
         while ($res = pg_fetch_row($result)) {
             $result1 = $res[0];
-
             echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
         }
-        echo '</datalist>';
+        echo '</select>';
 
         echo '<div class="cbut">';
         echo '<input class="but" type="submit" name="submit" id = "submit" value="GO" onclick="return validate_submit()"/>';
