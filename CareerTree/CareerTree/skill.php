@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -14,33 +14,8 @@
     <script src="./js/jquery.min.js"></script>
     
     <script>
-        function validate_submit() {
-            var result1 = false;
-            var result2 = false;
-            var result = false;
-            var checkboxs1 = document.getElementsByName('skill[]');
-            var checkboxs2 = document.getElementsByName('knw[]');
-            for (var i = 0, l = checkboxs1.length; i < l; i++) {
-                if (checkboxs1[i].checked) {
-                    result1 = true;
-                    break;
-                }
-            }
-            for (var i = 0, l = checkboxs2.length; i < l; i++) {
-                if (checkboxs2[i].checked) {
-                    result2 = true;
-                    break;
-                }
-            }
-            if (result1 && result2) {
-                result = true;
-            }
-            else {
-                alert("Please specify at least one skill and knowledge");
-            }
-            return result;
-        }
         function validate_submit2() {
+            var result = false;
             ////////////////Skill/////////////////////////////
             var element = $("#skill-box").find(".value");
             var i;
@@ -50,7 +25,7 @@
                 
             }
             skillValue = skillValue.replace(/,+$/, '');
-            alert(skillValue);
+            //alert(skillValue);
             $("#skill").val(skillValue);
             ////////////////Knowledge/////////////////////////////
             element = $("#knowledge-box").find(".value");
@@ -60,9 +35,17 @@
 
             }
             knowledgeValue = knowledgeValue.replace(/,+$/, '');
-            alert(knowledgeValue);
-            $("#knowledge").val(knowledgeValue);
-            return false;
+            //alert(knowledgeValue);
+            $("#knw").val(knowledgeValue);
+
+            if (knowledgeValue && skillValue) {
+              result = true;
+            }
+            else {
+              alert("Please specify at least one skill and knowledge");
+              result = false;
+            }
+            return result;
         }
     </script>
     

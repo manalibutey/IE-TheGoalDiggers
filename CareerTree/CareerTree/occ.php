@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,22 +8,7 @@
     <title>CareerTree</title>
     <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="./css/style3.css">
-    <link rel="stylesheet" href="./css/awesomplete.css" />
-    <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script>
-    <link href="css/modern-business.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/customstyle.css" />
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <script>
-        function validate_submit() {
-            var result = false;
-            var options = document.getElementById("mylist").options;
-            for (var i = 0; i < options.length; i++) {
-                if (document.getElementById('pcategory').value == options[i].value) {
-                    result = true;
-                }
-=======
+
     <link rel="stylesheet" href="./css/occ.css">
      <link rel="stylesheet" href="./css/awesomplete.css" />
      <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script> <link href="css/modern-business.css" rel="stylesheet" />
@@ -52,23 +37,17 @@
             var result = false;
             if (document.getElementById('category').value) {
                     result = true;
->>>>>>> New_Design
             }
             if (!result) {
                 alert("Please select occupations from the list");
             }
             return result;
         }
-<<<<<<< HEAD
-    </script>
-=======
      </script>
->>>>>>> New_Design
+
 </head>
 
 <body>
-
-    
 
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 

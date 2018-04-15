@@ -8,16 +8,13 @@
     <title>CareerTree</title>
     <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="./css/style4.css">
     <link href="css/modern-business.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/customstyle.css" />
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script>
-=======
+
     <link rel="stylesheet" href="./css/output.css">
-     
->>>>>>> New_Design
 
 </head>
 
@@ -86,20 +83,22 @@
     $skills = "";
     $knw = "";
     if(!empty($_POST['skill'])){
-// Loop to store and display values of individual checked checkbox.
-foreach($_POST['skill'] as $selected){
-$skills .=  '\''.$selected.'\''.',';
-    }
-    $skills = rtrim($skills,",");
-    //echo $skills."</br>";
+    //// Loop to store and display values of individual checked checkbox.
+    //foreach($_POST['skill'] as $selected){
+    //$skills .=  '\''.$selected.'\''.',';
+    //    }
+    //    $skills = rtrim($skills,",");
+    //    //echo $skills."</br>";
+        $skills = $_POST['skill'];
     }
     if(!empty($_POST['knw'])){
-// Loop to store and display values of individual checked checkbox.
-foreach($_POST['knw'] as $select){
-$knw .=  '\''.$select.'\''.',';
-    }
-    $knw = rtrim($knw,",");
-    //echo $knw."</br>";
+    //// Loop to store and display values of individual checked checkbox.
+    //foreach($_POST['knw'] as $select){
+    //$knw .=  '\''.$select.'\''.',';
+    //    }
+    //    $knw = rtrim($knw,",");
+    //    //echo $knw."</br>";
+        $knw = $_POST['knw'];
     }
     }
  $randID = rand(1,10000);
