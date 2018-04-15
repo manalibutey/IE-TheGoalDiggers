@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -76,6 +76,12 @@
      
      $(element).attr("onclick","replicate(this)");
      element = $(element); //if move 
+     //var time = $(element).find('p').text();
+     //var time = $(element).find("span").contents().unwrap();
+    ele = this.$("span").remove(); 
+     alert(element);
+      alert(ele);
+     //alert(Object.values(element));
      element.appendTo($('#select-box'));
 
      }
@@ -221,7 +227,7 @@ function replicateKnw(element) {
                     $resultsk = $res[1];
 
                     //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
-                    echo '<div  class="value" onclick="cancel(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
+                    echo '<div  class="value" onclick="cancel(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.'<span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span> </p></div>';
                     
                 }
                 ?>
