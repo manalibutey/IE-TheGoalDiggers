@@ -73,7 +73,7 @@
                     </thead>
                     <tbody>
 
-<?php
+                        <?php
     if ( isset($_POST['submit'] ) ) {
         $occp = $_POST['occ'];
 
@@ -253,6 +253,7 @@
      pg_close($dbconn4);
      //header("Location: /shiny?id=$randID",TRUE,302);
      //exec("app.R");
+     echo '<a href="/shiny?id='.$randID.'">Shiny</a>';
                         ?>
                     </tbody>
                 </table>
