@@ -253,7 +253,7 @@
      pg_close($dbconn4);
      //header("Location: /shiny?id=$randID",TRUE,302);
      //exec("app.R");
-     echo '<a href="/shiny?id='.$randID.'">Shiny</a>';
+     echo '<a href="/shiny?id='.$randID.'" target="_blank">Display Visualization</a>';
                         ?>
                     </tbody>
                 </table>
