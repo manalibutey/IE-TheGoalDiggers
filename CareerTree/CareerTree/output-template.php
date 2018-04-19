@@ -6,57 +6,74 @@
     <meta name="viewport" content="width=device-width initial-scale=1">
     <meta name="viewport" content="width=device-width initial-scale=1">
     <title>CareerTree</title>
-    <link rel="icon" href="./images/tab.ico" />
+    <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/output.css">
-    <script src="./js/jquery.min.js"></script>
-    </head>
+    <link rel="stylesheet" href="./css/style4.css">
+    <link href="css/modern-business.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/customstyle.css" />
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script>
+
+   
+
+</head>
 
 <body>
+    <form method="post" action="output.php">
+        <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
-<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs>
-<symbol id="icon-svg" viewBox="0 0 32 32">
-<title>svg</title>
-<path d="M29 13c-0.888 0-1.686 0.386-2.236 1h-5.936l4.197-4.197c0.822 0.046 1.66-0.245 2.288-0.874 1.172-1.172 1.172-3.071 0-4.243s-3.071-1.172-4.243 0c-0.628 0.628-0.919 1.466-0.874 2.288l-4.197 4.197v-5.936c0.614-0.549 1-1.347 1-2.236 0-1.657-1.343-3-3-3s-3 1.343-3 3c0 0.888 0.386 1.686 1 2.236v5.936l-4.197-4.197c0.045-0.822-0.245-1.66-0.874-2.288-1.172-1.172-3.071-1.172-4.243 0s-1.172 3.071 0 4.243c0.628 0.628 1.466 0.919 2.288 0.874l4.197 4.197h-5.936c-0.549-0.614-1.347-1-2.236-1-1.657 0-3 1.343-3 3s1.343 3 3 3c0.888 0 1.686-0.386 2.236-1h5.936l-4.197 4.197c-0.822-0.046-1.66 0.245-2.288 0.874-1.172 1.172-1.172 3.071 0 4.243s3.071 1.172 4.243 0c0.628-0.628 0.919-1.466 0.874-2.288l4.197-4.197v5.936c-0.614 0.549-1 1.347-1 2.235 0 1.657 1.343 3 3 3s3-1.343 3-3c0-0.888-0.386-1.686-1-2.236v-5.936l4.197 4.197c-0.046 0.822 0.245 1.66 0.874 2.288 1.172 1.172 3.071 1.172 4.243 0s1.172-3.071 0-4.243c-0.628-0.628-1.466-0.919-2.288-0.874l-4.197-4.197h5.936c0.549 0.614 1.347 1 2.235 1 1.657 0 3-1.343 3-3s-1.343-3-3-3z"></path>
-</symbol>
-</defs>
-</svg>
+            <div class="container">
+                <a class="navbar-brand" href="/home.php">
+                    <img src="./images/logo.png" />
+                </a>
 
- <div class="navbar  navbar-dark navbar-expand-md fixed-top">
-
-		<div class="container">
-			<a class="navbar-brand" href="/home.php">
-				<img src="./images/logo2.png" />
-			</a>
-			
-			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<div class="collapse navbar-collapse navCollapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="nav-item active" href="#" style="margin-top: 7px;">Home</a>
-					</li>
-					<li>
-						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-    <form>
-    <div class="full">
-
-        <div class="mid-section">
-           <h1><div class="title-line1" >Recommended Occupations</div></h1>
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse navCollapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="nav-item active" href="/home.php">HOME</a>
+                        </li>
+                        <li>
+                            <a class="nav-item" href="/aboutus.php">ABOUT US</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="sub-heading"><h4>According to your previous occupation, skill set, and</h4><h4>knowledge domain, you can change to the following occupations</h4></div>
+        <div class="container">
+            <h1 class="mt-4 mb-3">
+                Suggested Occupations
+            </h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/industry.php">Industry</a>
+                </li>
+                <li class="breadcrumb-item active">Occupation</li>
+                <li class="breadcrumb-item active">Skills and Knowledge</li>
+                <li class="breadcrumb-item active">Suggested Occupation</li>
+            </ol>
 
-        <div class = box-cover>
-         <?php
+            <h2>According to your previous occupation, you can be:</h2>
+            <div class="table-responsive">
+                <!--<table id="example" class="table table-striped table-bordered" style="width:100%">-->
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Occupations</th>
+                            <th>Percentage Matching</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
     if ( isset($_POST['submit'] ) ) {
         $occp = $_POST['occ'];
 
@@ -224,44 +241,39 @@
             $relatedOccupation = pg_query($dbconn4, $sql);
             $occCount = 1;
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
-         //echo "<tr>";
-       // echo $occCount;
-        echo '<a href="/occDetail.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
-        echo '<div class="box">';
-        echo'<div class="flex-element">';
-        echo '<div class="title"><h3>'.$relatedOcc[1].'</h3></div>'; 
-        echo'<div class="percentage"><h1><div class="pull-right">'.$relatedOcc[2].'%</div></h1></div>';
-        echo'</div>';
-        echo '<div class="desc"><h4>'.$relatedOcc[11].'</h4></div>';
-        
-        
-        echo '</div>';
-        echo '</a>';
-        // echo "</tr>";
+         echo "<tr>";
+         echo '<td>'.$occCount.'</td>';
+         echo '<td><a href="/occDetail.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">'.$relatedOcc[1].'</a><br/>'.$relatedOcc[11].'</td>';
+         echo '<td>'.$relatedOcc[2].'</td>';
+         echo "</tr>";
          $occCount++;
      }
 
 
      pg_close($dbconn4);
-     
+     //header("Location: /shiny?id=$randID",TRUE,302);
+     //exec("app.R");
+     echo '<a href="/shiny?id='.$randID.'">Shiny</a>';
                         ?>
-                       
+                    </tbody>
+                </table>
+            </div>
         </div>
-         <!-- <div id="sidebar">
-				
-		  	<ul>
-			    <li><a href="index.html">jQuery (animated)</a></li>
-			    <li><a href="css.html">CSS (fixed)</a></li>
-			    <li><a href="reveal.html">CSS (reveal)</a></li>
-			</ul>
-		
-		</div> -->
-        <div class="btn">
-    <input class="but2" type="submit" name="submit" value="Try Visualisation" onclick="/shiny?id= <?php echo $randID; ?>" />
-   
-    </div>
-    <a href="/shiny?id= <?php echo $randID; ?>">Shiny</a>;
-    </div>
+
+        <footer class="py-5 bg-dark" >
+            <div class="container">
+                <a href="/">
+                    <img src="./images/logo3.png" class="logoFooter" />
+                </a>
+                <label class="motto"> Empowering the unemployed</label>
+            </div>
+            <div class="container">
+                <hr />
+                <a href="#" class="FooterTxt">Sitemap</a>
+                <a href="#" class="FooterTxt">Copyright &copy;2018</a>
+                <a href="#" class="FooterTxt">Contact Us</a>
+            </div>
+        </footer>
     </form>
 </body>
-</html>
+        </html>

@@ -1,4 +1,6 @@
-
+.chosen-container .chosen-container-single .chosen-container-active .chosen-with-drop {
+    height: auto !important;
+}
 .fixed-top {
 position: fixed;
 top: 0;
