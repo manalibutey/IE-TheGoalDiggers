@@ -226,3 +226,7 @@ display: flex;
     background: none;
     outline: none;
 }
+
+.btn a{
+    color: white;
+}

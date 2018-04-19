@@ -257,10 +257,10 @@
 		
 		</div> -->
         <div class="btn">
-    <input class="but2" type="submit" name="submit" value="Try Visualisation" onclick="/shiny?id= <?php echo $randID; ?>" />
+    <a href="/shiny?id= <?php echo $randID; ?>">Try Visualisation</a>
    
     </div>
-    <a href="/shiny?id= <?php echo $randID; ?>">Shiny</a>;
+   
     </div>
     </form>
 </body>
