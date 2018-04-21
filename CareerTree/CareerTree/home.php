@@ -15,7 +15,27 @@
     <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
     <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
+    <script>if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+window.onmousewheel = document.onmousewheel = wheel;
 
+function wheel(event) {
+    var delta = 0;
+    if (event.wheelDelta) delta = event.wheelDelta / 120;
+    else if (event.detail) delta = -event.detail / 3;
+
+    handle(delta);
+    if (event.preventDefault) event.preventDefault();
+    event.returnValue = false;
+}
+
+function handle(delta) {
+    var time = 1050;
+	var distance = 350;
+    
+    $('html, body').stop().animate({
+        scrollTop: $(window).scrollTop() - (distance * delta)
+    }, time );
+}</script>
     <script type="text/javascript">
         $(function () {
             $('a[href*=#]').on('click', function (e) {
@@ -155,13 +175,13 @@
     </div> -->
 
 </div>
-             <div id="section01" class="demo">
+          <!--   <div id="section01" class="demo">
  
   <a href="#section02"><span></span><span></span><span></span>Scroll</a>
 </div>
         </div>
        
-        </section>
+        </section> -->
 
         <section class="section2" id="section02"> 
 		<main role="main">
@@ -221,16 +241,22 @@
                </div>-->
 
 
-               <div class="btn" data-aos="fade-up">
-                    <input type="button" value="Let's Start" onclick="start()" >
-				</div>
+             
                </div>
 
 				
-
+                 <div class="btn" data-aos="fade-up">
+                    <input type="button" value="Let's Start" onclick="start()" >
+				</div>
 			
+                        
+
 
 		</main>
+
+<footer class="footer"><p>
+  &#169; Copyright 2018 Career Tree </p>
+</footer>
 
         </section>
 

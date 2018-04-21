@@ -12,7 +12,27 @@
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script src="./js/jquery.min.js"></script>
+    <script>if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+window.onmousewheel = document.onmousewheel = wheel;
+
+function wheel(event) {
+    var delta = 0;
+    if (event.wheelDelta) delta = event.wheelDelta / 120;
+    else if (event.detail) delta = -event.detail / 3;
+
+    handle(delta);
+    if (event.preventDefault) event.preventDefault();
+    event.returnValue = false;
+}
+
+function handle(delta) {
+    var time = 1050;
+	var distance = 350;
     
+    $('html, body').stop().animate({
+        scrollTop: $(window).scrollTop() - (distance * delta)
+    }, time );
+}</script>
     <script>
         function validate_submit2() {
             var result = false;
@@ -135,7 +155,7 @@ element.remove();
 			<div class="collapse navbar-collapse navCollapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a class="nav-item active" href="#" style="margin-top: 7px;">Home</a>
+						<a class="nav-item active" href="/home.php" style="margin-top: 7px;">Home</a>
 					</li>
 					<li>
 						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
@@ -301,6 +321,12 @@ element.remove();
     <input type="hidden" name="skill" id="skill" />
     <input type="hidden" name="knw" id="knw" />
     </div>
+</div>
+
+<div class="foot">
+<footer class="footer"><p>
+  &#169; Copyright 2018 Career Tree </p>
+</footer>
 </div>
    
 </form>

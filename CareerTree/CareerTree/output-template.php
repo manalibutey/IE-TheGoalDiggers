@@ -277,3 +277,10 @@
     </form>
 </body>
         </html>
+
+
+          <div class="btn">
+    <a href="/shiny?id= <?php echo $randID; ?>">Try Visualisation</a>
+   
+    </div>
+   
