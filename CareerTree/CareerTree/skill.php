@@ -12,7 +12,7 @@
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script src="./js/jquery.min.js"></script>
-    
+   <script>smoothscroll</script>
     <script>
         function validate_submit2() {
             var result = false;
@@ -135,7 +135,7 @@ element.remove();
 			<div class="collapse navbar-collapse navCollapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a class="nav-item active" href="#" style="margin-top: 7px;">Home</a>
+						<a class="nav-item active" href="/home.php" style="margin-top: 7px;">Home</a>
 					</li>
 					<li>
 						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
@@ -150,15 +150,15 @@ element.remove();
   <!--  <div class="container">-->
         <!-- Page Heading/Breadcrumbs -->
         <div class="mid-section">
-           <h1><div class="title-line1" >Your Skills and Knowledge</div></h1>
+           <h1><div class="title-line1" >Your Skill Set and Knowledge Domain</div></h1>
         </div>
-         <div class="sub-heading"><h4>Let us know your skills</h4><h4>Choose your skills from the skill box</h4></div>
-          <div class="boxes">
-         
-        
-<div class="select-box">
+         <div class="sub-heading"><h4>Let us know your skills</h4><h4>Choose your skills from the skill set</h4></div>
+          
+<div class="boxes">
+      
+    <div class="select-box">
        
-<div class="select-box-heading"><h4>Skill Box</h4></div>
+        <div class="select-box-heading"><h4>Skill Set</h4></div>
      
             <div class="select-box-backgnd" id="select-box">
 
@@ -203,7 +203,7 @@ element.remove();
       
 
 <div class="skill-box">
-<div class="select-box-heading"><h4>Your Skill Box</h4></div>
+<div class="select-box-heading"><h4>Your Skill Set</h4></div>
             <div class="skill-box-backgnd" id="skill-box">
             
                 <!-- <p></p> -->
@@ -234,11 +234,11 @@ element.remove();
 
 </div>
 
- <div class="sub-heading2"><h4>Let us know your knowledge</h4><h4>Choose your knowledge from the knowledge box</h4></div>
+ <div class="sub-heading2"><h4>Let us know your knowledge</h4><h4>Choose your knowledge from the knowledge domain</h4></div>
  <div class="boxes-2">
          
         <div class="knw-select-box">
-        <div class="select-box-heading"><h4>Knowledge Box</h4></div>
+        <div class="select-box-heading"><h4>Knowledge Domain</h4></div>
       
             <div class="select-box-backgnd" id="knw-select-box">
                 <?php
@@ -270,7 +270,7 @@ element.remove();
       
 
 <div class="knw-box">
-<div class="select-box-heading"><h4>Your Knowledge Box</h4></div>
+<div class="select-box-heading"><h4>Your Knowledge Domain</h4></div>
 
             <div class="skill-box-backgnd" id="knowledge-box">
                 <?php
@@ -296,11 +296,17 @@ element.remove();
 </div>
 
 </div>
-<div class="btn">
+    <div class="btn">
     <input class="but2" type="submit" name="submit" value="Explore My Occupations" onclick="return validate_submit2()" />
     <input type="hidden" name="skill" id="skill" />
     <input type="hidden" name="knw" id="knw" />
     </div>
+</div>
+
+<div class="foot">
+<footer class="footer"><p>
+  &#169; Copyright 2018 Career Tree </p>
+</footer>
 </div>
    
 </form>

@@ -15,7 +15,7 @@
     <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
     <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
-
+    <script>smoothscroll</script>
     <script type="text/javascript">
         $(function () {
             $('a[href*=#]').on('click', function (e) {
@@ -155,13 +155,13 @@
     </div> -->
 
 </div>
-             <div id="section01" class="demo">
+          <!--   <div id="section01" class="demo">
  
   <a href="#section02"><span></span><span></span><span></span>Scroll</a>
 </div>
         </div>
        
-        </section>
+        </section> -->
 
         <section class="section2" id="section02"> 
 		<main role="main">
@@ -221,16 +221,22 @@
                </div>-->
 
 
-               <div class="btn" data-aos="fade-up">
-                    <input type="button" value="Let's Start" onclick="start()" >
-				</div>
+             
                </div>
 
 				
-
+                 <div class="btn" data-aos="fade-up">
+                    <input type="button" value="Let's Start" onclick="start()" >
+				</div>
 			
+                        
+
 
 		</main>
+
+<footer class="footer"><p>
+  &#169; Copyright 2018 Career Tree </p>
+</footer>
 
         </section>
 
