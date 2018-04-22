@@ -15,27 +15,7 @@
     <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
     <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
-    <script>if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
-window.onmousewheel = document.onmousewheel = wheel;
-
-function wheel(event) {
-    var delta = 0;
-    if (event.wheelDelta) delta = event.wheelDelta / 120;
-    else if (event.detail) delta = -event.detail / 3;
-
-    handle(delta);
-    if (event.preventDefault) event.preventDefault();
-    event.returnValue = false;
-}
-
-function handle(delta) {
-    var time = 1050;
-	var distance = 350;
-    
-    $('html, body').stop().animate({
-        scrollTop: $(window).scrollTop() - (distance * delta)
-    }, time );
-}</script>
+    <script>smoothscroll</script>
     <script type="text/javascript">
         $(function () {
             $('a[href*=#]').on('click', function (e) {
