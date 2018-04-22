@@ -131,7 +131,7 @@
         <div class="sub-heading"><h4>According to your previous occupation, skill set, and</h4><h4>knowledge domain, you can change to the following occupations</h4></div>
 
         <div class = box-cover>
-         <?php
+            <?php
 
         include 'db_connection.php';
         $dbconn4 = OpenCon();
@@ -274,25 +274,26 @@
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
          //echo "<tr>";
        // echo $occCount;
-        echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
-        echo '<div class="box">';
-        echo'<div class="flex-element">';
-        echo '<div class="title"><h3>'.$relatedOcc[1].'</h3></div>'; 
-        echo'<div class="percentage"><h1><div class="pull-right">'.$relatedOcc[2].'%</div></h1></div>';
-        echo'</div>';
-        echo '<div class="desc"><h4>'.$relatedOcc[11].'</h4></div>';
-        
-        
-        echo '</div>';
-        echo '</a>';
-        // echo "</tr>";
+         if($relatedOcc[2] <> 0){
+             echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
+             echo '<div class="box">';
+             echo'<div class="flex-element">';
+             echo '<div class="title"><h3>'.$relatedOcc[1].'</h3></div>';
+             echo'<div class="percentage"><h1><div class="pull-right">'.$relatedOcc[2].'%</div></h1></div>';
+             echo'</div>';
+             echo '<div class="desc"><h4>'.$relatedOcc[11].'</h4></div>';
+             echo '</div>';
+             echo '</a>';
+             // echo "</tr>";
+         }
+
          $occCount++;
      }
 
 
      pg_close($dbconn4);
-     
-                        ?>
+
+            ?>
                        
         </div>
          <!-- <div id="sidebar">
