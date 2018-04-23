@@ -51,28 +51,28 @@
 
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
-            <div class="container">
-                <a class="navbar-brand" href="/home.php">
-                    <img src="./images/logo.png" />
-                </a>
-
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="collapse navbar-collapse navCollapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="nav-item active" href="/home.php">HOME</a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="/aboutus.php">ABOUT US</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+		<div class="container">
+			<a class="navbar-brand" href="/home.php">
+				<img src="./images/logo2.png" />
+			</a>
+			
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="collapse navbar-collapse navCollapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="nav-item active" href="/home.php" style="margin-top: 7px;">Home</a>
+					</li>
+					<li>
+						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
@@ -226,26 +226,14 @@
         pg_close($dbconn4); ?>
 
     </div>
-    <!--<footer class="py-5 bg-dark" style="position:fixed; bottom:0;">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-        </div>
-    </footer>-->
-
-    <footer class="py-5 bg-dark" style="position:fixed; bottom:0;">
-        <div class="container">
-            <a href="/">
-                <img src="./images/logo3.png" class="logoFooter" />
-            </a>
-            <label class="motto"> Empowering the unemployed</label>
-        </div>
-        <div class="container">
-            <hr />
-            <a href="#" class="FooterTxt">Sitemap</a>
-            <a href="#" class="FooterTxt">Copyright &copy;2018</a>
-            <a href="#" class="FooterTxt">Contact Us</a>
-        </div>
-    </footer>
+   
+    </div>
+    </div>
+    <div class="foot">
+<footer class="footer"><p>
+  &#169; Copyright 2018 Career Tree </p>
+</footer>
+</div>
  
 </body>
 </html>

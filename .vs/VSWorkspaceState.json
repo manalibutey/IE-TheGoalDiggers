@@ -5,6 +5,10 @@
     "\\CareerTree\\CareerTree",
     "\\CareerTree\\CareerTree\\css"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\CareerTree\\CareerTree\\output.php",
+=======
+  "SelectedNode": "\\CareerTree\\CareerTree\\industry.php",
+>>>>>>> OutputPage_TryViz
   "PreviewInSolutionExplorer": false
 }
