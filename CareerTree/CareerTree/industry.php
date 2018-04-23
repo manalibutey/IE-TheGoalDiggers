@@ -19,28 +19,28 @@
 
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
-            <div class="container">
-                <a class="navbar-brand" href="/home.php">
-                    <img src="./images/logo.png" />
-                </a>
-
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="collapse navbar-collapse navCollapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="nav-item active" href="/home.php">HOME</a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="/aboutus.php">ABOUT US</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+		<div class="container">
+			<a class="navbar-brand" href="/home.php">
+				<img src="./images/logo2.png" />
+			</a>
+			
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="collapse navbar-collapse navCollapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="nav-item active" href="/home.php" style="margin-top: 7px;">Home</a>
+					</li>
+					<li>
+						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
          <div class="page2full">
         <section class="section">
             <section class="section1">
@@ -255,13 +255,19 @@
                         <!--<div class="caption" data-aos="zoom-in">Wholesale Trade</div>-->
                     </div>
                     </div>
+
+                    <div class="foot">
+<footer class="footer"><p>
+  &#169; Copyright 2018 Career Tree </p>
+</footer>
+</div>
             </section>
    
    
     </section>
     </div>
 
-
+     
     <script>
         AOS.init({
             duration: 700,
