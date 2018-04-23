@@ -227,13 +227,7 @@
 
     </div>
    
-    </div>
-    </div>
-    <div class="foot">
-<footer class="footer"><p>
-  &#169; Copyright 2018 Career Tree </p>
-</footer>
-</div>
+    
  
 </body>
 </html>
