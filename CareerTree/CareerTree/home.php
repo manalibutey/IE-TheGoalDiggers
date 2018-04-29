@@ -129,11 +129,12 @@
 
     ///////////////////////////////////////////////////////////////////////////////////
     $dbconn4 = OpenCon();
-    $sql = "Select Occname
-    From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
-    Where IndOcc.IndID = Ind.IndID and Occ.OccID = IndOcc.OccID
-    and Occ.occid in (select occid from Career_Changer_Matrix )
-    Order by Occ.OccName";
+    //updated query 29/04/2018
+    $sql = "Select CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE Occ.occname END as ABSName
+    From Occupation as Occ
+	left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+    Where  Occ.occid in (select occid from Career_Changer_Matrix )
+    Order by ABSName";
     $result = pg_query($dbconn4, $sql);
     echo '<select class="chosen-select" id="category" name="occ" style="height:auto;width:500px;">';
     echo '<option disabled selected value>Please enter your previous occupation</option>';

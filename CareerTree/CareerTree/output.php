@@ -64,6 +64,7 @@
 <?php
     if ( isset($_POST['submit'] ) ) {
         $occp = $_POST['occ'];
+        $Onetoccp = $_POST['Onetocc'];//updated 29/04/2018
 
     //echo "You have selected :" .$occp;
 
@@ -146,8 +147,9 @@
             pg_query($dbconn4, $sql);
         }
         //---------------------------------------------------------
+        //updated query 29/04/2018
         $sql = "Select RelatedOccName, relatedoccid from Career_Changer_Matrix
-            Where  OccName = '$occp'
+            Where  OccName = '$Onetoccp'
             Order by Rank";
      $relatedOccupation = pg_query($dbconn4, $sql);
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
@@ -264,18 +266,33 @@
              if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
          }
      }
-         $sql ="select *
-                from percentage, occupation
-                where relatedoccid = occid
-                and id = '$randID'
+        //updated query 29/04/2018
+         $sql ="select p.title,CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name || ' (ABS)' ELSE p.relatedtitle END as relatedtitle,
+                p.percentage,p.id,p.matchingskill,p.lackingskill,p.matchingknowledge,p.lackingknowledge,p.relatedoccid,Occ.occid,Occ.occname,
+                CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
+                CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE '' END as ABS_parameter
+                from percentage as p
+                inner join occupation as Occ on p.relatedoccid = Occ.occid
+                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                where 
+                id = '$randID'
                 order by percentage desc";
             $relatedOccupation = pg_query($dbconn4, $sql);
             $occCount = 1;
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
+        if($relatedOcc[2] <> 0){
+        }
          //echo "<tr>";
        // echo $occCount;
          if($relatedOcc[2] <> 0){
-             echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
+            if($relatedOcc[12] <> ''){
+            //-----Include ABS Name as parameter if it is occupation from ABS updated 29/04/2018--------------
+            echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'&para='.$relatedOcc[12].'">';
+            }
+            else{
+            echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
+            }
+             //echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
              echo '<div class="box">';
              echo'<div class="flex-element">';
              echo '<div class="title"><h3>'.$relatedOcc[1].'</h3></div>';

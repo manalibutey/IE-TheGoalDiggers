@@ -96,14 +96,27 @@
         parse_str($_SERVER['QUERY_STRING'], $queries);
         $tranID =  $queries['id'];
         $occID = $queries['occid'];
-
+        //-------Receive ABS Name from parameter ------------//updated 29/04/2018
+        $para = $queries['para'];
+        if($para){
+        $addParaString = " and OccABS.abs_name ='".$para."'";
+        }
+        else{
+        $addParaString = "";
+        }
+        //------------------------------------
         include 'db_connection.php';
         $dbconn4 = OpenCon();
-        $sql = "select title as previousocc, relatedtitle as relatedocc, description, matchingskill,matchingknowledge,lackingskill,lackingknowledge,percentage
-        from percentage, occupation
-        where relatedoccid = occid
-        and id = '$tranID'
-        and relatedoccid = '$occID'";
+        //updated query 29/04/2018
+        $sql = "select p.title as previousocc, CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name || ' (ABS)' ELSE p.relatedtitle END  as relatedocc,
+                CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
+                p.matchingskill,p.matchingknowledge,p.lackingskill,p.lackingknowledge,p.percentage
+                        from percentage as p
+		                inner join occupation as Occ on p.relatedoccid = Occ.occid
+		                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                        where 
+                        id = '$tranID'
+                        and relatedoccid = '$occID'".$addParaString;
         $result = pg_query($dbconn4, $sql);
         $occDetail = pg_fetch_row($result);
         if (!$result) {

@@ -167,15 +167,26 @@ element.remove();
     $occp = $_POST['occ'];
     echo '<input type="hidden" name="occ" value="'.$occp.'">';
         }
-         include 'db_connection.php';
-    $dbconn4 = OpenCon();
+        include 'db_connection.php';
+        $dbconn4 = OpenCon();
+        //----------Select Onet Occupation Name -------------////updated query 29/04/2018
+        $sql = "Select Occ.occname
+                From occupation as Occ
+                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                Where OccABS.abs_name = '$occp'
+                or Occ.occname = '$occp'";
+                $resultOccp = pg_query($dbconn4, $sql);
+                $fetchOccp = pg_fetch_row($resultOccp);
+                $Onetoccp = $fetchOccp[0];
+        echo '<input type="hidden" name="Onetocc" value="'.$Onetoccp.'">';
+        //--------------------------------------------------// 
         $sql = "select * from (
                 select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
                 from skill as allskill
                 where allskill.skid not in (Select b.skid
 	                From skill_Occupation as a, skill as b, Occupation as c
 	                Where a.skID = b.skID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10)
                 order by allskill.skid
@@ -211,7 +222,7 @@ element.remove();
                 $sql = "Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
 	                From skill_Occupation as a, skill as b, Occupation as c
 	                Where a.skID = b.skID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10";
                 $resultSkill = pg_query($dbconn4, $sql);
@@ -248,7 +259,7 @@ element.remove();
                 where allknowledge.knwid not in (Select b.knwid
 	                From knowledge_Occupation as a, knowledge as b, Occupation as c
 	                Where a.knwID = b.knwID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10)
                 order by allknowledge.knwid
@@ -277,7 +288,7 @@ element.remove();
                 $sql = "Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked
 	                From knowledge_Occupation as a, knowledge as b, Occupation as c
 	                Where a.knwID = b.knwID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10";
                 $resultKnowledge = pg_query($dbconn4, $sql);
