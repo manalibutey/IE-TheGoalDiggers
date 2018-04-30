@@ -305,6 +305,91 @@ element.remove();
                 ?>
             </div>
 </div>
+     <?php
+///////////////////////// Test Grouping Skill and Knowledge 30/04/2018///////////////////////////////////////
+                $sql = "Select distinct group_name
+                        from skill_knowledge_group
+                        order by group_name";
+                $resultGrouping = pg_query($dbconn4, $sql);
+                if (!$resultGrouping) {
+                    echo "An error occurred.\n";
+                    exit;
+                }
+                echo '<div class="skill-box-backgnd">';
+                echo '<div><h3>Skills & Knowledge Group</h3></div>';
+                while ($res = pg_fetch_row($resultGrouping)) {
+                $grpName = $res[0];
+                    echo '<div><h4>'.$grpName.'</h4></div>';
+
+                    $sql = "Select ID,name,description, grouped.group_name from (
+                            select ID,name,description from (
+                            select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
+                            from skill as allskill
+                            where allskill.skid not in (Select b.skid
+                            From skill_Occupation as a, skill as b, Occupation as c
+                            Where a.skID = b.skID and c.OccID = a.OccID
+                             And c.OccName = '$Onetoccp'
+                            Order by c.OccName, a.Rank desc
+                            Limit 10)
+                            order by allskill.skid
+                            ) as default_no_checked
+                            union
+                            select ID,name,description from (
+                            select allknowledge.knwid as ID,allknowledge.knwname as name, allknowledge.description as description, 0 as checked
+                            from knowledge as allknowledge
+                            where allknowledge.knwid not in (Select b.knwid
+                            From knowledge_Occupation as a, knowledge as b, Occupation as c
+                            Where a.knwID = b.knwID and c.OccID = a.OccID
+                            And c.OccName = '$Onetoccp'
+                            Order by c.OccName, a.Rank desc
+                            Limit 10)
+                            and allknowledge.knwname <> 'Mathematics'
+                            order by allknowledge.knwid
+                             ) as default_no_checked) as remaining, skill_knowledge_group as grouped
+                             where remaining.id = grouped.relatedid
+                             and grouped.group_name = '$grpName'
+                             order by grouped.group_name";
+                    $resultGroupingMembers = pg_query($dbconn4, $sql);
+                    echo '<ui>';
+                    $allAquire = true;
+                    while ($res2 = pg_fetch_row($resultGroupingMembers)) {
+                        echo '<li>'.$res2[1].'</li>';
+                        $allAquire = false;
+                    }
+                    if ($allAquire) {
+                          echo '<li>-</li>';
+                         }
+                    echo '</ui>';
+                }
+                 echo '</div>';
+                 echo '<div class="skill-box-backgnd">';
+                 echo '<div><h3>Your Skills and Knowledge</h3></div>';
+                 $sql = "Select * from (
+                        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
+                        From skill_Occupation as a, skill as b, Occupation as c
+                        Where a.skID = b.skID and c.OccID = a.OccID
+                        And c.OccName = '$Onetoccp'
+                        Order by c.OccName, a.Rank desc
+                        Limit 10) as selectedSkill
+                        union
+                        Select * from (
+                        Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked
+                        From knowledge_Occupation as a, knowledge as b, Occupation as c
+                        Where a.knwID = b.knwID and c.OccID = a.OccID
+                        And c.OccName = '$Onetoccp'
+                        And b.knwname <> 'Mathematics'
+                        Order by c.OccName, a.Rank desc
+                        Limit 10) as selectedKnowledge
+                        order by name";
+                 $result = pg_query($dbconn4, $sql);
+                 echo '<ui>';
+                 while ($res = pg_fetch_row($result)) {
+                     echo '<li>'.$res[1].'</li>';
+                 }
+                 echo '</ui>';
+                 echo '</div>';
+////////////////////////////////////////////////////////////////////////////////////////////////
+     ?>
 
 </div>
     <div class="btn">
