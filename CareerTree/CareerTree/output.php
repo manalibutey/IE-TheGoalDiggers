@@ -119,7 +119,7 @@
 	</div>
     <form>
     <div class="sidebar">
-<!-- <div class="icon-space"><a href="/shiny?id= --> <?php //echo $randID; ?> <!-- "><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg></a></div>-->
+ <div class="icon-space"><a href="/shiny?id=<?php echo $randID; ?> "><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg></a></div>
 <div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
 <div class="icon-space"><a href="javascript:window.history.back()"><svg class="icon icon-circle-left"><use xlink:href="#icon-circle-left"></use></svg></a></div>
 
@@ -322,7 +322,7 @@
 			</ul>
 		
 		</div> -->
-      
+        <iframe src="/shiny?id=<?php echo $randID; ?> " height="600" width="1150"></iframe>
     </div>
     </form>
   <div class="foot">
