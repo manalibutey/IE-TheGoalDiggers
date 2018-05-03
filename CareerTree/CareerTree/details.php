@@ -237,8 +237,9 @@
 
     </div>
          
-         <?php //---------Assign Job Vacancy to Google Chart
-         $sql = "select time, vacancy
+         <?php //---------Assign Data to Google Chart
+         //---------Extract Data for Job Vacancy Trend
+         $sql = "select date_part('year', time) as year,date_part('day', time) as month,date_part('month', time) as day, vacancy
                 from abs_job_vacancy
                 where occname = '$para'
                 and date_part('year', time) > (select distinct date_part('year', time) as year
@@ -249,11 +250,28 @@
 
          $result = pg_query($dbconn4, $sql);
          while ($row = pg_fetch_array($result)) {
-             $entry .= "['".$row{'time'}."',".$row{'vacancy'}."],";
+             //$entry .= "['".$row{'time'}."',".$row{'vacancy'}."],";
+             $month = $row{'month'} - 1;
+             $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".$row{'vacancy'}."],";
          }
-         if($entry)
+         if($entryVacancy)
          {
              echo '<div id="curve_chart" style="width: 900px; height: 500px"></div>';
+         }
+         //-----------Extract Data for Average Salary
+         $sql = "select occname, ceil(cash_earning) as weeklysalary
+                from abs_salary
+                where occname = '$para'
+                or occname = 'All Occupations'";
+
+         $result = pg_query($dbconn4, $sql);
+         while ($row = pg_fetch_array($result)) {
+             $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C','$".$row{'weeklysalary'}."'],";
+
+         }
+         if($entrySalary)
+         {
+             echo '<div id="column_chart" style="width: 900px; height: 500px"></div>';
          }
          pg_close($dbconn4);
          ?>
@@ -268,18 +286,40 @@
 </div> 
      <script type="text/javascript">
          google.charts.load('current', { 'packages': ['corechart'] });
-         google.charts.setOnLoadCallback(drawChart);
-         function drawChart() {
+         google.charts.setOnLoadCallback(drawLineChart);
+         google.charts.setOnLoadCallback(drawColumnChart);
+         function drawLineChart() {
              var data = google.visualization.arrayToDataTable([
                  ['Time', 'Vacancy'],
-                <?php echo $entry ?>
+                 <?php echo $entryVacancy ?>
              ]);
+
              var options = {
                  title: 'Job Vacancy Trend for  <?php echo $para ?>',
                  curveType: 'function',
-                 legend: { position: 'top' },
+                 legend: { position: 'none' },
+                 hAxis: {title: 'Time'},
+                 vAxis: {title: 'Job Vacancy'},
              };
              var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+             chart.draw(data, options);
+         }
+
+          function drawColumnChart() {
+             var data = google.visualization.arrayToDataTable([
+                 ['Occupation', 'Average Weekly Salary', { role: 'style' },{ role: 'annotation' }],
+                <?php echo $entrySalary ?>
+             ]);
+
+             var options = {
+                 title: 'Average Weekly Salary for  <?php echo $para ?>',
+              
+                 legend: { position: 'none' },
+                 vAxis: {title: 'Weekly Salary', gridlines: { count: 4 }, viewWindow: {min: 0, max: 2000}},
+                  bar: {groupWidth: "45%"},
+        
+             };
+             var chart = new google.visualization.ColumnChart(document.getElementById('column_chart'));
              chart.draw(data, options);
          }
      </script>
