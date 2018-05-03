@@ -273,7 +273,7 @@
                 CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE '' END as ABS_parameter
                 from percentage as p
                 inner join occupation as Occ on p.relatedoccid = Occ.occid
-                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                inner join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
                 where 
                 id = '$randID'
                 order by percentage desc";

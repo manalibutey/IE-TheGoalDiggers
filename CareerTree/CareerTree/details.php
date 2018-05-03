@@ -10,25 +10,25 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/details.css">
     <script src="./js/jquery.min.js"></script>
-
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>smoothscroll</script>
     <script>
-    $(document).ready(function () {
-    var sidebar = $('.sidebar');
-    var top = sidebar.offset().top - parseFloat(sidebar.css('margin-top'));
-  
-    $(window).scroll(function (event) {
-      var y = $(this).scrollTop();
-      if (y >= top) {
-        sidebar.addClass('sidebar-fixed');
-      } else {
-        sidebar.removeClass('sidebar-fixed');
-      }
-    });
-});
-</script>
-    
-    </head>
+        $(document).ready(function () {
+            var sidebar = $('.sidebar');
+            var top = sidebar.offset().top - parseFloat(sidebar.css('margin-top'));
+
+            $(window).scroll(function (event) {
+                var y = $(this).scrollTop();
+                if (y >= top) {
+                    sidebar.addClass('sidebar-fixed');
+                } else {
+                    sidebar.removeClass('sidebar-fixed');
+                }
+            });
+        });
+    </script>
+
+</head>
 
 <body>
 
@@ -227,7 +227,7 @@
             }
            
         }
-        pg_close($dbconn4);
+        //pg_close($dbconn4);
             ?>
             </div>
             </div>
@@ -236,13 +236,52 @@
 
 
     </div>
+         
+         <?php //---------Assign Job Vacancy to Google Chart
+         $sql = "select time, vacancy
+                from abs_job_vacancy
+                where occname = '$para'
+                and date_part('year', time) > (select distinct date_part('year', time) as year
+											                from abs_job_vacancy
+											                order by date_part('year', time) desc
+											                limit 1) - 9
+                order by time";
 
-   <form>
+         $result = pg_query($dbconn4, $sql);
+         while ($row = pg_fetch_array($result)) {
+             $entry .= "['".$row{'time'}."',".$row{'vacancy'}."],";
+         }
+         if($entry)
+         {
+             echo '<div id="curve_chart" style="width: 900px; height: 500px"></div>';
+         }
+         pg_close($dbconn4);
+         ?>
+   
+                 
+ <form>
       
     <div class="foot">
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
 </footer>
-</div>
+</div> 
+     <script type="text/javascript">
+         google.charts.load('current', { 'packages': ['corechart'] });
+         google.charts.setOnLoadCallback(drawChart);
+         function drawChart() {
+             var data = google.visualization.arrayToDataTable([
+                 ['Time', 'Vacancy'],
+                <?php echo $entry ?>
+             ]);
+             var options = {
+                 title: 'Job Vacancy Trend for  <?php echo $para ?>',
+                 curveType: 'function',
+                 legend: { position: 'top' },
+             };
+             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+             chart.draw(data, options);
+         }
+     </script>
 </body>
 </html>
