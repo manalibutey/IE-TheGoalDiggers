@@ -8,6 +8,7 @@
     <title>CareerTree</title>
     <link rel="icon" href="./images/title.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+
     <link rel="stylesheet" href="./css/occ.css">
      <link rel="stylesheet" href="./css/awesomplete.css" />
      <script language="javascript" type="text/javascript" src="./js/jquery.min.js"></script> <link href="css/modern-business.css" rel="stylesheet" />
@@ -43,36 +44,35 @@
             return result;
         }
      </script>
+
 </head>
 
 <body>
 
-    
-
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
-            <div class="container">
-                <a class="navbar-brand" href="/home.php">
-                    <img src="./images/logo.png" />
-                </a>
-
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="collapse navbar-collapse navCollapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="nav-item active" href="/home.php">HOME</a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="/aboutus.php">ABOUT US</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+		<div class="container">
+			<a class="navbar-brand" href="/home.php">
+				<img src="./images/logo2.png" />
+			</a>
+			
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="collapse navbar-collapse navCollapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="nav-item active" href="/home.php" style="margin-top: 7px;">Home</a>
+					</li>
+					<li>
+						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
@@ -183,12 +183,15 @@
         ///*DB connection end*/
         include 'db_connection.php';
         $dbconn4 = OpenCon();
-
-        $sql = "Select Occname From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
-                                        Where IndOcc.IndID = Ind.IndID and Occ.OccID = IndOcc.OccID
-                                        and Ind.IndID = '$ind'
-                                        and Occ.occid in (select occid from Career_Changer_Matrix )
-                                        Order by Ind.IndName, Occ.OccName";
+        //updated query 29/04/2018
+        $sql = "Select CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE Occ.occname END as ABSName
+                From Occupation as Occ
+	            left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+	            inner join Industry_Occupation as IndOcc on Occ.OccID = IndOcc.OccID
+	            inner join Industry as Ind on IndOcc.IndID = Ind.IndID
+                Where  Occ.occid in (select occid from Career_Changer_Matrix )
+	            and Ind.indid = '$ind'
+                Order by ABSName";
         $result = pg_query($dbconn4, $sql);
 
         if (!$result) {
@@ -226,26 +229,8 @@
         pg_close($dbconn4); ?>
 
     </div>
-    <!--<footer class="py-5 bg-dark" style="position:fixed; bottom:0;">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-        </div>
-    </footer>-->
-
-    <footer class="py-5 bg-dark" style="position:fixed; bottom:0;">
-        <div class="container">
-            <a href="/">
-                <img src="./images/logo3.png" class="logoFooter" />
-            </a>
-            <label class="motto"> Empowering the unemployed</label>
-        </div>
-        <div class="container">
-            <hr />
-            <a href="#" class="FooterTxt">Sitemap</a>
-            <a href="#" class="FooterTxt">Copyright &copy;2018</a>
-            <a href="#" class="FooterTxt">Contact Us</a>
-        </div>
-    </footer>
+   
+    
  
 </body>
 </html>

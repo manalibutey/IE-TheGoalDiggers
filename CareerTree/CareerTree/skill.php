@@ -12,35 +12,10 @@
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script src="./js/jquery.min.js"></script>
-    
+   <script>smoothscroll</script>
     <script>
-        function validate_submit() {
-            var result1 = false;
-            var result2 = false;
-            var result = false;
-            var checkboxs1 = document.getElementsByName('skill[]');
-            var checkboxs2 = document.getElementsByName('knw[]');
-            for (var i = 0, l = checkboxs1.length; i < l; i++) {
-                if (checkboxs1[i].checked) {
-                    result1 = true;
-                    break;
-                }
-            }
-            for (var i = 0, l = checkboxs2.length; i < l; i++) {
-                if (checkboxs2[i].checked) {
-                    result2 = true;
-                    break;
-                }
-            }
-            if (result1 && result2) {
-                result = true;
-            }
-            else {
-                alert("Please specify at least one skill and knowledge");
-            }
-            return result;
-        }
         function validate_submit2() {
+            var result = false;
             ////////////////Skill/////////////////////////////
             var element = $("#skill-box").find(".value");
             var i;
@@ -50,7 +25,7 @@
                 
             }
             skillValue = skillValue.replace(/,+$/, '');
-            alert(skillValue);
+            //alert(skillValue);
             $("#skill").val(skillValue);
             ////////////////Knowledge/////////////////////////////
             element = $("#knowledge-box").find(".value");
@@ -60,9 +35,17 @@
 
             }
             knowledgeValue = knowledgeValue.replace(/,+$/, '');
-            alert(knowledgeValue);
-            $("#knowledge").val(knowledgeValue);
-            return false;
+            //alert(knowledgeValue);
+            $("#knw").val(knowledgeValue);
+
+            if (knowledgeValue && skillValue) {
+              result = true;
+            }
+            else {
+              alert("Please specify at least one skill and knowledge");
+              result = false;
+            }
+            return result;
         }
     </script>
     
@@ -130,10 +113,6 @@ element.remove();
 <title>close</title>
 <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
 </symbol>
-<symbol id="icon-cross" viewBox="0 0 16 16">
-<title>cross</title>
-<path d="M15.854 12.854c-0-0-0-0-0-0l-4.854-4.854 4.854-4.854c0-0 0-0 0-0 0.052-0.052 0.090-0.113 0.114-0.178 0.066-0.178 0.028-0.386-0.114-0.529l-2.293-2.293c-0.143-0.143-0.351-0.181-0.529-0.114-0.065 0.024-0.126 0.062-0.178 0.114 0 0-0 0-0 0l-4.854 4.854-4.854-4.854c-0-0-0-0-0-0-0.052-0.052-0.113-0.090-0.178-0.114-0.178-0.066-0.386-0.029-0.529 0.114l-2.293 2.293c-0.143 0.143-0.181 0.351-0.114 0.529 0.024 0.065 0.062 0.126 0.114 0.178 0 0 0 0 0 0l4.854 4.854-4.854 4.854c-0 0-0 0-0 0-0.052 0.052-0.090 0.113-0.114 0.178-0.066 0.178-0.029 0.386 0.114 0.529l2.293 2.293c0.143 0.143 0.351 0.181 0.529 0.114 0.065-0.024 0.126-0.062 0.178-0.114 0-0 0-0 0-0l4.854-4.854 4.854 4.854c0 0 0 0 0 0 0.052 0.052 0.113 0.090 0.178 0.114 0.178 0.066 0.386 0.029 0.529-0.114l2.293-2.293c0.143-0.143 0.181-0.351 0.114-0.529-0.024-0.065-0.062-0.126-0.114-0.178z"></path>
-</symbol>
 </defs>
 </svg>
 
@@ -152,7 +131,7 @@ element.remove();
 			<div class="collapse navbar-collapse navCollapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a class="nav-item active" href="#" style="margin-top: 7px;">Home</a>
+						<a class="nav-item active" href="/home.php" style="margin-top: 7px;">Home</a>
 					</li>
 					<li>
 						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
@@ -167,15 +146,15 @@ element.remove();
   <!--  <div class="container">-->
         <!-- Page Heading/Breadcrumbs -->
         <div class="mid-section">
-           <h1><div class="title-line1" >Your Skills and Knowledge</div></h1>
+           <h1><div class="title-line1" >Your Skill Set and Knowledge Domain</div></h1>
         </div>
-         <div class="sub-heading"><h4>Let us know your skills</h4><h4>Choose your skills from the skill box</h4></div>
-          <div class="boxes">
-         
-        
-<div class="select-box">
+         <div class="sub-heading"><h4>Let us know your skills</h4><h4>Choose your skills from the skill set</h4></div>
+          
+<div class="boxes">
+      
+    <div class="select-box">
        
-<div class="select-box-heading"><h4>Skill Box</h4></div>
+        <div class="select-box-heading"><h4>Skill Set</h4></div>
      
             <div class="select-box-backgnd" id="select-box">
 
@@ -184,15 +163,26 @@ element.remove();
     $occp = $_POST['occ'];
     echo '<input type="hidden" name="occ" value="'.$occp.'">';
         }
-         include 'db_connection.php';
-    $dbconn4 = OpenCon();
+        include 'db_connection.php';
+        $dbconn4 = OpenCon();
+        //----------Select Onet Occupation Name -------------////updated query 29/04/2018
+        $sql = "Select Occ.occname
+                From occupation as Occ
+                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                Where OccABS.abs_name = '$occp'
+                or Occ.occname = '$occp'";
+                $resultOccp = pg_query($dbconn4, $sql);
+                $fetchOccp = pg_fetch_row($resultOccp);
+                $Onetoccp = $fetchOccp[0];
+        echo '<input type="hidden" name="Onetocc" value="'.$Onetoccp.'">';
+        //--------------------------------------------------// 
         $sql = "select * from (
                 select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
                 from skill as allskill
                 where allskill.skid not in (Select b.skid
 	                From skill_Occupation as a, skill as b, Occupation as c
 	                Where a.skID = b.skID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10)
                 order by allskill.skid
@@ -220,7 +210,7 @@ element.remove();
       
 
 <div class="skill-box">
-<div class="select-box-heading"><h4>Your Skill Box</h4></div>
+<div class="select-box-heading"><h4>Your Skill Set</h4></div>
             <div class="skill-box-backgnd" id="skill-box">
             
                 <!-- <p></p> -->
@@ -228,7 +218,7 @@ element.remove();
                 $sql = "Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
 	                From skill_Occupation as a, skill as b, Occupation as c
 	                Where a.skID = b.skID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10";
                 $resultSkill = pg_query($dbconn4, $sql);
@@ -251,11 +241,11 @@ element.remove();
 
 </div>
 
- <div class="sub-heading2"><h4>Let us know your knowledge</h4><h4>Choose your knowledge from the knowledge box</h4></div>
+ <div class="sub-heading2"><h4>Let us know your knowledge</h4><h4>Choose your knowledge from the knowledge domain</h4></div>
  <div class="boxes-2">
          
         <div class="knw-select-box">
-        <div class="select-box-heading"><h4>Knowledge Box</h4></div>
+        <div class="select-box-heading"><h4>Knowledge Domain</h4></div>
       
             <div class="select-box-backgnd" id="knw-select-box">
                 <?php
@@ -265,7 +255,7 @@ element.remove();
                 where allknowledge.knwid not in (Select b.knwid
 	                From knowledge_Occupation as a, knowledge as b, Occupation as c
 	                Where a.knwID = b.knwID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10)
                 order by allknowledge.knwid
@@ -287,14 +277,14 @@ element.remove();
       
 
 <div class="knw-box">
-<div class="select-box-heading"><h4>Your Knowledge Box</h4></div>
+<div class="select-box-heading"><h4>Your Knowledge Domain</h4></div>
 
             <div class="skill-box-backgnd" id="knowledge-box">
                 <?php
                 $sql = "Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked
 	                From knowledge_Occupation as a, knowledge as b, Occupation as c
 	                Where a.knwID = b.knwID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10";
                 $resultKnowledge = pg_query($dbconn4, $sql);
@@ -311,13 +301,21 @@ element.remove();
                 ?>
             </div>
 </div>
+   
+
 
 </div>
-<div class="btn">
+    <div class="btn">
     <input class="but2" type="submit" name="submit" value="Explore My Occupations" onclick="return validate_submit2()" />
     <input type="hidden" name="skill" id="skill" />
     <input type="hidden" name="knw" id="knw" />
     </div>
+</div>
+
+<div class="foot">
+<footer class="footer"><p>
+  &#169; Copyright 2018 Career Tree </p>
+</footer>
 </div>
    
 </form>

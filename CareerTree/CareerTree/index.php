@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	<title>CareerTree</title>
-	<link rel="icon" href="./images/title.ico" />
+	<link rel="icon" href="./images/tab.ico" />
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/home.css">
 
@@ -17,7 +17,7 @@
 <SCRIPT>
 function passWord() {
 var testV = 1;
-var pass1 = prompt('Please Enter Your Password',' ');
+var pass1 = prompt('Please Enter Your Password','');
 while (testV < 3) {
 if (!pass1) 
 history.go(-1);

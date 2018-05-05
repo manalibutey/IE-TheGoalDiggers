@@ -15,7 +15,7 @@
     <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
     <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
-
+    <script>smoothscroll</script>
     <script type="text/javascript">
         $(function () {
             $('a[href*=#]').on('click', function (e) {
@@ -129,11 +129,12 @@
 
     ///////////////////////////////////////////////////////////////////////////////////
     $dbconn4 = OpenCon();
-    $sql = "Select Occname
-    From Occupation as Occ, Industry as Ind, Industry_Occupation as IndOcc
-    Where IndOcc.IndID = Ind.IndID and Occ.OccID = IndOcc.OccID
-    and Occ.occid in (select occid from Career_Changer_Matrix )
-    Order by Occ.OccName";
+    //updated query 29/04/2018
+    $sql = "Select CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE Occ.occname END as ABSName
+    From Occupation as Occ
+	left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+    Where  Occ.occid in (select occid from Career_Changer_Matrix )
+    Order by ABSName";
     $result = pg_query($dbconn4, $sql);
     echo '<select class="chosen-select" id="category" name="occ" style="height:auto;width:500px;">';
     echo '<option disabled selected value>Please enter your previous occupation</option>';
@@ -155,14 +156,13 @@
     </div> -->
 
 </div>
- 
              <div id="section01" class="demo">
  
-  <a href="#section02"><span></span><span></span><span></span>Scroll</a>
+  <a href="#section02"><span></span><span></span><span></span>Know More</a>
 </div>
         </div>
        
-        </section>
+        </section> 
 
         <section class="section2" id="section02"> 
 		<main role="main">
@@ -222,16 +222,22 @@
                </div>-->
 
 
-               <div class="btn" data-aos="fade-up">
-                    <input type="button" value="Let's Start" onclick="start()" >
-				</div>
+             
                </div>
 
 				
-
+                 <div class="btn" data-aos="fade-up">
+                    <input type="button" value="Let's Start" onclick="start()" >
+				</div>
 			
+                        
+
 
 		</main>
+
+<footer class="footer"><p>
+  &#169; Copyright 2018 Career Tree </p>
+</footer>
 
         </section>
 
