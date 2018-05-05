@@ -91,7 +91,7 @@
 
      <div class="full">
 
-      <?php
+         <?php
         $queries = array();
         parse_str($_SERVER['QUERY_STRING'], $queries);
         $tranID =  $queries['id'];
@@ -99,7 +99,7 @@
         //-------Receive ABS Name from parameter ------------//updated 29/04/2018
         $para = $queries['para'];
         if($para){
-        $addParaString = " and OccABS.abs_name ='".$para."'";
+        $addParaString = " and trim(OccABS.abs_name) ='".$para."'";
         }
         else{
         $addParaString = "";
@@ -110,11 +110,11 @@
         //updated query 29/04/2018
         $sql = "select p.title as previousocc, CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name || ' (ABS)' ELSE p.relatedtitle END  as relatedocc,
                 CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
-                p.matchingskill,p.matchingknowledge,p.lackingskill,p.lackingknowledge,p.percentage
+                p.matchingskill,p.matchingknowledge,p.lackingskill,p.lackingknowledge,p.percentage,trim(OccABS.abs_name),trim(OccABS.abs_original)
                         from percentage as p
 		                inner join occupation as Occ on p.relatedoccid = Occ.occid
 		                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
-                        where 
+                        where
                         id = '$tranID'
                         and relatedoccid = '$occID'".$addParaString;
         $result = pg_query($dbconn4, $sql);
@@ -123,7 +123,12 @@
             echo "An error occurred.\n";
             exit;
         }
-        ?>
+        if($occDetail[8] <> $occDetail[9])
+        {
+            //Set ABS Original Name as parameter for query career statistic
+            $para = $occDetail[9];
+        }
+         ?>
 
         <div class="mid-section">
            <h1><div class="title-line1" ><?php echo $occDetail[1]; ?></div></h1>
@@ -261,17 +266,55 @@
          //-----------Extract Data for Average Salary
          $sql = "select occname, ceil(cash_earning) as weeklysalary
                 from abs_salary
-                where occname = '$para'
-                or occname = 'All Occupations'";
+                where occname = '$para'";
 
          $result = pg_query($dbconn4, $sql);
          while ($row = pg_fetch_array($result)) {
-             $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C','$".$row{'weeklysalary'}."'],";
-
+             $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #0099cc',".$row{'weeklysalary'}."],";
+         }
+         $sql = "select occname, ceil(cash_earning) as weeklysalary
+                from abs_salary
+                where occname in (select RelatedABS.abs_original
+                from occupation_abs as OccABS
+                inner join career_changer_matrix as RelatedOcc on OccABS.occid = RelatedOcc.occid
+                inner join occupation_abs RelatedABS on RelatedOcc.relatedoccid = RelatedABS.occid
+                where OccABS.abs_original = '$para')
+                or occname = 'All Occupations'";
+         $result = pg_query($dbconn4, $sql);
+         while ($row = pg_fetch_array($result)) {
+             $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C',".$row{'weeklysalary'}."],";
          }
          if($entrySalary)
          {
              echo '<div id="column_chart" style="width: 900px; height: 500px"></div>';
+         }
+         //-----------Extract Data for Employment by Gender
+         $sql = "select sex, employment
+                from abs_employment_gender
+                where occname = '$para'";
+
+         $result = pg_query($dbconn4, $sql);
+         while ($row = pg_fetch_array($result)) {
+             $entryEmployedGender .= "['".$row{'sex'}."',".$row{'employment'}."],";
+         }
+         if($entryEmployedGender)
+         {
+             echo '<div id="donut_chart" style="width: 900px; height: 500px"></div>';
+         }
+         //-----------Extract Data for Employment by State
+         $sql = "select statecode,state, employment
+                from abs_employment_state
+                where occname = '$para'";
+
+         $result = pg_query($dbconn4, $sql);
+         while ($row = pg_fetch_array($result)) {
+             $entryEmployedState_Geo .= "['".$row{'statecode'}."','".$row{'state'}."',".$row{'employment'}."],";
+             $entryEmployedState_Chart .= "['".$row{'state'}."',".$row{'employment'}.",'color: #111E6C',".$row{'employment'}."],";
+         }
+         if($entryEmployedState_Geo)
+         {
+             echo '<div id="regions_div" style="width: 900px; height: 500px"></div>';
+             echo '<div id="column_chart1" style="width: 900px; height: 500px"></div>';
          }
          pg_close($dbconn4);
          ?>
@@ -286,8 +329,13 @@
 </div> 
      <script type="text/javascript">
          google.charts.load('current', { 'packages': ['corechart'] });
+         google.charts.load('current', { 'packages': ['geochart'],'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY' });
+
          google.charts.setOnLoadCallback(drawLineChart);
          google.charts.setOnLoadCallback(drawColumnChart);
+         google.charts.setOnLoadCallback(drawDonutChart);
+         google.charts.setOnLoadCallback(drawRegionsMap);
+         google.charts.setOnLoadCallback(drawColumnChart1);
          function drawLineChart() {
              var data = google.visualization.arrayToDataTable([
                  ['Time', 'Vacancy'],
@@ -312,14 +360,66 @@
              ]);
 
              var options = {
-                 title: 'Average Weekly Salary for  <?php echo $para ?>',
+                 title: 'Average Weekly Salary for  <?php echo $para ?> Compared to Related Occupations',
               
                  legend: { position: 'none' },
-                 vAxis: {title: 'Weekly Salary', gridlines: { count: 4 }, viewWindow: {min: 0, max: 2000}},
+                 vAxis: {title: 'Weekly Salary ($)', gridlines: { count: 4 }, viewWindow: {min: 0, max: 2500}},
+                 hAxis: {textStyle: {fontSize: 12}},
                   bar: {groupWidth: "45%"},
         
              };
              var chart = new google.visualization.ColumnChart(document.getElementById('column_chart'));
+             chart.draw(data, options);
+         }
+
+         function drawDonutChart() {
+             var data = google.visualization.arrayToDataTable([
+                 ['Sex', 'Employment'],
+             <?php echo $entryEmployedGender ?>
+             ]);
+
+             var options = {
+                 title: 'Employment of <?php echo $para ?> by Gender',
+                 pieHole: 0.4,
+                 legend: { position: 'right' },
+
+             };
+             var chart = new google.visualization.PieChart(document.getElementById('donut_chart'));
+             chart.draw(data, options);
+         }
+
+        function drawRegionsMap() {
+             var data = google.visualization.arrayToDataTable([
+                 ['StateCode','State Name', 'Employment'],
+             <?php echo $entryEmployedState_Geo ?>
+             ]);
+
+             var options = {
+                 title: 'Employment of <?php echo $para ?> by State',
+                 region: 'AU',
+                 displayMode: 'regions',
+                 resolution: 'provinces',
+                 
+             };
+             var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+             chart.draw(data, options);
+         }
+
+         function drawColumnChart1() {
+             var data = google.visualization.arrayToDataTable([
+                 ['State', 'Employment', { role: 'style' },{ role: 'annotation' }],
+                 <?php echo $entryEmployedState_Chart ?>
+             ]);
+
+             var options = {
+                 title: 'Employment of <?php echo $para ?> by State',
+                 legend: { position: 'none' },
+                 vAxis: {title: 'Employment'},
+                 hAxis: {textStyle: {fontSize: 12}},
+                  bar: {groupWidth: "45%"},
+
+             };
+             var chart = new google.visualization.ColumnChart(document.getElementById('column_chart1'));
              chart.draw(data, options);
          }
      </script>
