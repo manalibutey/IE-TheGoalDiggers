@@ -19,7 +19,7 @@ iframe {
         cursor: pointer;
     }
 footer {
-    background: #A22631;
+    background: #111E6C;
     color: white;
     line-height: 30px;
     padding: 0 20px;
@@ -32,7 +32,7 @@ footer {
 }
 
 .foot {
-    padding-top: 60px;
+    padding-top: 50px;
 }
 
 .footer p {

@@ -104,7 +104,7 @@
 
 <div class="search">
 <label for="category"></label>
-<form method="post" action="skill.php">
+<form method="post" action="skillset.php">
     <!--<input type="text" id="category" name="occ" autocomplete="off" list="mylist" placeholder="Enter your previous or current occupation">-->    
     <?php
     include 'db_connection.php';

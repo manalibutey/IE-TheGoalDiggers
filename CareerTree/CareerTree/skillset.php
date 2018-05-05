@@ -54,13 +54,18 @@
  function replicate(element) {
      $(element).attr("onclick","cancel(this)");
     element = $(element); //if move
-   // console.log(element);
-   // var k = $(element).html;
-     //       alert(k);
- // var class = $(element).find('div').className;
- //  alert(class);
+   
+ ele =  $(element).get(0); 
+ 
+var name = ele.className;
+
+
      var skill = $(element).find('p').text();
-     var s = "<div  class=\"value\" onclick=\"cancel(this);\" id=\"+skill+\" value=\"+skill+\" ><p>"+skill+"<span class=\"cross\"> <svg class=\"icon icon-close\"><use xlink:href=\"#icon-close\"></use></svg></span> </p></div>";
+ //    alert(skill);
+     var group = $(element).find("a").text();
+   //  alert(group);
+
+     var s = "<div  class=\"value\" onclick=\"cancel(this);\" id=\"+group+\" value=\"+skill+\"><a style=\"display:none;\">"+group+"</a><p>"+skill+"<span class=\"cross\"> <svg class=\"icon icon-close\"><use xlink:href=\"#icon-close\"></use></svg></span></p></div>";
  //alert(v);    
  $('#skill-box').append(s);
 //element.appendTo($('#skill-box'));
@@ -70,46 +75,34 @@ element.remove();
 
  function cancel(element) {
      
-     $(element).attr("onclick","replicate(this)");
-     
+     $(element).attr("onclick","replicate(this)");     
      element = $(element); //if move 
+     
+     ele =  $(element).get(0); 
+   //  alert(ele);
+
+     var name = ele.className;
+   //  alert(name);
+
+     var id = element[0].id;
+  //   alert(id);
+
      var skill = $(element).find('p').text();
-     alert(skill);
-     var s = "<div  class=\"value\" onclick=\"replicate(this);\" id=\"value\" value=\"+skill+\" ><p><span class=\"add\"><svg class=\"icon icon-plus\"><use xlink:href=\"#icon-plus\"></use></svg></span>"+skill+"</p></div>";
-     //var time = $(element).find("span").contents().unwrap();
-    //ele = this.$("span").remove(); 
-    //delete element.cross;
-     //alert(v);
-      //alert(ele);
-     //alert(Object.values(element));
-     $('#select-box').append(s);
+   //  alert(skill);
+
+     var groupname = $(element).find("a").text();
+  //   alert(groupname);
+     var group = groupname.replace(/ /g,"\\ ");
+  //   alert(group);
+     var s = "<div  class=\"+groupname+\" onclick=\"replicate(this);\" id=\"value\" value=\"+skill+\" style=\"display:none;\"><a style=\"display:none;\">"+groupname+"</a><p><span class=\"add\"><svg class=\"icon icon-plus\"><use xlink:href=\"#icon-plus\"></use></svg></span>"+skill+"</p></div>";
+   
+   //  alert('div.skillgroup#'+group);
+     $('div.skillgroup#'+group).append(s);
     element.remove();
 
      }
 
-function replicateKnw(element) {
-    $(element).attr("onclick","cancelKnw(this)");
-    element = $(element); //if move
-     var knw = $(element).find('p').text();
-     var k = "<div  class=\"value\" onclick=\"cancelKnw(this);\" id=\"+knw+\" value=\"+knw+\" ><p>"+knw+"<span class=\"cross\"> <svg class=\"icon icon-close\"><use xlink:href=\"#icon-close\"></use></svg></span> </p></div>";
- //alert(v);    
- $('#knowledge-box').append(k);
-//element.appendTo($('#skill-box'));
-element.remove();
-   // element.appendTo($('#knowledge-box'));
-}
 
- function cancelKnw(element) {
-
-     $(element).attr("onclick","replicateKnw(this)");
-     element = $(element); //if move
-     var knw = $(element).find('p').text();
-     var k = "<div  class=\"value\" onclick=\"replicateKnw(this);\" id=\"+knw+\" value=\"+knw+\"><p>"+knw+"</p></div>";
-     $('#knw-select-box').append(k);
-     element.remove();
-    
-
-}
 </script>
 
 <script>
@@ -219,9 +212,9 @@ for(var i=0;i<=array.length;i++){
   <!--  <div class="container">-->
         <!-- Page Heading/Breadcrumbs -->
         <div class="mid-section">
-           <h1><div class="title-line1" >Your Skill Set and Knowledge Domain</div></h1>
+           <h1><div class="title-line1" >Your Skill Set</div></h1>
         </div>
-         <div class="sub-heading"><h4>Let us know your skills</h4><h4>Choose your skills from the skill set</h4></div>
+         <div class="sub-heading"><h4>Let us know the skills you possess</h4><h4>Choose your skills from within the skill categories below</h4></div>
           
 <div class="boxes">
       
@@ -278,7 +271,7 @@ for(var i=0;i<=array.length;i++){
                 
                 while ($res = pg_fetch_row($resultGrouping)) {
                 $grpName = $res[0];
-                    echo '<div class="skillgroup" id="'.$grpName.'" onclick="child(\''.$grpName.'\',this)"><h4>'.$grpName.'</h4></div>';
+                    echo '<div class="skillgroup" id="'.$grpName.'" onclick="child(\''.$grpName.'\',this)"><h4>'.$grpName.'</h4>';
                     //echo '<a href="#" rel="week_3">'.$grpName.'</a>';
 
                     $sql = "Select ID,name,description, grouped.group_name from (
@@ -310,18 +303,19 @@ for(var i=0;i<=array.length;i++){
                              and grouped.group_name = '$grpName'
                              order by grouped.group_name";
                     $resultGroupingMembers = pg_query($dbconn4, $sql);
-                    echo '<ui>';
+                    //echo '<ui>';
                     $allAquire = true;
                     while ($res2 = pg_fetch_row($resultGroupingMembers)) {
                   
-                    echo '<div  class="'.$grpName.'" onclick="replicate(this);" id="value" value="'.$res2[1].'" style="display:none;"><p><span class="add"><svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg></span>'.$res2[1].' </p></div>';
+                    echo '<div  class="'.$grpName.'" onclick="replicate(this);" id="value" value="'.$res2[1].'" style="display:none;"><a style="display:none;">'.$grpName.'</a><p><span class="add"><svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg></span>'.$res2[1].'</p></div>';
                        // echo '<li>'.$res2[1].'</li>';
                         $allAquire = false;
                     }
                     if ($allAquire) {
                           echo '<div  class="'.$grpName.'" id="value" value="'.$grpName.'" style="display:none;"><p>You have acquired all '.$grpName.' skills </p></div>';
                          }
-                    echo '</ui>';
+                   // echo '</ui>';
+                   echo '</div>';
                 }
 
              //echo '<div  class="value" onclick="replicate(this);" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
@@ -338,35 +332,37 @@ for(var i=0;i<=array.length;i++){
       
 
 <div class="skill-box">
-<div class="select-box-heading"><h4>Your Skill Set</h4></div>
+<div class="select-box-heading"><h4>Your Choosen Skill Set</h4></div>
             <div class="skill-box-backgnd" id="skill-box">
             
                 <!-- <p></p> -->
                 <?php
                 $sql = "Select * from (
-                        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
-                        From skill_Occupation as a, skill as b, Occupation as c
-                        Where a.skID = b.skID and c.OccID = a.OccID
-                        And c.OccName = '$Onetoccp'
-                        Order by c.OccName, a.Rank desc
-                        Limit 10) as selectedSkill
-                        union
-                        Select * from (
-                        Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked
-                        From knowledge_Occupation as a, knowledge as b, Occupation as c
-                        Where a.knwID = b.knwID and c.OccID = a.OccID
-                        And c.OccName = '$Onetoccp'
-                        And b.knwname <> 'Mathematics'
-                        Order by c.OccName, a.Rank desc
-                        Limit 10) as selectedKnowledge
-                        order by name";
+Select b.skid as ID,b.skName as name, b.description as description, 1 as checked, d.group_name
+From skill_Occupation as a, skill as b, Occupation as c, skill_knowledge_group as d
+Where a.skID = b.skID and c.OccID = a.OccID
+And b.skid = d.relatedid	
+And c.OccName = '$Onetoccp'
+Order by c.OccName, a.Rank desc
+Limit 10) as selectedSkill
+ union
+Select * from (
+Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked, d.group_name
+From knowledge_Occupation as a, knowledge as b, Occupation as c, skill_knowledge_group as d
+Where a.knwID = b.knwID and c.OccID = a.OccID
+And b.knwid = d.relatedid	
+And c.OccName = '$Onetoccp'
+And b.knwname <> 'Mathematics'
+Order by c.OccName, a.Rank desc
+Limit 10) as selectedKnowledge
+order by name";
                  $result = pg_query($dbconn4, $sql);
-                 echo '<ui>';
+                // echo '<ui>';
                  while ($res = pg_fetch_row($result)) {
                    
 
                     //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
-                    echo '<div  class="value" onclick="cancel(this);" id="'. $res[1].'" value="'. $res[1].'"><p>'. $res[1].'<span class="cross"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span> </p></div>';
+                    echo '<div  class="value" onclick="cancel(this);" id="'. $res[4].'" value="'. $res[1].'"><a style="display:none;">'.$res[4].'</a><p>'. $res[1].'<span class="cross"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span> </p></div>';
                     
                 }
                 ?>
@@ -376,96 +372,10 @@ for(var i=0;i<=array.length;i++){
 
 </div>
 
- <div class="sub-heading2"><h4>Let us know your knowledge</h4><h4>Choose your knowledge from the knowledge domain</h4></div>
+ <div class="sub-heading2"></div>
  <div class="boxes-2">
          
-        
-     <?php
-///////////////////////// Test Grouping Skill and Knowledge 30/04/2018///////////////////////////////////////
-                $sql = "Select distinct group_name
-                        from skill_knowledge_group
-                        order by group_name";
-                $resultGrouping = pg_query($dbconn4, $sql);
-                if (!$resultGrouping) {
-                    echo "An error occurred.\n";
-                    exit;
-                }
-                echo '<div class="skill-box-backgnd">';
-                echo '<div><h3>Skills & Knowledge Group</h3></div>';
-                while ($res = pg_fetch_row($resultGrouping)) {
-                $grpName = $res[0];
-                    echo '<div><h4>'.$grpName.'</h4></div>';
-
-                    $sql = "Select ID,name,description, grouped.group_name from (
-                            select ID,name,description from (
-                            select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
-                            from skill as allskill
-                            where allskill.skid not in (Select b.skid
-                            From skill_Occupation as a, skill as b, Occupation as c
-                            Where a.skID = b.skID and c.OccID = a.OccID
-                             And c.OccName = '$Onetoccp'
-                            Order by c.OccName, a.Rank desc
-                            Limit 10)
-                            order by allskill.skid
-                            ) as default_no_checked
-                            union
-                            select ID,name,description from (
-                            select allknowledge.knwid as ID,allknowledge.knwname as name, allknowledge.description as description, 0 as checked
-                            from knowledge as allknowledge
-                            where allknowledge.knwid not in (Select b.knwid
-                            From knowledge_Occupation as a, knowledge as b, Occupation as c
-                            Where a.knwID = b.knwID and c.OccID = a.OccID
-                            And c.OccName = '$Onetoccp'
-                            Order by c.OccName, a.Rank desc
-                            Limit 10)
-                            and allknowledge.knwname <> 'Mathematics'
-                            order by allknowledge.knwid
-                             ) as default_no_checked) as remaining, skill_knowledge_group as grouped
-                             where remaining.id = grouped.relatedid
-                             and grouped.group_name = '$grpName'
-                             order by grouped.group_name";
-                    $resultGroupingMembers = pg_query($dbconn4, $sql);
-                    echo '<ui>';
-                    $allAquire = true;
-                    while ($res2 = pg_fetch_row($resultGroupingMembers)) {
-                        echo '<li>'.$res2[1].'</li>';
-                        $allAquire = false;
-                    }
-                    if ($allAquire) {
-                          echo '<li>-</li>';
-                         }
-                    echo '</ui>';
-                }
-                 echo '</div>';
-                 echo '<div class="skill-box-backgnd">';
-                 echo '<div><h3>Your Skills and Knowledge</h3></div>';
-                 $sql = "Select * from (
-                        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
-                        From skill_Occupation as a, skill as b, Occupation as c
-                        Where a.skID = b.skID and c.OccID = a.OccID
-                        And c.OccName = '$Onetoccp'
-                        Order by c.OccName, a.Rank desc
-                        Limit 10) as selectedSkill
-                        union
-                        Select * from (
-                        Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked
-                        From knowledge_Occupation as a, knowledge as b, Occupation as c
-                        Where a.knwID = b.knwID and c.OccID = a.OccID
-                        And c.OccName = '$Onetoccp'
-                        And b.knwname <> 'Mathematics'
-                        Order by c.OccName, a.Rank desc
-                        Limit 10) as selectedKnowledge
-                        order by name";
-                 $result = pg_query($dbconn4, $sql);
-                 echo '<ui>';
-                 while ($res = pg_fetch_row($result)) {
-                     echo '<li>'.$res[1].'</li>';
-                 }
-                 echo '</ui>';
-                 echo '</div>';
-////////////////////////////////////////////////////////////////////////////////////////////////
-     ?>
-
+  
 </div>
     <div class="btn">
     <input class="but2" type="submit" name="submit" value="Explore My Occupations" onclick="return validate_submit2()" />

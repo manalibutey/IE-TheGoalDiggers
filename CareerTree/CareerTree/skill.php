@@ -60,6 +60,8 @@
 //element.appendTo($('#skill-box'));
 element.remove();
 }
+
+
  function cancel(element) {
      
      $(element).attr("onclick","replicate(this)");
