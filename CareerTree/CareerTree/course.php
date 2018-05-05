@@ -36,6 +36,15 @@
 </symbol>
 </defs>
 </svg>
+        <?php
+
+        $occID = $_POST['occid'];
+        $tranID = $_POST['id'];
+        $para = $_POST['para'];
+        $getLackingskill = $_POST['lackingskill'];
+        $getLackingknowledge = $_POST['lackingknowledge'];
+
+        ?>
 
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
@@ -79,14 +88,30 @@
 <div class="box-heading"><h4>Recommended Courses</h4></div>
 
             <div class="course-box-backgnd" id="course-box">
-            <?php  if ($occDetail[5]||$occDetail[6]){
-            if(!$occDetail[5]){
+                <?php
+            if ($getLackingskill||$getLackingknowledge){
+                if ($getLackingskill){
+                    $lackingSkillsArray = explode(',', $getLackingskill);
+                    for($x = 0; $x < count($lackingSkillsArray); $x++) {
+                        $lackingskill .= '\''.trim($lackingSkillsArray[$x]).'\',';
+                    }
+                    $lackingskill = rtrim($lackingskill,",");
+                }
+                if ($getLackingknowledge){
+                    $lackingKnowledgeArray = explode(',', $getLackingknowledge);
+                    for($x = 0; $x < count($lackingKnowledgeArray); $x++) {
+                        $lackingKnowledge .= '\''.trim($lackingKnowledgeArray[$x]).'\',';
+                    }
+                    $lackingKnowledge = rtrim($lackingKnowledge,",");
+                }
+            if(!$getLackingskill){
                 $lackingskill = '\'\'';
             }
-            if(!$occDetail[6]){
+            if(!$getLackingknowledge){
                 $lackingKnowledge = '\'\'';
             }
-          
+            include 'db_connection.php';
+            $dbconn4 = OpenCon();
             $sql = "select a.coursename, a.coursetype,a.description, a.provider,a.duration,a.fee,a.link,c.skname as related
                     from course as a, course_related as b , skill as c
                     where a.courseid = b.courseid and b.relatedid = c.skid
@@ -97,7 +122,7 @@
                     where a.courseid = b.courseid and b.relatedid = c.knwid
                     and c.knwname in ($lackingKnowledge)";
             $result = pg_query($dbconn4, $sql);
-           
+
             if(!$result){
                 echo "No data available";
             }
@@ -105,10 +130,10 @@
             echo '<div  class="value" id="'.$lknowledge[0].'" value="'.$lknowledge[0].'"><p>'.$lknowledge[0].' </p></div>';
                 echo '<div  class="value" ><a href="'.$course[6].'" target="_blank">'.$course[0].'</a> ('.$course[1].') - By '.$course[3].'</div>';
             }
-           
+
         }
         pg_close($dbconn4);
-            ?>
+                ?>
             </div>
             </div>
 

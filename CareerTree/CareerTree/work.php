@@ -36,7 +36,14 @@
 </symbol>
 </defs>
 </svg>
+        <?php
+       
+            $occID = $_POST['occid'];
+            $tranID = $_POST['id'];
+            $para = $_POST['para'];
+        
 
+        ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
@@ -79,7 +86,9 @@
          <div class="task-box-heading"><h4>Task Statement</h4></div>
      
             <div class="task-box-backgnd" id="task-box">
-            <?php
+        <?php
+            include 'db_connection.php';
+            $dbconn4 = OpenCon();
              $sql = "select taskname from task_occupation
                 where occid = '$occID'
                 order by rank desc
@@ -89,7 +98,8 @@
             $resultsk =$task[0];
              echo '<div  class="value" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
         }
-            ?>
+        pg_close($dbconn4);
+         ?>
             </div>
         </div>
 

@@ -36,7 +36,15 @@
 </symbol>
 </defs>
 </svg>
+        <?php
 
+        $occID = $_POST['occid'];
+        $tranID = $_POST['id'];
+        $para = $_POST['para'];
+        $getLackingskill = $_POST['lackingskill'];
+        $getLackingknowledge = $_POST['lackingknowledge'];
+
+        ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
@@ -80,9 +88,11 @@
         <div class="box-heading"><h4>Lacking Skills</h4></div>
       
             <div class="lack-box-backgnd" id="lack-select-box">
-            <?php
-            if ($occDetail[5]){
-            $lackingSkillsArray = explode(',', $occDetail[5]);
+                <?php
+            include 'db_connection.php';
+            $dbconn4 = OpenCon();
+            if ($getLackingskill){
+            $lackingSkillsArray = explode(',', $getLackingskill);
             for($x = 0; $x < count($lackingSkillsArray); $x++) {
                 $lackingskill .= '\''.trim($lackingSkillsArray[$x]).'\',';
             }
@@ -99,8 +109,8 @@
                 // echo '<li><h5>'.$lskill[0].' (skill)</h5>'.$lskill[1].'</li><br/>';
             }
         }
-        if ($occDetail[6]){
-            $lackingKnowledgeArray = explode(',', $occDetail[6]);
+        if ($getLackingknowledge){
+            $lackingKnowledgeArray = explode(',', $getLackingknowledge);
             for($x = 0; $x < count($lackingKnowledgeArray); $x++) {
                 $lackingKnowledge .= '\''.trim($lackingKnowledgeArray[$x]).'\',';
             }
@@ -117,7 +127,8 @@
                // echo '<li><h5>'.$lknowledge[0].' (knowledge)</h5>'.$lknowledge[1].'</li><br/>';
             }
         }
-?>
+        pg_close($dbconn4);
+                ?>
             </div>
             </div>
 

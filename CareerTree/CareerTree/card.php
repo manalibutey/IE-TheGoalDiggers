@@ -150,7 +150,7 @@ function submitstatistics()
 
  <div class="full">
 
-   <?php
+     <?php
         $queries = array();
         parse_str($_SERVER['QUERY_STRING'], $queries);
         $tranID =  $queries['id'];
@@ -158,7 +158,7 @@ function submitstatistics()
         //-------Receive ABS Name from parameter ------------//updated 29/04/2018
         $para = $queries['para'];
         if($para){
-        $addParaString = " and OccABS.abs_name ='".$para."'";
+            $addParaString = " and trim(OccABS.abs_name) ='".$para."'";
         }
         else{
         $addParaString = "";
@@ -169,11 +169,11 @@ function submitstatistics()
         //updated query 29/04/2018
         $sql = "select p.title as previousocc, CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name || ' (ABS)' ELSE p.relatedtitle END  as relatedocc,
                 CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
-                p.matchingskill,p.matchingknowledge,p.lackingskill,p.lackingknowledge,p.percentage
+                p.matchingskill,p.matchingknowledge,p.lackingskill,p.lackingknowledge,p.percentage,trim(OccABS.abs_name),trim(OccABS.abs_original)
                         from percentage as p
 		                inner join occupation as Occ on p.relatedoccid = Occ.occid
 		                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
-                        where 
+                        where
                         id = '$tranID'
                         and relatedoccid = '$occID'".$addParaString;
         $result = pg_query($dbconn4, $sql);
@@ -182,8 +182,15 @@ function submitstatistics()
             echo "An error occurred.\n";
             exit;
         }
-        ?>
-
+        if($occDetail[8] <> $occDetail[9])
+        {
+            //Set ABS Original Name as parameter for query career statistic
+            $para = $occDetail[9];
+        }
+        $lackingskill = $occDetail[5];
+        $lackingknowledge = $occDetail[6];
+        pg_close($dbconn4);
+     ?>
         <div class="mid-section">
            <h1><div class="title-line1"><?php echo $occDetail[1]; ?></div></h1>
         </div>
@@ -204,6 +211,9 @@ function submitstatistics()
 <p>Know more about the day-to-day tasks of this occupation.</p>
 </div>
 </a>
+    <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+    <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
+    <input type="hidden" name="para" value="<?php echo $para; ?>" />
 </form>
 </div>
 
@@ -219,6 +229,11 @@ function submitstatistics()
 <p>Know more about the skills you lack in order to persue this occupation.</p>
 </div>
 </a>
+    <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+    <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
+    <input type="hidden" name="para" value="<?php echo $para; ?>" />
+    <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
+    <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
 </form>
 </div>
 
@@ -234,6 +249,11 @@ function submitstatistics()
 <p>Know more about the courses that you can undertake inorder to upskill.</p>
 </div>
 </a>
+    <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+    <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
+    <input type="hidden" name="para" value="<?php echo $para; ?>" />
+    <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
+    <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
 </form>
 </div>
 
@@ -249,6 +269,9 @@ function submitstatistics()
 <p>Know more about the employment trends related to this occupation.</p>
 </div>
 </a>
+    <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+    <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
+    <input type="hidden" name="para" value="<?php echo $para; ?>" />
 </form>
 </div>
 
