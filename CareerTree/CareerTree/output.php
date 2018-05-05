@@ -80,15 +80,15 @@
     //    //echo $skills."</br>";
         $skills = $_POST['skill'];
     }
-    if(!empty($_POST['knw'])){
+    //if(!empty($_POST['knw'])){
     //// Loop to store and display values of individual checked checkbox.
     //foreach($_POST['knw'] as $select){
     //$knw .=  '\''.$select.'\''.',';
     //    }
     //    $knw = rtrim($knw,",");
     //    //echo $knw."</br>";
-        $knw = $_POST['knw'];
-    }
+    //    $knw = $_POST['knw'];
+    //}
     }
  $randID = rand(1,10000);
 ?>
@@ -188,7 +188,7 @@
 
 		                            Select bb.KnwID
 	                                From Knowledge as bb
-	                                Where bb.Knwname in ($knw)
+	                                Where bb.Knwname in ($skills)
                                     ) as occ1
                                     Intersect
                                     Select * from (
@@ -237,7 +237,7 @@
 	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
 	                Order by aa.Rank desc
 	                Limit 10) as requiredKnowledge
-                where requiredKnowledge.knwname in ($knw)), ', ') as MatchingKnowledge) as col7,
+                where requiredKnowledge.knwname in ($skills)), ', ') as MatchingKnowledge) as col7,
 
                 -------------------------Lacking Knowledge-------------------------------------
                 (select array_to_string(array(
@@ -248,7 +248,7 @@
 	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
 	                Order by aa.Rank desc
 	                Limit 10) as requiredKnowledge
-                where requiredKnowledge.knwname not in ($knw)), ', ') as LackingKnowledge) as col8";
+                where requiredKnowledge.knwname not in ($skills)), ', ') as LackingKnowledge) as col8";
          $eachRelatedOccupation = pg_query($dbconn4, $sql);
 
          while ($numOfMatch = pg_fetch_row($eachRelatedOccupation)) {

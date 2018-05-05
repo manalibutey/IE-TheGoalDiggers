@@ -29,21 +29,21 @@
             //alert(skillValue);
             $("#skill").val(skillValue);
             ////////////////Knowledge/////////////////////////////
-            element = $("#knowledge-box").find(".value");
-            var knowledgeValue = '';
-            for (i = 0; i < element.length; i++) {
-                knowledgeValue += "'" + element[i].innerText.trim() + "'," ;
+            //element = $("#knowledge-box").find(".value");
+            //var knowledgeValue = '';
+            //for (i = 0; i < element.length; i++) {
+            //    knowledgeValue += "'" + element[i].innerText.trim() + "'," ;
 
-            }
-            knowledgeValue = knowledgeValue.replace(/,+$/, '');
-            //alert(knowledgeValue);
-            $("#knw").val(knowledgeValue);
+            //}
+            //knowledgeValue = knowledgeValue.replace(/,+$/, '');
+            ////alert(knowledgeValue);
+            //$("#knw").val(knowledgeValue);
 
-            if (knowledgeValue && skillValue) {
+            if (skillValue) {
               result = true;
             }
             else {
-              alert("Please specify at least one skill and knowledge");
+              alert("Please specify at least one skill");
               result = false;
             }
             return result;
@@ -338,24 +338,24 @@ for(var i=0;i<=array.length;i++){
                 <!-- <p></p> -->
                 <?php
                 $sql = "Select * from (
-Select b.skid as ID,b.skName as name, b.description as description, 1 as checked, d.group_name
-From skill_Occupation as a, skill as b, Occupation as c, skill_knowledge_group as d
-Where a.skID = b.skID and c.OccID = a.OccID
-And b.skid = d.relatedid	
-And c.OccName = '$Onetoccp'
-Order by c.OccName, a.Rank desc
-Limit 10) as selectedSkill
- union
-Select * from (
-Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked, d.group_name
-From knowledge_Occupation as a, knowledge as b, Occupation as c, skill_knowledge_group as d
-Where a.knwID = b.knwID and c.OccID = a.OccID
-And b.knwid = d.relatedid	
-And c.OccName = '$Onetoccp'
-And b.knwname <> 'Mathematics'
-Order by c.OccName, a.Rank desc
-Limit 10) as selectedKnowledge
-order by name";
+                        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked, d.group_name
+                        From skill_Occupation as a, skill as b, Occupation as c, skill_knowledge_group as d
+                        Where a.skID = b.skID and c.OccID = a.OccID
+                        And b.skid = d.relatedid	
+                        And c.OccName = '$Onetoccp'
+                        Order by c.OccName, a.Rank desc
+                        Limit 10) as selectedSkill
+                         union
+                        Select * from (
+                        Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked, d.group_name
+                        From knowledge_Occupation as a, knowledge as b, Occupation as c, skill_knowledge_group as d
+                        Where a.knwID = b.knwID and c.OccID = a.OccID
+                        And b.knwid = d.relatedid	
+                        And c.OccName = '$Onetoccp'
+                        And b.knwname <> 'Mathematics'
+                        Order by c.OccName, a.Rank desc
+                        Limit 10) as selectedKnowledge
+                        order by name";
                  $result = pg_query($dbconn4, $sql);
                 // echo '<ui>';
                  while ($res = pg_fetch_row($result)) {
@@ -380,7 +380,7 @@ order by name";
     <div class="btn">
     <input class="but2" type="submit" name="submit" value="Explore My Occupations" onclick="return validate_submit2()" />
     <input type="hidden" name="skill" id="skill" />
-    <input type="hidden" name="knw" id="knw" />
+    <!--<input type="hidden" name="knw" id="knw" />-->
     </div>
 </div>
 
