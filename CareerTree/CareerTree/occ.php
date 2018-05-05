@@ -186,7 +186,7 @@
         //updated query 29/04/2018
         $sql = "Select CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE Occ.occname END as ABSName
                 From Occupation as Occ
-	            left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+	            inner join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
 	            inner join Industry_Occupation as IndOcc on Occ.OccID = IndOcc.OccID
 	            inner join Industry as Ind on IndOcc.IndID = Ind.IndID
                 Where  Occ.occid in (select occid from Career_Changer_Matrix )

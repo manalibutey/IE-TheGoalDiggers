@@ -267,14 +267,14 @@
          }
      }
         //updated query 29/04/2018
-         $sql ="select p.title,CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name || ' (ABS)' ELSE p.relatedtitle END as relatedtitle,
+     $sql ="select p.title,CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name || ' (ABS)' ELSE p.relatedtitle END as relatedtitle,
                 p.percentage,p.id,p.matchingskill,p.lackingskill,p.matchingknowledge,p.lackingknowledge,p.relatedoccid,Occ.occid,Occ.occname,
                 CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
                 CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE '' END as ABS_parameter
                 from percentage as p
                 inner join occupation as Occ on p.relatedoccid = Occ.occid
-                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
-                where 
+                inner join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                where
                 id = '$randID'
                 order by percentage desc";
             $relatedOccupation = pg_query($dbconn4, $sql);
@@ -292,7 +292,7 @@
             else{
             echo '<a href="/card.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
             }
-             
+
              echo '<div class="box">';
              echo'<div class="flex-element">';
              echo '<div class="title"><h3>'.$relatedOcc[1].'</h3></div>';
