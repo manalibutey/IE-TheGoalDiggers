@@ -151,21 +151,31 @@
          echo '<div><h3>Average Salary: '.$avgSalary.'</h3></div>';
      }
      //-----------Extract Data for Employment by Gender
-     $sql = "select sex, employment
+     $sql = "select sex, employment, CASE WHEN sex = 'Male' THEN 'M' ELSE '' END as gender
                 from abs_employment_gender
                 where occname = '$para'";
 
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
          $entryEmployedGender .= "['".$row{'sex'}."',".$row{'employment'}."],";
+         if($row{'gender'}){
+             $maleEmploy = $row{'employment'};
+         }
+         else{
+             $femaleEmploy = $row{'employment'};
+         }
      }
      if($entryEmployedGender)
      {
          echo '<div id="donut_chart" style="width: 900px; height: 500px"></div>';
+         echo '<div><h3>Male: '.$maleEmploy.'</h3></div>';
+         echo '<div><h3>Female: '.$femaleEmploy.'</h3></div>';
 
      }
      //-----------Extract Data for Employment by State
-     $sql = "select statecode,state, employment
+     $sql = "select statecode,state, employment,
+            CASE WHEN employment = (select max(employment) from abs_employment_state where occname = '$para') THEN 'Max' ELSE '' END as Max,
+            CASE WHEN employment = (select min(employment) from abs_employment_state where occname = '$para') THEN 'Min' ELSE '' END as Min
                 from abs_employment_state
                 where occname = '$para'";
 
@@ -173,11 +183,22 @@
      while ($row = pg_fetch_array($result)) {
          $entryEmployedState_Geo .= "['".$row{'statecode'}."','".$row{'state'}."',".$row{'employment'}."],";
          $entryEmployedState_Chart .= "['".$row{'state'}."',".$row{'employment'}.",'color: #111E6C',".$row{'employment'}."],";
+         if($row{'max'}){
+             $maxStateName = $row{'state'};
+             $maxStateEmploy = $row{'employment'};
+         }
+         if($row{'min'}){
+             $minStateName = $row{'state'};
+             $minStateEmploy = $row{'employment'};
+         }
      }
      if($entryEmployedState_Geo)
      {
          echo '<div id="regions_div" style="width: 900px; height: 500px"></div>';
+
          echo '<div id="column_chart1" style="width: 900px; height: 500px"></div>';
+         echo '<div><h3>Highest Employment: '.$maxStateName.'('.$maxStateEmploy.')</h3></div>';
+         echo '<div><h3>Lowest Employment: '.$minStateName.'('.$minStateEmploy.')</h3></div>';
      }
      pg_close($dbconn4);
      ?>
