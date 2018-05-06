@@ -94,10 +94,10 @@ element.remove();
   //   alert(groupname);
      var group = groupname.replace(/ /g,"\\ ");
   //   alert(group);
-     var s = "<div  class=\"+groupname+\" onclick=\"replicate(this);\" id=\"value\" value=\"+skill+\" style=\"display:none;\"><a style=\"display:none;\">"+groupname+"</a><p><span class=\"add\"><svg class=\"icon icon-plus\"><use xlink:href=\"#icon-plus\"></use></svg></span>"+skill+"</p></div>";
+  //   var s = "<div  class=\" + groupname + \" onclick=\"replicate(this);\" id=\"value\" value=\"+skill+\" style=\"display:none;\"><a style=\"display:none;\">"+groupname+"</a><p><span class=\"add\"><svg class=\"icon icon-plus\"><use xlink:href=\"#icon-plus\"></use></svg></span>"+skill+"</p></div>";
    
    //  alert('div.skillgroup#'+group);
-     $('div.skillgroup#'+group).append(s);
+     $('div.skillgroup#'+group).append('<div  class="' + groupname + '" onclick="replicate(this);" id="value" value="' + skill + '" style="display:none;"><a style="display:none;">' + groupname + '</a><p><span class="add"><svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg></span>' + skill + '</p></div>');
     element.remove();
 
      }
@@ -107,9 +107,9 @@ element.remove();
 
 <script>
 function child(id) {
-
+alert(id);
   var res = id.replace(/ .*/,'');
-//alert(res);
+alert(res);
   $('.'+res).css('display', 'inline-block');
 
   var array = ['Analytics','Communication','Education','Engineering','Governance','Health','Interpersonal','Liberal','Maintenance','Management','Mathematics','Others','Production','Software',]; 
