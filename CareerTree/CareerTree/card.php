@@ -189,6 +189,7 @@ function submitstatistics()
         }
         $lackingskill = $occDetail[5];
         $lackingknowledge = $occDetail[6];
+        $previousOcc = $occDetail[0];
         pg_close($dbconn4);
      ?>
         <div class="mid-section">
@@ -272,6 +273,7 @@ function submitstatistics()
     <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
     <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
     <input type="hidden" name="para" value="<?php echo $para; ?>" />
+    <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
 </form>
 </div>
 

@@ -42,7 +42,7 @@
         $occID = $_POST['occid'];
         $tranID = $_POST['id'];
         $para = $_POST['para'];
-
+        $previousocc = $_POST['previousocc'];
 
         ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
@@ -89,24 +89,36 @@
      //---------Extract Data for Job Vacancy Trend
      include 'db_connection.php';
      $dbconn4 = OpenCon();
-     $sql = "select date_part('year', time) as year,date_part('day', time) as month,date_part('month', time) as day, vacancy
-                from abs_job_vacancy
-                where occname = '$para'
-                and date_part('year', time) > (select distinct date_part('year', time) as year
-											                from abs_job_vacancy
-											                order by date_part('year', time) desc
-											                limit 1) - 9
-                order by time";
+     $sql = "select date_part('year', time) as year,date_part('day', time) as month,date_part('month', time) as day, vacancy,
+            CASE WHEN date_part('year', time) = date_part('year', CURRENT_DATE) and date_part('day', time) = date_part('month', CURRENT_DATE) THEN 'Current' ELSE '' END as current,
+            CASE WHEN date_part('year', time) = (select max(date_part('year', time)) as year from abs_job_vacancy where occname = '$para') THEN 'Future' ELSE '' END as Future
+            from abs_job_vacancy
+            where occname = '$para'
+            and date_part('year', time) > (select distinct date_part('year', time) as year
+											            from abs_job_vacancy
+											            order by date_part('year', time) desc
+											            limit 1) - 5
+            order by time";
 
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
          //$entry .= "['".$row{'time'}."',".$row{'vacancy'}."],";
          $month = $row{'month'} - 1;
-         $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".$row{'vacancy'}."],";
+         $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0)."],";
+         if($row{'current'}){
+             $currentYear = $row{'year'};
+             $currentVacancy = round($row{'vacancy'},0);
+         }
+         if($row{'future'}){
+             $futureYear = $row{'year'};
+             $futureVacancy = round($row{'vacancy'},0);
+         }
      }
      if($entryVacancy)
      {
          echo '<div id="curve_chart" style="width: 900px; height: 500px"></div>';
+         echo '<div><h3>Current Job Vacancy ('.$currentYear.'): '.$currentVacancy.'</h3></div>';
+         echo '<div><h3>Future Job Vacancy ('.$futureYear.'): '.$futureVacancy.'</h3></div>';
      }
      //-----------Extract Data for Average Salary
      $sql = "select occname, ceil(cash_earning) as weeklysalary
@@ -116,15 +128,19 @@
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
          $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #0099cc',".$row{'weeklysalary'}."],";
+         $avgSalary = $row{'weeklysalary'};
+     }
+     $sql = "select occname, ceil(cash_earning) as weeklysalary
+                from abs_salary a, occupation_abs b
+                where a.occname = b.abs_original
+                and b.abs_name = '$previousocc'";
+     $result = pg_query($dbconn4, $sql);
+     while ($row = pg_fetch_array($result)) {
+         $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C',".$row{'weeklysalary'}."],";
      }
      $sql = "select occname, ceil(cash_earning) as weeklysalary
                 from abs_salary
-                where occname in (select RelatedABS.abs_original
-                from occupation_abs as OccABS
-                inner join career_changer_matrix as RelatedOcc on OccABS.occid = RelatedOcc.occid
-                inner join occupation_abs RelatedABS on RelatedOcc.relatedoccid = RelatedABS.occid
-                where OccABS.abs_original = '$para')
-                or occname = 'All Occupations'";
+                where occname = 'All Occupations'";
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
          $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C',".$row{'weeklysalary'}."],";
@@ -132,6 +148,7 @@
      if($entrySalary)
      {
          echo '<div id="column_chart" style="width: 900px; height: 500px"></div>';
+         echo '<div><h3>Average Salary: '.$avgSalary.'</h3></div>';
      }
      //-----------Extract Data for Employment by Gender
      $sql = "select sex, employment
@@ -145,6 +162,7 @@
      if($entryEmployedGender)
      {
          echo '<div id="donut_chart" style="width: 900px; height: 500px"></div>';
+
      }
      //-----------Extract Data for Employment by State
      $sql = "select statecode,state, employment
@@ -223,7 +241,7 @@
 
              var options = {
                  title: 'Employment of <?php echo $para ?> by Gender',
-                 pieHole: 0.4,
+                 pieHole: 0.6,
                  legend: { position: 'right' },
 
              };
