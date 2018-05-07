@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -105,7 +105,7 @@
         <div class="mid-section">
            <h1><div class="title-line1">Career Statistics</div></h1>
         </div>
-        <div class="sub-heading"><h4>Know about the job vacancy trends in your chosen state</h4><h4>and the average salary offered within Australia</h4></div>
+        <div class="sub-heading"><h4>Know about the job vacancy trends in your chosen state and the average salary offered within Australia for ""</h4></div>
                
 <div class=state> 
     <h3>Let us know you better to customise recommendations</h3>
@@ -141,6 +141,7 @@
          <input class="but2" id="#but2" type="submit" name="submit" value="Get Statistics" />
      </div>
 </div>
+
      <?php //---------Assign Data to Google Chart
      //---------Extract Data for Job Vacancy Trend
      include 'db_connection.php';

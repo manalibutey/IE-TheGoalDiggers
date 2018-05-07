@@ -195,9 +195,9 @@ color: #111E6C;
 }
 
 .sub-heading {
-padding-top: 20px;
-text-align: center;
-color: #A22631;
+    padding: 10px 150px 0px 150px;
+    text-align: center;
+    color: #A22631;
 }
 
 .mid-section::after {

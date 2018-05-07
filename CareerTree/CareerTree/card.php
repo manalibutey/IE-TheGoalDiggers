@@ -195,7 +195,7 @@ function submitstatistics()
         <div class="mid-section">
            <h1><div class="title-line1"><?php echo $occDetail[1]; ?></div></h1>
         </div>
-        <div class="sub-heading"><h4>Explore the responsibilities, your lacking skills and course suggestions</h4><h4>as well as career statictics to switch to this career</h4></div>
+        <div class="sub-heading"><h4>Explore the responsibilities, course suggestions for the skills you need as well as career statictics to switch to this career</h4></div>
 
 
 <div class="card">
@@ -226,8 +226,8 @@ function submitstatistics()
 <div class="card-icon">
 <svg class="icon icon-cogs"><use xlink:href="#icon-cogs"></use></svg>
 </div>
-<h4>LACKING SKILLS</h4>
-<p>Know more about the skills you lack in order to persue this occupation.</p>
+<h4>ENHANCE SKILLSET</h4>
+<p>Undertake the recommended courses to acquire the skills you need for this occupation.</p>
 </div>
 </a>
     <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
@@ -239,24 +239,6 @@ function submitstatistics()
 </div>
 
 
-<div class="space">
-<form   name="course" method="post" action="/course.php">
-<a href="javascript: submitcourse()">
-<div class="course">
-<div class="card-icon">
-<svg class="icon icon-books"><use xlink:href="#icon-books"></use></svg>
-</div>
-<h4>COURSES</h4>
-<p>Know more about the courses that you can undertake inorder to upskill.</p>
-</div>
-</a>
-    <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
-    <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
-    <input type="hidden" name="para" value="<?php echo $para; ?>" />
-    <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
-    <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
-</form>
-</div>
 
 
 <div class="space">

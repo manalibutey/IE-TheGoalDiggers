@@ -1,3 +1,6 @@
+.task{
+    padding-top: 20px;
+}
 footer {
     background: #111E6C;
     color: white;
@@ -12,7 +15,7 @@ footer {
 }
 
 .foot {
-    padding-top: 172px;
+    padding-top: 60px;
 }
 
 .footer p {
@@ -85,6 +88,7 @@ footer {
     right: 0;
     left: 0;
     z-index: 1030;
+    margin-bottom: 0px;
 }
 
 .navbar-dark {
@@ -174,7 +178,7 @@ body {
 }
 
 .sub-heading {
-    padding-top: 20px;
+    padding: 10px 150px 0px 150px;
     text-align: center;
     color: #A22631;
 }
@@ -194,26 +198,17 @@ body {
 }
 
 .task-box-backgnd {
+    position: relative;
+    padding-top: 10px;
     border: 1.35px solid #A22631;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
     padding: 5px;
     background: transparent;
-    outline: #A22631;
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-    outline: none;
-    padding: 3px 0px 3px 3px;
-    margin: 5px 1px 3px 0px;
+    outline: #A22631;   
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-    .task-box-backgnd:hover {
-        box-shadow: 0 0 10px #A22631;
-        margin: 5px 1px 3px 0px;
-        border: 1.35px solid #A22631;
-        border-radius: 20px;
-    }
+   
 
     .task-box-backgnd .value {
         position: relative;

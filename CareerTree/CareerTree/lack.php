@@ -79,11 +79,11 @@
  <div class="full">
 
         <div class="mid-section">
-           <h1><div class="title-line1">Your Lacking Skills</div></h1>
+           <h1><div class="title-line1">Enhance Your Skill Set</div></h1>
         </div>
-        <div class="sub-heading"><h4>Know the skills you lack that are required to become </h4></div>
+        <div class="sub-heading"><h4>Acquire the skills you will need to become "" by undertaking the recommended courses</h4></div>
 
-        
+        <div class=boxes>
        <div class="lack-box">
         <div class="box-heading"><h4>Lacking Skills</h4></div>
       
@@ -105,7 +105,8 @@
             order by rank desc";
             $result = pg_query($dbconn4, $sql);
             while ($lskill = pg_fetch_row($result)) {
-            echo '<div  class="value" id="'.$lskill[0].'" value="'.$lskill[0].'"><p>'.$lskill[0].' </p></div>';
+            echo '<label for="'.$lskill[1].'" title="'.$lskill[1].'"><div  class="value" id="'.$lskill[0].'" value="'.$lskill[0].'"><p>'.$lskill[0].' </p></div></label>';
+           //  echo '<div  class="value" id="'.$lskill[1].'" value="'.$lskill[1].'"><p>'.$lskill[1].' </p></div>';
                 // echo '<li><h5>'.$lskill[0].' (skill)</h5>'.$lskill[1].'</li><br/>';
             }
         }
@@ -123,12 +124,67 @@
                     order by rank desc";
             $result = pg_query($dbconn4, $sql);
             while ($lknowledge = pg_fetch_row($result)) {
-            echo '<div  class="value" id="'.$lknowledge[0].'" value="'.$lknowledge[0].'"><p>'.$lknowledge[0].' </p></div>';
-               // echo '<li><h5>'.$lknowledge[0].' (knowledge)</h5>'.$lknowledge[1].'</li><br/>';
+            echo '<label for="'.$lknowledge[1].'" title="'.$lknowledge[1].'"><div  class="value" id="'.$lknowledge[0].'" value="'.$lknowledge[0].'"><p>'.$lknowledge[0].' </p></div></label>';
+          
             }
+        }
+       
+                ?>
+            </div>
+            </div>
+
+            <div class="course-box">
+<div class="box-heading"><h4>Recommended Courses</h4></div>
+
+            <div class="course-box-backgnd" id="course-box">
+                <?php
+            if ($getLackingskill||$getLackingknowledge){
+                if ($getLackingskill){
+                    $lackingSkillsArray = explode(',', $getLackingskill);
+                    for($x = 0; $x < count($lackingSkillsArray); $x++) {
+                        $lackingskill .= '\''.trim($lackingSkillsArray[$x]).'\',';
+                    }
+                    $lackingskill = rtrim($lackingskill,",");
+                }
+                if ($getLackingknowledge){
+                    $lackingKnowledgeArray = explode(',', $getLackingknowledge);
+                    for($x = 0; $x < count($lackingKnowledgeArray); $x++) {
+                        $lackingKnowledge .= '\''.trim($lackingKnowledgeArray[$x]).'\',';
+                    }
+                    $lackingKnowledge = rtrim($lackingKnowledge,",");
+                }
+            if(!$getLackingskill){
+                $lackingskill = '\'\'';
+            }
+            if(!$getLackingknowledge){
+                $lackingKnowledge = '\'\'';
+            }
+            //include 'db_connection.php';
+           // $dbconn4 = OpenCon();
+            $sql = "select a.coursename, a.coursetype,a.description, a.provider,a.duration,a.fee,a.link,c.skname as related
+                    from course as a, course_related as b , skill as c
+                    where a.courseid = b.courseid and b.relatedid = c.skid
+                    and c.skname in ($lackingskill)
+                    union
+                    select a.coursename, a.coursetype,a.description, a.provider,a.duration,a.fee,a.link,c.knwname as related
+                    from course as a, course_related as b , knowledge as c
+                    where a.courseid = b.courseid and b.relatedid = c.knwid
+                    and c.knwname in ($lackingKnowledge)";
+            $result = pg_query($dbconn4, $sql);
+
+            if(!$result){
+                echo "No data available";
+            }
+            while ($course = pg_fetch_row($result)) {
+            echo '<div  class="value" id="'.$lknowledge[0].'" value="'.$lknowledge[0].'"><p>'.$lknowledge[0].' </p></div>';
+            
+                echo '<div  class="value" ><a href="'.$course[6].'" target="_blank">'.$course[0].'</a> ('.$course[1].') - By '.$course[3].'</div>';
+            }
+
         }
         pg_close($dbconn4);
                 ?>
+            </div>
             </div>
             </div>
 

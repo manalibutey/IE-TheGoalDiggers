@@ -12,7 +12,7 @@ margin-top: -30px;
 }
 
 .foot {
-padding-top: 110px;
+padding-top: 130px;
 }
 
 .footer p {
@@ -128,11 +128,12 @@ text-align: center;
 
 
 .fixed-top {
-/*position: fixed;*/
-top: 0;
-right: 0;
-left: 0;
-z-index: 1030;
+    /*position: fixed;*/
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    margin-bottom: 0px;
 }
 
 .navbar-dark {
@@ -222,9 +223,9 @@ color: #111E6C;
 }
 
 .sub-heading {
-padding-top: 20px;
-text-align: center;
-color: #A22631;
+    padding: 10px 150px 0px 150px;
+    text-align: center;
+    color: #A22631;
 }
 
 .mid-section::after {
@@ -235,10 +236,12 @@ left: 50%;
 height: 1px;
 position: absolute;
 width: 90px;
+
 }
 
-.card{
-display: flex;
+.card {
+    display: flex;
+    padding-top: 20px;
 }
 
 .card h4 {

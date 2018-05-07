@@ -8,7 +8,7 @@
     <title>CareerTree</title>
     <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/work.css">
+    <link rel="stylesheet" href="./css/course.css">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script src="./js/jquery.min.js"></script>
@@ -37,13 +37,15 @@
 </defs>
 </svg>
         <?php
-       
-            $occID = $_POST['occid'];
-            $tranID = $_POST['id'];
-            $para = $_POST['para'];
-        
+
+        $occID = $_POST['occid'];
+        $tranID = $_POST['id'];
+        $para = $_POST['para'];
+        $getLackingskill = $_POST['lackingskill'];
+        $getLackingknowledge = $_POST['lackingknowledge'];
 
         ?>
+
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
@@ -78,32 +80,11 @@
  <div class="full">
 
         <div class="mid-section">
-           <h1><div class="title-line1">Duties</div></h1>
+           <h1><div class="title-line1">Recommended Courses</div></h1>
         </div>
-        <div class="sub-heading"><h4>The day-to-day work related duties and responsibilities of ""</h4></div>
+        <div class="sub-heading"><h4>Explore the course suggestion list inorder</h4><h4> to gain the skills you currently lack</h4></div>
 
-        <div class="task">
-         <div class="task-box-heading" style="display:none;"><h4>Task Statement</h4></div>
-     
-            <div class="task-box-backgnd" id="task-box">
-        <?php
-            include 'db_connection.php';
-            $dbconn4 = OpenCon();
-             $sql = "select taskname from task_occupation
-                where occid = '$occID'
-                order by rank desc
-                limit 10";
-        $result = pg_query($dbconn4, $sql);
-        while ($task = pg_fetch_row($result)) {
-            $resultsk =$task[0];
-             echo '<div  class="value" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
-        }
-        pg_close($dbconn4);
-         ?>
-            </div>
         </div>
-
-</div>
 
 <div class="foot">
 <footer class="footer"><p>

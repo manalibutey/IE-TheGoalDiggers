@@ -148,6 +148,7 @@ footer {
     right: 0;
     left: 0;
     z-index: 1030;
+    margin-bottom: 0px;
 }
 
 .navbar-dark {
@@ -237,7 +238,7 @@ body {
 }
 
 .sub-heading {
-    padding-top: 5px;
+    padding: 5px 150px 0px 150px;
     text-align: center;
     color: #A22631;
 }

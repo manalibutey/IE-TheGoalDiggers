@@ -129,7 +129,7 @@
         <div class="mid-section">
            <h1><div class="title-line1" >Recommended Occupations</div></h1>
         </div>
-        <div class="sub-heading"><h4>According to your previous occupation and skill set,</h4><h4>you can switch to the following occupations</h4></div>
+        <div class="sub-heading"><h4>According to your previous occupation and skill set, you can switch to the following occupations</h4></div>
         <iframe src="/shiny?id=<?php echo $randID; ?> " ></iframe>
         <div class = box-cover>
             <?php

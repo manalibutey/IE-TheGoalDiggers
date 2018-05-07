@@ -121,6 +121,7 @@ button {
     right: 0;
     left: 0;
     z-index: 1030;
+    margin-bottom: 0px;
 }
 
 .navbar-dark {
@@ -240,14 +241,14 @@ body {
 
 .boxes-2 {
     display: flex;
-    padding-bottom: 60px;
+    padding-bottom: 30px;
 }
 /*.box-flex{
 flex: 1;
 }
 */
 .sub-heading {
-    padding-top: 20px;
+    padding: 10px 150px 0px 150px;
     text-align: center;
     color: #A22631;
 }
