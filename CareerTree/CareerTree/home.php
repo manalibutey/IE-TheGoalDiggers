@@ -28,19 +28,7 @@
         });
     </script>
     <script>
-        //function validate_submit() {
-        //    var result = false;
-        //    var options = document.getElementById("mylist").options;
-        //    for (var i = 0; i < options.length; i++) {
-        //        if (document.getElementById('category').value == options[i].value) {
-        //            result = true;
-        //        }
-        //    }
-        //    if (!result) {
-        //        alert("Please select occupations from the list");
-        //    }
-        //    return result;
-        //}
+  
         function validate_submit() {
             var result = false;
             if (document.getElementById('category').value) {
@@ -95,7 +83,7 @@
 		<div class="back">
 			<img class="back-image" src="./images/background.jpg" />
              <div class="head" >
-<div class="title-line" ><h1><strong>Welcome To Your Future</strong></h1> </div>
+<div class="title-line" ><h1><strong>Welcome To Career Tree</strong></h1> </div>
 <h5>The Sky is the Limit</h5>
 </div>
              <div class="subhead1" ><h4>Improve your employability. Change career like a pro.</h4>
@@ -105,7 +93,6 @@
 <div class="search">
 <label for="category"></label>
 <form method="post" action="skillset.php">
-    <!--<input type="text" id="category" name="occ" autocomplete="off" list="mylist" placeholder="Enter your previous or current occupation">-->    
     <?php
     include 'db_connection.php';
     //$dbconn4 = OpenCon();

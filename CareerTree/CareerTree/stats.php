@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -11,8 +11,32 @@
     <link rel="stylesheet" href="./css/stats.css">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-    <script src="./js/jquery.min.js"></script>
+    
+    <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
+    <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     <script type="text/javascript">
+        
+        $(document).ready(function () {
+            $('.chosen-select').chosen();
+       
+
+        $('#btn').click(function(){
+ 
+  var state1 = $('#statecurrent option:selected').val();
+  alert(state1);  //previous state value
+   var state2 = $('#statefuture option:selected').val();
+    alert(state2); //future state value
+     $('.state').hide();
+});
+
+
+ });
+
+ 
+    </script>
+    
     </head>
     <body>
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -81,10 +105,42 @@
         <div class="mid-section">
            <h1><div class="title-line1">Career Statistics</div></h1>
         </div>
-        <div class="sub-heading"><h4>Know about the average salary, job vacancy trends</h4><h4>and employment rate - by state and gender</h4></div>
-                
-        <div>
-        </div>
+        <div class="sub-heading"><h4>Know about the job vacancy trends in your chosen state</h4><h4>and the average salary offered within Australia</h4></div>
+               
+<div class=state> 
+    <h3>Let us know you better to customise recommendations</h3>
+    <div class="statecurrent">
+        <h4>State you currently reside in</h4>
+        <select class="chosen-select" id="statecurrent" name="statelist">
+            <option disabled selected value>Please enter your current residential state</option>
+            <option value = "Australian Capital Territory">Australian Capital Territory</option>
+            <option value = "New South Wales">New South Wales</option>
+            <option value = "Northern Territory">Northern Territory</option>
+            <option value = "Queensland">South Australia</option>
+            <option value = "Tasmania">Tasmania</option>
+            <option value = "Victoria">Victoria</option>
+            <option value = "Western Australia">Western Australia</option>
+        </select>
+   </div>
+   <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+   <div class="statefuture">
+     
+        <h4>State you would like to reloacte to</h4>
+        <select class="chosen-select" id="statefuture" name="statelist1">
+            <option disabled selected value>Please enter your future residential state</option>
+            <option value = "Australian Capital Territory">Australian Capital Territory</option>
+            <option value = "New South Wales">New South Wales</option>
+            <option value = "Northern Territory">Northern Territory</option>
+            <option value = "Queensland">South Australia</option>
+            <option value = "Tasmania">Tasmania</option>
+            <option value = "Victoria">Victoria</option>
+            <option value = "Western Australia">Western Australia</option>
+        </select>
+    </div>
+    <div class="btn" id="btn">
+         <input class="but2" id="#but2" type="submit" name="submit" value="Get Statistics" />
+     </div>
+</div>
      <?php //---------Assign Data to Google Chart
      //---------Extract Data for Job Vacancy Trend
      include 'db_connection.php';

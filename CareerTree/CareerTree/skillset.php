@@ -107,9 +107,9 @@ element.remove();
 
 <script>
 function child(id) {
-alert(id);
+//alert(id);
   var res = id.replace(/ .*/,'');
-alert(res);
+//alert(res);
   $('.'+res).css('display', 'inline-block');
 
   var array = ['Analytics','Communication','Education','Engineering','Governance','Health','Interpersonal','Liberal','Maintenance','Management','Mathematics','Others','Production','Software',]; 
