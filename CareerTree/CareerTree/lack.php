@@ -85,7 +85,7 @@
 
         <div class=boxes>
        <div class="lack-box">
-        <div class="box-heading"><h4>Lacking Skills</h4></div>
+        <div class="box-heading"><h4>Skills to Acquire</h4></div>
       
             <div class="lack-box-backgnd" id="lack-select-box">
                 <?php

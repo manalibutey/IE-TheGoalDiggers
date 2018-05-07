@@ -3,9 +3,8 @@
     "",
     "\\CareerTree",
     "\\CareerTree\\CareerTree",
-    "\\CareerTree\\CareerTree\\css",
-    "\\CareerTree\\CareerTree\\vendor\\chosen_v1.8.5"
+    "\\CareerTree\\CareerTree\\css"
   ],
-  "SelectedNode": "\\CareerTree\\CareerTree\\lack.php",
+  "SelectedNode": "\\CareerTree\\CareerTree\\css\\skillset.css",
   "PreviewInSolutionExplorer": false
 }

@@ -81,6 +81,8 @@ element.remove();
      ele =  $(element).get(0); 
    //  alert(ele);
 
+   $(ele).children("#all").hide();
+
      var name = ele.className;
    //  alert(name);
 
@@ -312,7 +314,7 @@ for(var i=0;i<=array.length;i++){
                         $allAquire = false;
                     }
                     if ($allAquire) {
-                          echo '<div  class="'.$grpName.'" id="value" value="'.$grpName.'" style="display:none;"><p>You have acquired all '.$grpName.' skills </p></div>';
+                          echo '<div  class="'.$grpName.'" id="all" value="'.$grpName.'" style="display:none;"><p>You have acquired all '.$grpName.' skills </p></div>';
                          }
                    // echo '</ui>';
                    echo '</div>';

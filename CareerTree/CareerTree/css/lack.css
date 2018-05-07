@@ -1,9 +1,9 @@
 label {
     text-overflow: ellipsis;
     display: block;
-    
+    margin: 0 auto;
     cursor: pointer;
-    padding-left: 30px;
+    
     white-space: nowrap;
     width: fit-content;
 }
@@ -200,8 +200,9 @@ body {
     width: 90px;
 }
 
-.boxes{
+.boxes {
     display: flex;
+    padding-top: 30px;
 }
 
 .lack-box {
@@ -209,8 +210,8 @@ body {
     height: 100%;
     padding-top: 10px;
     padding-left: 10px;
-    /*display: inline-block;*/
-    flex: 1;
+    /*display: inline-block;
+    flex: 1;*/
 }
 .box-heading {
     text-align: center;
