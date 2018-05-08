@@ -236,7 +236,15 @@ color: #111E6C;
     color: #A22631;
 }
 
-
+.icon-mail {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    color: #a22631;
+}
 
 input[name="occ"] {
 border: 1.35px solid #A22631;
@@ -399,7 +407,7 @@ padding-left: 0px !important;
 padding-right: 70px;*/
     z-index: 2;
     visibility: hidden;
-    transform: translate(-50%, 65%) !important;
+    transform: translate(-50%, 50%) !important;
     left: 50%;
 }
 
@@ -414,24 +422,7 @@ padding-right: 70px;*/
 padding-top:40px;
 }
 
-.arrow.i4 {
-display: table-cell;
-width: 100%;
-height: auto;
-grid-column: 2;
-grid-row: 1;
-}
-.material-icons {
-color: #2786f3;
-width: 100%;
-}
-.arrow.i5 {
-display: table-cell;
-width: 100%;
-height: auto;
-grid-column: 4;
-grid-row: 1;
-}
+
 
 input[type="button"] {
     border: 1px solid #111E6C;
@@ -473,13 +464,19 @@ footer {
     background: #111E6C;
     color: white;
     line-height: 30px;
-    padding: 0 20px;
+    padding: 0 70px;
     width: 100%;
     text-align: center;
 }
 
-.footer{
+.footer {
     margin-top: -30px;
+}
+
+
+
+.footer p {
+    margin-bottom: 0px;
 }
 
 .pull-right{
@@ -506,105 +503,7 @@ display: table;
 clear: both;
 }
 
-/* Create four equal columns that floats next to eachother */
-.column {
-float: left;
-width: 25%;
-overflow:hidden;
-}
 
-/* The Modal (background) */
-.modal {
-display: none;
-position: fixed;
-z-index: 1;
-padding-top: 100px;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-background-color: black;
-}
-
-/* Modal Content */
-.modal-content {
-position: relative;
-background-color: #fefefe;
-margin: auto;
-padding: 0;
-width: 90%;
-max-width: 1200px;
-}
-
-/* The Close Button */
-.close {
-color: white;
-position: absolute;
-top: 10px;
-right: 25px;
-font-size: 35px;
-font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-color: #999;
-text-decoration: none;
-cursor: pointer;
-}
-
-/* Hide the slides by default */
-.mySlides {
-display: none;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-cursor: pointer;
-position: absolute;
-top: 50%;
-width: auto;
-padding: 16px;
-margin-top: -50px;
-color: white;
-font-weight: bold;
-font-size: 20px;
-transition: 0.6s ease;
-border-radius: 0 3px 3px 0;
-user-select: none;
--webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-right: 0;
-border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-color: #f2f2f2;
-font-size: 12px;
-padding: 8px 12px;
-position: absolute;
-top: 0;
-}
-
-/* Caption text */
-.caption-container {
-text-align: center;
-background-color: black;
-padding: 2px 16px;
-color: white;
-}
 
 img.demo {
 opacity: 0.6;

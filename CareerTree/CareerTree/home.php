@@ -26,8 +26,7 @@
         $(document).ready(function () {
             $('.chosen-select').chosen();
         });
-    </script>
-    <script>
+
   
         function validate_submit() {
             var result = false;
@@ -39,6 +38,10 @@
             }
             return result;
         }
+
+        function start() {
+			window.location.href = "./industry.php";
+		}
     </script>
 </head>
 
@@ -49,6 +52,15 @@
 <symbol id="icon-search" viewBox="0 0 32 32">
 <title>search</title>
 <path d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-mail" viewBox="0 0 32 32">
+<title>mail</title>
+<path d="M26.666 0h-21.332c-2.934 0-5.334 2.4-5.334 5.333v21.333c0 2.934 2.4 5.334 5.334 5.334h21.332c2.936 0 5.334-2.4 5.334-5.334v-21.333c0-2.934-2.398-5.333-5.334-5.333zM8 8h16c0.286 0 0.563 0.061 0.817 0.177l-8.817 10.286-8.817-10.287c0.254-0.116 0.531-0.177 0.817-0.177zM6 22v-12c0-0.042 0.002-0.084 0.004-0.125l5.864 6.842-5.8 5.8c-0.045-0.167-0.069-0.34-0.069-0.517zM24 24h-16c-0.177 0-0.35-0.024-0.517-0.069l5.691-5.691 2.826 3.297 2.826-3.297 5.691 5.691c-0.167 0.045-0.34 0.069-0.517 0.069zM26 22c0 0.177-0.024 0.35-0.069 0.517l-5.8-5.8 5.864-6.842c0.003 0.041 0.004 0.083 0.004 0.125v12z"></path>
 </symbol>
 </defs>
 </svg>
@@ -196,20 +208,7 @@
                     
 				</div>
 
-               <!--<div class="arrow">
-                <figure class="i4"> 
-						<i class="material-icons" style="font-size: 165px">trending_flat</i>
-                </figure>
-                </div>
-
-                <div class="arrow">
-                    <figure class="i5">
-						<i class="material-icons" style="font-size: 165px">trending_flat</i>
-					</figure>
-               </div>-->
-
-
-             
+                           
                </div>
 
 				
@@ -219,114 +218,27 @@
 			
                         
 
-
+                
 		</main>
 
+<div class="foot">
+<div class="contact"><a href="/home.php"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg></a></div>
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
 </footer>
 
+</div>
+
         </section>
 
-        <!-- The Modal/Lightbox -->
-<div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-
-    <div class="mySlides">
-      <div class="numbertext">1 / 3</div>
-      <img src="./images/Picture1.png" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">2 / 3</div>
-      <img src="./images/Picture2.png" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">3 / 3</div>
-      <img src="./images/Picture3.png" style="width:100%">
-    </div>
-
-    
-
-    <!-- Next/previous controls -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <!-- Caption text -->
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-
-    <!-- Thumbnail image controls -->
-    <div class="column">
-      <img class="demo" src="./images/Picture1.png" onclick="currentSlide(1)" alt="Nature">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="./images/Picture2.png" onclick="currentSlide(2)" alt="Trolltunga">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="./images/Picture3.png" onclick="currentSlide(3)" alt="Mountains">
-    </div>
-
-   
-  </div>
-</div>
+       
 
         </section>
 
 		
 	</div>
-	<script>
-		function start() {
-			window.location.href = "./industry.php";
-		}
-	</script>
-    <script>
-// Open the Modal
-function openModal() {
-  document.getElementById('myModal').style.display = "block";
-}
-
-// Close the Modal
-function closeModal() {
-  document.getElementById('myModal').style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-</script>
+	
+   
 <script>
 AOS.init({
   duration: 1100,

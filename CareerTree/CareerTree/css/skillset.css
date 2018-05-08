@@ -1,3 +1,7 @@
+.contact{
+    display: inline-block;
+}
+
 footer {
     background: #111E6C;
     color: white;
@@ -102,6 +106,17 @@ footer {
     fill: currentColor;
     padding-top: 6px;
 }
+
+.icon-mail {
+    display: inline-block;
+    width: 4em;
+    height: 2em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    color: #a22631;
+}
+
 button {
     background-color: transparent !important;
     text-shadow: none;
