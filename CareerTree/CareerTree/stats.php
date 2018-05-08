@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -147,8 +147,8 @@
      include 'db_connection.php';
      $dbconn4 = OpenCon();
      $sql = "select date_part('year', time) as year,date_part('day', time) as month,date_part('month', time) as day, vacancy,
-            CASE WHEN date_part('year', time) = date_part('year', CURRENT_DATE) and date_part('day', time) = date_part('month', CURRENT_DATE) THEN 'Current' ELSE '' END as current,
-            CASE WHEN date_part('year', time) = (select max(date_part('year', time)) as year from abs_job_vacancy where occname = '$para') THEN 'Future' ELSE '' END as Future
+            CASE WHEN date_part('year', time) = date_part('year', CURRENT_DATE) and date_part('day', time) = date_part('month', CURRENT_DATE) THEN 'Current' ELSE null END as current,
+            CASE WHEN date_part('year', time) = (select max(date_part('year', time)) as year from abs_job_vacancy where occname = '$para') THEN 'Future' ELSE null END as Future
             from abs_job_vacancy
             where occname = '$para'
             and date_part('year', time) > (select distinct date_part('year', time) as year
@@ -161,7 +161,15 @@
      while ($row = pg_fetch_array($result)) {
          //$entry .= "['".$row{'time'}."',".$row{'vacancy'}."],";
          $month = $row{'month'} - 1;
-         $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0)."],";
+         //$entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0)."],";
+         if($row{'current'}){
+            $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",'".$row{'current'}."'],"; 
+         }
+         else{
+            $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",null],";
+         }
+         $temp = round($row{'vacancy'},0)+50;
+         $entryVacancy1 .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",".$temp."],";
          if($row{'current'}){
              $currentYear = $row{'year'};
              $currentVacancy = round($row{'vacancy'},0);
@@ -179,6 +187,14 @@
      }
      //-----------Extract Data for Average Salary
      $sql = "select occname, ceil(cash_earning) as weeklysalary
+                from abs_salary a, occupation_abs b
+                where a.occname = b.abs_original
+                and b.abs_name = '$previousocc'";
+     $result = pg_query($dbconn4, $sql);
+     while ($row = pg_fetch_array($result)) {
+         $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C',".$row{'weeklysalary'}."],";
+     }
+     $sql = "select occname, ceil(cash_earning) as weeklysalary
                 from abs_salary
                 where occname = '$para'";
 
@@ -186,14 +202,6 @@
      while ($row = pg_fetch_array($result)) {
          $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #0099cc',".$row{'weeklysalary'}."],";
          $avgSalary = $row{'weeklysalary'};
-     }
-     $sql = "select occname, ceil(cash_earning) as weeklysalary
-                from abs_salary a, occupation_abs b
-                where a.occname = b.abs_original
-                and b.abs_name = '$previousocc'";
-     $result = pg_query($dbconn4, $sql);
-     while ($row = pg_fetch_array($result)) {
-         $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C',".$row{'weeklysalary'}."],";
      }
      $sql = "select occname, ceil(cash_earning) as weeklysalary
                 from abs_salary
@@ -208,57 +216,62 @@
          echo '<div><h3>Average Salary: '.$avgSalary.'</h3></div>';
      }
      //-----------Extract Data for Employment by Gender
-     $sql = "select sex, employment, CASE WHEN sex = 'Male' THEN 'M' ELSE '' END as gender
-                from abs_employment_gender
-                where occname = '$para'";
+     //$sql = "select sex, employment, CASE WHEN sex = 'Male' THEN 'M' ELSE '' END as gender
+     //           from abs_employment_gender
+     //           where occname = '$para'";
 
-     $result = pg_query($dbconn4, $sql);
-     while ($row = pg_fetch_array($result)) {
-         $entryEmployedGender .= "['".$row{'sex'}."',".$row{'employment'}."],";
-         if($row{'gender'}){
-             $maleEmploy = $row{'employment'};
-         }
-         else{
-             $femaleEmploy = $row{'employment'};
-         }
-     }
-     if($entryEmployedGender)
-     {
-         echo '<div id="donut_chart" style="width: 900px; height: 500px"></div>';
-         echo '<div><h3>Male: '.$maleEmploy.'</h3></div>';
-         echo '<div><h3>Female: '.$femaleEmploy.'</h3></div>';
+     //$result = pg_query($dbconn4, $sql);
+     //while ($row = pg_fetch_array($result)) {
+     //    $entryEmployedGender .= "['".$row{'sex'}."',".$row{'employment'}."],";
+     //    if($row{'gender'}){
+     //        $maleEmploy = $row{'employment'};
+     //    }
+     //    else{
+     //        $femaleEmploy = $row{'employment'};
+     //    }
+     //}
+     //if($entryEmployedGender)
+     //{
+     //    echo '<div id="donut_chart" style="width: 900px; height: 500px"></div>';
+     //    echo '<div><h3>Male: '.$maleEmploy.'</h3></div>';
+     //    echo '<div><h3>Female: '.$femaleEmploy.'</h3></div>';
 
-     }
+     //}
      //-----------Extract Data for Employment by State
-     $sql = "select statecode,state, employment,
-            CASE WHEN employment = (select max(employment) from abs_employment_state where occname = '$para') THEN 'Max' ELSE '' END as Max,
-            CASE WHEN employment = (select min(employment) from abs_employment_state where occname = '$para') THEN 'Min' ELSE '' END as Min
-                from abs_employment_state
-                where occname = '$para'";
+     //$sql = "select statecode,state, employment,
+     //       CASE WHEN employment = (select max(employment) from abs_employment_state where occname = '$para') THEN 'Max' ELSE '' END as Max,
+     //       CASE WHEN employment = (select min(employment) from abs_employment_state where occname = '$para') THEN 'Min' ELSE '' END as Min
+     //           from abs_employment_state
+     //           where occname = '$para'";
 
-     $result = pg_query($dbconn4, $sql);
-     while ($row = pg_fetch_array($result)) {
-         $entryEmployedState_Geo .= "['".$row{'statecode'}."','".$row{'state'}."',".$row{'employment'}."],";
-         $entryEmployedState_Chart .= "['".$row{'state'}."',".$row{'employment'}.",'color: #111E6C',".$row{'employment'}."],";
-         if($row{'max'}){
-             $maxStateName = $row{'state'};
-             $maxStateEmploy = $row{'employment'};
-         }
-         if($row{'min'}){
-             $minStateName = $row{'state'};
-             $minStateEmploy = $row{'employment'};
-         }
-     }
-     if($entryEmployedState_Geo)
-     {
-         echo '<div id="regions_div" style="width: 900px; height: 500px"></div>';
+     //$result = pg_query($dbconn4, $sql);
+     //while ($row = pg_fetch_array($result)) {
+     //    $entryEmployedState_Geo .= "['".$row{'statecode'}."','".$row{'state'}."',".$row{'employment'}."],";
+     //    $entryEmployedState_Chart .= "['".$row{'state'}."',".$row{'employment'}.",'color: #111E6C',".$row{'employment'}."],";
+     //    if($row{'max'}){
+     //        $maxStateName = $row{'state'};
+     //        $maxStateEmploy = $row{'employment'};
+     //    }
+     //    if($row{'min'}){
+     //        $minStateName = $row{'state'};
+     //        $minStateEmploy = $row{'employment'};
+     //    }
+     //}
+     //if($entryEmployedState_Geo)
+     //{
+     //    echo '<div id="regions_div" style="width: 900px; height: 500px"></div>';
 
-         echo '<div id="column_chart1" style="width: 900px; height: 500px"></div>';
-         echo '<div><h3>Highest Employment: '.$maxStateName.'('.$maxStateEmploy.')</h3></div>';
-         echo '<div><h3>Lowest Employment: '.$minStateName.'('.$minStateEmploy.')</h3></div>';
-     }
+     //    echo '<div id="column_chart1" style="width: 900px; height: 500px"></div>';
+     //    echo '<div><h3>Highest Employment: '.$maxStateName.'('.$maxStateEmploy.')</h3></div>';
+     //    echo '<div><h3>Lowest Employment: '.$minStateName.'('.$minStateEmploy.')</h3></div>';
+     //}
+     //------------------------------------------------------------------
+         echo '<H2>Please Select Your Preferred State:</H2>';
+         echo '<div id="colFilter_div"></div>';
+         echo '<div id="chart_div" style="width: 900px; height: 500px"></div>';
      pg_close($dbconn4);
      ?>
+
 </div>
 
 <div class="foot">
@@ -272,12 +285,13 @@
 
          google.charts.setOnLoadCallback(drawLineChart);
          google.charts.setOnLoadCallback(drawColumnChart);
-         google.charts.setOnLoadCallback(drawDonutChart);
-         google.charts.setOnLoadCallback(drawRegionsMap);
-         google.charts.setOnLoadCallback(drawColumnChart1);
+         //google.charts.setOnLoadCallback(drawDonutChart);
+         //google.charts.setOnLoadCallback(drawRegionsMap);
+         //google.charts.setOnLoadCallback(drawColumnChart1);
+         google.charts.setOnLoadCallback(drawChartTest);
          function drawLineChart() {
              var data = google.visualization.arrayToDataTable([
-                 ['Time', 'Vacancy'],
+                 ['Time', 'Vacancy', { role: 'annotation' }],
                  <?php echo $entryVacancy ?>
              ]);
 
@@ -302,7 +316,7 @@
                  title: 'Average Weekly Salary for  <?php echo $para ?> Compared to Related Occupations',
 
                  legend: { position: 'none' },
-                 vAxis: {title: 'Weekly Salary ($)', gridlines: { count: 4 }, viewWindow: {min: 0, max: 2500}},
+                 vAxis: {title: 'Weekly Salary ($)'},
                  hAxis: {textStyle: {fontSize: 12}},
                   bar: {groupWidth: "45%"},
 
@@ -361,6 +375,76 @@
              var chart = new google.visualization.ColumnChart(document.getElementById('column_chart1'));
              chart.draw(data, options);
          }
+  function drawChartTest () {
+   var data = google.visualization.arrayToDataTable([
+                 ['Time', 'Australia', 'Victoria'],
+                 <?php echo $entryVacancy1 ?>
+             ]);
+
+    var columnsTable = new google.visualization.DataTable();
+    columnsTable.addColumn('number', 'colIndex');
+    columnsTable.addColumn('string', 'colLabel');
+    var initState= {selectedValues: []};
+    // put the columns into this data table (skip column 0)
+    for (var i = 1; i < data.getNumberOfColumns(); i++) {
+        columnsTable.addRow([i, data.getColumnLabel(i)]);
+        // you can comment out this next line if you want to have a default selection other than the whole list
+        //initState.selectedValues.push(data.getColumnLabel(i));
+    }
+    // you can set individual columns to be the default columns (instead of populating via the loop above) like this:
+     initState.selectedValues.push(data.getColumnLabel(1));
+    
+    var chart = new google.visualization.ChartWrapper({
+        chartType: 'LineChart',
+        containerId: 'chart_div',
+        dataTable: data,
+        options: {
+            title: 'Job Vacancy Trend for  <?php echo $para ?>',
+            curveType: 'function',
+            hAxis: {title: 'Time'},
+            vAxis: {title: 'Job Vacancy'},
+        }
+    });
+    
+    var columnFilter = new google.visualization.ControlWrapper({
+        controlType: 'CategoryFilter',
+        containerId: 'colFilter_div',
+        dataTable: columnsTable,
+        options: {
+            filterColumnLabel: 'colLabel',
+            ui: {
+                label: '',
+                allowTyping: false,
+                allowMultiple: true,
+                allowNone: false,
+                selectedValuesLayout: 'aside'
+            }
+        },
+        state: initState
+    });
+    
+    function setChartView () {
+        var state = columnFilter.getState();
+        var row;
+        var view = {
+            columns: [0]
+        };
+        for (var i = 0; i < state.selectedValues.length; i++) {
+            row = columnsTable.getFilteredRows([{column: 1, value: state.selectedValues[i]}])[0];
+            view.columns.push(columnsTable.getValue(row, 0));
+        }
+        // sort the indices into their original order
+        view.columns.sort(function (a, b) {
+            return (a - b);
+        });
+        chart.setView(view);
+        chart.draw();
+    }
+    google.visualization.events.addListener(columnFilter, 'statechange', setChartView);
+    
+    setChartView();
+    columnFilter.draw();
+}
         </script>
 </body>
 </html>
