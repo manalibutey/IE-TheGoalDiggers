@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -48,7 +48,27 @@
         $tranID = $_POST['id'];
         $para = $_POST['para'];
         $previousocc = $_POST['previousocc'];
-
+        $currentState = $_POST['currentState'];
+        $futureState = $_POST['futureState'];
+        $occname = $_POST['occname'];
+        include 'db_connection.php';
+        $dbconn4 = OpenCon();
+        $sql = "select *
+                From australia_state
+                where statename = '$currentState'";
+        $result = pg_query($dbconn4, $sql);
+        while ($row = pg_fetch_row($result)) {
+            $currentNo = $row[2];
+        }
+        if($futureState){
+            $sql = "select *
+                From australia_state
+                where statename = '$futureState'";
+            $result = pg_query($dbconn4, $sql);
+            while ($row = pg_fetch_row($result)) {
+                $futureNo = $row[2];
+            }
+        }
         ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
@@ -86,51 +106,50 @@
         <div class="mid-section">
            <h1><div class="title-line1">Career Statistics</div></h1>
         </div>
-        <div class="sub-heading"><h4>Know about the job vacancy trends in your chosen state and the average salary offered within Australia for ""</h4></div>
+        <div class="sub-heading"><h4>Know about the job vacancy trends in your chosen state and the average salary offered within Australia for <?php echo $occname; ?></h4></div>
                
 
      <?php //---------Assign Data to Google Chart
      //---------Extract Data for Job Vacancy Trend
-     include 'db_connection.php';
-     $dbconn4 = OpenCon();
-     $sql = "select date_part('year', time) as year,date_part('day', time) as month,date_part('month', time) as day, vacancy,
-            CASE WHEN date_part('year', time) = date_part('year', CURRENT_DATE) and date_part('day', time) = date_part('month', CURRENT_DATE) THEN 'Current' ELSE null END as current,
-            CASE WHEN date_part('year', time) = (select max(date_part('year', time)) as year from abs_job_vacancy where occname = '$para') THEN 'Future' ELSE null END as Future
-            from abs_job_vacancy
+
+     $sql = "select year, month, day,act, nsw, nt, qld, sa, tas, vic, wa
+            from abs_job_vacancy_state
             where occname = '$para'
-            and date_part('year', time) > (select distinct date_part('year', time) as year
-											            from abs_job_vacancy
-											            order by date_part('year', time) desc
-											            limit 1) - 5
-            order by time";
+            and year > (select distinct year as year
+											            from abs_job_vacancy_state
+											            order by year desc
+											            limit 1) - 5";
 
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
-         //$entry .= "['".$row{'time'}."',".$row{'vacancy'}."],";
          $month = $row{'month'} - 1;
-         //$entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0)."],";
-         if($row{'current'}){
-            $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",'".$row{'current'}."'],"; 
-         }
-         else{
-            $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",null],";
-         }
-         $temp = round($row{'vacancy'},0)+50;
-         $entryVacancy1 .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",".$temp."],";
-         if($row{'current'}){
-             $currentYear = $row{'year'};
-             $currentVacancy = round($row{'vacancy'},0);
-         }
-         if($row{'future'}){
-             $futureYear = $row{'year'};
-             $futureVacancy = round($row{'vacancy'},0);
-         }
+         //if($row{'current'}){
+         //   $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",'".$row{'current'}."'],";
+         //}
+         //else{
+         //   $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",null],";
+         //}
+
+         $entryVacancy1 .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".$row{'act'}.",".$row{'nsw'}.",".$row{'nt'}.",".$row{'qld'}.",".$row{'sa'}.",".$row{'tas'}.",".$row{'vic'}.",".$row{'wa'}."],";
+
+         //if($row{'current'}){
+         //    $currentYear = $row{'year'};
+         //    $currentVacancy = round($row{'vacancy'},0);
+         //}
+         //if($row{'future'}){
+         //    $futureYear = $row{'year'};
+         //    $futureVacancy = round($row{'vacancy'},0);
+         //}
      }
-     if($entryVacancy)
-     {
-         echo '<div id="curve_chart" style="width: 900px; height: 500px"></div>';
-         echo '<div><h3>Current Job Vacancy ('.$currentYear.'): '.$currentVacancy.'</h3></div>';
-         echo '<div><h3>Future Job Vacancy ('.$futureYear.'): '.$futureVacancy.'</h3></div>';
+     //if($entryVacancy)
+     //{
+     //    echo '<div id="curve_chart" style="width: 900px; height: 500px"></div>';
+     //    echo '<div><h3>Current Job Vacancy ('.$currentYear.'): '.$currentVacancy.'</h3></div>';
+     //    echo '<div><h3>Future Job Vacancy ('.$futureYear.'): '.$futureVacancy.'</h3></div>';
+     //}
+     if($entryVacancy1){
+     echo '<div id="colFilter_div"></div>';
+     echo '<div id="chart_div" style="width: 900px; height: 500px"></div>';
      }
      //-----------Extract Data for Average Salary
      $sql = "select occname, ceil(cash_earning) as weeklysalary
@@ -213,9 +232,7 @@
      //    echo '<div><h3>Lowest Employment: '.$minStateName.'('.$minStateEmploy.')</h3></div>';
      //}
      //------------------------------------------------------------------
-         echo '<H2>Please Select Your Preferred State:</H2>';
-         echo '<div id="colFilter_div"></div>';
-         echo '<div id="chart_div" style="width: 900px; height: 500px"></div>';
+
      pg_close($dbconn4);
      ?>
 
@@ -230,12 +247,12 @@
          google.charts.load('current', { 'packages': ['corechart'] });
          google.charts.load('current', { 'packages': ['geochart'],'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY' });
 
-         google.charts.setOnLoadCallback(drawLineChart);
+         //google.charts.setOnLoadCallback(drawLineChart);
          google.charts.setOnLoadCallback(drawColumnChart);
          //google.charts.setOnLoadCallback(drawDonutChart);
          //google.charts.setOnLoadCallback(drawRegionsMap);
          //google.charts.setOnLoadCallback(drawColumnChart1);
-         google.charts.setOnLoadCallback(drawChartTest);
+         google.charts.setOnLoadCallback(drawChart);
          function drawLineChart() {
              var data = google.visualization.arrayToDataTable([
                  ['Time', 'Vacancy', { role: 'annotation' }],
@@ -322,9 +339,9 @@
              var chart = new google.visualization.ColumnChart(document.getElementById('column_chart1'));
              chart.draw(data, options);
          }
-  function drawChartTest () {
+  function drawChart () {
    var data = google.visualization.arrayToDataTable([
-                 ['Time', 'Australia', 'Victoria'],
+                 ['Time', 'Australian Capital Territory', 'New South Wales','Northern Territory','Queensland','South Australia','Tasmania','Victoria','Western Australia'],
                  <?php echo $entryVacancy1 ?>
              ]);
 
@@ -339,7 +356,12 @@
         //initState.selectedValues.push(data.getColumnLabel(i));
     }
     // you can set individual columns to be the default columns (instead of populating via the loop above) like this:
-     initState.selectedValues.push(data.getColumnLabel(1));
+     initState.selectedValues.push(data.getColumnLabel(<?php echo $currentNo ?>));
+     var future = '';
+     future = '<?php echo $futureNo ?>';
+     if(future != ''){
+     initState.selectedValues.push(data.getColumnLabel(Number(future)));
+     }
     
     var chart = new google.visualization.ChartWrapper({
         chartType: 'LineChart',

@@ -43,7 +43,7 @@
         $para = $_POST['para'];
         $getLackingskill = $_POST['lackingskill'];
         $getLackingknowledge = $_POST['lackingknowledge'];
-
+        $occname = $_POST['occname'];
         ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
@@ -81,7 +81,7 @@
         <div class="mid-section">
            <h1><div class="title-line1">Enhance Your Skill Set</div></h1>
         </div>
-        <div class="sub-heading"><h4>Acquire the skills you will need to become "" by undertaking the recommended courses</h4></div>
+        <div class="sub-heading"><h4>Acquire the skills you will need to become <?php echo $occname; ?> by undertaking the recommended courses</h4></div>
 
         <div class=boxes>
        <div class="lack-box">

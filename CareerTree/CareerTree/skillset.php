@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -353,7 +353,7 @@ for(var i=0;i<=array.length;i++){
       
 
 <div class="skill-box">
-<div class="select-box-heading"><h4>Your Choosen Skill Set</h4><h5>Skills prepopulates according to your previous occupation ""</h5></div>
+<div class="select-box-heading"><h4>Your Choosen Skill Set</h4><h5>Skills prepopulates according to your previous occupation (<?php echo $occp; ?>)</h5></div>
             <div class="skill-box-backgnd" id="skill-box">
             
                 <!-- <p></p> -->

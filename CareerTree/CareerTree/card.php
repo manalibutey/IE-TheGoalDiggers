@@ -22,18 +22,30 @@
        
 
         $('#btn').click(function(){
- 
+  var result = false;
   var state1 = $('#statecurrent option:selected').val();
-  alert(state1);  //previous state value
+  //alert(state1);  //previous state value
   $("#currentState").val(state1);
    var state2 = $('#statefuture option:selected').val();
-  alert(state2); //future state value
+  //alert(state2); //future state value
   $("#futureState").val(state2);
-     document.statistics.submit();
-    
+     
+            if (state1) {
+                if (state1 != state2) {
+                    result = true;
+                    document.statistics.submit();
+                }
+                else {
+                    alert("Please specify different state");
+                    result = false;
+                }
+            }
+            else {
+                alert("Please specify your current state");
+                result = false;
+            }
+            return result;
 });
-
-
  });
 
  
@@ -224,7 +236,7 @@ window.onclick = function(event) {
         include 'db_connection.php';
         $dbconn4 = OpenCon();
         //updated query 29/04/2018
-        $sql = "select p.title as previousocc, CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name || ' (ABS)' ELSE p.relatedtitle END  as relatedocc,
+        $sql = "select p.title as previousocc, CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE p.relatedtitle END  as relatedocc,
                 CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
                 p.matchingskill,p.matchingknowledge,p.lackingskill,p.lackingknowledge,p.percentage,trim(OccABS.abs_name),trim(OccABS.abs_original)
                         from percentage as p
@@ -247,6 +259,7 @@ window.onclick = function(event) {
         $lackingskill = $occDetail[5];
         $lackingknowledge = $occDetail[6];
         $previousOcc = $occDetail[0];
+        $occname = $occDetail[1];
         pg_close($dbconn4);
      ?>
         <div class="mid-section">
@@ -272,6 +285,7 @@ window.onclick = function(event) {
     <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
     <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
     <input type="hidden" name="para" value="<?php echo $para; ?>" />
+    <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
 </form>
 </div>
 
@@ -292,6 +306,7 @@ window.onclick = function(event) {
     <input type="hidden" name="para" value="<?php echo $para; ?>" />
     <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
     <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
+    <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
 </form>
 </div>
 
@@ -307,13 +322,13 @@ window.onclick = function(event) {
 <h4>CAREER STATISTICS</h4>
 <p>Know more about the employment trends related to this occupation.</p>
 </div>
-</a>
-    <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+<!--</a>-->
+    <!--<input type="hidden" name="id" value="<?php echo $tranID; ?>" />
     <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
     <input type="hidden" name="para" value="<?php echo $para; ?>" />
-    <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+    <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />-->
 
-</form>
+<!--</form>-->
 </div>
 
 
@@ -332,50 +347,51 @@ window.onclick = function(event) {
       <h2>Customise Recommendations</h2>
     </div>
     <div class="modal-body">
+ <form   name="statistics" method="post" action="/stats.php">
     <div class=state> 
     <h3>Let us know you better</h3>
     <div class="statecurrent">
        <!-- <h4>State you currently reside in</h4> -->
         <select class="chosen-select" id="statecurrent" name="statelist">
             <option disabled selected value>Please enter your current residential state</option>
-            <option value = "Australian Capital Territory">Australian Capital Territory</option>
-            <option value = "New South Wales">New South Wales</option>
-            <option value = "Northern Territory">Northern Territory</option>
-            <option value = "Queensland">South Australia</option>
-            <option value = "Tasmania">Tasmania</option>
-            <option value = "Victoria">Victoria</option>
-            <option value = "Western Australia">Western Australia</option>
+            <option value="Australian Capital Territory">Australian Capital Territory</option>
+            <option value="New South Wales">New South Wales</option>
+            <option value="Northern Territory">Northern Territory</option>
+            <option value="Queensland">Queensland</option>
+            <option value="South Australia">South Australia</option>
+            <option value="Tasmania">Tasmania</option>
+            <option value="Victoria">Victoria</option>
+            <option value="Western Australia">Western Australia</option>
         </select>
    </div>
    <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
    <div class="statefuture">
      
       <!--  <h4>State you would like to reloacte to</h4>  -->
-        <select class="chosen-select" id="statefuture" name="statelist1">
-            <option disabled selected value>Please enter your future residential state</option>
-            <option value = "Australian Capital Territory">Australian Capital Territory</option>
-            <option value = "New South Wales">New South Wales</option>
-            <option value = "Northern Territory">Northern Territory</option>
-            <option value = "Queensland">South Australia</option>
-            <option value = "Tasmania">Tasmania</option>
-            <option value = "Victoria">Victoria</option>
-            <option value = "Western Australia">Western Australia</option>
-        </select>
+       <select class="chosen-select" id="statefuture" name="statelist1">
+           <option disabled selected value>Please enter your future residential state</option>
+           <option value="Australian Capital Territory">Australian Capital Territory</option>
+           <option value="New South Wales">New South Wales</option>
+           <option value="Northern Territory">Northern Territory</option>
+           <option value="Queensland">Queensland</option>
+           <option value="South Australia">South Australia</option>
+           <option value="Tasmania">Tasmania</option>
+           <option value="Victoria">Victoria</option>
+           <option value="Western Australia">Western Australia</option>
+       </select>
     </div>
-    <form   name="statistics" method="post" action="/stats.php">
-
     <div class="btn" id="btn">
          <input class="but2" id="#but2" type="submit" name="submit" value="Get Statistics" />
      </div>
-      <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+     <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
     <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
     <input type="hidden" name="para" value="<?php echo $para; ?>" />
     <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
     <input type="hidden" name="currentState" id="currentState" />
     <input type="hidden" name="futureState" id="futureState" />
-     </form>
+    <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
 </div>
-      
+   </form>   
     </div>
   
   </div>

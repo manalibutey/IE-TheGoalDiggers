@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -267,7 +267,7 @@
          }
      }
         //updated query 29/04/2018
-     $sql ="select p.title,CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name || ' (ABS)' ELSE p.relatedtitle END as relatedtitle,
+     $sql ="select p.title,CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE p.relatedtitle END as relatedtitle,
                 p.percentage,p.id,p.matchingskill,p.lackingskill,p.matchingknowledge,p.lackingknowledge,p.relatedoccid,Occ.occid,Occ.occname,
                 CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
                 CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE '' END as ABS_parameter
