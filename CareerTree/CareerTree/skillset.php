@@ -398,11 +398,13 @@ for(var i=0;i<=array.length;i++){
          
   
 </div>
+
     <div class="btn">
     <input class="but2" type="submit" name="submit" value="Explore My Occupations" onclick="return validate_submit2()" />
     <input type="hidden" name="skill" id="skill" />
     <!--<input type="hidden" name="knw" id="knw" />-->
     </div>
+
 </div>
 
 <div class="foot">
