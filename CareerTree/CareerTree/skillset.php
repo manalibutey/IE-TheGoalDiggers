@@ -95,9 +95,7 @@ element.remove();
      var groupname = $(element).find("a").text();
   //   alert(groupname);
      var group = groupname.replace(/ /g,"\\ ");
-  //   alert(group);
-  //   var s = "<div  class=\" + groupname + \" onclick=\"replicate(this);\" id=\"value\" value=\"+skill+\" style=\"display:none;\"><a style=\"display:none;\">"+groupname+"</a><p><span class=\"add\"><svg class=\"icon icon-plus\"><use xlink:href=\"#icon-plus\"></use></svg></span>"+skill+"</p></div>";
-   
+$('.skillgroup#'+group).show();
    //  alert('div.skillgroup#'+group);
      $('div.skillgroup#'+group).append('<div  class="' + groupname + '" onclick="replicate(this);" id="value" value="' + skill + '" style="display:none;"><a style="display:none;">' + groupname + '</a><p><span class="add"><svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg></span>' + skill + '</p></div>');
     element.remove();
@@ -114,9 +112,8 @@ function child(id) {
 //alert(res);
   $('.'+res).css('display', 'inline-block');
 
-  var array = ['Analytics','Communication','Education','Engineering','Governance','Health','Interpersonal','Liberal','Maintenance','Management','Mathematics','Others','Production','Software',]; 
-
-
+   var array = ['Analytics','Communication','Education','Engineering','Governance','Health','Interpersonal','Liberal','Maintenance','Management','Mathematics','Others','Production','Software',]; 
+ 
 for (var i=array.length-1; i>=0; i--) {
     if (array[i] === res) {
         array.splice(i, 1);
@@ -126,11 +123,26 @@ for (var i=array.length-1; i>=0; i--) {
 
 for(var i=0;i<=array.length;i++){
  $('.'+array[i]).hide();
+} 
 }
+</script>
 
+<script>
+ $(document).ready(function () {
+           
+  var array = ['Analytics','Communication','Education and Training','Engineering','Governance and Law Enforcement','Health','Interpersonal and Public Relations','Liberal Arts','Maintenance','Management','Mathematics','Others','Production and Operation','Software and Technology',]; 
+  for(var i=0;i<=array.length;i++){
+  var group = array[i].replace(/ /g,"\\ ");
+  //alert(group);
+  var c = $('.skillgroup#'+group).children().length;
+ // alert(c);
+    if( c == 1){
+    $('.skillgroup#'+group).hide();
+    }
  
 }
 
+ });
 
 
 </script>
@@ -314,7 +326,7 @@ for(var i=0;i<=array.length;i++){
                         $allAquire = false;
                     }
                     if ($allAquire) {
-                          echo '<div  class="'.$grpName.'" id="all" value="'.$grpName.'" style="display:none;"><p>You have acquired all '.$grpName.' skills </p></div>';
+                      //    echo '<div  class="'.$grpName.'" id="all" value="'.$grpName.'" style="display:none;"><p>You have acquired all '.$grpName.' skills </p></div>';
                          }
                    // echo '</ui>';
                    echo '</div>';
@@ -334,7 +346,7 @@ for(var i=0;i<=array.length;i++){
       
 
 <div class="skill-box">
-<div class="select-box-heading"><h4>Your Choosen Skill Set</h4></div>
+<div class="select-box-heading"><h4>Your Choosen Skill Set</h4><h5>Skills prepopulates according to your previous occupation ""</h5></div>
             <div class="skill-box-backgnd" id="skill-box">
             
                 <!-- <p></p> -->
