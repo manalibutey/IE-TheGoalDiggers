@@ -70,6 +70,13 @@ var name = ele.className;
  $('#skill-box').append(s);
 //element.appendTo($('#skill-box'));
 element.remove();
+//alert(group);
+var grouping = group.replace(/ /g,"\\ ");
+ var c = $('.skillgroup#'+grouping).children().length;
+//  alert(c);
+    if( c == 1){
+    $('.skillgroup#'+grouping).hide();
+    }
 }
 
 
@@ -120,7 +127,7 @@ for (var i=array.length-1; i>=0; i--) {
         break;      
     }
 }
-
+//alert(array);
 for(var i=0;i<=array.length;i++){
  $('.'+array[i]).hide();
 } 
