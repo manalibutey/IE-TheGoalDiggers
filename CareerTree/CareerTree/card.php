@@ -12,6 +12,30 @@
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script src="./js/jquery.min.js"></script>
+     <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
+    <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
+     <script type="text/javascript">
+        
+        $(document).ready(function () {
+            $('.chosen-select').chosen();
+       
+
+        $('#btn').click(function(){
+ 
+  var state1 = $('#statecurrent option:selected').val();
+  alert(state1);  //previous state value
+   var state2 = $('#statefuture option:selected').val();
+    alert(state2); //future state value
+     document.statistics.submit();
+    
+});
+
+
+ });
+
+ 
+    </script>
     <script type="text/javascript">
 
 function submitwork()
@@ -42,6 +66,37 @@ function submitstatistics()
  document.statistics.submit();
 
 }
+</script>
+<script>
+window.onload = function(){ 
+    // your code 
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("stats");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+stats.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+};
 </script>
     </head>
     <body>
@@ -241,9 +296,8 @@ function submitstatistics()
 
 
 
-<div class="space">
-<form   name="statistics" method="post" action="/stats.php">
-<a href="javascript: submitstatistics()">
+<div class="space" id="stats">
+<!--<a href="javascript: submitstatistics()"> -->
 <div class="statistics">
 <div class="card-icon">
 <svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg>
@@ -256,12 +310,73 @@ function submitstatistics()
     <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
     <input type="hidden" name="para" value="<?php echo $para; ?>" />
     <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+
 </form>
 </div>
 
 
 </div>
 
+
+<!-- Trigger/Open The Modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Customise Recommendations</h2>
+    </div>
+    <div class="modal-body">
+    <div class=state> 
+    <h3>Let us know you better</h3>
+    <div class="statecurrent">
+       <!-- <h4>State you currently reside in</h4> -->
+        <select class="chosen-select" id="statecurrent" name="statelist">
+            <option disabled selected value>Please enter your current residential state</option>
+            <option value = "Australian Capital Territory">Australian Capital Territory</option>
+            <option value = "New South Wales">New South Wales</option>
+            <option value = "Northern Territory">Northern Territory</option>
+            <option value = "Queensland">South Australia</option>
+            <option value = "Tasmania">Tasmania</option>
+            <option value = "Victoria">Victoria</option>
+            <option value = "Western Australia">Western Australia</option>
+        </select>
+   </div>
+   <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+   <div class="statefuture">
+     
+      <!--  <h4>State you would like to reloacte to</h4>  -->
+        <select class="chosen-select" id="statefuture" name="statelist1">
+            <option disabled selected value>Please enter your future residential state</option>
+            <option value = "Australian Capital Territory">Australian Capital Territory</option>
+            <option value = "New South Wales">New South Wales</option>
+            <option value = "Northern Territory">Northern Territory</option>
+            <option value = "Queensland">South Australia</option>
+            <option value = "Tasmania">Tasmania</option>
+            <option value = "Victoria">Victoria</option>
+            <option value = "Western Australia">Western Australia</option>
+        </select>
+    </div>
+    <form   name="statistics" method="post" action="/stats.php">
+
+    <div class="btn" id="btn">
+         <input class="but2" id="#but2" type="submit" name="submit" value="Get Statistics" />
+     </div>
+      <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+    <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
+    <input type="hidden" name="para" value="<?php echo $para; ?>" />
+    <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+     </form>
+</div>
+      
+    </div>
+  
+  </div>
+
+</div>
 
 </div>
 

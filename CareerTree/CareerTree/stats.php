@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -16,26 +16,7 @@
     <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
     <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-     <script type="text/javascript">
-        
-        $(document).ready(function () {
-            $('.chosen-select').chosen();
-       
-
-        $('#btn').click(function(){
- 
-  var state1 = $('#statecurrent option:selected').val();
-  alert(state1);  //previous state value
-   var state2 = $('#statefuture option:selected').val();
-    alert(state2); //future state value
-     $('.state').hide();
-});
-
-
- });
-
- 
-    </script>
+    
     
     </head>
     <body>
@@ -107,40 +88,6 @@
         </div>
         <div class="sub-heading"><h4>Know about the job vacancy trends in your chosen state and the average salary offered within Australia for ""</h4></div>
                
-<div class=state> 
-    <h3>Let us know you better to customise recommendations</h3>
-    <div class="statecurrent">
-        <h4>State you currently reside in</h4>
-        <select class="chosen-select" id="statecurrent" name="statelist">
-            <option disabled selected value>Please enter your current residential state</option>
-            <option value = "Australian Capital Territory">Australian Capital Territory</option>
-            <option value = "New South Wales">New South Wales</option>
-            <option value = "Northern Territory">Northern Territory</option>
-            <option value = "Queensland">South Australia</option>
-            <option value = "Tasmania">Tasmania</option>
-            <option value = "Victoria">Victoria</option>
-            <option value = "Western Australia">Western Australia</option>
-        </select>
-   </div>
-   <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
-   <div class="statefuture">
-     
-        <h4>State you would like to reloacte to</h4>
-        <select class="chosen-select" id="statefuture" name="statelist1">
-            <option disabled selected value>Please enter your future residential state</option>
-            <option value = "Australian Capital Territory">Australian Capital Territory</option>
-            <option value = "New South Wales">New South Wales</option>
-            <option value = "Northern Territory">Northern Territory</option>
-            <option value = "Queensland">South Australia</option>
-            <option value = "Tasmania">Tasmania</option>
-            <option value = "Victoria">Victoria</option>
-            <option value = "Western Australia">Western Australia</option>
-        </select>
-    </div>
-    <div class="btn" id="btn">
-         <input class="but2" id="#but2" type="submit" name="submit" value="Get Statistics" />
-     </div>
-</div>
 
      <?php //---------Assign Data to Google Chart
      //---------Extract Data for Job Vacancy Trend
