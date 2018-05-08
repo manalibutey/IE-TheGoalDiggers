@@ -25,8 +25,10 @@
  
   var state1 = $('#statecurrent option:selected').val();
   alert(state1);  //previous state value
+  $("#currentState").val(state1);
    var state2 = $('#statefuture option:selected').val();
-    alert(state2); //future state value
+  alert(state2); //future state value
+  $("#futureState").val(state2);
      document.statistics.submit();
     
 });
@@ -369,6 +371,8 @@ window.onclick = function(event) {
     <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
     <input type="hidden" name="para" value="<?php echo $para; ?>" />
     <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+    <input type="hidden" name="currentState" id="currentState" />
+    <input type="hidden" name="futureState" id="futureState" />
      </form>
 </div>
       
