@@ -37,11 +37,11 @@
 </defs>
 </svg>
         <?php
-       
+
             $occID = $_POST['occid'];
             $tranID = $_POST['id'];
             $para = $_POST['para'];
-        
+            $occname = $_POST['occname'];
 
         ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
@@ -80,7 +80,7 @@
         <div class="mid-section">
            <h1><div class="title-line1">Duties</div></h1>
         </div>
-        <div class="sub-heading"><h4>The day-to-day work related duties and responsibilities of ""</h4></div>
+        <div class="sub-heading"><h4>The day-to-day work related duties and responsibilities of <?php echo $occname; ?></h4></div>
 
         <div class="task">
          <div class="task-box-heading" style="display:none;"><h4>Task Statement</h4></div>
