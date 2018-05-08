@@ -1,8 +1,8 @@
 ﻿footer {
-    background: #A22631 !important;
+    background: #111E6C;
     color: white;
     line-height: 30px;
-    padding: 0 20px;
+    padding: 0 70px;
     width: 100%;
     text-align: center;
 }
@@ -12,39 +12,120 @@
 }
 
 .foot {
-    padding-top: 295px;
+    padding-top: 130px;
 }
 
 .footer p {
     margin-bottom: 0px;
 }
 
+.sidebar {
+    width: 300px;
+    float: left;
+    position: fixed;
+    width: 35px;
+    float: left;
+    border: 2px solid transparent;
+    height: 90px;
+    z-index: 1030;
+    background-color: transparent;
+    margin-left: 2.5%;
+    border-radius: 20px;
+    top: 50%;
+    outline: none;
+}
+
+
+
+/* fixed sidebar applied dynamtically with JS */
+.sidebar-fixed {
+    position: fixed;
+    width: 35px;
+    float: left;
+    border: 2px solid transparent;
+    height: 90px;
+    z-index: 1030;
+    background-color: transparent;
+    margin-left: 2.5%;
+    border-radius: 20px;
+    top: 50%;
+    outline: none;
+}
+
+    .sidebar a, .sidebar-fixed a {
+        color: #111E6C;
+        text-decoration: none;
+    }
+
 .icon {
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 2em;
+    height: 2em;
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
-    padding-top: 1.5px;
 }
 
-    .icon:hover {
-        color: #A22631;
-    }
-
-button {
-    background-color: transparent !important;
-    text-shadow: none;
-    background: 0 0;
-    border: 0;
-    background: none;
-    box-shadow: none;
-    border-radius: 0px;
-    outline: none;
-    margin: 0 !important;
-    padding: 1px 0px;
+.icon-space {
+    padding-top: 7px;
 }
+
+.icon:hover {
+    color: #A22631;
+}
+
+.icon-briefcase {
+    display: inline-block;
+    width: 4em;
+    height: 4em;
+    stroke-width: 0;
+    stroke: #111E6C;
+    fill: #111E6C;
+}
+
+.icon-cogs {
+    display: inline-block;
+    width: 4em;
+    height: 4em;
+    stroke-width: 0;
+    stroke: #111E6C;
+    fill: #111E6C;
+}
+
+
+.icon-man {
+    display: inline-block;
+    width: 4em;
+    height: 4em;
+    stroke-width: 0;
+    stroke: #111E6C;
+    fill: #111E6C;
+}
+
+.icon-books {
+    display: inline-block;
+    width: 4em;
+    height: 4em;
+    stroke-width: 0;
+    stroke: #111E6C;
+    fill: #111E6C;
+}
+
+.icon-stats-dots {
+    display: inline-block;
+    width: 4em;
+    height: 4em;
+    stroke-width: 0;
+    stroke: #111E6C;
+    fill: #111E6C;
+}
+
+
+
+.card-icon {
+    text-align: center;
+}
+
 
 .fixed-top {
     /*position: fixed;*/
@@ -52,6 +133,7 @@ button {
     right: 0;
     left: 0;
     z-index: 1030;
+    margin-bottom: 0px;
 }
 
 .navbar-dark {
@@ -60,17 +142,11 @@ button {
 }
 
 
-body {
-    padding-top: 0px !important;
-    color: #5a5a5a;
-    font-family: 'PT Sans', sans-serif !important;
-    height: 100%;
-    
-}
 
 body {
     margin: 0px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    height: 100%;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -126,18 +202,51 @@ body {
 
 
 .full {
-    margin-top: 120px;
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: auto;
-    z-index: -1;
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    /* background-color: rgb(235, 235, 235); */
+    z-index: 1;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 30px;
 }
+
+.mid-section h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 200 !important;
+    line-height: 1.35em;
+    color: #111E6C;
+}
+
+.sub-heading {
+    padding: 10px 150px 0px 150px;
+    text-align: center;
+    color: #A22631;
+}
+
+.mid-section::after {
+    background: #A22631;
+    content: "";
+    transform: translate(-50%, -50%) !important;
+    left: 50%;
+    height: 1px;
+    position: absolute;
+    width: 90px;
+}
+
 
 .selection {
     width: 100%;
     height: auto;
     position: relative;
-    padding-top: 10px;
+    padding: 50px 20px;
+    text-align: center;
+    padding-bottom: 100px;
 }
 .mid{
     position: relative;
@@ -161,17 +270,9 @@ body {
     width: 100%;
     height: auto;
     position: relative;
-    margin-left: 900px;
-}
-
-footer {
-    position: static;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: gray;
     
 }
+
 
 .pull-right {
     position: relative;
@@ -179,10 +280,7 @@ footer {
 }
 
 input {
-    padding: 5px 5px;
-    width: 80%;
-    height: auto;
-    font-size:20px;
+        font-size:18px;
 }
 
 
@@ -193,13 +291,48 @@ input {
     
 }
 
-input.but {
-    width: 15%;
-    height: auto;
-    font-weight:bold;
-    font-size: 20px;
-}
 
 .suggestion{
     color: chartreuse;
 }
+
+.but {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.btn {
+    position: relative;
+    /* text-align: center; */
+    border: 1px solid #111E6C;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #111E6C;
+    font-size: 18px;
+    cursor: pointer;
+    width: fit-content;
+    background-color: transparent;
+    display: block;
+    /* margin-top: 40px; */
+    /* margin-bottom: 40px; */
+    z-index: 10;
+    visibility: visible;
+    border-radius: 20px;
+    /* transform: translate(-50%, -50%) !important; */
+    /* top: 50%; */
+    /* left: 50%; */
+    margin: 0 auto;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-top: 50px;
+}
+
+    .btn:hover {
+        box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+       
+        border: 1px solid #111E6C;
+        color: #111E6C;
+        font-size: 18px;
+    }
