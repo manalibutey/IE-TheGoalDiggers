@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -77,6 +77,14 @@ var grouping = group.replace(/ /g,"\\ ");
     if( c == 1){
     $('.skillgroup#'+grouping).hide();
     }
+
+   var d= $('#select-box').filter(function() {
+    return $('#select-box').children().css('display') == 'none';}).length;
+
+//alert(d);
+//$('#select-box').children().length
+
+//alert($('#select-box').children("*").css('display') == 'none';);
 }
 
 
@@ -251,7 +259,7 @@ for(var i=0;i<=array.length;i++){
       
     <div class="select-box">
        
-        <div class="select-box-heading"><h4>Skill Set</h4></div>
+        <div class="select-box-heading"><h4>Available Skill Set</h4></div>
      
             <div class="select-box-backgnd" id="select-box">
 
@@ -363,7 +371,7 @@ for(var i=0;i<=array.length;i++){
       
 
 <div class="skill-box">
-<div class="select-box-heading"><h4>Your Choosen Skill Set</h4><h5>Skills prepopulates according to your previous occupation (<?php echo $occp; ?>)</h5></div>
+<div class="select-box-heading"><h4>Your Skill Set</h4><h5>The skills possed by <?php echo $occp; ?> are prepopuated in your skill box</h5></div>
             <div class="skill-box-backgnd" id="skill-box">
             
                 <!-- <p></p> -->

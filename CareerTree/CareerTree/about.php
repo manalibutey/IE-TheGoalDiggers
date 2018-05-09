@@ -8,13 +8,10 @@
     <title>CareerTree</title>
     <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/occ.css">
-    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="./css/about.css">
     <script src="./js/jquery.min.js"></script>
 
-    
-  </head>
+      </head>
     <body>
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -39,7 +36,7 @@
 </defs>
 </svg>
 
-        <div class="navbar  navbar-dark navbar-expand-md fixed-top">
+<div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
 			<a class="navbar-brand" href="/home.php">
@@ -65,25 +62,85 @@
 	</div>
     
     <div class="sidebar">
+ <!--<div class="icon-space"><a href="/shiny?id= --><?php //echo $randID; ?><!-- "><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg></a></div> -->
 <div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
 <div class="icon-space"><a href="javascript:window.history.back()"><svg class="icon icon-circle-left"><use xlink:href="#icon-circle-left"></use></svg></a></div>
 </div>
 
-  <div class="full">
+ <div class="full">
 
-        <div class="mid-section">
-           <h1><div class="title-line1">Your Previous Industry</div></h1>
+  <div class="mid-section">
+           <h1><div class="title-line1">About Us</div></h1>
         </div>
-        <div class="sub-heading"><h4>Choose your previous work industry from our wide range of key industries within Australia.</h4></div>
+        <div class="sub-heading"><h4>Team mission</h4></div>
+       
+        <div class="card">
+
+
+<div class="space"  id="je">
+
+<div class="Jerry">
+<div class="card-icon">
+<svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg>
+</div>
+<h4>DUTIES</h4>
+<p>Know more about the day-to-day tasks of this occupation.</p>
+</div>
 
 </div>
 
-   <div class="foot">
+
+<div class="space" id="jo">
+
+<div class="Joel">
+<div class="card-icon">
+<svg class="icon icon-cogs"><use xlink:href="#icon-cogs"></use></svg>
+</div>
+<h4>ENHANCE SKILLSET</h4>
+<p>Undertake the recommended courses to acquire the skills you need for this occupation.</p>
+</div>
+
+</div>
+
+
+
+
+<div class="space" id="m">
+
+<div class="Manali">
+<div class="card-icon">
+<svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg>
+</div>
+<h4>CAREER STATISTICS</h4>
+<p>Know more about the employment trends related to this occupation.</p>
+</div>
+
+</div>
+
+
+<div class="space" id="p">
+
+<div class="Paul">
+<div class="card-icon">
+<svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg>
+</div>
+<h4>CAREER STATISTICS</h4>
+<p>Know more about the employment trends related to this occupation.</p>
+</div>
+
+</div>
+
+
+
+</div>
+
+ </div>
+
+
+<div class="foot">
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
 </footer>
 </div>
-    
- 
 </body>
 </html>

@@ -43,6 +43,60 @@
 			window.location.href = "./industry.php";
 		}
     </script>
+    <script>
+    window.onload = function(){ 
+// Get the modal
+var modal1 = document.getElementById('myModal1');
+var modal2 = document.getElementById('myModal2');
+var modal3 = document.getElementById('myModal3');
+
+// Get the button that opens the modal
+var btn = document.getElementById("s1");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+var span3 = document.getElementsByClassName("close3")[0];
+
+// When the user clicks the button, open the modal 
+s1.onclick = function() {
+    modal1.style.display = "block";
+}
+s2.onclick = function() {
+    modal2.style.display = "block";
+}
+s3.onclick = function() {
+    modal3.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+    modal1.style.display = "none";
+    modal2.style.display = "none";
+      modal3.style.display = "none";
+}
+span2.onclick = function() {
+   
+    modal2.style.display = "none";
+     
+}
+span3.onclick = function() {
+   
+      modal3.style.display = "none";
+}
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal1 ||event.target == modal2||event.target == modal3) {
+        modal1.style.display = "none";
+          modal2.style.display = "none";
+           modal3.style.display = "none";
+    }
+}
+
+};
+</script>
 </head>
 
 <body>
@@ -186,7 +240,7 @@
 
 				<div class="col-sm-2 i2">
 					
-           <div class="column">
+           <div class="column" >
     <img src="./images/Picture2.png" class="hover-shadow" data-aos="fade-up"/>
      <div class="caption">
                         <p data-aos="fade-up">Select your skills and knowledge</p>
@@ -217,15 +271,76 @@
 				</div>
 			
                         
-
+                <button id="s1">Open Modal</button>
+                 <button id="s2">Open Modal</button>
+                  <button id="s3">Open Modal</button>
                 
 		</main>
 
 <div class="foot">
-<div class="contact"><a href="/home.php"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg></a></div>
+<!-- <div class="contact"><a href="/home.php"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg></a></div> -->
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
 </footer>
+
+<!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal1" class="modal">
+
+  <!-- Modal content for step 1-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close1">&times;</span>
+      <h2>Step 1</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    
+  </div>
+
+</div>
+
+
+<!-- The Modal for step 2-->
+<div id="myModal2" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close2">&times;</span>
+      <h2>Step 2</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    
+  </div>
+
+</div>
+
+
+<!-- The Modal for step 3-->
+<div id="myModal3" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close3">&times;</span>
+      <h2>Step 3</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    
+  </div>
+
+</div>
 
 </div>
 
