@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -39,6 +39,24 @@
 <title>Back</title>
 <path d="M16 32c8.837 0 16-7.163 16-16s-7.163-16-16-16-16 7.163-16 16 7.163 16 16 16zM16 3c7.18 0 13 5.82 13 13s-5.82 13-13 13-13-5.82-13-13 5.82-13 13-13z"></path>
 <path d="M20.914 9.914l-2.829-2.829-8.914 8.914 8.914 8.914 2.828-2.828-6.086-6.086z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-point-down" viewBox="0 0 32 32">
+<title>Decline</title>
+<path d="M30 13v5c0 1.654-1.346 3-3 3-0.535 0-1.037-0.14-1.472-0.387-0.534 0.833-1.468 1.387-2.528 1.387-0.768 0-1.469-0.29-2-0.766-0.531 0.476-1.232 0.766-2 0.766-0.35 0-0.687-0.060-1-0.171v7.171c0 1.654-1.346 3-3 3s-3-1.346-3-3v-12.334l-5.501 2.932c-0.454 0.262-0.973 0.401-1.499 0.401-1.654 0-3-1.346-3-3 0-0.824 0.327-1.592 0.921-2.163 0.008-0.007 0.015-0.015 0.023-0.022l7.474-6.815h-1.419c-0.552 0-1-0.448-1-1v-6c0-0.552 0.448-1 1-1h20c0.552 0 1 0.448 1 1v6c0 0.552-0.448 1-1 1h-1.382l2.276 4.553c0.070 0.139 0.106 0.292 0.106 0.447zM28 5c0-0.552-0.448-1-1-1s-1 0.448-1 1 0.448 1 1 1 1-0.448 1-1zM28 13.236l-2.618-5.236h-11.995l-9.088 8.287c-0.193 0.19-0.299 0.443-0.299 0.713 0 0.551 0.449 1 1 1 0.171 0 0.332-0.041 0.479-0.122 0.017-0.010 0.033-0.020 0.051-0.029l7-3.732c0.31-0.165 0.684-0.156 0.985 0.025s0.485 0.506 0.485 0.857v14c0 0.551 0.449 1 1 1s1-0.449 1-1v-10c0-0.552 0.448-1 1-1s1 0.448 1 1c0 0.551 0.449 1 1 1s1-0.449 1-1c0-0.552 0.448-1 1-1s1 0.448 1 1c0 0.551 0.449 1 1 1s1-0.449 1-1v-1c0-0.552 0.448-1 1-1s1 0.448 1 1c0 0.551 0.449 1 1 1s1-0.449 1-1v-4.764z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-point-up" viewBox="0 0 32 32">
+<title>Growth</title>
+<path d="M30 19v-5c0-1.654-1.346-3-3-3-0.535 0-1.037 0.14-1.472 0.386-0.534-0.833-1.467-1.386-2.528-1.386-0.768 0-1.469 0.29-2 0.766-0.531-0.476-1.232-0.766-2-0.766-0.35 0-0.687 0.060-1 0.171v-7.171c0-1.654-1.346-3-3-3s-3 1.346-3 3v12.334l-5.501-2.932c-0.454-0.262-0.973-0.401-1.499-0.401-1.654 0-3 1.346-3 3 0 0.824 0.327 1.592 0.922 2.163 0.008 0.007 0.015 0.015 0.023 0.022l7.474 6.815h-1.419c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h20c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1h-1.382l2.276-4.553c0.069-0.139 0.106-0.292 0.106-0.447zM28 27c0 0.552-0.448 1-1 1s-1-0.448-1-1 0.448-1 1-1 1 0.448 1 1zM28 18.764l-2.618 5.236h-11.995l-9.088-8.286c-0.193-0.19-0.299-0.443-0.299-0.714 0-0.551 0.449-1 1-1 0.171 0 0.332 0.041 0.479 0.122 0.017 0.010 0.033 0.020 0.051 0.029l7 3.732c0.31 0.165 0.684 0.156 0.985-0.025s0.485-0.506 0.485-0.857v-14c0-0.551 0.449-1 1-1s1 0.449 1 1v10c0 0.552 0.448 1 1 1s1-0.448 1-1c0-0.551 0.449-1 1-1s1 0.449 1 1c0 0.552 0.448 1 1 1s1-0.448 1-1c0-0.551 0.449-1 1-1s1 0.449 1 1v1c0 0.552 0.448 1 1 1s1-0.448 1-1c0-0.551 0.449-1 1-1s1 0.449 1 1v4.764z"></path>
 </symbol>
 </defs>
 </svg>
@@ -106,7 +124,7 @@
         <div class="mid-section">
            <h1><div class="title-line1">Career Statistics</div></h1>
         </div>
-        <div class="sub-heading"><h4>Know about the job vacancy trends in your chosen state and the average salary offered within Australia for <?php echo $occname; ?></h4></div>
+        <div class="sub-heading"><h4>View the job vacancy trends in your chosen state and the average salary offered within Australia for <?php echo $occname; ?></h4></div>
                
 
      <?php //---------Assign Data to Google Chart
@@ -148,8 +166,11 @@
      //    echo '<div><h3>Future Job Vacancy ('.$futureYear.'): '.$futureVacancy.'</h3></div>';
      //}
      if($entryVacancy1){
+     echo '<div class="vac">';
      echo '<div id="colFilter_div"></div>';
-     echo '<div id="chart_div" style="width: 900px; height: 500px"></div>';
+     echo '<div id="chart_div" style="width: 900px; height: 300px"></div>';
+     
+     echo '</div>'; 
      }
      //-----------Extract Data for Average Salary
      $sql = "select occname, ceil(cash_earning) as weeklysalary
@@ -159,6 +180,7 @@
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
          $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C',".$row{'weeklysalary'}."],";
+         $prvSalary = $row{'weeklysalary'};
      }
      $sql = "select occname, ceil(cash_earning) as weeklysalary
                 from abs_salary
@@ -166,7 +188,7 @@
 
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
-         $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #0099cc',".$row{'weeklysalary'}."],";
+         $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #00b300',".$row{'weeklysalary'}."],";
          $avgSalary = $row{'weeklysalary'};
      }
      $sql = "select occname, ceil(cash_earning) as weeklysalary
@@ -174,12 +196,22 @@
                 where occname = 'All Occupations'";
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
-         $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C',".$row{'weeklysalary'}."],";
+         $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #A22631',".$row{'weeklysalary'}."],";
      }
      if($entrySalary)
      {
-         echo '<div id="column_chart" style="width: 900px; height: 500px"></div>';
-         echo '<div><h3>Average Salary: '.$avgSalary.'</h3></div>';
+         echo '<div class="sal">';
+         echo '<div id="column_chart" style="width: 900px;  height: 400px"></div>';
+         $profit = $avgSalary - $prvSalary;
+         if($avgSalary > $prvSalary){
+            echo '<div><h4>Average Weekly Salary Increase for You<br><br><svg class="icon icon-point-up"><use xlink:href="#icon-point-up"></use></svg> AU$'.$profit.'<br></h4></div>';
+            }
+         else{
+         $profit = trim($profit, '-');
+            echo '<div><h4>Average Weekly Salary Decrease for You<br><br><br><svg class="icon icon-point-down"><use xlink:href="#icon-point-down"></use></svg>AU$'.$profit.'</h4></div>';
+            }
+         
+         echo '</div>'; 
      }
      //-----------Extract Data for Employment by Gender
      //$sql = "select sex, employment, CASE WHEN sex = 'Male' THEN 'M' ELSE '' END as gender
@@ -272,12 +304,12 @@
 
           function drawColumnChart() {
              var data = google.visualization.arrayToDataTable([
-                 ['Occupation', 'Average Weekly Salary', { role: 'style' },{ role: 'annotation' }],
+                 ['Occupation', 'Average Weekly Salary', { role: 'style' },{ role: 'annotation' }], 
                 <?php echo $entrySalary ?>
              ]);
 
              var options = {
-                 title: 'Average Weekly Salary for  <?php echo $para ?> Compared to Related Occupations',
+                 title: 'Average Weekly Salary for  <?php echo $para ?> Compared to Your Previous and All Australian Occupations',
 
                  legend: { position: 'none' },
                  vAxis: {title: 'Weekly Salary ($)'},

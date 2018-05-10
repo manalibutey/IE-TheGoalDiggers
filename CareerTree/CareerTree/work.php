@@ -78,7 +78,7 @@
  <div class="full">
 
         <div class="mid-section">
-           <h1><div class="title-line1">Duties</div></h1>
+          <div class="title-line1"> <h1>Duties</h1></div>
         </div>
         <div class="sub-heading"><h4>The day-to-day work related duties and responsibilities of <?php echo $occname; ?></h4></div>
 

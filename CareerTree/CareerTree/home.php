@@ -149,8 +149,8 @@ window.onclick = function(event) {
 		<div class="back">
 			<img class="back-image" src="./images/background.jpg" />
              <div class="head" >
-<div class="title-line" ><h1><strong>Welcome To Career Tree</strong></h1> </div>
-<h5>The Sky is the Limit</h5>
+<div class="title-line" ><h1>Welcome To Career Tree</h1> </div>
+<h5>Empowering the Unemployed</h5>
 </div>
              <div class="subhead1" ><h4>Improve your employability. Change career like a pro.</h4>
 <h4>Let us help you discover your choices for a career change.</h4>
@@ -228,7 +228,7 @@ window.onclick = function(event) {
 			<div class="grid">
 				<div class="col-sm-2 i1">
 					
-                    <div class="column">
+                    <div class="column" id="s1">
     <img src="./images/Picture1.png"  class="hover-shadow" data-aos="fade-right"/>
     <div class="caption">
                         <p data-aos="fade-right">Choose your previous work</p>
@@ -240,7 +240,7 @@ window.onclick = function(event) {
 
 				<div class="col-sm-2 i2">
 					
-           <div class="column" >
+           <div class="column" id="s2">
     <img src="./images/Picture2.png" class="hover-shadow" data-aos="fade-up"/>
      <div class="caption">
                         <p data-aos="fade-up">Select your skills and knowledge</p>
@@ -253,7 +253,7 @@ window.onclick = function(event) {
 				<div class="col-sm-2 i3">
 					
 
-                               <div class="column">
+                               <div class="column" id="s3">
     <img src="./images/Picture3.png"  class="hover-shadow" data-aos="fade-left"/>
      <div class="caption" data-aos="fade-left">
                         <p >Explore suggested occupations</p>
@@ -271,9 +271,9 @@ window.onclick = function(event) {
 				</div>
 			
                         
-                <button id="s1">Open Modal</button>
+            <!--    <button id="s1">Open Modal</button>
                  <button id="s2">Open Modal</button>
-                  <button id="s3">Open Modal</button>
+                  <button id="s3">Open Modal</button> -->
                 
 		</main>
 
@@ -293,11 +293,19 @@ window.onclick = function(event) {
   <div class="modal-content">
     <div class="modal-header">
       <span class="close1">&times;</span>
-      <h2>Step 1</h2>
+      <h2>Career Tree</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
+    <div class="step-img">
+    <img class="step1" src="./images/s1.jpg" />
+    </div>
+      <h3>Step 1</h3>
+      <p>To provide you the best possible career recommendations, let us know your previous work industry and occupation</p>
+      <div class="btn-align">
+      <div class="btn2" >
+                    <input type="button" value="Let's Start" onclick="start()" >
+				</div>
+                </div>
     </div>
     
   </div>
@@ -312,11 +320,19 @@ window.onclick = function(event) {
   <div class="modal-content">
     <div class="modal-header">
       <span class="close2">&times;</span>
-      <h2>Step 2</h2>
+      <h2>Career Tree</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
+    <div class="step-img">
+    <img class="step1" src="./images/s2.jpg" />
+    </div>
+     <h3>Step 2</h3>
+      <p>To empower your journey of career change, let us know the skills you possess from our set of skills</p>
+      <div class="btn-align">
+      <div class="btn2" >
+                    <input type="button" value="Let's Start" onclick="start()" >
+				</div>
+                </div>
     </div>
     
   </div>
@@ -331,11 +347,19 @@ window.onclick = function(event) {
   <div class="modal-content">
     <div class="modal-header">
       <span class="close3">&times;</span>
-      <h2>Step 3</h2>
+      <h2>Career Tree</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
+    <div class="step-img">
+    <img class="step1" src="./images/s3.jpg" />
+    </div>
+        <h3>Step 3</h3>
+      <p>Explore the range of recommended occupations best suited to your skill set, and choose your new career with the knowledge of the duties, skills required and employment statistics of the occupation</p>
+      <div class="btn-align">
+      <div class="btn2" >
+                    <input type="button" value="Let's Start" onclick="start()" >
+				</div>
+                </div>
     </div>
     
   </div>

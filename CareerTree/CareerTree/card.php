@@ -30,21 +30,48 @@
   //alert(state2); //future state value
   $("#futureState").val(state2);
      
-            if (state1) {
+            if (state1 && state2) {
                 if (state1 != state2) {
                     result = true;
                     document.statistics.submit();
                 }
                 else {
-                    alert("Please specify different state");
+                    alert("Please specify a different state to relocate");
                     result = false;
                 }
+            }
+            else {
+                alert("Please specify both states");
+                result = false;
+            }
+            return result;
+});
+  $('#no').click(function(){
+  var result = false;
+  var state1 = $('#statecurrent option:selected').val();
+  //alert(state1);  //previous state value
+  $("#currentState").val(state1);
+ //  var state2 = $('#statefuture option:selected').val();
+  //alert(state2); //future state value
+ // $("#futureState").val(state2);
+     
+            if (state1) {
+                result = true;
+                    document.statistics.submit();
+               
             }
             else {
                 alert("Please specify your current state");
                 result = false;
             }
             return result;
+});
+
+ $('#yes').click(function(){
+ $('#ques').css('display','none');
+$('.statefuture').css('display','block');
+
+$('#btn').css('display','block');
 });
  });
 
@@ -186,6 +213,25 @@ window.onclick = function(event) {
 </defs>
 </svg>
 
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-checkbox-checked" viewBox="0 0 32 32">
+<title>YES</title>
+<path d="M28 0h-24c-2.2 0-4 1.8-4 4v24c0 2.2 1.8 4 4 4h24c2.2 0 4-1.8 4-4v-24c0-2.2-1.8-4-4-4zM14 24.828l-7.414-7.414 2.828-2.828 4.586 4.586 9.586-9.586 2.828 2.828-12.414 12.414z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-cancel-circle" viewBox="0 0 32 32">
+<title>NO</title>
+<path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z"></path>
+<path d="M21 8l-5 5-5-5-3 3 5 5-5 5 3 3 5-5 5 5 3-3-5-5 5-5z"></path>
+</symbol>
+</defs>
+</svg>
+
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
@@ -279,7 +325,7 @@ window.onclick = function(event) {
 <svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg>
 </div>
 <h4>DUTIES</h4>
-<p>Know more about the day-to-day tasks of this occupation.</p>
+<p>Know more about the day-to-day activies carried out as a part of this occupation.</p>
 </div>
 </a>
     <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
@@ -320,7 +366,7 @@ window.onclick = function(event) {
 <svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg>
 </div>
 <h4>CAREER STATISTICS</h4>
-<p>Know more about the employment trends related to this occupation.</p>
+<p>View job vacancy trends in the Australian states and salary comparisions of this occupation.</p>
 </div>
 <!--</a>-->
     <!--<input type="hidden" name="id" value="<?php echo $tranID; ?>" />
@@ -364,8 +410,29 @@ window.onclick = function(event) {
             <option value="Western Australia">Western Australia</option>
         </select>
    </div>
-   <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
-   <div class="statefuture">
+   <div class="ques" id="ques">
+        <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+
+        <div class="yes" id="yes"><svg class="icon icon-checkbox-checked"><use xlink:href="#icon-checkbox-checked"></use></svg></div>
+
+        <div class="no" id="no" onclick="submitsatistics"> 
+
+        <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+    <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
+    <input type="hidden" name="para" value="<?php echo $para; ?>" />
+    <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+    <input type="hidden" name="currentState" id="currentState" />
+    <input type="hidden" name="futureState" id="futureState" />
+    <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
+    
+            <svg class="icon icon-cancel-circle"><use xlink:href="#icon-cancel-circle"></use></svg>
+            
+        </div>
+
+   </div>
+    
+
+   <div class="statefuture" style="display:none">
      
       <!--  <h4>State you would like to reloacte to</h4>  -->
        <select class="chosen-select" id="statefuture" name="statelist1">
@@ -380,16 +447,10 @@ window.onclick = function(event) {
            <option value="Western Australia">Western Australia</option>
        </select>
     </div>
-    <div class="btn" id="btn">
-         <input class="but2" id="#but2" type="submit" name="submit" value="Get Statistics" />
+ <div class="btn" id="btn" style="display:none">
+         Get Statistics
      </div>
-     <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
-    <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
-    <input type="hidden" name="para" value="<?php echo $para; ?>" />
-    <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
-    <input type="hidden" name="currentState" id="currentState" />
-    <input type="hidden" name="futureState" id="futureState" />
-    <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
+     
 </div>
    </form>   
     </div>

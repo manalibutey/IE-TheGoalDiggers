@@ -1,8 +1,25 @@
-.contact{
+label {
+    text-overflow: ellipsis;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.contact {
     display: inline-block;
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     background: #111E6C;
     color: white;
     line-height: 30px;
@@ -11,9 +28,7 @@ footer {
     text-align: center;
 }
 
-.footer {
-    margin-top: -30px;
-}
+
 
 .foot {
     padding-top: 50px;
@@ -87,7 +102,7 @@ footer {
     padding-top: 7px;
 }
 
-.icon-close{
+.icon-close {
     display: inline-block;
     width: 1em;
     height: 1em;
@@ -251,7 +266,7 @@ body {
     }
 
 .boxes {
-   /* display: flex;  */
+    /* display: flex;  */
 }
 
 .boxes-2 {
@@ -270,7 +285,7 @@ flex: 1;
 
 .select-box {
     position: relative;
-    width: 100%;
+    /* width: 49.50%; */
     height: 100%;
     /* display: inline-block; */
     padding-top: 10px;
@@ -282,13 +297,12 @@ flex: 1;
     text-align: center;
 }
 
-.select-box #value , #all {
+.select-box #value, #all {
     position: relative;
     width: fit-content;
     height: 100%;
     margin: 5px 5px;
     color: #111E6C;
-    
     border-radius: 20px;
     display: none;
     /* font-weight: bold; */
@@ -324,11 +338,11 @@ flex: 1;
     .skillgroup h4 {
         padding: 0px 10px;
         font-weight: bold;
-        text-align:center;
+        text-align: center;
     }
 
 .select-box-backgnd {
-    /* border: 1.3px solid #A22631; */
+    border: 1.3px solid #A22631;
     border-radius: 10px;
     padding: 5px;
     background: transparent;
@@ -344,7 +358,7 @@ flex: 1;
     margin: 5px 1px 3px 0px;
 }
 
-  
+
 
 .value p {
     margin: 0 0;
@@ -370,24 +384,23 @@ flex: 1;
         color: #00b300;
     }
 
-#value p:visited {
-    display: none;
-}
+    #value p:visited {
+        display: none;
+    }
 
 
 .skill-box {
     position: relative;
-    width: 100%;
-    height: 100%;
+    /* width: 49.50%; */
     height: 100%;
     padding-top: 10px;
     /* padding-left: 10px; */
-    display: inline-block;
+    /* display: inline-block; */
     /* flex: 1; */
-    }
+}
 
 .skill-box-backgnd {
-    /* border: 1.3px solid #A22631; */
+    border: 1.3px solid #A22631;
     border-radius: 10px;
     padding: 5px;
     background: transparent;
@@ -402,7 +415,7 @@ flex: 1;
     margin: 5px 1px 3px 0px;
 }
 
-  
+
 
 .skill-box .value {
     position: relative;
@@ -492,6 +505,7 @@ flex: 1;
     border: none;
     background: none;
     outline: none;
+    
 }
 
 .btn {
@@ -507,24 +521,21 @@ flex: 1;
     width: fit-content;
     background-color: transparent;
     display: block;
-    /*margin-top: 40px;*/
-    margin-bottom: 40px;
+    
     z-index: 10;
     visibility: visible;
     border-radius: 20px;
     transform: translate(-50%, -50%) !important;
     top: 50%;
     left: 50%;
-    
-    
-    margin: 5px 1px 3px 0px;
+    margin: 5px 1px 0px 0px;
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 }
 
     .btn:hover {
         box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
-        margin: 5px 1px 3px 0px;
+        margin: 5px 1px 0px 0px;
         border: 1px solid #111E6C;
         color: #111E6C;
         font-size: 18px;

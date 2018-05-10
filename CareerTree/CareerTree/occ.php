@@ -171,7 +171,15 @@
          include 'db_connection.php';
         $dbconn4 = OpenCon();
 
-        //get industry name here!!!
+        // industry name
+
+        $sql = "select indname
+                from industry
+                where indid = '$ind'";
+        $result = pg_query($dbconn4, $sql);
+        while ($res = pg_fetch_row($result)) {
+            $indName = $res[0];
+        }
 
         ?>
 
@@ -180,7 +188,7 @@
         <div class="mid-section">
            <h1><div class="title-line1">Your Previous Occupation</div></h1>
         </div>
-        <div class="sub-heading"><h4>Let us know your previous occupation in the "" industry</h4></div>
+        <div class="sub-heading"><h4>Let us know your previous occupation in the <?php echo $indName; ?> industry</h4></div>
 
 
 

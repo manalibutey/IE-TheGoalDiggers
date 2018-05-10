@@ -7,7 +7,15 @@ label {
     white-space: nowrap;
     width: fit-content;
 }
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     background: #111E6C;
     color: white;
     line-height: 30px;
@@ -16,12 +24,11 @@ footer {
     text-align: center;
 }
 
-.footer {
-    margin-top: -30px;
-}
+
+
 
 .foot {
-    padding-top: 200px;
+    padding-top: 50px;
 }
 
 .footer p {

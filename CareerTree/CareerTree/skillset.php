@@ -122,9 +122,11 @@ $('.skillgroup#'+group).show();
 
 <script>
 function child(id) {
+
 //alert(id);
   var res = id.replace(/ .*/,'');
 //alert(res);
+//$('.'+res).toggle(function() {
   $('.'+res).css('display', 'inline-block');
 
    var array = ['Analytics','Communication','Education','Engineering','Governance','Health','Interpersonal','Liberal','Maintenance','Management','Mathematics','Others','Production','Software',]; 
@@ -139,6 +141,10 @@ for (var i=array.length-1; i>=0; i--) {
 for(var i=0;i<=array.length;i++){
  $('.'+array[i]).hide();
 } 
+
+ //  }, function() {
+   // $('.'+res).css('display', 'none');
+   //});
 }
 </script>
 
@@ -253,13 +259,13 @@ for(var i=0;i<=array.length;i++){
         <div class="mid-section">
            <h1><div class="title-line1" >Your Skill Set</div></h1>
         </div>
-         <div class="sub-heading"><h4>Let us know the skills you possess</h4><h4>Choose your skills from within the skill categories below</h4></div>
+         <div class="sub-heading"><h4>Let us know the skills you possess</h4></div>
           
 <div class="boxes">
       
     <div class="select-box">
        
-        <div class="select-box-heading"><h4>Available Skill Set</h4></div>
+        <div class="select-box-heading"><h4>Available Skill Set</h4><h5>Choose your skills from within the skill categories below</h5></div>
      
             <div class="select-box-backgnd" id="select-box">
 
@@ -346,7 +352,7 @@ for(var i=0;i<=array.length;i++){
                     $allAquire = true;
                     while ($res2 = pg_fetch_row($resultGroupingMembers)) {
                   
-                    echo '<div  class="'.$grpName.'" onclick="replicate(this);" id="value" value="'.$res2[1].'" style="display:none;"><a style="display:none;">'.$grpName.'</a><p><span class="add"><svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg></span>'.$res2[1].'</p></div>';
+                    echo '<div  class="'.$grpName.'" onclick="replicate(this);" id="value" value="'.$res2[1].'" style="display:none;"><a style="display:none;">'.$grpName.'</a><label for="'.$res2[2].'" title="'.$res2[2].'" style="font-weight:400;"><p><span class="add"><svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg></span>'.$res2[1].'</p></label></div>';
                        // echo '<li>'.$res2[1].'</li>';
                         $allAquire = false;
                     }
@@ -371,7 +377,7 @@ for(var i=0;i<=array.length;i++){
       
 
 <div class="skill-box">
-<div class="select-box-heading"><h4>Your Skill Set</h4><h5>The skills possed by <?php echo $occp; ?> are prepopuated in your skill box</h5></div>
+<div class="select-box-heading"><h4>Skill Set Selected</h4><h5>The skills possed by <?php echo $occp; ?> are prepopuated in your skill box</h5></div>
             <div class="skill-box-backgnd" id="skill-box">
             
                 <!-- <p></p> -->
@@ -401,7 +407,7 @@ for(var i=0;i<=array.length;i++){
                    
 
                     //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
-                    echo '<div  class="value" onclick="cancel(this);" id="'. $res[4].'" value="'. $res[1].'"><a style="display:none;">'.$res[4].'</a><p>'. $res[1].'<span class="cross"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span> </p></div>';
+                    echo '<div  class="value" onclick="cancel(this);" id="'. $res[4].'" value="'. $res[1].'"><a style="display:none;">'.$res[4].'</a><p ><label for="'. $res[2].'" title="'. $res[2].'" style="font-weight:400;">'. $res[1].'<span class="cross"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span> </label></p></div>';
                     
                 }
                 ?>
@@ -426,7 +432,7 @@ for(var i=0;i<=array.length;i++){
 </div>
 
 <div class="foot">
-<div class="contact"><a href="/home.php"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg></a></div>
+<!-- <div class="contact"><a href="/home.php"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg></a></div> -->
 
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>

@@ -1,3 +1,27 @@
+.yes, .no {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+
+    .yes:hover, .no:hover {
+        cursor: pointer;
+        transform: scale(1.125);
+        outline: none !important;
+    }
+
+.icon.icon-checkbox-checked:hover {
+    color: #00b300;
+}
+
+
+
+
+
+
+
+
+
 .chosen-container-single .chosen-single span {
     display: block;
     overflow: hidden;
@@ -7,7 +31,6 @@
     padding: 5px 0 2px 0;
     font-weight: normal !important;
     color: grey !important;
-    
 }
 
 h4{
@@ -171,7 +194,15 @@ h4{
 }
 
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     background: #111E6C;
     color: white;
     line-height: 30px;
@@ -180,16 +211,15 @@ footer {
     text-align: center;
 }
 
-.footer {
-margin-top: -30px;
-}
+
+
 
 .foot {
-padding-top: 130px;
+    padding-top: 50px;
 }
 
 .footer p {
-margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .sidebar {

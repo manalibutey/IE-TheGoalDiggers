@@ -39,6 +39,7 @@
 </defs>
 </svg>
 
+
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
@@ -272,14 +273,12 @@
                     </div>
                     </div>
 
-
 </div>
 
-   <div class="foot">
+   
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
 </footer>
-</div>
     
 
 <script>

@@ -1,4 +1,17 @@
+.we{
+    height:100%;
+    width:100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     background: #111E6C;
     color: white;
     line-height: 30px;
@@ -7,9 +20,6 @@ footer {
     text-align: center;
 }
 
-.footer {
-    margin-top: -30px;
-}
 
 .foot {
     padding-top: 80px;
@@ -194,7 +204,7 @@ body {
     /* height: 50%; */
     text-align: center;
     z-index: 1;
-    background-color: #F6F6F6;
+    /*background-color: #F6F6F6;*/
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     margin: 30px 10px;
