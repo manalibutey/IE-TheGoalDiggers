@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -287,10 +287,10 @@
          if($relatedOcc[2] <> 0){
             if($relatedOcc[12] <> ''){
             //-----Include ABS Name as parameter if it is occupation from ABS updated 29/04/2018--------------
-            echo '<a href="/card.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'&para='.$relatedOcc[12].'">';
+            echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'&para='.$relatedOcc[12].'">';
             }
             else{
-            echo '<a href="/card.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
+            echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
             }
 
              echo '<div class="box">';

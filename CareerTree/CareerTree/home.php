@@ -182,11 +182,11 @@ window.onclick = function(event) {
 
     ///////////////////////////////////////////////////////////////////////////////////
     $dbconn4 = OpenCon();
-    //updated query 29/04/2018
-    $sql = "Select CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE Occ.occname END as ABSName
+    //updated query 10/05/2018
+    $sql = "Select CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE Occ.occname END as ABSName, Occ.occname
     From Occupation as Occ
 	inner join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
-    Where  Occ.occid in (select occid from Career_Changer_Matrix )
+    Where  Occ.occid in (select distinct a.occid from Career_Changer_Matrix a inner join occupation_abs b on a.relatedoccid = b.occid )
     Order by ABSName";
     $result = pg_query($dbconn4, $sql);
     echo '<select class="chosen-select" id="category" name="occ" style="height:auto;width:500px;">';

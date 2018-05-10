@@ -192,16 +192,16 @@
 
 
 
-        <?php
+            <?php
 
-       
+
         //updated query 29/04/2018
         $sql = "Select CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE Occ.occname END as ABSName
                 From Occupation as Occ
 	            inner join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
 	            inner join Industry_Occupation as IndOcc on Occ.OccID = IndOcc.OccID
 	            inner join Industry as Ind on IndOcc.IndID = Ind.IndID
-                Where  Occ.occid in (select occid from Career_Changer_Matrix )
+                Where  Occ.occid in (select distinct a.occid from Career_Changer_Matrix a inner join occupation_abs b on a.relatedoccid = b.occid )
 	            and Ind.indid = '$ind'
                 Order by ABSName";
         $result = pg_query($dbconn4, $sql);
@@ -224,7 +224,7 @@
         }
         echo '</select>';
         echo'</div>';
-        
+
         echo '<div class="btn">';
         echo '<input class="but" type="submit" name="submit" value="Next" onclick="return validate_submit ()" />';
         echo '</div>';
