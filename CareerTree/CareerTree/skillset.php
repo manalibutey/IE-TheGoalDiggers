@@ -257,25 +257,90 @@ for(var i=0;i<=array.length;i++){
   <!--  <div class="container">-->
         <!-- Page Heading/Breadcrumbs -->
         <div class="mid-section">
-           <h1><div class="title-line1" >Your Skill Set</div></h1>
+           <h1><div class="title-line1" >Skill Set</div></h1>
         </div>
          <div class="sub-heading"><h4>Let us know the skills you possess</h4></div>
           
+               <?php
+                if ( isset($_POST['submit'] ) ) {
+    $occp = $_POST['occ'];
+    echo '<input type="hidden" name="occ" value="'.$occp.'">';
+        }
+        ?>
 <div class="boxes">
+<div class="skill-box">
+<div class="select-box-heading">
+<div class="mid-section"><h4>Your Skill Set</h4></div>
+ <div class="sub-heading">
+<h4>As <b><?php echo $occp; ?></b> the skills you possess are prepopulated below. Please remove skills from Your Skill Set or add skills from the range of skills available in the Complete Skill Set to suit the skills you possess</h5>
+</div>
+</div>
+            <div class="skill-box-backgnd" id="skill-box">
+            
+                <!-- <p></p> -->
+          
+        <?php
+        include 'db_connection.php';
+        $dbconn4 = OpenCon();
+        //----------Select Onet Occupation Name -------------////updated query 29/04/2018
+        $sql = "Select Occ.occname
+                From occupation as Occ
+                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                Where OccABS.abs_name = '$occp'
+                or Occ.occname = '$occp'";
+                $resultOccp = pg_query($dbconn4, $sql);
+                $fetchOccp = pg_fetch_row($resultOccp);
+                $Onetoccp = $fetchOccp[0];
+                $sql = "Select * from (
+                        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked, d.group_name
+                        From skill_Occupation as a, skill as b, Occupation as c, skill_knowledge_group as d
+                        Where a.skID = b.skID and c.OccID = a.OccID
+                        And b.skid = d.relatedid	
+                        And c.OccName = '$Onetoccp'
+                        Order by c.OccName, a.Rank desc
+                        Limit 10) as selectedSkill
+                         union
+                        Select * from (
+                        Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked, d.group_name
+                        From knowledge_Occupation as a, knowledge as b, Occupation as c, skill_knowledge_group as d
+                        Where a.knwID = b.knwID and c.OccID = a.OccID
+                        And b.knwid = d.relatedid	
+                        And c.OccName = '$Onetoccp'
+                        And b.knwname <> 'Mathematics'
+                        Order by c.OccName, a.Rank desc
+                        Limit 10) as selectedKnowledge
+                        order by name";
+                 $result = pg_query($dbconn4, $sql);
+                // echo '<ui>';
+                 while ($res = pg_fetch_row($result)) {
+                   
+
+                    //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
+                    echo '<div  class="value" onclick="cancel(this);" id="'. $res[4].'" value="'. $res[1].'"><a style="display:none;">'.$res[4].'</a><p ><label for="'. $res[2].'" title="'. $res[2].'" style="font-weight:400;">'. $res[1].'<span class="cross"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span> </label></p></div>';
+                    
+                }
+                ?>
+                
+            </div>
+</div>
       
     <div class="select-box">
        
-        <div class="select-box-heading"><h4>Available Skill Set</h4><h5>Choose your skills from within the skill categories below</h5></div>
-     
+        <div class="select-box-heading">
+        <div class="mid-section"><h4>Complete Skill Set</h4></div>
+
+ <div class="sub-heading">
+<h4>Add skills to Your Skill Set by selecting skills from within the skill categories below</h4></div>
+     </div>
             <div class="select-box-backgnd" id="select-box">
 
                 <?php
  if ( isset($_POST['submit'] ) ) {
-    $occp = $_POST['occ'];
+   $occp = $_POST['occ'];
     echo '<input type="hidden" name="occ" value="'.$occp.'">';
         }
-        include 'db_connection.php';
-        $dbconn4 = OpenCon();
+ //      include 'db_connection.php';
+ //       $dbconn4 = OpenCon();
         //----------Select Onet Occupation Name -------------////updated query 29/04/2018
         $sql = "Select Occ.occname
                 From occupation as Occ
@@ -365,7 +430,7 @@ for(var i=0;i<=array.length;i++){
 
              //echo '<div  class="value" onclick="replicate(this);" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
                 // echo '<div  class="value" onclick="replicate(this);" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
-
+                  pg_close($dbconn4);
              
                 ?>
             
@@ -376,44 +441,7 @@ for(var i=0;i<=array.length;i++){
         </div>
       
 
-<div class="skill-box">
-<div class="select-box-heading"><h4>Skill Set Selected</h4><h5>The skills possed by <?php echo $occp; ?> are prepopuated in your skill box</h5></div>
-            <div class="skill-box-backgnd" id="skill-box">
-            
-                <!-- <p></p> -->
-                <?php
-                $sql = "Select * from (
-                        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked, d.group_name
-                        From skill_Occupation as a, skill as b, Occupation as c, skill_knowledge_group as d
-                        Where a.skID = b.skID and c.OccID = a.OccID
-                        And b.skid = d.relatedid	
-                        And c.OccName = '$Onetoccp'
-                        Order by c.OccName, a.Rank desc
-                        Limit 10) as selectedSkill
-                         union
-                        Select * from (
-                        Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked, d.group_name
-                        From knowledge_Occupation as a, knowledge as b, Occupation as c, skill_knowledge_group as d
-                        Where a.knwID = b.knwID and c.OccID = a.OccID
-                        And b.knwid = d.relatedid	
-                        And c.OccName = '$Onetoccp'
-                        And b.knwname <> 'Mathematics'
-                        Order by c.OccName, a.Rank desc
-                        Limit 10) as selectedKnowledge
-                        order by name";
-                 $result = pg_query($dbconn4, $sql);
-                // echo '<ui>';
-                 while ($res = pg_fetch_row($result)) {
-                   
 
-                    //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
-                    echo '<div  class="value" onclick="cancel(this);" id="'. $res[4].'" value="'. $res[1].'"><a style="display:none;">'.$res[4].'</a><p ><label for="'. $res[2].'" title="'. $res[2].'" style="font-weight:400;">'. $res[1].'<span class="cross"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span> </label></p></div>';
-                    
-                }
-                ?>
-                
-            </div>
-</div>
 
 </div>
 
@@ -424,7 +452,7 @@ for(var i=0;i<=array.length;i++){
 </div>
 
     <div class="btn">
-    <input class="but2" type="submit" name="submit" value="Explore My Occupations" onclick="return validate_submit2()" />
+    <input class="but2" type="submit" name="submit" value="Get Recommended Occupations" onclick="return validate_submit2()" />
     <input type="hidden" name="skill" id="skill" />
     <!--<input type="hidden" name="knw" id="knw" />-->
     </div>

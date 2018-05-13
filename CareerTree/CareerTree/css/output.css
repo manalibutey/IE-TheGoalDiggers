@@ -1,7 +1,7 @@
 iframe {
     width: 100%;
-    height: 750px;
-    margin: 20px 0px 0px 0px;
+    height: 500px;
+   
     border-style: none;
     border: 1.35px solid #A22631;
     border-radius: 20px 20px 20px 20px;
@@ -14,13 +14,55 @@ iframe {
 
     iframe:hover {
         box-shadow: 0 0 10px #A22631;
-        margin: 20px 0px 0px 0px;
+       
         border: 1.35px solid #A22631;
         border-radius: 20px;
         cursor: pointer;
     }
 
+.viz {
+    width: 100%;
+    padding: 10px 60px;
+}
 
+
+
+
+.demo {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#section01 a span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 1px solid #A22631;
+    border-bottom: 1px solid #A22631;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+#section01 a {
+    padding-top: 40px;
+}
+
+.demo a {
+    position: relative;
+    z-index: 9;
+    display: inline-block;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #A22631;
+    font: normal 100 12px/1 'Josefin Sans', sans-serif;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: opacity .3s;
+}
 
 .yes1, .no1, .yes2, .no2, .yes3, .no3 {
     display: inline-block;
@@ -50,7 +92,7 @@ iframe {
     color: grey !important;
 }
 
-h4 {
+.img__description_layer h3 {
     color: #A22631;
 }
 
@@ -223,7 +265,7 @@ background-color: #111E6C;
 }
 
 .section-padding {
-padding: 40px 0 40px;
+padding: 20px 0px;
 }
 
 .skills .skill-slider {
@@ -276,7 +318,7 @@ margin-left: 40px;
 
 .title h3 {
     text-align: center;
-    color: #A22631;
+  
 }
 
 
@@ -312,8 +354,9 @@ background-color: lightgray;
     border-radius: 10px;
 }
 
-    .carousel-sec h2, p {
-color: white !important;
+.carousel-sec h2, p {
+    color: white !important;
+    margin-top: 0px;
 }
 
 .carousel-inner img {
@@ -321,7 +364,9 @@ width: 100%;
 height: 100%;
 }
 
-
+p.carousel-text{
+    font-size: 16px !important;
+}
 
 
 
@@ -354,6 +399,8 @@ height: 100%;
 .img__description {
     transition: .2s;
     transform: translateY(1em);
+padding-top: 25%;
+cursor: pointer;
 }
 
 .card:hover .img__description {
@@ -466,8 +513,9 @@ z-index: 1030;
 }
 
 .navbar-dark {
-color: rgba(255,255,255,.5);
-border-color: rgba(255,255,255,.1);
+    color: rgba(255,255,255,.5);
+    border-color: rgba(255,255,255,.1);
+    margin-bottom: 0px;
 }
 
 
@@ -556,7 +604,7 @@ color: #111E6C;
 }
 
 .sub-heading {
-padding: 10px 150px 0px 150px;
+padding: 1px 150px 0px 150px;
 text-align: center;
 color: #A22631;
 }

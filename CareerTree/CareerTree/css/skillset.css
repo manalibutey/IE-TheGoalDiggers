@@ -278,11 +278,19 @@ flex: 1;
 }
 */
 .sub-heading {
-    padding: 10px 150px 0px 150px;
+    padding: 1px 0px 5px 0px;
     text-align: center;
     color: #A22631;
 }
 
+.mid-section h4{
+    font-weight: bolder;
+   
+}
+.boxes .sub-heading h4 {
+   
+    color: #111E6C;
+}
 .select-box {
     position: relative;
     /* width: 49.50%; */

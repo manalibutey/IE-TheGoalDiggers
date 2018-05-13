@@ -196,9 +196,9 @@ for(let i=0;i<modal.length;i++){
 <div class="row">
 
 <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
-<div class="section-heading section-heading--left m-b-sm-60 m-b-xxs-30 m-b-md-0">
-<h2 class="carousel-head">My Skills</h2>
-<p class="carousel-text" >I’m John Doe. I designed this site so you can get to know me on a personal level. My career as a UX Designer, my portfolio, my personal photography, my blog, my favorite quotes, and more.</p>
+<div class="section-heading section-heading--left m-b-sm-60 m-b-xxs-30 m-b-md-0" id="section01">
+<h2 class="carousel-head">Your Skills Match</h2>
+<p class="carousel-text" >We provide you with the most suitable occupations that are the closest match to your skill set, providing you with a percentage specifying your skill match. <br>Get the job opening trends in each state, salary statistics, recommended courses to cover the skill gap and tasks carried out for each occupation.<br> Choose an occupation and click Know More</p>
 </div>
 </div>
 
@@ -369,13 +369,13 @@ limit 3";
             }
             echo '<div class="card" id="card">
 <div class="title"><h3>'.$relatedOcc[1].'</h3></div>
-<div class="percentage"><h4>'.$relatedOcc[2].'%</h4></div>
+<div class="percentage"><h4>Skill Match - '.$relatedOcc[2].'%</h4></div>
 <div class="progress-bar__bar">
 <div class="progress-bar__bar__active" style="width: '.$relatedOcc[2].'%">
  </div></div>
  <div class="img__description_layer">
-    <div><h4 class="img__description">    <div class="more" id="more">Know More</div>
-</h4></div>
+  <h3 class="img__description" >  +  <div class="more">Know More</div>
+</h3>
    
     </div>
    
@@ -401,10 +401,22 @@ limit 3";
       
 </div>
 </div>
+ 
 </section>
+
+
 </div>
 
+<div id="section01" class="demo">
+ 
+  <a href="#section02"><span></span><span></span><span></span>See Visualisation</a>
+</div>
+    
+   <section class="section2" id="section02"> 
+<div class="viz">
   <iframe src="/shiny?id=<?php echo $randID; ?> " ></iframe>
+  </div>
+  </section>
 
 <!-- Trigger/Open The Modal -->
 
