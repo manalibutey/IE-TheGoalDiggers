@@ -42,6 +42,14 @@
         function start() {
 			window.location.href = "./industry.php";
 		}
+
+
+        $(function() {
+    $(window).scroll(function() {
+            $(".sidebar").show();
+      
+    });
+});
     </script>
     <script>
     window.onload = function(){ 
@@ -113,8 +121,17 @@ window.onclick = function(event) {
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <symbol id="icon-mail" viewBox="0 0 32 32">
-<title>mail</title>
+<title>Gmail</title>
 <path d="M26.666 0h-21.332c-2.934 0-5.334 2.4-5.334 5.333v21.333c0 2.934 2.4 5.334 5.334 5.334h21.332c2.936 0 5.334-2.4 5.334-5.334v-21.333c0-2.934-2.398-5.333-5.334-5.333zM8 8h16c0.286 0 0.563 0.061 0.817 0.177l-8.817 10.286-8.817-10.287c0.254-0.116 0.531-0.177 0.817-0.177zM6 22v-12c0-0.042 0.002-0.084 0.004-0.125l5.864 6.842-5.8 5.8c-0.045-0.167-0.069-0.34-0.069-0.517zM24 24h-16c-0.177 0-0.35-0.024-0.517-0.069l5.691-5.691 2.826 3.297 2.826-3.297 5.691 5.691c-0.167 0.045-0.34 0.069-0.517 0.069zM26 22c0 0.177-0.024 0.35-0.069 0.517l-5.8-5.8 5.864-6.842c0.003 0.041 0.004 0.083 0.004 0.125v12z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-linkedin" viewBox="0 0 32 32">
+<title>LinkedIn</title>
+<path d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3zM12 26h-4v-14h4v14zM10 10c-1.106 0-2-0.894-2-2s0.894-2 2-2c1.106 0 2 0.894 2 2s-0.894 2-2 2zM26 26h-4v-8c0-1.106-0.894-2-2-2s-2 0.894-2 2v8h-4v-14h4v2.481c0.825-1.131 2.087-2.481 3.5-2.481 2.488 0 4.5 2.238 4.5 5v9z"></path>
 </symbol>
 </defs>
 </svg>
@@ -143,16 +160,23 @@ window.onclick = function(event) {
 			</div>
 		</div>
 	</div>
+    <div class="sidebar" style="display:none;">
+        <div class="icon-space"><a href="mailto:careertree.thegoaldiggers@gmail.com"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg><span class="name"></span></a></div> 
+        <div class="icon-space"><a href="https://www.linkedin.com/company/careertree-goaldiggers/"><svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg></use></svg></a></div>
+
+    </div>
+
     <section class="section">
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
         <img class="back-image" src="./images/background.jpg" />
-			
+		<div class="layer">	
              <div class="head" >
-<div class="title-line" ><h1>Welcome To Career Tree</h1> </div>
+                    <div class="title-line" ><h1>Welcome To Career Tree</h1> </div>
+
+              </div>
 <h5>Empowering the Unemployed</h5>
-</div>
              <div class="subhead1" ><h4>Improve your employability. Change career like a pro.</h4>
 <h4>Let us help you discover your choices for a career change.</h4>
 </div>
@@ -213,6 +237,7 @@ window.onclick = function(event) {
              <div id="section01" class="demo">
  
   <a href="#section02"><span></span><span></span><span></span>Know More</a>
+  </div>
 </div>
         </div>
        
@@ -232,7 +257,7 @@ window.onclick = function(event) {
                     <div class="column" id="s1">
     <img src="./images/Picture1.png"  class="hover-shadow" data-aos="fade-right"/>
     <div class="caption">
-                        <p data-aos="fade-right">Choose your previous work</p>
+                        <p data-aos="fade-right">Choose your previous career</p>
                     </div>
   </div>
             

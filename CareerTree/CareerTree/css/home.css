@@ -1,4 +1,27 @@
+.sidebar {
+    width: 300px;
+    float: left;
+    position: fixed;
+    width: 35px;
+    float: left;
+    border: 2px solid transparent;
+    height: 90px;
+    z-index: 1030;
+    background-color: transparent;
+    margin-left: 2.5%;
+    border-radius: 20px;
+    top: 45%;
+    outline: none;
+}
 
+
+.icon-space {
+    padding-top: 7px;
+}
+
+.icon-mail:hover, .icon-linkedin:hover {
+    transform: scale(1.1);
+}
 
 
 
@@ -253,7 +276,7 @@ height:100%;
 
 .head {
 position: absolute !important;
-top: 22% !important;
+top: 20% !important;
 left: 50% !important;
 transform: translate(-50%, -50%) !important;
 font-weight: 200 !important;
@@ -289,22 +312,32 @@ padding-bottom: 40px;
 .title-line::after {
     background: #A22631;
     content: "";
-    left: 50%;
+    left: 48%;
     margin-left: -25px;
     height: 1px;
     position: absolute;
-    width: 50px;
+    width: 90px;
+}
+.layer h5 {
+    position: absolute !important;
+    top: 26% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-weight: 200 !important;
+    line-height: 1.35em !important;
+    width: 100%;
 }
 
 .title-line1::after {
-background: #A22631;
-content: "";
-left: 50%;
-margin-left: -25px;
-height: 1px;
-position: absolute;
-width: 90px;
-top: 55px;
+    background: #A22631;
+    content: "";
+    left: 45%;
+    /* margin-left: -25px; */
+    height: 1px;
+    position: absolute;
+    width: 90px;
+    /* top: 55px; */
+    bottom: 0;
 }
 
 .subhead2 {
@@ -352,7 +385,7 @@ top: 27.5px;
 }
 
 
-.icon {
+.icon-search {
 display: inline-block;
 width: 1em;
 height: 1em;
@@ -362,18 +395,28 @@ fill: currentColor;
 color: #111E6C;
 }
 
-.icon:hover {
+.icon-search:hover {
 color: #A22631;
 }
 
 .icon-mail {
-display: inline-block;
-width: 1em;
-height: 1em;
-stroke-width: 0;
-stroke: currentColor;
-fill: currentColor;
-color: #a22631;
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    stroke-width: 0;
+    stroke: #CE3E2D;
+    fill: #CE3E2D;
+    transition: all .3s ease-in-out;
+}
+
+.icon-linkedin {
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    stroke-width: 0;
+    stroke: #0077B5;
+    fill: #0077B5;
+    transition: all .3s ease-in-out;
 }
 
 input[name="occ"] {
