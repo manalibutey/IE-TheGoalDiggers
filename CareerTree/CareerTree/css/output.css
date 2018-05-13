@@ -101,6 +101,11 @@ img.img__img{
     width: 50px;
 }
 
+img.img__img1 {
+    height: 35px;
+    width: 35px;
+}
+
 #statecurrent1_chosen, #statefuture1_chosen, #statecurrent2_chosen, #statefuture2_chosen,#statecurrent3_chosen, #statefuture3_chosen {
     width: 400px !important;
 }
@@ -122,13 +127,14 @@ img.img__img{
 .state {
     /* border: 1.3px solid #A22631;
         box-shadow: 0 3px 6px 3px rgba(0,0,0,0.2);
-    border-radius: 20px 20px 20px 20px; */
+    border-radius: 20px 20px 20px 20px; 
+        margin: 15px 1px 3px 0px;
+    */
     padding: 5px;
     background: transparent;
     outline: #A22631;
     transition: 0.3s;
     padding: 6px 12px;
-    margin: 15px 1px 3px 0px;
     text-align: center;
 }
 
@@ -171,12 +177,15 @@ img.img__img{
         font-size: 18px;
     }
 
+    .btn1 h4,.btn2 h4,.btn3 h4{
+    padding: 0px 10px;
+    }
 
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 12%; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -193,7 +202,7 @@ img.img__img{
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 80%;
+    width: 60%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -228,7 +237,7 @@ img.img__img{
 
 /* The Close Button */
 .close {
-    color: white;
+  
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -243,8 +252,7 @@ img.img__img{
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #A22631;
-    color: white;
+   
 }
 
 .modal-body {

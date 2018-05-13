@@ -197,8 +197,8 @@ for(let i=0;i<modal.length;i++){
 
 <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
 <div class="section-heading section-heading--left m-b-sm-60 m-b-xxs-30 m-b-md-0" id="section01">
-<h2 class="carousel-head">Your Skills Match</h2>
-<p class="carousel-text" >We provide you with the most suitable occupations that are the closest match to your skill set, providing you with a percentage specifying your skill match. <br>Get the job opening trends in each state, salary statistics, recommended courses to cover the skill gap and tasks carried out for each occupation.<br> Choose an occupation and click Know More</p>
+<h2 class="carousel-head">Your Skill Meter</h2>
+<p class="carousel-text" >Provides you a percentage, specifying your skill set match for each recommended occupation, that are the closest match to your skill set. <br>Get the job opening trends in each state, salary statistics, recommended courses to cover the skill gap and tasks carried out for each occupation.<br> Choose an occupation and click Know More</p>
 </div>
 </div>
 
@@ -369,7 +369,7 @@ limit 3";
             }
             echo '<div class="card" id="card">
 <div class="title"><h3>'.$relatedOcc[1].'</h3></div>
-<div class="percentage"><h4>Skill Match - '.$relatedOcc[2].'%</h4></div>
+<div class="percentage"><h4>Skill Meter - '.$relatedOcc[2].'%</h4></div>
 <div class="progress-bar__bar">
 <div class="progress-bar__bar__active" style="width: '.$relatedOcc[2].'%">
  </div></div>
@@ -428,7 +428,7 @@ limit 3";
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Customise Recommendations</h2>
+      <h3><img class="img__img1" src="./images/logomin.png" />   Know More</h3>
     </div>
     <div class="modal-body">
         <form   name="statistics1" method="post" action="/stats.php">
@@ -489,7 +489,7 @@ limit 3";
                                </select>
                         </div>
                         <div class="btn1" id="btn1" style="display:none">
-                                 Get Statistics
+                                <h4> Get Statistics</h4>
                         </div>
      
             </div>
@@ -511,7 +511,7 @@ limit 3";
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Customise Recommendations</h2>
+      <h3><img class="img__img1" src="./images/logomin.png" />   Know More</h3>
     </div>
     <div class="modal-body">
             <form   name="statistics2" method="post" action="/stats.php">
@@ -572,7 +572,7 @@ limit 3";
                                </select>
                         </div>
                         <div class="btn2" id="btn2" style="display:none">
-                                 Get Statistics
+                                <h4> Get Statistics</h4>
                         </div>
      
             </div>
@@ -593,7 +593,7 @@ limit 3";
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Customise Recommendations</h2>
+      <h3><img class="img__img1" src="./images/logomin.png" />   Know More</h3>
     </div>
     <div class="modal-body">
             <form   name="statistics3" method="post" action="/stats.php">
@@ -654,7 +654,7 @@ limit 3";
                                </select>
                         </div>
                         <div class="btn3" id="btn3" style="display:none">
-                                 Get Statistics
+                                <h4> Get Statistics</h4>
                         </div>
      
             </div>
