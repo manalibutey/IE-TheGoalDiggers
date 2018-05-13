@@ -65,10 +65,17 @@
         $occID = $_POST['occid'];
         $tranID = $_POST['id'];
         $para = $_POST['para'];
-        $previousocc = $_POST['previousocc'];
         $currentState = $_POST['currentState'];
         $futureState = $_POST['futureState'];
-        $occname = $_POST['occname'];
+        //-------Receive ABS Name from parameter ------------//updated 29/04/2018
+        if($para){
+            $addParaString = " and trim(OccABS.abs_name) ='".$para."'";
+        }
+        else{
+            $addParaString = "";
+        }
+        //------------------------------------
+
         include 'db_connection.php';
         $dbconn4 = OpenCon();
         $sql = "select *
@@ -87,6 +94,32 @@
                 $futureNo = $row[2];
             }
         }
+
+        //updated query 29/04/2018
+        $sql = "select p.title as previousocc, CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE p.relatedtitle END  as relatedocc,
+                CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
+                p.matchingskill,p.matchingknowledge,p.lackingskill,p.lackingknowledge,p.percentage,trim(OccABS.abs_name),trim(OccABS.abs_original)
+                        from percentage as p
+		                inner join occupation as Occ on p.relatedoccid = Occ.occid
+		                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                        where
+                        id = '$tranID'
+                        and relatedoccid = '$occID'".$addParaString;
+        $result = pg_query($dbconn4, $sql);
+        $occDetail = pg_fetch_row($result);
+        if (!$result) {
+            echo "An error occurred.\n";
+            exit;
+        }
+        if($occDetail[8] <> $occDetail[9])
+        {
+            //Set ABS Original Name as parameter for query career statistic
+            $para = $occDetail[9];
+        }
+        $getLackingskill = $occDetail[5];
+        $getLackingknowledge = $occDetail[6];
+        $previousocc = $occDetail[0];
+        $occname = $occDetail[1];
         ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
@@ -124,7 +157,7 @@
         <div class="mid-section">
            <h1><div class="title-line1">Career Statistics</div></h1>
         </div>
-        <div class="sub-heading"><h4>View the job vacancy trends in your chosen state and the average salary offered within Australia for <?php echo $currentState; echo $futureState;?></h4></div>
+        <div class="sub-heading"><h4>View the job vacancy trends in your chosen state and the average salary offered within Australia for <?php echo $occname;?></h4></div>
                
 
      <?php //---------Assign Data to Google Chart
@@ -265,9 +298,158 @@
      //}
      //------------------------------------------------------------------
 
-     pg_close($dbconn4);
+     //pg_close($dbconn4);
      ?>
+     <!------------------TASK STATEMENTS--------------------->
+     <div class="mid-section">
+         <h1>
+             <div class="title-line1">
+                 <?php echo $occDetail[1]; ?>
+             </div>
+         </h1>
+     </div>
+     <div class="sub-heading">
+         <h4>Learn about the tasks carried out, your lacking skills,</h4>
+         <h4>and online course recommendations to upskill</h4>
+     </div>
 
+     <div class="boxes">
+         <div class="task-box-heading">
+             <h4>Task Statement</h4>
+         </div>
+
+         <div class="task-box-backgnd" id="task-box">
+             <?php
+             $sql = "select taskname from task_occupation
+                where occid = '$occID'
+                order by rank desc
+                limit 10";
+             $result = pg_query($dbconn4, $sql);
+             while ($task = pg_fetch_row($result)) {
+                 $resultsk =$task[0];
+                 echo '<div  class="value" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
+        }
+             ?>
+         </div>
+     </div>
+     <!------------------LACKING SKILL AND SUGGESTED COURSES--------------------->
+     <div class="mid-section">
+         <h1>
+             <div class="title-line1">Enhance Your Skill Set</div>
+         </h1>
+     </div>
+     <div class="sub-heading">
+         <h4>
+             Acquire the skills you will need to become <?php echo $occname; ?> by undertaking the recommended courses
+         </h4>
+     </div>
+
+     <div class=boxes>
+         <div class="lack-box">
+             <div class="box-heading">
+                 <h4>Skills to Acquire</h4>
+             </div>
+
+             <div class="lack-box-backgnd" id="lack-select-box">
+                 <?php
+                 if ($getLackingskill){
+                     $lackingSkillsArray = explode(',', $getLackingskill);
+                     for($x = 0; $x < count($lackingSkillsArray); $x++) {
+                         $lackingskill .= '\''.trim($lackingSkillsArray[$x]).'\',';
+                     }
+                     $lackingskill = rtrim($lackingskill,",");
+                     $sql = "select a.skname as skillname, a.description as description, rank
+            from skill a, skill_occupation b
+            where b.skid = a.skid
+            and b.occid = '$occID'
+            and a.skname in ($lackingskill)
+            order by rank desc";
+                     $result = pg_query($dbconn4, $sql);
+                     while ($lskill = pg_fetch_row($result)) {
+                         echo '<label for="'.$lskill[1].'" title="'.$lskill[1].'"><div  class="value" id="'.$lskill[0].'" value="'.$lskill[0].'"><p>'.$lskill[0].' </p></div></label>';
+                         //  echo '<div  class="value" id="'.$lskill[1].'" value="'.$lskill[1].'"><p>'.$lskill[1].' </p></div>';
+                         // echo '<li><h5>'.$lskill[0].' (skill)</h5>'.$lskill[1].'</li><br/>';
+                     }
+                 }
+                 if ($getLackingknowledge){
+                     $lackingKnowledgeArray = explode(',', $getLackingknowledge);
+                     for($x = 0; $x < count($lackingKnowledgeArray); $x++) {
+                         $lackingKnowledge .= '\''.trim($lackingKnowledgeArray[$x]).'\',';
+                     }
+                     $lackingKnowledge = rtrim($lackingKnowledge,",");
+                     $sql = "select a.knwname as knowledgename, a.description as description, rank
+                    from knowledge a, knowledge_occupation b
+                    where b.knwid = a.knwid
+                    and b.occid = '$occID'
+                    and a.knwname in ($lackingKnowledge)
+                    order by rank desc";
+                     $result = pg_query($dbconn4, $sql);
+                     while ($lknowledge = pg_fetch_row($result)) {
+                         echo '<label for="'.$lknowledge[1].'" title="'.$lknowledge[1].'"><div  class="value" id="'.$lknowledge[0].'" value="'.$lknowledge[0].'"><p>'.$lknowledge[0].' </p></div></label>';
+
+                     }
+                 }
+
+                 ?>
+             </div>
+         </div>
+
+         <div class="course-box">
+             <div class="box-heading">
+                 <h4>Recommended Courses</h4>
+             </div>
+
+             <div class="course-box-backgnd" id="course-box">
+                 <?php
+                 if ($getLackingskill||$getLackingknowledge){
+                     if ($getLackingskill){
+                         $lackingSkillsArray = explode(',', $getLackingskill);
+                         for($x = 0; $x < count($lackingSkillsArray); $x++) {
+                             $lackingskill .= '\''.trim($lackingSkillsArray[$x]).'\',';
+                         }
+                         $lackingskill = rtrim($lackingskill,",");
+                     }
+                     if ($getLackingknowledge){
+                         $lackingKnowledgeArray = explode(',', $getLackingknowledge);
+                         for($x = 0; $x < count($lackingKnowledgeArray); $x++) {
+                             $lackingKnowledge .= '\''.trim($lackingKnowledgeArray[$x]).'\',';
+                         }
+                         $lackingKnowledge = rtrim($lackingKnowledge,",");
+                     }
+                     if(!$getLackingskill){
+                         $lackingskill = '\'\'';
+                     }
+                     if(!$getLackingknowledge){
+                         $lackingKnowledge = '\'\'';
+                     }
+                     //include 'db_connection.php';
+                     // $dbconn4 = OpenCon();
+                     $sql = "select a.coursename, a.coursetype,a.description, a.provider,a.duration,a.fee,a.link,c.skname as related
+                    from course as a, course_related as b , skill as c
+                    where a.courseid = b.courseid and b.relatedid = c.skid
+                    and c.skname in ($lackingskill)
+                    union
+                    select a.coursename, a.coursetype,a.description, a.provider,a.duration,a.fee,a.link,c.knwname as related
+                    from course as a, course_related as b , knowledge as c
+                    where a.courseid = b.courseid and b.relatedid = c.knwid
+                    and c.knwname in ($lackingKnowledge)";
+                     $result = pg_query($dbconn4, $sql);
+
+                     if(!$result){
+                         echo "No data available";
+                     }
+                     while ($course = pg_fetch_row($result)) {
+                         echo '<div  class="value" id="'.$lknowledge[0].'" value="'.$lknowledge[0].'"><p>'.$lknowledge[0].' </p></div>';
+
+                         echo '<div  class="value" ><a href="'.$course[6].'" target="_blank">'.$course[0].'</a> ('.$course[1].') - By '.$course[3].'</div>';
+                     }
+
+                 }
+        pg_close($dbconn4);
+                 ?>
+             </div>
+         </div>
+     </div>
 </div>
 
 <div class="foot">

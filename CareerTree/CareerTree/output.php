@@ -344,21 +344,18 @@ for(let i=0;i<modal.length;i++){
      $sql ="select p.title,CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE p.relatedtitle END as relatedtitle,
                 p.percentage,p.id,p.matchingskill,p.lackingskill,p.matchingknowledge,p.lackingknowledge,p.relatedoccid,Occ.occid,Occ.occname,
                 CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
-                CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE '' END as ABS_parameter
+                CASE WHEN OccABS.abs_name is not null THEN trim(OccABS.abs_name) ELSE '' END as ABS_parameter
                 from percentage as p
                 inner join occupation as Occ on p.relatedoccid = Occ.occid
                 inner join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
                 where
                 id = '$randID'
                 order by percentage desc
-limit 3";
+                limit 3";
             $relatedOccupation = pg_query($dbconn4, $sql);
             $occCount = 1;
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
-        if($relatedOcc[2] <> 0){
-        }
-         //echo "<tr>";
-       // echo $occCount;
+
          if($relatedOcc[2] <> 0){
             if($relatedOcc[12] <> ''){
             //-----Include ABS Name as parameter if it is occupation from ABS updated 29/04/2018--------------
@@ -367,21 +364,21 @@ limit 3";
             else{
            // echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
             }
-            echo '<div class="card" id="card">
-<div class="title"><h3>'.$relatedOcc[1].'</h3></div>
-<div class="percentage"><h4>Skill Meter - '.$relatedOcc[2].'%</h4></div>
-<div class="progress-bar__bar">
-<div class="progress-bar__bar__active" style="width: '.$relatedOcc[2].'%">
- </div></div>
- <div class="img__description_layer">
-  <h3 class="img__description">    <img class="img__img" src="./images/logomin.png" />
- <div class="more">Know More</div>
-</h3>
-   
-    </div>
-   
-</div>';
-      
+            echo    '<div class="card" id="card">
+                    <div class="title"><h3>'.$relatedOcc[1].'</h3></div>
+                    <div class="percentage"><h4>Skill Meter - '.$relatedOcc[2].'%</h4></div>
+                    <div class="progress-bar__bar">
+                    <div class="progress-bar__bar__active" style="width: '.$relatedOcc[2].'%">
+                    </div></div>
+                    <div class="img__description_layer">
+                    <h3 class="img__description">    <img class="img__img" src="./images/logomin.png" />
+                    <div class="more">Know More</div>
+                    </h3>
+                    </div>
+                    </div>';
+            $occid[$occCount] = $relatedOcc[8];
+            $tranID = $relatedOcc[3];
+            $para[$occCount] = $relatedOcc[12];
          }
 
          $occCount++;
@@ -455,17 +452,12 @@ limit 3";
 
                                   <div class="no1" id="no1" > 
 
-                                            <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
-                                        <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
-                                        <input type="hidden" name="para" value="<?php echo $para; ?>" />
-                                        <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+                                        <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+                                        <input type="hidden" name="occid" value="<?php echo $occid[1]; ?>" />
+                                        <input type="hidden" name="para" value="<?php echo $para[1]; ?>" />
                                         <input type="hidden" name="currentState" id="currentState1" />
                                         <input type="hidden" name="futureState" id="futureState1" />
-                                        <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
-                                         <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
-                                        <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
-   
-                    
+
                                           <svg class="icon icon-cancel-circle"><use xlink:href="#icon-cancel-circle"></use></svg>
             
                                     </div>
@@ -539,15 +531,11 @@ limit 3";
 
                                   <div class="no2" id="no2"> 
 
-                                           <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
-                                        <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
-                                        <input type="hidden" name="para" value="<?php echo $para; ?>" />
-                                        <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+                                        <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+                                        <input type="hidden" name="occid" value="<?php echo $occid[2]; ?>" />
+                                        <input type="hidden" name="para" value="<?php echo $para[2]; ?>" />
                                         <input type="hidden" name="currentState" id="currentState2" />
                                         <input type="hidden" name="futureState" id="futureState2" />
-                                        <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
-                                         <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
-                                        <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
                     
                                           <svg class="icon icon-cancel-circle"><use xlink:href="#icon-cancel-circle"></use></svg>
             
@@ -622,16 +610,13 @@ limit 3";
                                   <div class="no3" id="no3" > 
 
                                      <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
-                                        <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
-                                        <input type="hidden" name="para" value="<?php echo $para; ?>" />
-                                        <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+                                        <input type="hidden" name="occid" value="<?php echo $occid[3]; ?>" />
+                                        <input type="hidden" name="para" value="<?php echo $para[3]; ?>" />
                                         <input type="hidden" name="currentState" id="currentState3" />
                                         <input type="hidden" name="futureState" id="futureState3" />
-                                        <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
-                                         <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
-                                        <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
+
                     
-                                          <svg class="icon icon-cancel-circle"><use xlink:href="#icon-cancel-circle"></use></svg>
+                                         <svg class="icon icon-cancel-circle"><use xlink:href="#icon-cancel-circle"></use></svg>
             
                                     </div>
 
