@@ -41,7 +41,7 @@ window.onload = function(){
 var modal = document.getElementsByClassName('modal');
 
 // Get the button that opens the modal
-var btn = document.getElementsByClassName('more');
+var btn = document.getElementsByClassName('img__description');
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName('close');
@@ -374,7 +374,8 @@ limit 3";
 <div class="progress-bar__bar__active" style="width: '.$relatedOcc[2].'%">
  </div></div>
  <div class="img__description_layer">
-  <h3 class="img__description" >  +  <div class="more">Know More</div>
+  <h3 class="img__description">    <img class="img__img" src="./images/logomin.png" />
+ <div class="more">Know More</div>
 </h3>
    
     </div>

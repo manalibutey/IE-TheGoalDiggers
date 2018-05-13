@@ -96,6 +96,11 @@ iframe {
     color: #A22631;
 }
 
+img.img__img{
+    height: 50px;
+    width: 50px;
+}
+
 #statecurrent1_chosen, #statefuture1_chosen, #statecurrent2_chosen, #statefuture2_chosen,#statecurrent3_chosen, #statefuture3_chosen {
     width: 400px !important;
 }
@@ -377,7 +382,7 @@ p.carousel-text{
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255,0.8);
+    background: rgba(255, 255, 255,0.9);
     color: #111E6C;
     visibility: hidden;
     opacity: 0;
