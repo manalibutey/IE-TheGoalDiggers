@@ -124,7 +124,7 @@
         <div class="mid-section">
            <h1><div class="title-line1">Career Statistics</div></h1>
         </div>
-        <div class="sub-heading"><h4>View the job vacancy trends in your chosen state and the average salary offered within Australia for <?php echo $occname; ?></h4></div>
+        <div class="sub-heading"><h4>View the job vacancy trends in your chosen state and the average salary offered within Australia for <?php echo $currentState; echo $futureState;?></h4></div>
                
 
      <?php //---------Assign Data to Google Chart

@@ -147,7 +147,8 @@ window.onclick = function(event) {
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
-			<img class="back-image" src="./images/background.jpg" />
+        <img class="back-image" src="./images/background.jpg" />
+			
              <div class="head" >
 <div class="title-line" ><h1>Welcome To Career Tree</h1> </div>
 <h5>Empowering the Unemployed</h5>

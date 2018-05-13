@@ -9,10 +9,17 @@
     <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/output.css">
-        <script src="./js/jquery.min.js"></script>
-        <script>smoothscroll</script>
+   <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script src="./js/jquery.min.js"></script>
+     <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
+    <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
+     <script src="./js/modal.js"></script>
     <script>
     $(document).ready(function () {
+    $('.chosen-select').chosen();
+
     var sidebar = $('.sidebar');
     var top = sidebar.offset().top - parseFloat(sidebar.css('margin-top'));
   
@@ -25,6 +32,44 @@
       }
     });
 });
+</script>
+<script>
+window.onload = function(){ 
+    // your code 
+
+// Get the modal
+var modal = document.getElementsByClassName('modal');
+
+// Get the button that opens the modal
+var btn = document.getElementsByClassName('more');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName('close');
+
+// When the user clicks the button, open the modal 
+for(let i=0;i<btn.length;i++){
+   btn[i].onclick = function() {
+        modal[i].style.display = "block";
+    }
+}
+
+
+
+// When the user clicks on <span> (x), close the modal
+for(let i=0;i<span.length;i++){
+    span[i].onclick = function() {
+        modal[i].style.display = "none";
+    }
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+for(let i=0;i<modal.length;i++){
+    if (event.target == modal[i]) {
+        modal[i].style.display = "none";
+    }
+    }
+}
+};
 </script>
 
     </head>
@@ -55,12 +100,23 @@
 
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<symbol id="icon-tree" viewBox="0 0 32 32">
-<title>Try Visualisation</title>
-<path d="M30.5 24h-0.5v-6.5c0-1.93-1.57-3.5-3.5-3.5h-8.5v-4h0.5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5h-5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h0.5v4h-8.5c-1.93 0-3.5 1.57-3.5 3.5v6.5h-0.5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5h-0.5v-6h8v6h-0.5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5h-0.5v-6h8v6h-0.5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5zM6 30h-4v-4h4v4zM18 30h-4v-4h4v4zM14 8v-4h4v4h-4zM30 30h-4v-4h4v4z"></path>
+<symbol id="icon-checkbox-checked" viewBox="0 0 32 32">
+<title>YES</title>
+<path d="M28 0h-24c-2.2 0-4 1.8-4 4v24c0 2.2 1.8 4 4 4h24c2.2 0 4-1.8 4-4v-24c0-2.2-1.8-4-4-4zM14 24.828l-7.414-7.414 2.828-2.828 4.586 4.586 9.586-9.586 2.828 2.828-12.414 12.414z"></path>
 </symbol>
 </defs>
 </svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-cancel-circle" viewBox="0 0 32 32">
+<title>NO</title>
+<path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z"></path>
+<path d="M21 8l-5 5-5-5-3 3 5 5-5 5 3 3 5-5 5 5 3-3-5-5 5-5z"></path>
+</symbol>
+</defs>
+</svg>
+
 <?php
     if ( isset($_POST['submit'] ) ) {
         $occp = $_POST['occ'];
@@ -117,22 +173,40 @@
 			</div>
 		</div>
 	</div>
-    <form>
+  
     <div class="sidebar">
- <!--<div class="icon-space"><a href="/shiny?id= --><?php //echo $randID; ?><!-- "><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg></a></div> -->
-<div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
-<div class="icon-space"><a href="javascript:window.history.back()"><svg class="icon icon-circle-left"><use xlink:href="#icon-circle-left"></use></svg></a></div>
+        <div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
+        <div class="icon-space"><a href="javascript:window.history.back()"><svg class="icon icon-circle-left"><use xlink:href="#icon-circle-left"></use></svg></a></div>
 
-</div>
+    </div>
     <div class="full">
 
-        <div class="mid-section">
+      <div class="mid-section">
            <h1><div class="title-line1" >Recommended Occupations</div></h1>
         </div>
         <div class="sub-heading"><h4>According to your previous occupation and skill set, you can switch to the following occupations</h4></div>
-        <iframe src="/shiny?id=<?php echo $randID; ?> " ></iframe>
-        <div class = box-cover>
-            <?php
+
+      </div>
+
+
+
+  <div class="carousel-sec">
+    <section class="skills section-padding">
+<div class="container">
+<div class="row">
+
+<div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
+<div class="section-heading section-heading--left m-b-sm-60 m-b-xxs-30 m-b-md-0">
+<h2 class="carousel-head">My Skills</h2>
+<p class="carousel-text" >I’m John Doe. I designed this site so you can get to know me on a personal level. My career as a UX Designer, my portfolio, my personal photography, my blog, my favorite quotes, and more.</p>
+</div>
+</div>
+
+
+<div class="col-sm-12 col-md-8">
+<div class="skill-slider owl-carousel" >
+
+  <?php
 
         include 'db_connection.php';
         $dbconn4 = OpenCon();
@@ -276,7 +350,8 @@
                 inner join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
                 where
                 id = '$randID'
-                order by percentage desc";
+                order by percentage desc
+limit 3";
             $relatedOccupation = pg_query($dbconn4, $sql);
             $occCount = 1;
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
@@ -287,21 +362,25 @@
          if($relatedOcc[2] <> 0){
             if($relatedOcc[12] <> ''){
             //-----Include ABS Name as parameter if it is occupation from ABS updated 29/04/2018--------------
-            echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'&para='.$relatedOcc[12].'">';
+           // echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'&para='.$relatedOcc[12].'">';
             }
             else{
-            echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
+           // echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
             }
-
-             echo '<div class="box">';
-             echo'<div class="flex-element">';
-             echo '<div class="title"><h3>'.$relatedOcc[1].'</h3></div>';
-             echo'<div class="percentage"><h1><div class="pull-right">'.$relatedOcc[2].'%</div></h1></div>';
-             echo'</div>';
-             echo '<div class="desc"><h4>'.$relatedOcc[11].'</h4></div>';
-             echo '</div>';
-             echo '</a>';
-             // echo "</tr>";
+            echo '<div class="card" id="card">
+<div class="title"><h3>'.$relatedOcc[1].'</h3></div>
+<div class="percentage"><h4>'.$relatedOcc[2].'%</h4></div>
+<div class="progress-bar__bar">
+<div class="progress-bar__bar__active" style="width: '.$relatedOcc[2].'%">
+ </div></div>
+ <div class="img__description_layer">
+    <div><h4 class="img__description">    <div class="more" id="more">Know More</div>
+</h4></div>
+   
+    </div>
+   
+</div>';
+      
          }
 
          $occCount++;
@@ -311,15 +390,272 @@
      pg_close($dbconn4);
 
             ?>
-                       
-        </div>
-         
-        
+
+
+  
+
+</div>
+</div>
+
+
+      
+</div>
+</div>
+</section>
+</div>
+
+  <iframe src="/shiny?id=<?php echo $randID; ?> " ></iframe>
+
+<!-- Trigger/Open The Modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Customise Recommendations</h2>
     </div>
-    </form>
-  <div class="foot">
-<footer class="footer"><p>
-  &#169; Copyright 2018 Career Tree </p>
+    <div class="modal-body">
+        <form   name="statistics1" method="post" action="/stats.php">
+            <div class=state> 
+                 <h3>Let us know you better</h3>
+                        <div class="statecurrent">
+       <!-- <h4>State you currently reside in</h4> -->
+                             <select class="chosen-select" id="statecurrent1" name="statelist">
+                                  <option disabled selected value>Please enter your current residential state</option>
+                                    <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                    <option value="New South Wales">New South Wales</option>
+                                    <option value="Northern Territory">Northern Territory</option>
+                                    <option value="Queensland">Queensland</option>
+                                    <option value="South Australia">South Australia</option>
+                                    <option value="Tasmania">Tasmania</option>
+                                    <option value="Victoria">Victoria</option>
+                                    <option value="Western Australia">Western Australia</option>
+                                </select>
+                          </div>
+                           <div class="ques1" id="ques1">
+                              <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+
+                                 <div class="yes1" id="yes1"><svg class="icon icon-checkbox-checked"><use xlink:href="#icon-checkbox-checked"></use></svg></div>
+
+                                  <div class="no1" id="no1" > 
+
+                                            <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+                                        <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
+                                        <input type="hidden" name="para" value="<?php echo $para; ?>" />
+                                        <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+                                        <input type="hidden" name="currentState" id="currentState1" />
+                                        <input type="hidden" name="futureState" id="futureState1" />
+                                        <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
+                                         <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
+                                        <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
+   
+                    
+                                          <svg class="icon icon-cancel-circle"><use xlink:href="#icon-cancel-circle"></use></svg>
+            
+                                    </div>
+
+                           </div>
+    
+
+                           <div class="statefuture1" style="display:none">
+     
+                              <!--  <h4>State you would like to reloacte to</h4>  -->
+                               <select class="chosen-select" id="statefuture1" name="statelist1">
+                                   <option disabled selected value>Please enter your future residential state</option>
+                                   <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                   <option value="New South Wales">New South Wales</option>
+                                   <option value="Northern Territory">Northern Territory</option>
+                                   <option value="Queensland">Queensland</option>
+                                   <option value="South Australia">South Australia</option>
+                                   <option value="Tasmania">Tasmania</option>
+                                   <option value="Victoria">Victoria</option>
+                                   <option value="Western Australia">Western Australia</option>
+                               </select>
+                        </div>
+                        <div class="btn1" id="btn1" style="display:none">
+                                 Get Statistics
+                        </div>
+     
+            </div>
+              </form>
+    </div>
+  
+  </div>
+
+</div>
+
+
+
+<!-- Trigger/Open The Modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Customise Recommendations</h2>
+    </div>
+    <div class="modal-body">
+            <form   name="statistics2" method="post" action="/stats.php">
+
+            <div class=state> 
+                 <h3>Let us know you better</h3>
+                        <div class="statecurrent">
+       <!-- <h4>State you currently reside in</h4> -->
+                             <select class="chosen-select" id="statecurrent2" name="statelist">
+                                  <option disabled selected value>Please enter your current residential state</option>
+                                    <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                    <option value="New South Wales">New South Wales</option>
+                                    <option value="Northern Territory">Northern Territory</option>
+                                    <option value="Queensland">Queensland</option>
+                                    <option value="South Australia">South Australia</option>
+                                    <option value="Tasmania">Tasmania</option>
+                                    <option value="Victoria">Victoria</option>
+                                    <option value="Western Australia">Western Australia</option>
+                                </select>
+                          </div>
+                           <div class="ques2" id="ques2">
+                              <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+
+                                 <div class="yes2" id="yes2"><svg class="icon icon-checkbox-checked"><use xlink:href="#icon-checkbox-checked"></use></svg></div>
+
+                                  <div class="no2" id="no2"> 
+
+                                           <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+                                        <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
+                                        <input type="hidden" name="para" value="<?php echo $para; ?>" />
+                                        <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+                                        <input type="hidden" name="currentState" id="currentState2" />
+                                        <input type="hidden" name="futureState" id="futureState2" />
+                                        <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
+                                         <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
+                                        <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
+                    
+                                          <svg class="icon icon-cancel-circle"><use xlink:href="#icon-cancel-circle"></use></svg>
+            
+                                    </div>
+
+                           </div>
+    
+
+                           <div class="statefuture2" style="display:none">
+     
+                              <!--  <h4>State you would like to reloacte to</h4>  -->
+                               <select class="chosen-select" id="statefuture2" name="statelist1">
+                                   <option disabled selected value>Please enter your future residential state</option>
+                                   <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                   <option value="New South Wales">New South Wales</option>
+                                   <option value="Northern Territory">Northern Territory</option>
+                                   <option value="Queensland">Queensland</option>
+                                   <option value="South Australia">South Australia</option>
+                                   <option value="Tasmania">Tasmania</option>
+                                   <option value="Victoria">Victoria</option>
+                                   <option value="Western Australia">Western Australia</option>
+                               </select>
+                        </div>
+                        <div class="btn2" id="btn2" style="display:none">
+                                 Get Statistics
+                        </div>
+     
+            </div>
+            </form>
+    </div>
+  
+  </div>
+
+</div>
+
+
+<!-- Trigger/Open The Modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Customise Recommendations</h2>
+    </div>
+    <div class="modal-body">
+            <form   name="statistics3" method="post" action="/stats.php">
+
+            <div class=state> 
+                 <h3>Let us know you better</h3>
+                        <div class="statecurrent">
+       <!-- <h4>State you currently reside in</h4> -->
+                             <select class="chosen-select" id="statecurrent3" name="statelist">
+                                  <option disabled selected value>Please enter your current residential state</option>
+                                    <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                    <option value="New South Wales">New South Wales</option>
+                                    <option value="Northern Territory">Northern Territory</option>
+                                    <option value="Queensland">Queensland</option>
+                                    <option value="South Australia">South Australia</option>
+                                    <option value="Tasmania">Tasmania</option>
+                                    <option value="Victoria">Victoria</option>
+                                    <option value="Western Australia">Western Australia</option>
+                                </select>
+                          </div>
+                           <div class="ques3" id="ques3">
+                              <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+
+                                 <div class="yes3" id="yes3"><svg class="icon icon-checkbox-checked"><use xlink:href="#icon-checkbox-checked"></use></svg></div>
+
+                                  <div class="no3" id="no3" > 
+
+                                     <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+                                        <input type="hidden" name="occid" value="<?php echo $occID; ?>" />
+                                        <input type="hidden" name="para" value="<?php echo $para; ?>" />
+                                        <input type="hidden" name="previousocc" value="<?php echo $previousOcc; ?>" />
+                                        <input type="hidden" name="currentState" id="currentState3" />
+                                        <input type="hidden" name="futureState" id="futureState3" />
+                                        <input type="hidden" name="occname" value="<?php echo $occname; ?>" />
+                                         <input type="hidden" name="lackingskill" value="<?php echo $lackingskill; ?>" />
+                                        <input type="hidden" name="lackingknowledge" value="<?php echo $lackingknowledge; ?>" />
+                    
+                                          <svg class="icon icon-cancel-circle"><use xlink:href="#icon-cancel-circle"></use></svg>
+            
+                                    </div>
+
+                           </div>
+    
+
+                           <div class="statefuture3" style="display:none">
+     
+                              <!--  <h4>State you would like to reloacte to</h4>  -->
+                               <select class="chosen-select" id="statefuture3" name="statelist1">
+                                   <option disabled selected value>Please enter your future residential state</option>
+                                   <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                   <option value="New South Wales">New South Wales</option>
+                                   <option value="Northern Territory">Northern Territory</option>
+                                   <option value="Queensland">Queensland</option>
+                                   <option value="South Australia">South Australia</option>
+                                   <option value="Tasmania">Tasmania</option>
+                                   <option value="Victoria">Victoria</option>
+                                   <option value="Western Australia">Western Australia</option>
+                               </select>
+                        </div>
+                        <div class="btn3" id="btn3" style="display:none">
+                                 Get Statistics
+                        </div>
+     
+            </div>
+         </form>
+    </div>
+  
+  </div>
+
+</div>
+
+
+    <div class=foot>
+<footer class="footer">
+    <p>&#169; Copyright 2018 Career Tree </p>
 </footer>
 </div>
    
