@@ -17,7 +17,26 @@
     <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
-    
+    <script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+       
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+window.onload =function(){
+document.getElementById('London').style.display = "block";
+document.getElementById("1").className += " active";
+}
+</script>
     </head>
     <body>
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -60,6 +79,37 @@
 </symbol>
 </defs>
 </svg>
+
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-briefcase" viewBox="0 0 32 32">
+<title>Work</title>
+<path d="M30 8h-8v-2c0-1.1-0.9-2-2-2h-8c-1.1 0-2 0.9-2 2v2h-8c-1.1 0-2 0.9-2 2v18c0 1.1 0.9 2 2 2h28c1.1 0 2-0.9 2-2v-18c0-1.1-0.9-2-2-2zM12 6.004c0.001-0.001 0.002-0.003 0.004-0.004h7.993c0.001 0.001 0.003 0.002 0.004 0.004v1.996h-8v-1.996zM30 16h-4v3c0 0.55-0.45 1-1 1h-2c-0.55 0-1-0.45-1-1v-3h-12v3c0 0.55-0.45 1-1 1h-2c-0.55 0-1-0.45-1-1v-3h-4v-2h28v2z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-books" viewBox="0 0 36 32">
+<title>Courses</title>
+<path d="M7 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM6 10h-4v-2h4v2z"></path>
+<path d="M17 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM16 10h-4v-2h4v2z"></path>
+<path d="M23.909 5.546l-5.358 2.7c-0.491 0.247-0.691 0.852-0.443 1.343l8.999 17.861c0.247 0.491 0.852 0.691 1.343 0.443l5.358-2.7c0.491-0.247 0.691-0.852 0.443-1.343l-8.999-17.861c-0.247-0.491-0.852-0.691-1.343-0.443z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-stats-bars" viewBox="0 0 32 32">
+<title>Statistics</title>
+<path d="M0 26h32v4h-32zM4 18h4v6h-4zM10 10h4v14h-4zM16 16h4v8h-4zM22 4h4v20h-4z"></path>
+</symbol>
+</defs>
+</svg>
+
         <?php
 
         $occID = $_POST['occid'];
@@ -155,11 +205,18 @@
  <div class="full">
 
         <div class="mid-section">
-           <h1><div class="title-line1">Career Statistics</div></h1>
+           <h1><div class="title-line1"><?php echo $occname; ?></div></h1>
         </div>
         <div class="sub-heading"><h4>View the job vacancy trends in your chosen state and the average salary offered within Australia for <?php echo $occname;?></h4></div>
                
+     
+<div class="tab">
+  <button class="tablinks" id="1" onclick="openCity(event, 'London')"><svg class="icon icon-stats-bars"><use xlink:href="#icon-stats-bars"></use></svg><h3>&nbsp;Statistics</h3></button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')"><svg class="icon icon-books"><use xlink:href="#icon-books"></use></svg><h3>&nbsp;Upskill</h3></button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')"><svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg><h3>&nbsp;Tasks</h3></button>
+</div>
 
+<div id="London" class="tabcontent">
      <?php //---------Assign Data to Google Chart
      //---------Extract Data for Job Vacancy Trend
 
@@ -174,7 +231,8 @@
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
          $month = $row{'month'} - 1;
-         //if($row{'current'}){
+
+  //if($row{'current'}){
          //   $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",'".$row{'current'}."'],";
          //}
          //else{
@@ -198,7 +256,7 @@
      //    echo '<div><h3>Current Job Vacancy ('.$currentYear.'): '.$currentVacancy.'</h3></div>';
      //    echo '<div><h3>Future Job Vacancy ('.$futureYear.'): '.$futureVacancy.'</h3></div>';
      //}
-     if($entryVacancy1){
+       if($entryVacancy1){
      echo '<div class="vac">';
      echo '<div id="colFilter_div"></div>';
      echo '<div id="chart_div" style="width: 900px; height: 300px"></div>';
@@ -300,40 +358,10 @@
 
      //pg_close($dbconn4);
      ?>
-     <!------------------TASK STATEMENTS--------------------->
-     <div class="mid-section">
-         <h1>
-             <div class="title-line1">
-                 <?php echo $occDetail[1]; ?>
-             </div>
-         </h1>
-     </div>
-     <div class="sub-heading">
-         <h4>Learn about the tasks carried out, your lacking skills,</h4>
-         <h4>and online course recommendations to upskill</h4>
-     </div>
+</div>
 
-     <div class="boxes">
-         <div class="task-box-heading">
-             <h4>Task Statement</h4>
-         </div>
-
-         <div class="task-box-backgnd" id="task-box">
-             <?php
-             $sql = "select taskname from task_occupation
-                where occid = '$occID'
-                order by rank desc
-                limit 10";
-             $result = pg_query($dbconn4, $sql);
-             while ($task = pg_fetch_row($result)) {
-                 $resultsk =$task[0];
-                 echo '<div  class="value" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
-        }
-             ?>
-         </div>
-     </div>
-     <!------------------LACKING SKILL AND SUGGESTED COURSES--------------------->
-     <div class="mid-section">
+<div id="Paris" class="tabcontent">
+    <div class="mid-section">
          <h1>
              <div class="title-line1">Enhance Your Skill Set</div>
          </h1>
@@ -451,6 +479,43 @@
          </div>
      </div>
 </div>
+
+<div id="Tokyo" class="tabcontent">
+   <div class="mid-section">
+         <h1>
+             <div class="title-line1">
+                 <?php echo $occDetail[1]; ?>
+             </div>
+         </h1>
+     </div>
+     <div class="sub-heading">
+         <h4>Learn about the tasks carried out, your lacking skills,</h4>
+         <h4>and online course recommendations to upskill</h4>
+     </div>
+
+     <div class="boxes">
+         <div class="task-box-heading">
+             <h4>Task Statement</h4>
+         </div>
+
+         <div class="task-box-backgnd" id="task-box">
+             <?php
+             $sql = "select taskname from task_occupation
+                where occid = '$occID'
+                order by rank desc
+                limit 10";
+             $result = pg_query($dbconn4, $sql);
+             while ($task = pg_fetch_row($result)) {
+                 $resultsk =$task[0];
+                 echo '<div  class="value" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
+        }
+             ?>
+         </div>
+     </div>
+</div>
+
+   </div>  
+
 
 <div class="foot">
 <footer class="footer"><p>
