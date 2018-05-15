@@ -92,11 +92,9 @@ document.getElementById("1").className += " active";
 
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<symbol id="icon-books" viewBox="0 0 36 32">
-<title>Courses</title>
-<path d="M7 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM6 10h-4v-2h4v2z"></path>
-<path d="M17 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM16 10h-4v-2h4v2z"></path>
-<path d="M23.909 5.546l-5.358 2.7c-0.491 0.247-0.691 0.852-0.443 1.343l8.999 17.861c0.247 0.491 0.852 0.691 1.343 0.443l5.358-2.7c0.491-0.247 0.691-0.852 0.443-1.343l-8.999-17.861c-0.247-0.491-0.852-0.691-1.343-0.443z"></path>
+<symbol id="icon-stack" viewBox="0 0 32 32">
+<title>stack</title>
+<path d="M32 10l-16-8-16 8 16 8 16-8zM16 4.655l10.689 5.345-10.689 5.345-10.689-5.345 10.689-5.345zM28.795 14.398l3.205 1.602-16 8-16-8 3.205-1.602 12.795 6.398zM28.795 20.398l3.205 1.602-16 8-16-8 3.205-1.602 12.795 6.398z"></path>
 </symbol>
 </defs>
 </svg>
@@ -106,6 +104,25 @@ document.getElementById("1").className += " active";
 <symbol id="icon-stats-bars" viewBox="0 0 32 32">
 <title>Statistics</title>
 <path d="M0 26h32v4h-32zM4 18h4v6h-4zM10 10h4v14h-4zM16 16h4v8h-4zM22 4h4v20h-4z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-cogs" viewBox="0 0 32 32">
+<title>Skills</title>
+<path d="M11.366 22.564l1.291-1.807-1.414-1.414-1.807 1.291c-0.335-0.187-0.694-0.337-1.071-0.444l-0.365-2.19h-2l-0.365 2.19c-0.377 0.107-0.736 0.256-1.071 0.444l-1.807-1.291-1.414 1.414 1.291 1.807c-0.187 0.335-0.337 0.694-0.443 1.071l-2.19 0.365v2l2.19 0.365c0.107 0.377 0.256 0.736 0.444 1.071l-1.291 1.807 1.414 1.414 1.807-1.291c0.335 0.187 0.694 0.337 1.071 0.444l0.365 2.19h2l0.365-2.19c0.377-0.107 0.736-0.256 1.071-0.444l1.807 1.291 1.414-1.414-1.291-1.807c0.187-0.335 0.337-0.694 0.444-1.071l2.19-0.365v-2l-2.19-0.365c-0.107-0.377-0.256-0.736-0.444-1.071zM7 27c-1.105 0-2-0.895-2-2s0.895-2 2-2 2 0.895 2 2-0.895 2-2 2zM32 12v-2l-2.106-0.383c-0.039-0.251-0.088-0.499-0.148-0.743l1.799-1.159-0.765-1.848-2.092 0.452c-0.132-0.216-0.273-0.426-0.422-0.629l1.219-1.761-1.414-1.414-1.761 1.219c-0.203-0.149-0.413-0.29-0.629-0.422l0.452-2.092-1.848-0.765-1.159 1.799c-0.244-0.059-0.492-0.109-0.743-0.148l-0.383-2.106h-2l-0.383 2.106c-0.251 0.039-0.499 0.088-0.743 0.148l-1.159-1.799-1.848 0.765 0.452 2.092c-0.216 0.132-0.426 0.273-0.629 0.422l-1.761-1.219-1.414 1.414 1.219 1.761c-0.149 0.203-0.29 0.413-0.422 0.629l-2.092-0.452-0.765 1.848 1.799 1.159c-0.059 0.244-0.109 0.492-0.148 0.743l-2.106 0.383v2l2.106 0.383c0.039 0.251 0.088 0.499 0.148 0.743l-1.799 1.159 0.765 1.848 2.092-0.452c0.132 0.216 0.273 0.426 0.422 0.629l-1.219 1.761 1.414 1.414 1.761-1.219c0.203 0.149 0.413 0.29 0.629 0.422l-0.452 2.092 1.848 0.765 1.159-1.799c0.244 0.059 0.492 0.109 0.743 0.148l0.383 2.106h2l0.383-2.106c0.251-0.039 0.499-0.088 0.743-0.148l1.159 1.799 1.848-0.765-0.452-2.092c0.216-0.132 0.426-0.273 0.629-0.422l1.761 1.219 1.414-1.414-1.219-1.761c0.149-0.203 0.29-0.413 0.422-0.629l2.092 0.452 0.765-1.848-1.799-1.159c0.059-0.244 0.109-0.492 0.148-0.743l2.106-0.383zM21 15.35c-2.402 0-4.35-1.948-4.35-4.35s1.948-4.35 4.35-4.35 4.35 1.948 4.35 4.35c0 2.402-1.948 4.35-4.35 4.35z"></path>
+</symbol>
+</defs>
+</svg>
+
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-quill" viewBox="0 0 32 32">
+<title>Study</title>
+<path d="M0 32c4-12 14.469-32 32-32-8.219 6.594-12 22-18 22s-6 0-6 0l-6 10h-2z"></path>
 </symbol>
 </defs>
 </svg>
@@ -207,12 +224,12 @@ document.getElementById("1").className += " active";
         <div class="mid-section">
            <h1><div class="title-line1"><?php echo $occname; ?></div></h1>
         </div>
-        <div class="sub-heading"><h4>View the job vacancy trends in your chosen state and the average salary offered within Australia for <?php echo $occname;?></h4></div>
-               
+        <div class="sub-heading"><h4>View details of the recommended occupation below</h4></div>
+               the job vacancy trends in your chosen state and the average salary offered within Australia for
      
 <div class="tab">
   <button class="tablinks" id="1" onclick="openCity(event, 'London')"><svg class="icon icon-stats-bars"><use xlink:href="#icon-stats-bars"></use></svg><h3>&nbsp;Statistics</h3></button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')"><svg class="icon icon-books"><use xlink:href="#icon-books"></use></svg><h3>&nbsp;Upskill</h3></button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')"><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg><h3>&nbsp;Upskill</h3></button>
   <button class="tablinks" onclick="openCity(event, 'Tokyo')"><svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg><h3>&nbsp;Tasks</h3></button>
 </div>
 
@@ -361,21 +378,10 @@ document.getElementById("1").className += " active";
 </div>
 
 <div id="Paris" class="tabcontent">
-    <div class="mid-section">
-         <h1>
-             <div class="title-line1">Enhance Your Skill Set</div>
-         </h1>
-     </div>
-     <div class="sub-heading">
-         <h4>
-             Acquire the skills you will need to become <?php echo $occname; ?> by undertaking the recommended courses
-         </h4>
-     </div>
-
-     <div class=boxes>
+      <div class=boxes>
          <div class="lack-box">
              <div class="box-heading">
-                 <h4>Skills to Acquire</h4>
+                 <h3><svg class="icon icon-cogs"><use xlink:href="#icon-cogs"></use></svg>&nbsp;Skills to Acquire</h3>
              </div>
 
              <div class="lack-box-backgnd" id="lack-select-box">
@@ -424,7 +430,7 @@ document.getElementById("1").className += " active";
 
          <div class="course-box">
              <div class="box-heading">
-                 <h4>Recommended Courses</h4>
+                 <h3><svg class="icon icon-quill"><use xlink:href="#icon-quill"></use></svg>&nbsp;Recommended Courses</h3>
              </div>
 
              <div class="course-box-backgnd" id="course-box">
@@ -504,9 +510,11 @@ document.getElementById("1").className += " active";
                 where occid = '$occID'
                 order by rank desc
                 limit 10";
+                echo $occID;
              $result = pg_query($dbconn4, $sql);
              while ($task = pg_fetch_row($result)) {
                  $resultsk =$task[0];
+                 
                  echo '<div  class="value" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
         }
              ?>
