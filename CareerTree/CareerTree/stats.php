@@ -479,7 +479,7 @@ document.getElementById("1").className += " active";
                      }
 
                  }
-        pg_close($dbconn4);
+        
                  ?>
              </div>
          </div>
@@ -514,9 +514,10 @@ document.getElementById("1").className += " active";
              $result = pg_query($dbconn4, $sql);
              while ($task = pg_fetch_row($result)) {
                  $resultsk =$task[0];
-                 
+
                  echo '<div  class="value" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
         }
+             pg_close($dbconn4);
              ?>
          </div>
      </div>
