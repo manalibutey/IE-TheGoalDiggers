@@ -131,9 +131,12 @@ button.tablinks.active .icon.icon-briefcase {
 }
 
 
+
+
 .tablinks h3 {
     margin-top: 24px;
 }
+
 
 /* Style the tab content */
 .tabcontent {
@@ -363,7 +366,7 @@ color: #111E6C;
     z-index: 1;
     padding-left: 120px;
     padding-right: 120px;
-    padding-top: 40px;
+    padding-top: 0px;
 }
 
 .mid-section h1 {
@@ -486,6 +489,7 @@ width: 90px;
     border-bottom: 1.35px solid darkgrey;
     padding-bottom: 10px;
     padding-left: 15px;
+    padding-right: 10px;
 }
 label{
     display: block;
@@ -505,4 +509,98 @@ label{
     height: 1em;
     stroke-width: 0;
     color: #111e6c;
+}
+
+
+.box {
+    
+    padding-top: 30px;
+}
+
+.task-box {
+    position: relative;
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    /* border: 1.35px solid #A22631; */
+    border-radius: 20px;
+    padding: 5px;
+    background: transparent;
+    outline: #A22631;
+    box-shadow: 4px 4px 7px 4px rgba(0,0,0,0.2);
+}
+
+.task-box-heading h3{
+    
+      border-bottom: 1.35px solid darkgrey;
+    padding-bottom: 10px;
+    padding-left: 15px;
+
+}
+
+.task-box-backgnd {
+    position: relative;
+    padding-top: 10px;
+    border-radius: 20px;
+    padding: 5px;
+    background: transparent;
+    outline: #A22631;
+}
+
+
+
+    .task-box-backgnd .value {
+        position: relative;
+        /*  text-align: center;
+       font-weight: bold; */
+        font-size: 15px;
+    }
+
+
+.icon.icon-paste {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    color: #111e6c;
+}
+
+.icon.icon-diamonds {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    color: #A22631;
+}
+
+.chart1,.chart2 {
+    position: relative;
+    /* text-align: center; */
+    border: 1px solid #111E6C;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #111E6C;
+    font-size: 18px;
+    cursor: pointer;
+    width: fit-content;
+    background-color: transparent;
+    display: inline-block;
+    z-index: 10;
+    visibility: visible;
+    border-radius: 12px;
+    /* transform: translate(-50%, -50%) !important; */
+    /* top: 50%; */
+    /* left: 50%; */
+    margin: 10px 20px 10px 20px;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.chart-buttons{
+  text-align:center;
+}
+.chart1 h4, .chart2 h4 {
+    /* margin: 0px; */
+    padding: 0px 10px;
 }

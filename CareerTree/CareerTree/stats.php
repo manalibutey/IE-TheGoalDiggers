@@ -35,7 +35,30 @@ function openCity(evt, cityName) {
 window.onload =function(){
 document.getElementById('London').style.display = "block";
 document.getElementById("1").className += " active";
+  document.getElementById("show_1").style.display = "block";
+  document.getElementById("show_2").style.display = "none";
+  document.getElementById("chart1").style.backgroundColor = "#111E62";
+  document.getElementById("chart1").style.color = "#fff";
 }
+function switch_div(show) {  
+if(show == 1){
+  document.getElementById("show_"+show).style.display = "block";
+  document.getElementById("show_"+((show==1)?2:1)).style.display = "none";
+   document.getElementById("chart1").style.backgroundColor = "#111E62";
+  document.getElementById("chart1").style.color = "#fff";
+   document.getElementById("chart2").style.backgroundColor = "transparent";
+  document.getElementById("chart2").style.color = "#111E62";
+  }
+  else{
+   document.getElementById("show_"+show).style.display = "flex";
+  document.getElementById("show_"+((show==1)?2:1)).style.display = "none";
+   document.getElementById("chart2").style.backgroundColor = "#111E62";
+  document.getElementById("chart2").style.color = "#fff";
+   document.getElementById("chart1").style.backgroundColor = "transparent";
+  document.getElementById("chart1").style.color = "#111E62";
+}
+} 
+
 </script>
     </head>
     <body>
@@ -127,6 +150,25 @@ document.getElementById("1").className += " active";
 </defs>
 </svg>
 
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-paste" viewBox="0 0 32 32">
+<title>Tasks</title>
+<path d="M22 4h-4v-2c0-1.1-0.9-2-2-2h-4c-1.1 0-2 0.9-2 2v2h-4v4h16v-4zM16 4h-4v-1.996c0.001-0.001 0.002-0.002 0.004-0.004h3.993c0.001 0.001 0.003 0.002 0.004 0.004v1.996zM26 10v-5c0-0.55-0.45-1-1-1h-2v2h1v4h-6l-6 6v8h-8v-18h1v-2h-2c-0.55 0-1 0.45-1 1v20c0 0.55 0.45 1 1 1h9v6h20v-22h-6zM18 12.828v3.172h-3.172l3.172-3.172zM30 30h-16v-12h6v-6h10v18z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-diamonds" viewBox="0 0 32 32">
+<title>diamonds</title>
+<path d="M16 0l-10 16 10 16 10-16z"></path>
+</symbol>
+</defs>
+</svg>
+
         <?php
 
         $occID = $_POST['occid'];
@@ -187,6 +229,7 @@ document.getElementById("1").className += " active";
         $getLackingknowledge = $occDetail[6];
         $previousocc = $occDetail[0];
         $occname = $occDetail[1];
+      
         ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
@@ -225,8 +268,9 @@ document.getElementById("1").className += " active";
            <h1><div class="title-line1"><?php echo $occname; ?></div></h1>
         </div>
         <div class="sub-heading"><h4>View details of the recommended occupation below</h4></div>
-               the job vacancy trends in your chosen state and the average salary offered within Australia for
+           <!--     the job vacancy trends in your chosen state and the average salary offered within Australia for -->
      
+               <section id="tabs">
 <div class="tab">
   <button class="tablinks" id="1" onclick="openCity(event, 'London')"><svg class="icon icon-stats-bars"><use xlink:href="#icon-stats-bars"></use></svg><h3>&nbsp;Statistics</h3></button>
   <button class="tablinks" onclick="openCity(event, 'Paris')"><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg><h3>&nbsp;Upskill</h3></button>
@@ -234,6 +278,12 @@ document.getElementById("1").className += " active";
 </div>
 
 <div id="London" class="tabcontent">
+<div class="chart-buttons">
+<button class="chart1" id="chart1" onclick="switch_div(1);"><h4>  Job Vacancy Trend</h4>
+</button>
+<button class="chart2"  id="chart2" onclick="switch_div(2);"><h4>  Salary Comparision</h4>
+</button>
+</div>
      <?php //---------Assign Data to Google Chart
      //---------Extract Data for Job Vacancy Trend
 
@@ -274,13 +324,14 @@ document.getElementById("1").className += " active";
      //    echo '<div><h3>Future Job Vacancy ('.$futureYear.'): '.$futureVacancy.'</h3></div>';
      //}
        if($entryVacancy1){
-     echo '<div class="vac">';
+     echo '<div class="vac" id="show_1">';
      echo '<div id="colFilter_div"></div>';
      echo '<div id="chart_div" style="width: 900px; height: 300px"></div>';
      
      echo '</div>'; 
      }
      //-----------Extract Data for Average Salary
+     echo '<div class="sal" id="show_2">';
      $sql = "select occname, ceil(cash_earning) as weeklysalary
                 from abs_salary a, occupation_abs b
                 where a.occname = b.abs_original
@@ -308,8 +359,8 @@ document.getElementById("1").className += " active";
      }
      if($entrySalary)
      {
-         echo '<div class="sal">';
-         echo '<div id="column_chart" style="width: 900px;  height: 400px"></div>';
+         
+         echo '<div id="column_chart" style="width:900px;  height: 400px"></div>';
          $profit = $avgSalary - $prvSalary;
          if($avgSalary > $prvSalary){
             echo '<div><h4>Average Weekly Salary Increase for You<br><br><svg class="icon icon-point-up"><use xlink:href="#icon-point-up"></use></svg> AU$'.$profit.'<br></h4></div>';
@@ -486,22 +537,12 @@ document.getElementById("1").className += " active";
      </div>
 </div>
 
-<div id="Tokyo" class="tabcontent">
-   <div class="mid-section">
-         <h1>
-             <div class="title-line1">
-                 <?php echo $occDetail[1]; ?>
-             </div>
-         </h1>
-     </div>
-     <div class="sub-heading">
-         <h4>Learn about the tasks carried out, your lacking skills,</h4>
-         <h4>and online course recommendations to upskill</h4>
-     </div>
 
-     <div class="boxes">
+<div id="Tokyo" class="tabcontent">
+    <div class="box">
+    <div class="task-box">
          <div class="task-box-heading">
-             <h4>Task Statement</h4>
+             <h3><svg class="icon icon-paste"><use xlink:href="#icon-paste"></use></svg>&nbsp;Tasks Performed</h3>
          </div>
 
          <div class="task-box-backgnd" id="task-box">
@@ -510,27 +551,32 @@ document.getElementById("1").className += " active";
                 where occid = '$occID'
                 order by rank desc
                 limit 10";
-                echo $occID;
+               
              $result = pg_query($dbconn4, $sql);
              while ($task = pg_fetch_row($result)) {
                  $resultsk =$task[0];
-
-                 echo '<div  class="value" id="'.$resultsk.'" value="'.$resultsk.'"><p>'.$resultsk.' </p></div>';
+            
+                 echo '<div  class="value" id="'.$resultsk.'" value="'.$resultsk.'"><p><svg class="icon icon-diamonds"><use xlink:href="#icon-diamonds"></use></svg>&nbsp;'.$resultsk.' </p></div>';
+                
+                 
         }
              pg_close($dbconn4);
              ?>
          </div>
      </div>
+     </div>
+</div>
+</section>
 </div>
 
-   </div>  
+
 
 
 <div class="foot">
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
 </footer>
-</div>
+
         <script type="text/javascript">
          google.charts.load('current', { 'packages': ['corechart'] });
          google.charts.load('current', { 'packages': ['geochart'],'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY' });
