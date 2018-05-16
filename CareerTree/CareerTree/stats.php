@@ -612,10 +612,12 @@ if(show == 1){
 
              var options = {
                  title: 'Average Weekly Salary for  <?php echo $para ?> Compared to Your Previous and All Australian Occupations',
-
+                 titleTextStyle: { fontSize: 12, bold: true},
+                 width:900,
+                 height:400,
                  legend: { position: 'none' },
                  vAxis: {title: 'Weekly Salary ($)'},
-                 hAxis: {textStyle: {fontSize: 12}},
+                 hAxis: {textStyle: {fontSize: 11}},
                   bar: {groupWidth: "45%"},
 
              };
