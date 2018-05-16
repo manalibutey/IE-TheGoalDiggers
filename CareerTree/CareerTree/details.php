@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/details.css">
     <script src="./js/jquery.min.js"></script>
+<<<<<<< HEAD
 
     <script>smoothscroll</script>
     <script>
@@ -29,6 +30,27 @@
 </script>
     
     </head>
+=======
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>smoothscroll</script>
+    <script>
+        $(document).ready(function () {
+            var sidebar = $('.sidebar');
+            var top = sidebar.offset().top - parseFloat(sidebar.css('margin-top'));
+
+            $(window).scroll(function (event) {
+                var y = $(this).scrollTop();
+                if (y >= top) {
+                    sidebar.addClass('sidebar-fixed');
+                } else {
+                    sidebar.removeClass('sidebar-fixed');
+                }
+            });
+        });
+    </script>
+
+</head>
+>>>>>>> New_Design
 
 <body>
 
@@ -91,11 +113,16 @@
 
      <div class="full">
 
+<<<<<<< HEAD
       <?php
+=======
+         <?php
+>>>>>>> New_Design
         $queries = array();
         parse_str($_SERVER['QUERY_STRING'], $queries);
         $tranID =  $queries['id'];
         $occID = $queries['occid'];
+<<<<<<< HEAD
 
         include 'db_connection.php';
         $dbconn4 = OpenCon();
@@ -104,13 +131,71 @@
         where relatedoccid = occid
         and id = '$tranID'
         and relatedoccid = '$occID'";
+=======
+        //-------Receive ABS Name from parameter ------------//updated 29/04/2018
+        $para = $queries['para'];
+        if($para){
+        $addParaString = " and trim(OccABS.abs_name) ='".$para."'";
+        }
+        else{
+        $addParaString = "";
+        }
+        //--------Receive parameter from form posting----------------------
+        //$occID = $_POST['occid'];
+        //$tranID = $_POST['id'];
+        //$para = $_POST['para'];
+        //$previousocc = $_POST['previousocc'];
+        //$currentState = $_POST['currentState'];
+        $currentState = 'Victoria';
+        //$futureState = $_POST['futureState'];
+        $futureState = 'Tasmania';
+        //$occname = $_POST['occname'];
+        include 'db_connection.php';
+        $dbconn4 = OpenCon();
+        $sql = "select *
+                From australia_state
+                where statename = '$currentState'";
+        $result = pg_query($dbconn4, $sql);
+        while ($row = pg_fetch_row($result)) {
+            $currentNo = $row[2];
+        }
+        if($futureState){
+            $sql = "select *
+                From australia_state
+                where statename = '$futureState'";
+            $result = pg_query($dbconn4, $sql);
+            while ($row = pg_fetch_row($result)) {
+                $futureNo = $row[2];
+            }
+        }
+        //------------------------------------
+        //updated query 29/04/2018
+        $sql = "select p.title as previousocc, CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE p.relatedtitle END  as relatedocc,
+                CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
+                p.matchingskill,p.matchingknowledge,p.lackingskill,p.lackingknowledge,p.percentage,trim(OccABS.abs_name),trim(OccABS.abs_original)
+                        from percentage as p
+		                inner join occupation as Occ on p.relatedoccid = Occ.occid
+		                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                        where
+                        id = '$tranID'
+                        and relatedoccid = '$occID'".$addParaString;
+>>>>>>> New_Design
         $result = pg_query($dbconn4, $sql);
         $occDetail = pg_fetch_row($result);
         if (!$result) {
             echo "An error occurred.\n";
             exit;
         }
+<<<<<<< HEAD
         ?>
+=======
+        if($occDetail[8] <> $occDetail[9])
+        {
+            //Set ABS Original Name as parameter for query career statistic
+            $para = $occDetail[9];
+        }
+         ?>
+>>>>>>> New_Design
 
         <div class="mid-section">
            <h1><div class="title-line1" ><?php echo $occDetail[1]; ?></div></h1>
@@ -214,7 +299,11 @@
             }
            
         }
+<<<<<<< HEAD
         pg_close($dbconn4);
+=======
+        //pg_close($dbconn4);
+>>>>>>> New_Design
             ?>
             </div>
             </div>
@@ -223,13 +312,332 @@
 
 
     </div>
+<<<<<<< HEAD
 
    <form>
+=======
+         <?php //---------Assign Data to Google Chart
+         //---------Extract Data for Job Vacancy Trend
+
+         $sql = "select year, month, day,act, nsw, nt, qld, sa, tas, vic, wa
+            from abs_job_vacancy_state
+            where occname = '$para'
+            and year > (select distinct year as year
+											            from abs_job_vacancy_state
+											            order by year desc
+											            limit 1) - 5";
+
+         $result = pg_query($dbconn4, $sql);
+         while ($row = pg_fetch_array($result)) {
+             $month = $row{'month'} - 1;
+             //if($row{'current'}){
+             //   $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",'".$row{'current'}."'],";
+             //}
+             //else{
+             //   $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",null],";
+             //}
+
+             $entryVacancy1 .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".$row{'act'}.",".$row{'nsw'}.",".$row{'nt'}.",".$row{'qld'}.",".$row{'sa'}.",".$row{'tas'}.",".$row{'vic'}.",".$row{'wa'}."],";
+
+             //if($row{'current'}){
+             //    $currentYear = $row{'year'};
+             //    $currentVacancy = round($row{'vacancy'},0);
+             //}
+             //if($row{'future'}){
+             //    $futureYear = $row{'year'};
+             //    $futureVacancy = round($row{'vacancy'},0);
+             //}
+         }
+         //if($entryVacancy)
+         //{
+         //    echo '<div id="curve_chart" style="width: 900px; height: 500px"></div>';
+         //    echo '<div><h3>Current Job Vacancy ('.$currentYear.'): '.$currentVacancy.'</h3></div>';
+         //    echo '<div><h3>Future Job Vacancy ('.$futureYear.'): '.$futureVacancy.'</h3></div>';
+         //}
+         if($entryVacancy1){
+             echo '<div class="vac">';
+             echo '<div id="colFilter_div"></div>';
+             echo '<div id="chart_div" style="width: 900px; height: 300px"></div>';
+
+             echo '</div>';
+         }
+         //-----------Extract Data for Average Salary
+         $sql = "select occname, ceil(cash_earning) as weeklysalary
+                from abs_salary a, occupation_abs b
+                where a.occname = b.abs_original
+                and b.abs_name = '$previousocc'";
+         $result = pg_query($dbconn4, $sql);
+         while ($row = pg_fetch_array($result)) {
+             $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #111E6C',".$row{'weeklysalary'}."],";
+             $prvSalary = $row{'weeklysalary'};
+         }
+         $sql = "select occname, ceil(cash_earning) as weeklysalary
+                from abs_salary
+                where occname = '$para'";
+
+         $result = pg_query($dbconn4, $sql);
+         while ($row = pg_fetch_array($result)) {
+             $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #00b300',".$row{'weeklysalary'}."],";
+             $avgSalary = $row{'weeklysalary'};
+         }
+         $sql = "select occname, ceil(cash_earning) as weeklysalary
+                from abs_salary
+                where occname = 'All Occupations'";
+         $result = pg_query($dbconn4, $sql);
+         while ($row = pg_fetch_array($result)) {
+             $entrySalary .= "['".$row{'occname'}."',".$row{'weeklysalary'}.",'color: #A22631',".$row{'weeklysalary'}."],";
+         }
+         if($entrySalary)
+         {
+             echo '<div class="sal">';
+             echo '<div id="column_chart" style="width: 900px;  height: 400px"></div>';
+             $profit = $avgSalary - $prvSalary;
+             if($avgSalary > $prvSalary){
+                 echo '<div><h4>Average Weekly Salary Increase for You<br><br><svg class="icon icon-point-up"><use xlink:href="#icon-point-up"></use></svg> AU$'.$profit.'<br></h4></div>';
+             }
+             else{
+                 $profit = trim($profit, '-');
+                 echo '<div><h4>Average Weekly Salary Decrease for You<br><br><br><svg class="icon icon-point-down"><use xlink:href="#icon-point-down"></use></svg>AU$'.$profit.'</h4></div>';
+             }
+
+             echo '</div>';
+         }
+         //-----------Extract Data for Employment by Gender
+         //$sql = "select sex, employment, CASE WHEN sex = 'Male' THEN 'M' ELSE '' END as gender
+         //           from abs_employment_gender
+         //           where occname = '$para'";
+
+         //$result = pg_query($dbconn4, $sql);
+         //while ($row = pg_fetch_array($result)) {
+         //    $entryEmployedGender .= "['".$row{'sex'}."',".$row{'employment'}."],";
+         //    if($row{'gender'}){
+         //        $maleEmploy = $row{'employment'};
+         //    }
+         //    else{
+         //        $femaleEmploy = $row{'employment'};
+         //    }
+         //}
+         //if($entryEmployedGender)
+         //{
+         //    echo '<div id="donut_chart" style="width: 900px; height: 500px"></div>';
+         //    echo '<div><h3>Male: '.$maleEmploy.'</h3></div>';
+         //    echo '<div><h3>Female: '.$femaleEmploy.'</h3></div>';
+
+         //}
+         //-----------Extract Data for Employment by State
+         //$sql = "select statecode,state, employment,
+         //       CASE WHEN employment = (select max(employment) from abs_employment_state where occname = '$para') THEN 'Max' ELSE '' END as Max,
+         //       CASE WHEN employment = (select min(employment) from abs_employment_state where occname = '$para') THEN 'Min' ELSE '' END as Min
+         //           from abs_employment_state
+         //           where occname = '$para'";
+
+         //$result = pg_query($dbconn4, $sql);
+         //while ($row = pg_fetch_array($result)) {
+         //    $entryEmployedState_Geo .= "['".$row{'statecode'}."','".$row{'state'}."',".$row{'employment'}."],";
+         //    $entryEmployedState_Chart .= "['".$row{'state'}."',".$row{'employment'}.",'color: #111E6C',".$row{'employment'}."],";
+         //    if($row{'max'}){
+         //        $maxStateName = $row{'state'};
+         //        $maxStateEmploy = $row{'employment'};
+         //    }
+         //    if($row{'min'}){
+         //        $minStateName = $row{'state'};
+         //        $minStateEmploy = $row{'employment'};
+         //    }
+         //}
+         //if($entryEmployedState_Geo)
+         //{
+         //    echo '<div id="regions_div" style="width: 900px; height: 500px"></div>';
+
+         //    echo '<div id="column_chart1" style="width: 900px; height: 500px"></div>';
+         //    echo '<div><h3>Highest Employment: '.$maxStateName.'('.$maxStateEmploy.')</h3></div>';
+         //    echo '<div><h3>Lowest Employment: '.$minStateName.'('.$minStateEmploy.')</h3></div>';
+         //}
+         //------------------------------------------------------------------
+
+         pg_close($dbconn4);
+         ?>
+   </form>
+>>>>>>> New_Design
       
     <div class="foot">
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
 </footer>
 </div>
+<<<<<<< HEAD
+=======
+       <script type="text/javascript">
+         google.charts.load('current', { 'packages': ['corechart'] });
+         google.charts.load('current', { 'packages': ['geochart'],'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY' });
+
+         //google.charts.setOnLoadCallback(drawLineChart);
+         google.charts.setOnLoadCallback(drawColumnChart);
+         //google.charts.setOnLoadCallback(drawDonutChart);
+         //google.charts.setOnLoadCallback(drawRegionsMap);
+         //google.charts.setOnLoadCallback(drawColumnChart1);
+         google.charts.setOnLoadCallback(drawChart);
+         function drawLineChart() {
+             var data = google.visualization.arrayToDataTable([
+                 ['Time', 'Vacancy', { role: 'annotation' }],
+                 <?php echo $entryVacancy ?>
+             ]);
+
+             var options = {
+                 title: 'Job Vacancy Trend for  <?php echo $para ?>',
+                 curveType: 'function',
+                 legend: { position: 'none' },
+                 hAxis: {title: 'Time'},
+                 vAxis: {title: 'Job Vacancy'},
+             };
+             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+             chart.draw(data, options);
+         }
+
+          function drawColumnChart() {
+             var data = google.visualization.arrayToDataTable([
+                 ['Occupation', 'Average Weekly Salary', { role: 'style' },{ role: 'annotation' }],
+                <?php echo $entrySalary ?>
+             ]);
+
+             var options = {
+                 title: 'Average Weekly Salary for  <?php echo $para ?> Compared to Your Previous and All Australian Occupations',
+
+                 legend: { position: 'none' },
+                 vAxis: {title: 'Weekly Salary ($)'},
+                 hAxis: {textStyle: {fontSize: 12}},
+                  bar: {groupWidth: "45%"},
+
+             };
+             var chart = new google.visualization.ColumnChart(document.getElementById('column_chart'));
+             chart.draw(data, options);
+         }
+
+         function drawDonutChart() {
+             var data = google.visualization.arrayToDataTable([
+                 ['Sex', 'Employment'],
+             <?php echo $entryEmployedGender ?>
+             ]);
+
+             var options = {
+                 title: 'Employment of <?php echo $para ?> by Gender',
+                 pieHole: 0.6,
+                 legend: { position: 'right' },
+
+             };
+             var chart = new google.visualization.PieChart(document.getElementById('donut_chart'));
+             chart.draw(data, options);
+         }
+
+        function drawRegionsMap() {
+             var data = google.visualization.arrayToDataTable([
+                 ['StateCode','State Name', 'Employment'],
+             <?php echo $entryEmployedState_Geo ?>
+             ]);
+
+             var options = {
+                 title: 'Employment of <?php echo $para ?> by State',
+                 region: 'AU',
+                 displayMode: 'regions',
+                 resolution: 'provinces',
+
+             };
+             var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+             chart.draw(data, options);
+         }
+
+         function drawColumnChart1() {
+             var data = google.visualization.arrayToDataTable([
+                 ['State', 'Employment', { role: 'style' },{ role: 'annotation' }],
+                 <?php echo $entryEmployedState_Chart ?>
+             ]);
+
+             var options = {
+                 title: 'Employment of <?php echo $para ?> by State',
+                 legend: { position: 'none' },
+                 vAxis: {title: 'Employment'},
+                 hAxis: {textStyle: {fontSize: 12}},
+                  bar: {groupWidth: "45%"},
+
+             };
+             var chart = new google.visualization.ColumnChart(document.getElementById('column_chart1'));
+             chart.draw(data, options);
+         }
+  function drawChart () {
+   var data = google.visualization.arrayToDataTable([
+                 ['Time', 'Australian Capital Territory', 'New South Wales','Northern Territory','Queensland','South Australia','Tasmania','Victoria','Western Australia'],
+                 <?php echo $entryVacancy1 ?>
+             ]);
+
+    var columnsTable = new google.visualization.DataTable();
+    columnsTable.addColumn('number', 'colIndex');
+    columnsTable.addColumn('string', 'colLabel');
+    var initState= {selectedValues: []};
+    // put the columns into this data table (skip column 0)
+    for (var i = 1; i < data.getNumberOfColumns(); i++) {
+        columnsTable.addRow([i, data.getColumnLabel(i)]);
+        // you can comment out this next line if you want to have a default selection other than the whole list
+        //initState.selectedValues.push(data.getColumnLabel(i));
+    }
+    // you can set individual columns to be the default columns (instead of populating via the loop above) like this:
+     initState.selectedValues.push(data.getColumnLabel(<?php echo $currentNo ?>));
+     var future = '';
+     future = '<?php echo $futureNo ?>';
+     if(future != ''){
+     initState.selectedValues.push(data.getColumnLabel(Number(future)));
+     }
+
+    var chart = new google.visualization.ChartWrapper({
+        chartType: 'LineChart',
+        containerId: 'chart_div',
+        dataTable: data,
+        options: {
+            title: 'Job Vacancy Trend for  <?php echo $para ?>',
+            curveType: 'function',
+            hAxis: {title: 'Time'},
+            vAxis: {title: 'Job Vacancy'},
+        }
+    });
+
+    var columnFilter = new google.visualization.ControlWrapper({
+        controlType: 'CategoryFilter',
+        containerId: 'colFilter_div',
+        dataTable: columnsTable,
+        options: {
+            filterColumnLabel: 'colLabel',
+            ui: {
+                label: '',
+                allowTyping: false,
+                allowMultiple: true,
+                allowNone: false,
+                selectedValuesLayout: 'aside'
+            }
+        },
+        state: initState
+    });
+
+    function setChartView () {
+        var state = columnFilter.getState();
+        var row;
+        var view = {
+            columns: [0]
+        };
+        for (var i = 0; i < state.selectedValues.length; i++) {
+            row = columnsTable.getFilteredRows([{column: 1, value: state.selectedValues[i]}])[0];
+            view.columns.push(columnsTable.getValue(row, 0));
+        }
+        // sort the indices into their original order
+        view.columns.sort(function (a, b) {
+            return (a - b);
+        });
+        chart.setView(view);
+        chart.draw();
+    }
+    google.visualization.events.addListener(columnFilter, 'statechange', setChartView);
+
+    setChartView();
+    columnFilter.draw();
+    }
+       </script>
+>>>>>>> New_Design
 </body>
 </html>

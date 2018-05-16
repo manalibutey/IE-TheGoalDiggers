@@ -60,6 +60,8 @@
 //element.appendTo($('#skill-box'));
 element.remove();
 }
+
+
  function cancel(element) {
      
      $(element).attr("onclick","replicate(this)");
@@ -113,10 +115,6 @@ element.remove();
 <title>close</title>
 <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
 </symbol>
-<symbol id="icon-cross" viewBox="0 0 16 16">
-<title>cross</title>
-<path d="M15.854 12.854c-0-0-0-0-0-0l-4.854-4.854 4.854-4.854c0-0 0-0 0-0 0.052-0.052 0.090-0.113 0.114-0.178 0.066-0.178 0.028-0.386-0.114-0.529l-2.293-2.293c-0.143-0.143-0.351-0.181-0.529-0.114-0.065 0.024-0.126 0.062-0.178 0.114 0 0-0 0-0 0l-4.854 4.854-4.854-4.854c-0-0-0-0-0-0-0.052-0.052-0.113-0.090-0.178-0.114-0.178-0.066-0.386-0.029-0.529 0.114l-2.293 2.293c-0.143 0.143-0.181 0.351-0.114 0.529 0.024 0.065 0.062 0.126 0.114 0.178 0 0 0 0 0 0l4.854 4.854-4.854 4.854c-0 0-0 0-0 0-0.052 0.052-0.090 0.113-0.114 0.178-0.066 0.178-0.029 0.386 0.114 0.529l2.293 2.293c0.143 0.143 0.351 0.181 0.529 0.114 0.065-0.024 0.126-0.062 0.178-0.114 0-0 0-0 0-0l4.854-4.854 4.854 4.854c0 0 0 0 0 0 0.052 0.052 0.113 0.090 0.178 0.114 0.178 0.066 0.386 0.029 0.529-0.114l2.293-2.293c0.143-0.143 0.181-0.351 0.114-0.529-0.024-0.065-0.062-0.126-0.114-0.178z"></path>
-</symbol>
 </defs>
 </svg>
 
@@ -167,15 +165,26 @@ element.remove();
     $occp = $_POST['occ'];
     echo '<input type="hidden" name="occ" value="'.$occp.'">';
         }
-         include 'db_connection.php';
-    $dbconn4 = OpenCon();
+        include 'db_connection.php';
+        $dbconn4 = OpenCon();
+        //----------Select Onet Occupation Name -------------////updated query 29/04/2018
+        $sql = "Select Occ.occname
+                From occupation as Occ
+                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                Where OccABS.abs_name = '$occp'
+                or Occ.occname = '$occp'";
+                $resultOccp = pg_query($dbconn4, $sql);
+                $fetchOccp = pg_fetch_row($resultOccp);
+                $Onetoccp = $fetchOccp[0];
+        echo '<input type="hidden" name="Onetocc" value="'.$Onetoccp.'">';
+        //--------------------------------------------------// 
         $sql = "select * from (
                 select allskill.skid as ID,allskill.skname as name, allskill.description as description, 0 as checked
                 from skill as allskill
                 where allskill.skid not in (Select b.skid
 	                From skill_Occupation as a, skill as b, Occupation as c
 	                Where a.skID = b.skID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10)
                 order by allskill.skid
@@ -211,7 +220,7 @@ element.remove();
                 $sql = "Select b.skid as ID,b.skName as name, b.description as description, 1 as checked
 	                From skill_Occupation as a, skill as b, Occupation as c
 	                Where a.skID = b.skID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10";
                 $resultSkill = pg_query($dbconn4, $sql);
@@ -248,7 +257,7 @@ element.remove();
                 where allknowledge.knwid not in (Select b.knwid
 	                From knowledge_Occupation as a, knowledge as b, Occupation as c
 	                Where a.knwID = b.knwID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10)
                 order by allknowledge.knwid
@@ -277,7 +286,7 @@ element.remove();
                 $sql = "Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked
 	                From knowledge_Occupation as a, knowledge as b, Occupation as c
 	                Where a.knwID = b.knwID and c.OccID = a.OccID
-	                And c.OccName = '$occp'
+	                And c.OccName = '$Onetoccp'
 	                Order by c.OccName, a.Rank desc
 	                Limit 10";
                 $resultKnowledge = pg_query($dbconn4, $sql);
@@ -294,6 +303,8 @@ element.remove();
                 ?>
             </div>
 </div>
+   
+
 
 </div>
     <div class="btn">

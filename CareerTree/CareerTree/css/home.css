@@ -1,5 +1,159 @@
+<<<<<<< HEAD
 .chosen-container .chosen-container-single .chosen-container-active .chosen-with-drop {
     height: auto !important;
+=======
+.sidebar {
+    width: 300px;
+    float: left;
+    position: fixed;
+    width: 35px;
+    float: left;
+    border: 2px solid transparent;
+    height: 90px;
+    z-index: 1030;
+    background-color: transparent;
+    margin-left: 2.5%;
+    border-radius: 20px;
+    top: 45%;
+    outline: none;
+}
+
+
+.icon-space {
+    padding-top: 7px;
+}
+
+.icon-mail:hover, .icon-linkedin:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+padding-top: 150px; /* Location of the box */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+position: relative;
+background-color: #fefefe;
+margin: auto;
+padding: 0;
+border: 1px solid #888;
+width: 30%;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+-webkit-animation-name: animatetop;
+-webkit-animation-duration: 0.4s;
+animation-name: animatetop;
+animation-duration: 0.4s;
+    
+}
+
+.modal-body h3, p{
+text-align: center;
+}
+
+.modal-body h3 {
+margin-top: 10px;
+}
+
+.modal-body p {
+color: #A22631;
+font-size: 16px;
+}
+
+.btn-align {
+text-align: center;
+padding: 10px 40px;
+}
+
+.step-img{
+position: relative;
+text-align: center;
+}
+
+.step-img img.step1 {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+img.step1 {
+/* width: 300px;
+text-align: center; */
+/* margin: 0 auto; */
+padding: 20px 10px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+from {
+    top: -300px;
+    opacity: 0
+}
+
+to {
+    top: 0;
+    opacity: 1
+}
+}
+
+@keyframes animatetop {
+from {
+    top: -300px;
+    opacity: 0
+}
+
+to {
+    top: 0;
+    opacity: 1
+}
+}
+
+/* The Close Button */
+.close1, .close2,.close3 {
+color: white;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close1:hover, .close1:focus, .close2:hover,
+.close2:focus, .close3:hover,    .close3:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+padding: 1px 16px;
+background-color: #A22631;
+color: white;
+height: 45px;
+}
+
+.modal-header h2{
+margin-top: 5px;
+}
+
+.modal-body {
+padding: 1px 16px;
+}
+
+
+.chosen-container .chosen-container-single .chosen-container-active .chosen-with-drop {
+height: auto !important;
+>>>>>>> New_Design
 }
 .fixed-top {
 position: fixed;
@@ -18,14 +172,11 @@ border-color: rgba(255,255,255,.1);
 
 body {
 color: #5a5a5a;
-font-family: 'PT Sans', sans-serif !important;
+font-family: "Helvetica Neue";
 height: 100%;
-}
 
-body {
 margin: 0px;
     
-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 font-size: 1rem;
 font-weight: 400;
 line-height: 1.5;
@@ -40,14 +191,19 @@ color: #fff;
 }
 .navbar-brand {
 display: inline-block;
-padding-top: .3125rem;
+padding-top: 0rem;
 padding-bottom: .3125rem;
 margin-right: 1rem;
 font-size: 1.25rem;
 line-height: inherit;
 white-space: nowrap;
 }
-
+.container {
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+}
 .container p{
 color: #020529;
 padding-top: 5px;
@@ -71,8 +227,8 @@ letter-spacing: .1em;
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
-    color: #111E6C;
-    background-color: transparent !important;
+color: #111E6C;
+background-color: transparent !important;
 }
 
 .nav > li > a:active {
@@ -125,7 +281,7 @@ height:100%;
 
 .head {
 position: absolute !important;
-top: 22% !important;
+top: 20% !important;
 left: 50% !important;
 transform: translate(-50%, -50%) !important;
 font-weight: 200 !important;
@@ -142,7 +298,7 @@ padding-top: 10px;
 
 .subhead1 {
 position: absolute !important;
-top: 55% !important;
+top: 53% !important;
 left: 50% !important;
 transform: translate(-50%, -50%) !important;
    
@@ -150,26 +306,43 @@ width: 100%;
 padding-bottom: 40px;
 }
 
+.subhead1 h4 {
+    font-size: 20px;
+}
+
+.head h5 {
+    font-size: 18px;
+}
 
 .title-line::after {
-background: #A22631;
-content: "";
-left: 50%;
-margin-left: -25px;
-height: 1px;
-position: absolute;
-width: 50px;
+    background: #A22631;
+    content: "";
+    left: 48%;
+    margin-left: -25px;
+    height: 1px;
+    position: absolute;
+    width: 90px;
+}
+.layer h5 {
+    position: absolute !important;
+    top: 26% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-weight: 200 !important;
+    line-height: 1.35em !important;
+    width: 100%;
 }
 
 .title-line1::after {
-background: #A22631;
-content: "";
-left: 50%;
-margin-left: -25px;
-height: 1px;
-position: absolute;
-width: 90px;
-top: 55px;
+    background: #A22631;
+    content: "";
+    left: 45%;
+    /* margin-left: -25px; */
+    height: 1px;
+    position: absolute;
+    width: 90px;
+    /* top: 55px; */
+    bottom: 0;
 }
 
 .subhead2 {
@@ -185,7 +358,7 @@ padding-bottom: 40px;
 
 .search {
 position: absolute !important;
-top: 60% !important;
+top: 58% !important;
 left: 50% !important;
 transform: translate(-50%, -50%) !important;
 font-weight: 400 !important;
@@ -217,7 +390,7 @@ top: 27.5px;
 }
 
 
-.icon {
+.icon-search {
 display: inline-block;
 width: 1em;
 height: 1em;
@@ -227,11 +400,29 @@ fill: currentColor;
 color: #111E6C;
 }
 
-.icon:hover {
-    color: #A22631;
+.icon-search:hover {
+color: #A22631;
 }
 
+.icon-mail {
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    stroke-width: 0;
+    stroke: #CE3E2D;
+    fill: #CE3E2D;
+    transition: all .3s ease-in-out;
+}
 
+.icon-linkedin {
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    stroke-width: 0;
+    stroke: #0077B5;
+    fill: #0077B5;
+    transition: all .3s ease-in-out;
+}
 
 input[name="occ"] {
 border: 1.35px solid #A22631;
@@ -258,10 +449,10 @@ margin: 5px 1px 3px 0px;
 }
 
 input[type=text]:focus, textarea:focus {
-    box-shadow: 0 0 10px #A22631;
-    padding: 3px 0px 3px 3px;
-    margin: 5px 1px 3px 0px;
-    border: 1px solid #A22631;
+box-shadow: 0 0 10px #A22631;
+padding: 3px 0px 3px 3px;
+margin: 5px 1px 3px 0px;
+border: 1px solid #A22631;
 }
 
 #hover-content {
@@ -347,13 +538,13 @@ height: 160px;
 
 .col-sm-2.i1 {
 /*margin-left: 70px;*/
-/*margin-right: 70px;*/
+/*margin-right: 70px;
+font-weight: bold;*/
 display: table-cell;
 width: 100%;
 height: auto;
 color: #A22631;
-font-weight: bold;
-font-size: 15px;
+font-size: 18px;
 grid-column: 1;
 grid-row: 1;
 padding-right: 0px !important;
@@ -361,13 +552,14 @@ padding-right: 0px !important;
 
 .col-sm-2.i2 {
 /*margin-left: 150px;*/
-/*margin-right: 70px;*/
+/*margin-right: 70px;
+    font-weight: bold;*/
 display: table-cell;
 width: 100%;
 height: auto;
 color: #A22631;
-font-size: 15px;
-font-weight: bold;
+font-size: 18px;
+    
 grid-column: 2;
 grid-row: 1;
 padding-right: 0px !important;
@@ -376,19 +568,20 @@ padding-left: 0px !important;
 
 .col-sm-2.i3 {
 /*margin-left: 70px;*/
-/*margin-right: 70px;*/
+/*margin-right: 70px;
+font-weight: bold;*/
 display: table-cell;
 width: 100%;
 height: auto;
 color: #A22631;
-font-size: 15px;
-font-weight: bold;
+font-size: 18px;
 grid-column: 3;
 grid-row: 1;
 padding-left: 0px !important;
 }
 
 .btn {
+<<<<<<< HEAD
     position: relative;
     /*padding-left: 70px;
 padding-right: 70px;*/
@@ -396,39 +589,32 @@ padding-right: 70px;*/
     visibility: hidden;
     transform: translate(-50%, 65%) !important;
     left: 6%;
+=======
+position: relative;
+/*padding-left: 70px;
+padding-right: 70px;*/
+z-index: 2;
+visibility: hidden;
+transform: translate(-50%, 50%) !important;
+left: 50%;
+>>>>>>> New_Design
 }
 
    
 
 .caption {
-    padding-top: 15px;
-    width: 100%;
+padding-top: 15px;
+width: 100%;
 }
 
 .col-sm-2{
 padding-top:40px;
 }
 
-.arrow.i4 {
-display: table-cell;
-width: 100%;
-height: auto;
-grid-column: 2;
-grid-row: 1;
-}
-.material-icons {
-color: #2786f3;
-width: 100%;
-}
-.arrow.i5 {
-display: table-cell;
-width: 100%;
-height: auto;
-grid-column: 4;
-grid-row: 1;
-}
+
 
 input[type="button"] {
+<<<<<<< HEAD
     border: none;
     background: transparent;
     outline: none;
@@ -453,18 +639,50 @@ input[type="button"] {
     
     margin: 5px 1px 3px 0px;
    
+=======
+border: 1px solid #111E6C;
+background: transparent;
+outline: none;
+height: 40px;
+color: #111E6C;
+font-size: 20px;
+cursor: pointer;
+border-radius: 0px;
+width: 100%;
+background-color: transparent;
+display: block;
+    z-index: 10;
+visibility: visible;
+border-radius: 20px;
+-webkit-transition: all 0.30s ease-in-out;
+-moz-transition: all 0.30s ease-in-out;
+-ms-transition: all 0.30s ease-in-out;
+-o-transition: all 0.30s ease-in-out;
+outline: none;
+margin: 5px 0px 20px 0px;
+box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+padding: 6px 12px;
+>>>>>>> New_Design
 }
 
+
 input[type="button"]:hover {
+<<<<<<< HEAD
         
     box-shadow: 0 0 10px #111E6C;
    
     margin: 5px 1px 3px 0px;
+=======
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+    /* margin: 5px 0px 5px 0px; */
+>>>>>>> New_Design
     border: 1px solid #111E6C;
 }
 
 
 footer {
+<<<<<<< HEAD
    
     background: #A22631;
     color: white;
@@ -476,6 +694,24 @@ footer {
 
 .footer{
     margin-top: -30px;
+=======
+background: #111E6C;
+color: white;
+line-height: 30px;
+padding: 0 70px;
+width: 100%;
+text-align: center;
+}
+
+.footer {
+margin-top: -30px;
+}
+
+
+
+.footer p {
+margin-bottom: 0px;
+>>>>>>> New_Design
 }
 
 .pull-right{
@@ -502,105 +738,7 @@ display: table;
 clear: both;
 }
 
-/* Create four equal columns that floats next to eachother */
-.column {
-float: left;
-width: 25%;
-overflow:hidden;
-}
 
-/* The Modal (background) */
-.modal {
-display: none;
-position: fixed;
-z-index: 1;
-padding-top: 100px;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-background-color: black;
-}
-
-/* Modal Content */
-.modal-content {
-position: relative;
-background-color: #fefefe;
-margin: auto;
-padding: 0;
-width: 90%;
-max-width: 1200px;
-}
-
-/* The Close Button */
-.close {
-color: white;
-position: absolute;
-top: 10px;
-right: 25px;
-font-size: 35px;
-font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-color: #999;
-text-decoration: none;
-cursor: pointer;
-}
-
-/* Hide the slides by default */
-.mySlides {
-display: none;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-cursor: pointer;
-position: absolute;
-top: 50%;
-width: auto;
-padding: 16px;
-margin-top: -50px;
-color: white;
-font-weight: bold;
-font-size: 20px;
-transition: 0.6s ease;
-border-radius: 0 3px 3px 0;
-user-select: none;
--webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-right: 0;
-border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-color: #f2f2f2;
-font-size: 12px;
-padding: 8px 12px;
-position: absolute;
-top: 0;
-}
-
-/* Caption text */
-.caption-container {
-text-align: center;
-background-color: black;
-padding: 2px 16px;
-color: white;
-}
 
 img.demo {
 opacity: 0.6;
@@ -620,7 +758,11 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.69);
 border-radius: 80px;
 cursor: pointer;
 }
+<<<<<<< HEAD
     */
+=======
+    
+>>>>>>> New_Design
 
 #section01 {
 position: absolute;
@@ -658,21 +800,20 @@ opacity: .5;
 }
 
 #section01 a {
-padding-top: 60px;
+padding-top: 40px;
 }
 
 #section01 a span {
     position: absolute;
     top: 0;
+    left: 50%;
     width: 24px;
     height: 24px;
-    margin-left: 5px;
+    margin-left: -12px;
     border-left: 1px solid #A22631;
     border-bottom: 1px solid #A22631;
-    -webkit-transform: rotateZ(-45deg);
-    transform: rotateZ(-45deg);
-    -webkit-animation: sdb06 1.5s infinite;
-    animation: sdb06 1.5s infinite;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
     box-sizing: border-box;
 }
 

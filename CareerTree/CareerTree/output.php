@@ -9,10 +9,24 @@
     <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/output.css">
+<<<<<<< HEAD
         <script src="./js/jquery.min.js"></script>
         <script>smoothscroll</script>
     <script>
     $(document).ready(function () {
+=======
+   <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script src="./js/jquery.min.js"></script>
+     <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
+    <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
+     <script src="./js/modal.js"></script>
+    <script>
+    $(document).ready(function () {
+    $('.chosen-select').chosen();
+
+>>>>>>> New_Design
     var sidebar = $('.sidebar');
     var top = sidebar.offset().top - parseFloat(sidebar.css('margin-top'));
   
@@ -26,6 +40,47 @@
     });
 });
 </script>
+<<<<<<< HEAD
+=======
+<script>
+window.onload = function(){ 
+    // your code 
+
+// Get the modal
+var modal = document.getElementsByClassName('modal');
+
+// Get the button that opens the modal
+var btn = document.getElementsByClassName('img__description');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName('close');
+
+// When the user clicks the button, open the modal 
+for(let i=0;i<btn.length;i++){
+   btn[i].onclick = function() {
+        modal[i].style.display = "block";
+    }
+}
+
+
+
+// When the user clicks on <span> (x), close the modal
+for(let i=0;i<span.length;i++){
+    span[i].onclick = function() {
+        modal[i].style.display = "none";
+    }
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+for(let i=0;i<modal.length;i++){
+    if (event.target == modal[i]) {
+        modal[i].style.display = "none";
+    }
+    }
+}
+};
+</script>
+>>>>>>> New_Design
 
     </head>
 
@@ -52,6 +107,7 @@
 </symbol>
 </defs>
 </svg>
+<<<<<<< HEAD
 
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -67,6 +123,35 @@
 
     //echo "You have selected :" .$occp;
 
+=======
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-checkbox-checked" viewBox="0 0 32 32">
+<title>YES</title>
+<path d="M28 0h-24c-2.2 0-4 1.8-4 4v24c0 2.2 1.8 4 4 4h24c2.2 0 4-1.8 4-4v-24c0-2.2-1.8-4-4-4zM14 24.828l-7.414-7.414 2.828-2.828 4.586 4.586 9.586-9.586 2.828 2.828-12.414 12.414z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-cancel-circle" viewBox="0 0 32 32">
+<title>NO</title>
+<path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z"></path>
+<path d="M21 8l-5 5-5-5-3 3 5 5-5 5 3 3 5-5 5 5 3-3-5-5 5-5z"></path>
+</symbol>
+</defs>
+</svg>
+
+<?php
+    if ( isset($_POST['submit'] ) ) {
+        $occp = $_POST['occ'];
+        $Onetoccp = $_POST['Onetocc'];//updated 29/04/2018
+
+    //echo "You have selected :" .$occp;
+
+>>>>>>> New_Design
     //echo '<br>';
     $skills = "";
     $knw = "";
@@ -78,6 +163,7 @@
     //    $skills = rtrim($skills,",");
     //    //echo $skills."</br>";
         $skills = $_POST['skill'];
+<<<<<<< HEAD
     }
     if(!empty($_POST['knw'])){
     //// Loop to store and display values of individual checked checkbox.
@@ -87,7 +173,18 @@
     //    $knw = rtrim($knw,",");
     //    //echo $knw."</br>";
         $knw = $_POST['knw'];
+=======
+>>>>>>> New_Design
     }
+    //if(!empty($_POST['knw'])){
+    //// Loop to store and display values of individual checked checkbox.
+    //foreach($_POST['knw'] as $select){
+    //$knw .=  '\''.$select.'\''.',';
+    //    }
+    //    $knw = rtrim($knw,",");
+    //    //echo $knw."</br>";
+    //    $knw = $_POST['knw'];
+    //}
     }
  $randID = rand(1,10000);
 ?>
@@ -116,6 +213,7 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
     <form>
     <div class="sidebar">
 <!-- <div class="icon-space"><a href="/shiny?id= --> <?php //echo $randID; ?> <!-- "><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg></a></div>-->
@@ -132,6 +230,42 @@
 
         <div class = box-cover>
             <?php
+=======
+  
+    <div class="sidebar">
+        <div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
+        <div class="icon-space"><a href="javascript:window.history.back()"><svg class="icon icon-circle-left"><use xlink:href="#icon-circle-left"></use></svg></a></div>
+
+    </div>
+    <div class="full">
+
+      <div class="mid-section">
+           <h1><div class="title-line1" >Recommended Occupations</div></h1>
+        </div>
+        <div class="sub-heading"><h4>According to your previous occupation and skill set, you can switch to the following occupations</h4></div>
+
+      </div>
+
+
+
+  <div class="carousel-sec">
+    <section class="skills section-padding">
+<div class="container">
+<div class="row">
+
+<div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
+<div class="section-heading section-heading--left m-b-sm-60 m-b-xxs-30 m-b-md-0" id="section01">
+<h2 class="carousel-head">Your Skill Meter</h2>
+<p class="carousel-text" >Provides you a percentage, specifying your skill set match for each recommended occupation, that are the closest match to your skill set. <br>Get the job opening trends in each state, salary statistics, recommended courses to cover the skill gap and tasks carried out for each occupation.<br> Choose an occupation and click Know More</p>
+</div>
+</div>
+
+
+<div class="col-sm-12 col-md-8">
+<div class="skill-slider owl-carousel" >
+
+  <?php
+>>>>>>> New_Design
 
         include 'db_connection.php';
         $dbconn4 = OpenCon();
@@ -146,8 +280,14 @@
             pg_query($dbconn4, $sql);
         }
         //---------------------------------------------------------
+<<<<<<< HEAD
         $sql = "Select RelatedOccName, relatedoccid from Career_Changer_Matrix
             Where  OccName = '$occp'
+=======
+        //updated query 29/04/2018
+        $sql = "Select RelatedOccName, relatedoccid from Career_Changer_Matrix
+            Where  OccName = '$Onetoccp'
+>>>>>>> New_Design
             Order by Rank";
      $relatedOccupation = pg_query($dbconn4, $sql);
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
@@ -186,7 +326,7 @@
 
 		                            Select bb.KnwID
 	                                From Knowledge as bb
-	                                Where bb.Knwname in ($knw)
+	                                Where bb.Knwname in ($skills)
                                     ) as occ1
                                     Intersect
                                     Select * from (
@@ -235,7 +375,7 @@
 	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
 	                Order by aa.Rank desc
 	                Limit 10) as requiredKnowledge
-                where requiredKnowledge.knwname in ($knw)), ', ') as MatchingKnowledge) as col7,
+                where requiredKnowledge.knwname in ($skills)), ', ') as MatchingKnowledge) as col7,
 
                 -------------------------Lacking Knowledge-------------------------------------
                 (select array_to_string(array(
@@ -246,7 +386,7 @@
 	                And cc.OccName = '$relatedOccParameter' --Replace with RelatedOccID from list
 	                Order by aa.Rank desc
 	                Limit 10) as requiredKnowledge
-                where requiredKnowledge.knwname not in ($knw)), ', ') as LackingKnowledge) as col8";
+                where requiredKnowledge.knwname not in ($skills)), ', ') as LackingKnowledge) as col8";
          $eachRelatedOccupation = pg_query($dbconn4, $sql);
 
          while ($numOfMatch = pg_fetch_row($eachRelatedOccupation)) {
@@ -262,6 +402,7 @@
                                         title, relatedtitle, percentage, id, matchingskill, lackingskill, matchingknowledge, lackingknowledge, relatedoccid)
                                          VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID,'$matchingSkill','$lackingSkill','$matchingKnowledge','$lackingKnowledge','$relatedOccID');");
              if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
+<<<<<<< HEAD
          }
      }
          $sql ="select *
@@ -285,8 +426,27 @@
              echo '</div>';
              echo '</a>';
              // echo "</tr>";
+=======
+>>>>>>> New_Design
          }
+     }
+        //updated query 29/04/2018
+     $sql ="select p.title,CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE p.relatedtitle END as relatedtitle,
+                p.percentage,p.id,p.matchingskill,p.lackingskill,p.matchingknowledge,p.lackingknowledge,p.relatedoccid,Occ.occid,Occ.occname,
+                CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
+                CASE WHEN OccABS.abs_name is not null THEN trim(OccABS.abs_name) ELSE '' END as ABS_parameter
+                from percentage as p
+                inner join occupation as Occ on p.relatedoccid = Occ.occid
+                inner join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                where
+                id = '$randID'
+                order by percentage desc
+                limit 3";
+            $relatedOccupation = pg_query($dbconn4, $sql);
+            $occCount = 1;
+     while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
 
+<<<<<<< HEAD
          $occCount++;
      }
 
@@ -311,6 +471,306 @@
   <div class="foot">
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
+=======
+         if($relatedOcc[2] <> 0){
+            if($relatedOcc[12] <> ''){
+            //-----Include ABS Name as parameter if it is occupation from ABS updated 29/04/2018--------------
+           // echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'&para='.$relatedOcc[12].'">';
+            }
+            else{
+           // echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
+            }
+            echo    '<div class="card" id="card">
+                    <div class="title"><h3>'.$relatedOcc[1].'</h3></div>
+                    <div class="percentage"><h4>Skill Meter - '.$relatedOcc[2].'%</h4></div>
+                    <div class="progress-bar__bar">
+                    <div class="progress-bar__bar__active" style="width: '.$relatedOcc[2].'%">
+                    </div></div>
+                    <div class="img__description_layer">
+                    <h3 class="img__description">    <img class="img__img" src="./images/logomin.png" />
+                    <div class="more">Know More</div>
+                    </h3>
+                    </div>
+                    </div>';
+            $occid[$occCount] = $relatedOcc[8];
+            $tranID = $relatedOcc[3];
+            $para[$occCount] = $relatedOcc[12];
+         }
+
+         $occCount++;
+     }
+
+
+     pg_close($dbconn4);
+
+            ?>
+
+
+  
+
+</div>
+</div>
+
+
+      
+</div>
+</div>
+ 
+</section>
+
+
+</div>
+
+<div id="section01" class="demo">
+ 
+  <a href="#section02"><span></span><span></span><span></span>See Your Career Tree</a>
+</div>
+    
+   <section class="section2" id="section02"> 
+<div class="viz">
+  <iframe src="/shiny?id=<?php echo $randID; ?> " ></iframe>
+  </div>
+  </section>
+
+<!-- Trigger/Open The Modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h3><img class="img__img1" src="./images/logomin.png" />   Know More</h3>
+    </div>
+    <div class="modal-body">
+        <form   name="statistics1" method="post" action="/stats.php">
+            <div class=state> 
+                 <h3>Let us know you better</h3>
+                        <div class="statecurrent">
+       <!-- <h4>State you currently reside in</h4> -->
+                             <select class="chosen-select" id="statecurrent1" name="statelist">
+                                  <option disabled selected value>Please enter your current residential state</option>
+                                    <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                    <option value="New South Wales">New South Wales</option>
+                                    <option value="Northern Territory">Northern Territory</option>
+                                    <option value="Queensland">Queensland</option>
+                                    <option value="South Australia">South Australia</option>
+                                    <option value="Tasmania">Tasmania</option>
+                                    <option value="Victoria">Victoria</option>
+                                    <option value="Western Australia">Western Australia</option>
+                                </select>
+                          </div>
+                           <div class="ques1" id="ques1">
+                              <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+
+                                 <div class="yes1" id="yes1"><h3>Yes</h3></div>
+
+                                  <div class="no1" id="no1" > 
+
+                                        <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+                                        <input type="hidden" name="occid" value="<?php echo $occid[1]; ?>" />
+                                        <input type="hidden" name="para" value="<?php echo $para[1]; ?>" />
+                                        <input type="hidden" name="currentState" id="currentState1" />
+                                        <input type="hidden" name="futureState" id="futureState1" />
+
+                                         <h3>No</h3>
+            
+                                    </div>
+
+                           </div>
+    
+
+                           <div class="statefuture1" style="display:none">
+     
+                              <!--  <h4>State you would like to reloacte to</h4>  -->
+                               <select class="chosen-select" id="statefuture1" name="statelist1">
+                                   <option disabled selected value>Please enter your future residential state</option>
+                                   <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                   <option value="New South Wales">New South Wales</option>
+                                   <option value="Northern Territory">Northern Territory</option>
+                                   <option value="Queensland">Queensland</option>
+                                   <option value="South Australia">South Australia</option>
+                                   <option value="Tasmania">Tasmania</option>
+                                   <option value="Victoria">Victoria</option>
+                                   <option value="Western Australia">Western Australia</option>
+                               </select>
+                        </div>
+                        <div class="btn1" id="btn1" style="display:none">
+                                <h4> Get Statistics</h4>
+                        </div>
+     
+            </div>
+              </form>
+    </div>
+  
+  </div>
+
+</div>
+
+
+
+<!-- Trigger/Open The Modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h3><img class="img__img1" src="./images/logomin.png" />   Know More</h3>
+    </div>
+    <div class="modal-body">
+            <form   name="statistics2" method="post" action="/stats.php">
+
+            <div class=state> 
+                 <h3>Let us know you better</h3>
+                        <div class="statecurrent">
+       <!-- <h4>State you currently reside in</h4> -->
+                             <select class="chosen-select" id="statecurrent2" name="statelist">
+                                  <option disabled selected value>Please enter your current residential state</option>
+                                    <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                    <option value="New South Wales">New South Wales</option>
+                                    <option value="Northern Territory">Northern Territory</option>
+                                    <option value="Queensland">Queensland</option>
+                                    <option value="South Australia">South Australia</option>
+                                    <option value="Tasmania">Tasmania</option>
+                                    <option value="Victoria">Victoria</option>
+                                    <option value="Western Australia">Western Australia</option>
+                                </select>
+                          </div>
+                           <div class="ques2" id="ques2">
+                              <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+
+                                 <div class="yes2" id="yes2"><h3>Yes</h3></div>
+
+                                  <div class="no2" id="no2"> 
+
+                                        <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+                                        <input type="hidden" name="occid" value="<?php echo $occid[2]; ?>" />
+                                        <input type="hidden" name="para" value="<?php echo $para[2]; ?>" />
+                                        <input type="hidden" name="currentState" id="currentState2" />
+                                        <input type="hidden" name="futureState" id="futureState2" />
+                    
+                                          <h3>No</h3>
+            
+                                    </div>
+
+                           </div>
+    
+
+                           <div class="statefuture2" style="display:none">
+     
+                              <!--  <h4>State you would like to reloacte to</h4>  -->
+                               <select class="chosen-select" id="statefuture2" name="statelist1">
+                                   <option disabled selected value>Please enter your future residential state</option>
+                                   <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                   <option value="New South Wales">New South Wales</option>
+                                   <option value="Northern Territory">Northern Territory</option>
+                                   <option value="Queensland">Queensland</option>
+                                   <option value="South Australia">South Australia</option>
+                                   <option value="Tasmania">Tasmania</option>
+                                   <option value="Victoria">Victoria</option>
+                                   <option value="Western Australia">Western Australia</option>
+                               </select>
+                        </div>
+                        <div class="btn2" id="btn2" style="display:none">
+                                <h4> Get Statistics</h4>
+                        </div>
+     
+            </div>
+            </form>
+    </div>
+  
+  </div>
+
+</div>
+
+
+<!-- Trigger/Open The Modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h3><img class="img__img1" src="./images/logomin.png" />   Know More</h3>
+    </div>
+    <div class="modal-body">
+            <form   name="statistics3" method="post" action="/stats.php">
+
+            <div class=state> 
+                 <h3>Let us know you better</h3>
+                        <div class="statecurrent">
+       <!-- <h4>State you currently reside in</h4> -->
+                             <select class="chosen-select" id="statecurrent3" name="statelist">
+                                  <option disabled selected value>Please enter your current residential state</option>
+                                    <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                    <option value="New South Wales">New South Wales</option>
+                                    <option value="Northern Territory">Northern Territory</option>
+                                    <option value="Queensland">Queensland</option>
+                                    <option value="South Australia">South Australia</option>
+                                    <option value="Tasmania">Tasmania</option>
+                                    <option value="Victoria">Victoria</option>
+                                    <option value="Western Australia">Western Australia</option>
+                                </select>
+                          </div>
+                           <div class="ques3" id="ques3">
+                              <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+
+                                 <div class="yes3" id="yes3"><h3>Yes</h3></div>
+
+                                  <div class="no3" id="no3" > 
+
+                                     <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
+                                        <input type="hidden" name="occid" value="<?php echo $occid[3]; ?>" />
+                                        <input type="hidden" name="para" value="<?php echo $para[3]; ?>" />
+                                        <input type="hidden" name="currentState" id="currentState3" />
+                                        <input type="hidden" name="futureState" id="futureState3" />
+
+                    
+                                        <h3>No</h3>
+            
+                                    </div>
+
+                           </div>
+    
+
+                           <div class="statefuture3" style="display:none">
+     
+                              <!--  <h4>State you would like to reloacte to</h4>  -->
+                               <select class="chosen-select" id="statefuture3" name="statelist1">
+                                   <option disabled selected value>Please enter your future residential state</option>
+                                   <option value="Australian Capital Territory">Australian Capital Territory</option>
+                                   <option value="New South Wales">New South Wales</option>
+                                   <option value="Northern Territory">Northern Territory</option>
+                                   <option value="Queensland">Queensland</option>
+                                   <option value="South Australia">South Australia</option>
+                                   <option value="Tasmania">Tasmania</option>
+                                   <option value="Victoria">Victoria</option>
+                                   <option value="Western Australia">Western Australia</option>
+                               </select>
+                        </div>
+                        <div class="btn3" id="btn3" style="display:none">
+                                <h4> Get Statistics</h4>
+                        </div>
+     
+            </div>
+         </form>
+    </div>
+  
+  </div>
+
+</div>
+
+
+    <div class=foot>
+<footer class="footer">
+    <p>&#169; Copyright 2018 Career Tree </p>
+>>>>>>> New_Design
 </footer>
 </div>
    

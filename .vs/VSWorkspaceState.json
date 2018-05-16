@@ -3,8 +3,16 @@
     "",
     "\\CareerTree",
     "\\CareerTree\\CareerTree",
-    "\\CareerTree\\CareerTree\\css"
+    "\\CareerTree\\CareerTree\\css",
+    "\\CareerTree\\CareerTree\\js",
+    "\\CareerTree\\CareerTree\\vendor",
+    "\\CareerTree\\CareerTree\\vendor\\bootstrap",
+    "\\CareerTree\\CareerTree\\vendor\\bootstrap\\css"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\CareerTree\\CareerTree\\occ.php",
+=======
+  "SelectedNode": "\\CareerTree\\CareerTree\\output.php",
+>>>>>>> New_Design
   "PreviewInSolutionExplorer": false
 }
