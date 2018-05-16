@@ -4,15 +4,9 @@
     "\\CareerTree",
     "\\CareerTree\\CareerTree",
     "\\CareerTree\\CareerTree\\css",
-    "\\CareerTree\\CareerTree\\js",
     "\\CareerTree\\CareerTree\\vendor",
-    "\\CareerTree\\CareerTree\\vendor\\bootstrap",
-    "\\CareerTree\\CareerTree\\vendor\\bootstrap\\css"
+    "\\CareerTree\\CareerTree\\vendor\\chosen_v1.8.5"
   ],
-<<<<<<< HEAD
-  "SelectedNode": "\\CareerTree\\CareerTree\\occ.php",
-=======
-  "SelectedNode": "\\CareerTree\\CareerTree\\output.php",
->>>>>>> New_Design
+  "SelectedNode": "\\CareerTree\\CareerTree\\css\\home.css",
   "PreviewInSolutionExplorer": false
 }

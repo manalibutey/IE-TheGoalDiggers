@@ -234,23 +234,15 @@ window.onclick = function(event) {
     </div> -->
 
 </div>
-<<<<<<< HEAD
-          <!--   <div id="section01" class="demo">
-=======
+
              <div id="section01" class="demo">
->>>>>>> New_Design
  
   <a href="#section02"><span></span><span></span><span></span>Know More</a>
   </div>
 </div>
         </div>
        
-<<<<<<< HEAD
-        </section> -->
-=======
         </section> 
->>>>>>> New_Design
-
         <section class="section2" id="section02"> 
 		<main role="main">
 			<div class="mid-section">
@@ -263,54 +255,39 @@ window.onclick = function(event) {
 				<div class="col-sm-2 i1">
 					
                     <div class="column" id="s1">
-    <img src="./images/Picture1.png"  class="hover-shadow" data-aos="fade-right"/>
-    <div class="caption">
+                    <img src="./images/Picture1.png"  class="hover-shadow" data-aos="fade-right"/>
+                    <div class="caption">
                         <p data-aos="fade-right">Choose your previous career</p>
                     </div>
-  </div>
+                    </div>
             
                     
 				</div>
 
 				<div class="col-sm-2 i2">
 					
-           <div class="column" id="s2">
-    <img src="./images/Picture2.png" class="hover-shadow" data-aos="fade-up"/>
-     <div class="caption">
+                <div class="column" id="s2">
+                    <img src="./images/Picture2.png" class="hover-shadow" data-aos="fade-up"/>
+                    <div class="caption">
                         <p data-aos="fade-up">Select your skills and knowledge</p>
                     </div>
-  </div>
+                </div>
 
                    
 				</div>
 
 				<div class="col-sm-2 i3">
-					
-
-                               <div class="column" id="s3">
-    <img src="./images/Picture3.png"  class="hover-shadow" data-aos="fade-left"/>
-     <div class="caption" data-aos="fade-left">
+                    <div class="column" id="s3">
+                        <img src="./images/Picture3.png"  class="hover-shadow" data-aos="fade-left"/>
+                    <div class="caption" data-aos="fade-left">
                         <p >Explore suggested occupations</p>
                     </div>
-  </div>
-                    
+                    </div>
 				</div>
 
                            
                </div>
 
-<<<<<<< HEAD
-             
-               </div>
-
-				
-                 <div class="btn" data-aos="fade-up">
-                    <input type="button" value="Let's Start" onclick="start()" >
-				</div>
-			
-                        
-
-=======
 				
                  <div class="btn" data-aos="fade-up">
                     <input type="button" value="Let's Start" onclick="start()" >
@@ -330,19 +307,10 @@ window.onclick = function(event) {
 </footer>
 
 <!-- Trigger/Open The Modal -->
->>>>>>> New_Design
 
 
-<<<<<<< HEAD
-<footer class="footer"><p>
-  &#169; Copyright 2018 Career Tree </p>
-</footer>
-
-        </section>
-=======
 <!-- The Modal -->
 <div id="myModal1" class="modal">
->>>>>>> New_Design
 
   <!-- Modal content for step 1-->
   <div class="modal-content">

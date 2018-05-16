@@ -33,11 +33,6 @@
             return result;
         }
      </script>
-<<<<<<< HEAD
-
-</head>
-=======
->>>>>>> New_Design
 
   </head>
     <body>
@@ -65,47 +60,6 @@
 </svg>
 
         <div class="navbar  navbar-dark navbar-expand-md fixed-top">
-<<<<<<< HEAD
-
-		<div class="container">
-			<a class="navbar-brand" href="/home.php">
-				<img src="./images/logo2.png" />
-			</a>
-			
-			<button class="navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<div class="collapse navbar-collapse navCollapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="nav-item active" href="/home.php" style="margin-top: 7px;">Home</a>
-					</li>
-					<li>
-						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-    <div class="container">
-
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">
-            Tell us what's your previous occupation
-        </h1>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="/">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="/industry.php">Industry</a>
-            </li>
-            <li class="breadcrumb-item active">Occupation</li>
-        </ol>
-=======
-
 		<div class="container">
 			<a class="navbar-brand" href="/home.php">
 				<img src="./images/logo2.png" />
@@ -133,9 +87,6 @@
 <div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
 <div class="icon-space"><a href="javascript:window.history.back()"><svg class="icon icon-circle-left"><use xlink:href="#icon-circle-left"></use></svg></a></div>
 </div>
-
-
->>>>>>> New_Design
 
         <?php
         if ( isset($_POST['submit1_x'], $_POST['submit1_y'] ) ) {
@@ -284,16 +235,13 @@
         pg_close($dbconn4); ?>
 
     </div>
-<<<<<<< HEAD
-   
-=======
+
 
    <div class="foot">
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
 </footer>
 </div>
->>>>>>> New_Design
     
  
 </body>

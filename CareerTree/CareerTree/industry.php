@@ -64,30 +64,8 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-         <div class="page2full">
-        <section class="section">
-            <section class="section1">
-                
-                <div class="background" data-aos="fade-up">
-                
-                 <input type="image" class="back-image"  src="./images/industry_background1.jpg">
-                 <div class="head" ><h1>Choose an industry</h1></div>
-                 <div class="subhead" ><p>Choose your previous work industry from our wide range of key industries within Australia. </p></div>
-                 <div id="section01" class="demo">
-  
-  <a href="#section02"><span></span>Scroll</a>
-  </div>
-                </div>
-                
-            </section>
-
-            <section id="section02" class="section2">
-
-                <div class="grid-container">
-=======
     
-    <div class="sidebar">
+<div class="sidebar">
 <div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
 <div class="icon-space"><a href="javascript:window.history.back()"><svg class="icon icon-circle-left"><use xlink:href="#icon-circle-left"></use></svg></a></div>
 </div>
@@ -100,7 +78,6 @@
         <div class="sub-heading"><h4>Choose your previous work industry from our wide range of key industries within Australia</h4></div>
 
            <div class="grid-container">
->>>>>>> New_Design
 
                     <div class="col-sm-2 item1">
                         <figure class="image1">
@@ -295,22 +272,6 @@
                         <!--<div class="caption" data-aos="zoom-in">Wholesale Trade</div>-->
                     </div>
                     </div>
-<<<<<<< HEAD
-
-                    <div class="foot">
-<footer class="footer"><p>
-  &#169; Copyright 2018 Career Tree </p>
-</footer>
-</div>
-            </section>
-   
-   
-    </section>
-    </div>
-
-     
-    <script>
-=======
 
 </div>
 
@@ -321,7 +282,6 @@
     
 
 <script>
->>>>>>> New_Design
         AOS.init({
             duration: 700,
         })

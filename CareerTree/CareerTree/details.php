@@ -10,27 +10,6 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/details.css">
     <script src="./js/jquery.min.js"></script>
-<<<<<<< HEAD
-
-    <script>smoothscroll</script>
-    <script>
-    $(document).ready(function () {
-    var sidebar = $('.sidebar');
-    var top = sidebar.offset().top - parseFloat(sidebar.css('margin-top'));
-  
-    $(window).scroll(function (event) {
-      var y = $(this).scrollTop();
-      if (y >= top) {
-        sidebar.addClass('sidebar-fixed');
-      } else {
-        sidebar.removeClass('sidebar-fixed');
-      }
-    });
-});
-</script>
-    
-    </head>
-=======
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>smoothscroll</script>
     <script>
@@ -50,7 +29,6 @@
     </script>
 
 </head>
->>>>>>> New_Design
 
 <body>
 
@@ -113,25 +91,11 @@
 
      <div class="full">
 
-<<<<<<< HEAD
-      <?php
-=======
          <?php
->>>>>>> New_Design
         $queries = array();
         parse_str($_SERVER['QUERY_STRING'], $queries);
         $tranID =  $queries['id'];
         $occID = $queries['occid'];
-<<<<<<< HEAD
-
-        include 'db_connection.php';
-        $dbconn4 = OpenCon();
-        $sql = "select title as previousocc, relatedtitle as relatedocc, description, matchingskill,matchingknowledge,lackingskill,lackingknowledge,percentage
-        from percentage, occupation
-        where relatedoccid = occid
-        and id = '$tranID'
-        and relatedoccid = '$occID'";
-=======
         //-------Receive ABS Name from parameter ------------//updated 29/04/2018
         $para = $queries['para'];
         if($para){
@@ -179,23 +143,19 @@
                         where
                         id = '$tranID'
                         and relatedoccid = '$occID'".$addParaString;
->>>>>>> New_Design
         $result = pg_query($dbconn4, $sql);
         $occDetail = pg_fetch_row($result);
         if (!$result) {
             echo "An error occurred.\n";
             exit;
         }
-<<<<<<< HEAD
-        ?>
-=======
+
         if($occDetail[8] <> $occDetail[9])
         {
             //Set ABS Original Name as parameter for query career statistic
             $para = $occDetail[9];
         }
          ?>
->>>>>>> New_Design
 
         <div class="mid-section">
            <h1><div class="title-line1" ><?php echo $occDetail[1]; ?></div></h1>
@@ -299,11 +259,7 @@
             }
            
         }
-<<<<<<< HEAD
-        pg_close($dbconn4);
-=======
         //pg_close($dbconn4);
->>>>>>> New_Design
             ?>
             </div>
             </div>
@@ -312,10 +268,7 @@
 
 
     </div>
-<<<<<<< HEAD
 
-   <form>
-=======
          <?php //---------Assign Data to Google Chart
          //---------Extract Data for Job Vacancy Trend
 
@@ -457,15 +410,12 @@
          pg_close($dbconn4);
          ?>
    </form>
->>>>>>> New_Design
       
     <div class="foot">
 <footer class="footer"><p>
   &#169; Copyright 2018 Career Tree </p>
 </footer>
 </div>
-<<<<<<< HEAD
-=======
        <script type="text/javascript">
          google.charts.load('current', { 'packages': ['corechart'] });
          google.charts.load('current', { 'packages': ['geochart'],'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY' });
@@ -638,6 +588,5 @@
     columnFilter.draw();
     }
        </script>
->>>>>>> New_Design
 </body>
 </html>

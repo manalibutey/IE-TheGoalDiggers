@@ -11,122 +11,6 @@ footer {
     text-align: center;
 }
 
-<<<<<<< HEAD
-.footer {
-    margin-top: -30px;
-}
-
-.foot {
-    padding-top: 60px;
-}
-
-.footer p {
-    margin-bottom: 0px;
-}
-
-.icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
-    padding-top: 1.5px;
-}
-
-    .icon:hover {
-        color: #A22631;
-    }
-
-button {
-    background-color: transparent !important;
-    text-shadow: none;
-    background: 0 0;
-    border: 0;
-    background: none;
-    box-shadow: none;
-    border-radius: 0px;
-    outline: none;
-    margin: 0 !important;
-    padding: 1px 0px;
-}
-
-.fixed-top {
-    /*position: fixed;*/
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-}
-
-.navbar-dark {
-    color: rgba(255,255,255,.5);
-    border-color: rgba(255,255,255,.1);
-}
-
-
-body {
-    color: #5a5a5a;
-    font-family: 'PT Sans', sans-serif !important;
-    height: 100%;
-}
-
-body {
-    margin: 0px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #111E6C;
-    text-align: left;
-    background-color: #fff;
-}
-
-.navbar-dark .navbar-brand {
-    color: #fff;
-}
-
-.navbar-brand {
-    display: inline-block;
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    line-height: inherit;
-    white-space: nowrap;
-}
-
-.container p {
-    color: #020529;
-    padding-top: 5px;
-    font-size: 10px;
-    position: relative;
-}
-
-.container .navbar-brand img {
-    height: 60px;
-}
-
-.container .nav-item {
-    font-weight: 400;
-    font-style: normal;
-    font-size: 15px;
-    letter-spacing: 0.05em !important;
-    text-decoration: none;
-    line-height: 1em;
-    color: #A22631;
-    letter-spacing: .1em;
-}
-
-.nav > li > a:hover, .nav > li > a:focus {
-    color: #111E6C;
-    background-color: transparent !important;
-}
-
-.nav > li > a:active {
-    color: #111E6C;
-}
-=======
 html {
     position: relative;
     min-height: 100%;
@@ -190,7 +74,6 @@ footer {
         color: #111E6C;
         text-decoration: none;
     }
->>>>>>> New_Design
 
 .icon {
     display: inline-block;
@@ -259,18 +142,10 @@ body {
     position: relative;
 }
 
-<<<<<<< HEAD
-.footer {
-position: static;
-left: 0;
-bottom: 0;
-width: 100%;
-color: white;
-    
-=======
+
 .container .navbar-brand img {
     height: 60px;
->>>>>>> New_Design
+
 }
 
 .container .nav-item {

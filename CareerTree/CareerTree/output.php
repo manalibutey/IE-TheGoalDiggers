@@ -9,12 +9,7 @@
     <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/output.css">
-<<<<<<< HEAD
-        <script src="./js/jquery.min.js"></script>
-        <script>smoothscroll</script>
-    <script>
-    $(document).ready(function () {
-=======
+
    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script src="./js/jquery.min.js"></script>
@@ -26,7 +21,6 @@
     $(document).ready(function () {
     $('.chosen-select').chosen();
 
->>>>>>> New_Design
     var sidebar = $('.sidebar');
     var top = sidebar.offset().top - parseFloat(sidebar.css('margin-top'));
   
@@ -40,8 +34,7 @@
     });
 });
 </script>
-<<<<<<< HEAD
-=======
+
 <script>
 window.onload = function(){ 
     // your code 
@@ -80,7 +73,6 @@ for(let i=0;i<modal.length;i++){
 }
 };
 </script>
->>>>>>> New_Design
 
     </head>
 
@@ -107,23 +99,6 @@ for(let i=0;i<modal.length;i++){
 </symbol>
 </defs>
 </svg>
-<<<<<<< HEAD
-
-<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs>
-<symbol id="icon-tree" viewBox="0 0 32 32">
-<title>Try Visualisation</title>
-<path d="M30.5 24h-0.5v-6.5c0-1.93-1.57-3.5-3.5-3.5h-8.5v-4h0.5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5h-5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h0.5v4h-8.5c-1.93 0-3.5 1.57-3.5 3.5v6.5h-0.5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5h-0.5v-6h8v6h-0.5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5h-0.5v-6h8v6h-0.5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5zM6 30h-4v-4h4v4zM18 30h-4v-4h4v4zM14 8v-4h4v4h-4zM30 30h-4v-4h4v4z"></path>
-</symbol>
-</defs>
-</svg>
-<?php
-    if ( isset($_POST['submit'] ) ) {
-        $occp = $_POST['occ'];
-
-    //echo "You have selected :" .$occp;
-
-=======
 
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -150,8 +125,6 @@ for(let i=0;i<modal.length;i++){
         $Onetoccp = $_POST['Onetocc'];//updated 29/04/2018
 
     //echo "You have selected :" .$occp;
-
->>>>>>> New_Design
     //echo '<br>';
     $skills = "";
     $knw = "";
@@ -163,18 +136,6 @@ for(let i=0;i<modal.length;i++){
     //    $skills = rtrim($skills,",");
     //    //echo $skills."</br>";
         $skills = $_POST['skill'];
-<<<<<<< HEAD
-    }
-    if(!empty($_POST['knw'])){
-    //// Loop to store and display values of individual checked checkbox.
-    //foreach($_POST['knw'] as $select){
-    //$knw .=  '\''.$select.'\''.',';
-    //    }
-    //    $knw = rtrim($knw,",");
-    //    //echo $knw."</br>";
-        $knw = $_POST['knw'];
-=======
->>>>>>> New_Design
     }
     //if(!empty($_POST['knw'])){
     //// Loop to store and display values of individual checked checkbox.
@@ -213,24 +174,6 @@ for(let i=0;i<modal.length;i++){
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-    <form>
-    <div class="sidebar">
-<!-- <div class="icon-space"><a href="/shiny?id= --> <?php //echo $randID; ?> <!-- "><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg></a></div>-->
-<div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
-<div class="icon-space"><a href="javascript:window.history.back()"><svg class="icon icon-circle-left"><use xlink:href="#icon-circle-left"></use></svg></a></div>
-
-</div>
-    <div class="full">
-
-        <div class="mid-section">
-           <h1><div class="title-line1" >Recommended Occupations</div></h1>
-        </div>
-        <div class="sub-heading"><h4>According to your previous occupation, skill set, and</h4><h4>knowledge domain, you can change to the following occupations</h4></div>
-
-        <div class = box-cover>
-            <?php
-=======
   
     <div class="sidebar">
         <div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
@@ -265,7 +208,6 @@ for(let i=0;i<modal.length;i++){
 <div class="skill-slider owl-carousel" >
 
   <?php
->>>>>>> New_Design
 
         include 'db_connection.php';
         $dbconn4 = OpenCon();
@@ -280,14 +222,9 @@ for(let i=0;i<modal.length;i++){
             pg_query($dbconn4, $sql);
         }
         //---------------------------------------------------------
-<<<<<<< HEAD
-        $sql = "Select RelatedOccName, relatedoccid from Career_Changer_Matrix
-            Where  OccName = '$occp'
-=======
         //updated query 29/04/2018
         $sql = "Select RelatedOccName, relatedoccid from Career_Changer_Matrix
             Where  OccName = '$Onetoccp'
->>>>>>> New_Design
             Order by Rank";
      $relatedOccupation = pg_query($dbconn4, $sql);
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
@@ -402,32 +339,6 @@ for(let i=0;i<modal.length;i++){
                                         title, relatedtitle, percentage, id, matchingskill, lackingskill, matchingknowledge, lackingknowledge, relatedoccid)
                                          VALUES ('$occp','$relatedOccParameter',$percentageMatch, $randID,'$matchingSkill','$lackingSkill','$matchingKnowledge','$lackingKnowledge','$relatedOccID');");
              if (!$reldb) {echo "An INSERT query error occurred.\n"; exit;}
-<<<<<<< HEAD
-         }
-     }
-         $sql ="select *
-                from percentage, occupation
-                where relatedoccid = occid
-                and id = '$randID'
-                order by percentage desc";
-            $relatedOccupation = pg_query($dbconn4, $sql);
-            $occCount = 1;
-     while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
-         //echo "<tr>";
-       // echo $occCount;
-         if($relatedOcc[2] <> 0){
-             echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
-             echo '<div class="box">';
-             echo'<div class="flex-element">';
-             echo '<div class="title"><h3>'.$relatedOcc[1].'</h3></div>';
-             echo'<div class="percentage"><h1><div class="pull-right">'.$relatedOcc[2].'%</div></h1></div>';
-             echo'</div>';
-             echo '<div class="desc"><h4>'.$relatedOcc[11].'</h4></div>';
-             echo '</div>';
-             echo '</a>';
-             // echo "</tr>";
-=======
->>>>>>> New_Design
          }
      }
         //updated query 29/04/2018
@@ -446,32 +357,6 @@ for(let i=0;i<modal.length;i++){
             $occCount = 1;
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
 
-<<<<<<< HEAD
-         $occCount++;
-     }
-
-
-     pg_close($dbconn4);
-
-            ?>
-                       
-        </div>
-         <!-- <div id="sidebar">
-				
-		  	<ul>
-			    <li><a href="index.html">jQuery (animated)</a></li>
-			    <li><a href="css.html">CSS (fixed)</a></li>
-			    <li><a href="reveal.html">CSS (reveal)</a></li>
-			</ul>
-		
-		</div> -->
-      
-    </div>
-    </form>
-  <div class="foot">
-<footer class="footer"><p>
-  &#169; Copyright 2018 Career Tree </p>
-=======
          if($relatedOcc[2] <> 0){
             if($relatedOcc[12] <> ''){
             //-----Include ABS Name as parameter if it is occupation from ABS updated 29/04/2018--------------
@@ -503,16 +388,11 @@ for(let i=0;i<modal.length;i++){
 
      pg_close($dbconn4);
 
-            ?>
+  ?>
 
-
+</div>
+</div>
   
-
-</div>
-</div>
-
-
-      
 </div>
 </div>
  
@@ -770,7 +650,6 @@ for(let i=0;i<modal.length;i++){
     <div class=foot>
 <footer class="footer">
     <p>&#169; Copyright 2018 Career Tree </p>
->>>>>>> New_Design
 </footer>
 </div>
    
