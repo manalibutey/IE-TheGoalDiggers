@@ -203,7 +203,6 @@ if(show == 1){
                 $futureNo = $row[2];
             }
         }
-
         //updated query 29/04/2018
         $sql = "select p.title as previousocc, CASE WHEN OccABS.abs_name is not null THEN OccABS.abs_name ELSE p.relatedtitle END  as relatedocc,
                 CASE WHEN OccABS.abs_description is not null THEN OccABS.abs_description ELSE Occ.description END as description,
@@ -229,7 +228,30 @@ if(show == 1){
         $getLackingknowledge = $occDetail[6];
         $previousocc = $occDetail[0];
         $occname = $occDetail[1];
-      
+        //-------Find State with best job vacancy-----------
+        $sql = "select year,act, nsw, nt, qld, sa, tas, vic, wa
+                from abs_job_vacancy_state
+                where occname = '$para'
+                and year = (select max(year) as year
+                from abs_job_vacancy_state) - 1
+                order by month desc limit 1";
+        $result = pg_query($dbconn4, $sql);
+        while ($row = pg_fetch_row($result)) {
+            $state[1] = $row[1];
+            $state[2] = $row[2];
+            $state[3] = $row[3];
+            $state[4] = $row[4];
+            $state[5] = $row[5];
+            $state[6] = $row[6];
+            $state[7] = $row[7];
+            $state[8] = $row[8];
+        }
+        $maxs = array_keys($state, max($state));
+        $futureNo = $maxs[0];
+        if ($currentNo == $futureNo){
+            $futureNo = null;
+        }
+        //--------------------------------------------------
         ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
@@ -284,7 +306,7 @@ if(show == 1){
 <button class="chart2"  id="chart2" onclick="switch_div(2);"><h4>  Salary Comparision</h4>
 </button>
 </div>
-     <?php //---------Assign Data to Google Chart
+    <?php //---------Assign Data to Google Chart
      //---------Extract Data for Job Vacancy Trend
 
      $sql = "select year, month, day,act, nsw, nt, qld, sa, tas, vic, wa
@@ -293,7 +315,9 @@ if(show == 1){
             and year > (select distinct year as year
 											            from abs_job_vacancy_state
 											            order by year desc
-											            limit 1) - 5";
+											            limit 1) - 5
+            and year < (select max(year) as year
+            from abs_job_vacancy_state)";
 
      $result = pg_query($dbconn4, $sql);
      while ($row = pg_fetch_array($result)) {
@@ -327,8 +351,8 @@ if(show == 1){
      echo '<div class="vac" id="show_1">';
      echo '<div id="colFilter_div"></div>';
      echo '<div id="chart_div" style="width: 900px; height: 300px"></div>';
-     
-     echo '</div>'; 
+
+     echo '</div>';
      }
      //-----------Extract Data for Average Salary
      echo '<div class="sal" id="show_2">';
@@ -359,7 +383,7 @@ if(show == 1){
      }
      if($entrySalary)
      {
-         
+
          echo '<div id="column_chart" style="width:900px;  height: 400px"></div>';
          $profit = $avgSalary - $prvSalary;
          if($avgSalary > $prvSalary){
@@ -369,8 +393,8 @@ if(show == 1){
          $profit = trim($profit, '-');
             echo '<div><h4>Average Weekly Salary Decrease for You<br><br><br><svg class="icon icon-point-down"><use xlink:href="#icon-point-down"></use></svg>AU$'.$profit.'</h4></div>';
             }
-         
-         echo '</div>'; 
+
+         echo '</div>';
      }
      //-----------Extract Data for Employment by Gender
      //$sql = "select sex, employment, CASE WHEN sex = 'Male' THEN 'M' ELSE '' END as gender
@@ -425,7 +449,7 @@ if(show == 1){
      //------------------------------------------------------------------
 
      //pg_close($dbconn4);
-     ?>
+    ?>
 </div>
 
 <div id="Paris" class="tabcontent">
@@ -444,11 +468,11 @@ if(show == 1){
                      }
                      $lackingskill = rtrim($lackingskill,",");
                      $sql = "select a.skname as skillname, a.description as description, rank
-            from skill a, skill_occupation b
-            where b.skid = a.skid
-            and b.occid = '$occID'
-            and a.skname in ($lackingskill)
-            order by rank desc";
+                            from skill a, skill_occupation b
+                            where b.skid = a.skid
+                            and b.occid = '$occID'
+                            and a.skname in ($lackingskill)
+                            order by rank desc";
                      $result = pg_query($dbconn4, $sql);
                      while ($lskill = pg_fetch_row($result)) {
                          echo '<label for="'.$lskill[1].'" title="'.$lskill[1].'"><div  class="value" id="'.$lskill[0].'" value="'.$lskill[0].'"><p>'.$lskill[0].' </p></div></label>';
@@ -708,6 +732,7 @@ if(show == 1){
             curveType: 'function',
             hAxis: {title: 'Time'},
             vAxis: {title: 'Job Vacancy'},
+            pointSize: 5
         }
     });
     
