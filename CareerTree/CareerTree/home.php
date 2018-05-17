@@ -105,6 +105,7 @@ window.onclick = function(event) {
 
 };
 </script>
+
 </head>
 
 <body>
@@ -154,7 +155,7 @@ window.onclick = function(event) {
 						<a class="nav-item active" href="#" style="margin-top: 7px;">Home</a>
 					</li>
 					<li>
-						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
+						<a class="nav-item" href="/about.php" style="margin-top: 7px;">About Us</a>
 					</li>
 				</ul>
 			</div>
@@ -173,10 +174,10 @@ window.onclick = function(event) {
         <img class="back-image" src="./images/background.jpg" />
 		<div class="layer">	
              <div class="head" >
-                    <div class="title-line" ><h1>Welcome To Career Tree</h1> </div>
+                    <div class="title-line" ><h1>Career Tree</h1> </div>
 
               </div>
-<h5>Empowering the Unemployed</h5>
+<h5>We empower the unemployed</h5>
              <div class="subhead1" ><h4>Improve your employability. Change career like a pro.</h4>
 <h4>Let us help you discover your choices for a career change.</h4>
 </div>
@@ -290,7 +291,7 @@ window.onclick = function(event) {
 
 				
                  <div class="btn" data-aos="fade-up">
-                    <input type="button" value="Let's Start" onclick="start()" >
+                    <input type="button" value="Get Started" onclick="start()" >
 				</div>
 			
                         
@@ -326,7 +327,7 @@ window.onclick = function(event) {
       <p>To provide you the best possible career recommendations, let us know your previous work industry and occupation</p>
       <div class="btn-align">
       <div class="btn2" >
-                    <input type="button" value="Let's Start" onclick="start()" >
+                    <input type="button" value="Get Started" onclick="start()" >
 				</div>
                 </div>
     </div>
@@ -353,7 +354,7 @@ window.onclick = function(event) {
       <p>To empower your journey of career change, let us know the skills you possess from our set of skills</p>
       <div class="btn-align">
       <div class="btn2" >
-                    <input type="button" value="Let's Start" onclick="start()" >
+                    <input type="button" value="Get Started" onclick="start()" >
 				</div>
                 </div>
     </div>
@@ -380,7 +381,7 @@ window.onclick = function(event) {
       <p>Explore the range of recommended occupations best suited to your skill set, and choose your new career with the knowledge of the duties, skills required and employment statistics of the occupation</p>
       <div class="btn-align">
       <div class="btn2" >
-                    <input type="button" value="Let's Start" onclick="start()" >
+                    <input type="button" value="Get Started" onclick="start()" >
 				</div>
                 </div>
     </div>

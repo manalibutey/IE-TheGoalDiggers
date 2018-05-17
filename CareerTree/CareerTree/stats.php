@@ -611,7 +611,7 @@ if(show == 1){
              ]);
 
              var options = {
-                 title: 'Average Weekly Salary for  <?php echo $para ?> Compared to Your Previous and All Australian Occupations',
+                 title: 'Average Weekly Salary for  <?php echo $para ?> \n Compared to Your Previous and All Australian Occupations',
                  titleTextStyle: { fontSize: 12, bold: true},
                  width:900,
                  height:400,

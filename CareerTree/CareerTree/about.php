@@ -74,66 +74,63 @@
         </div>
         <div class="sub-heading"><h4>Team mission</h4></div>
        
-        <div class="card">
+        <div class="team">
 
+        <div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="./images/Manali.jpg" alt="Jane" style="width:100%">
+      <div class="container1">
+        <h2>Jane Doe</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
 
-<div class="space"  id="je">
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <div class="container1">
+        <h2>Mike Ross</h2>
+        <p class="title">Art Director</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+      <div class="container1">
+        <h2>John Doe</h2>
+        <p class="title">Designer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
 
-<div class="Jerry">
-<div class="card-icon">
-<svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg>
+ <div class="column">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+      <div class="container1">
+        <h2>John Doe</h2>
+        <p class="title">Designer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
 </div>
-<h4>DUTIES</h4>
-<p>Know more about the day-to-day tasks of this occupation.</p>
-</div>
-
-</div>
-
-
-<div class="space" id="jo">
-
-<div class="Joel">
-<div class="card-icon">
-<svg class="icon icon-cogs"><use xlink:href="#icon-cogs"></use></svg>
-</div>
-<h4>ENHANCE SKILLSET</h4>
-<p>Undertake the recommended courses to acquire the skills you need for this occupation.</p>
-</div>
-
-</div>
-
-
-
-
-<div class="space" id="m">
-
-<div class="Manali">
-<div class="card-icon">
-<svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg>
-</div>
-<h4>CAREER STATISTICS</h4>
-<p>Know more about the employment trends related to this occupation.</p>
-</div>
-
-</div>
-
-
-<div class="space" id="p">
-
-<div class="Paul">
-<div class="card-icon">
-<svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg>
-</div>
-<h4>CAREER STATISTICS</h4>
-<p>Know more about the employment trends related to this occupation.</p>
-</div>
-
-</div>
-
 
 
 </div>
-
  </div>
 
 

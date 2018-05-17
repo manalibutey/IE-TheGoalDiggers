@@ -327,6 +327,7 @@ padding-bottom: 40px;
     font-weight: 200 !important;
     line-height: 1.35em !important;
     width: 100%;
+    font-size: 20px;
 }
 
 .title-line1::after {
