@@ -11,106 +11,36 @@
     <link rel="stylesheet" href="./css/home.css">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-
-    <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
-    <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
-    <script>smoothscroll</script>
-    <script type="text/javascript">
-        $(function () {
-            $('a[href*=#]').on('click', function (e) {
-                e.preventDefault();
-                $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 500, 'linear');
-            });
-        });
-        $(document).ready(function () {
+    <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />    <script>
+    $(document).ready(function () {
             $('.chosen-select').chosen();
         });
 
-  
-        function validate_submit() {
+   //       $(function() {
+  //  $(window).scroll(function() {
+  //          $(".sidebar").show();
+      
+ //   });
+ //   });
+
+
+    function validate_submit() {
             var result = false;
             if (document.getElementById('category').value) {
                     result = true;
             }
             if (!result) {
-                alert("Please select occupations from the list");
+                alert("Please select your previous occupation from the list");
             }
             return result;
         }
-
-        function start() {
-			window.location.href = "./industry.php";
-		}
-
-
-        $(function() {
-    $(window).scroll(function() {
-            $(".sidebar").show();
-      
-    });
-});
     </script>
-    <script>
-    window.onload = function(){ 
-// Get the modal
-var modal1 = document.getElementById('myModal1');
-var modal2 = document.getElementById('myModal2');
-var modal3 = document.getElementById('myModal3');
+    </head>
+    <body>
 
-// Get the button that opens the modal
-var btn = document.getElementById("s1");
-
-// Get the <span> element that closes the modal
-var span1 = document.getElementsByClassName("close1")[0];
-var span2 = document.getElementsByClassName("close2")[0];
-var span3 = document.getElementsByClassName("close3")[0];
-
-// When the user clicks the button, open the modal 
-s1.onclick = function() {
-    modal1.style.display = "block";
-}
-s2.onclick = function() {
-    modal2.style.display = "block";
-}
-s3.onclick = function() {
-    modal3.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function() {
-    modal1.style.display = "none";
-    modal2.style.display = "none";
-      modal3.style.display = "none";
-}
-span2.onclick = function() {
-   
-    modal2.style.display = "none";
-     
-}
-span3.onclick = function() {
-   
-      modal3.style.display = "none";
-}
-
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal1 ||event.target == modal2||event.target == modal3) {
-        modal1.style.display = "none";
-          modal2.style.display = "none";
-           modal3.style.display = "none";
-    }
-}
-
-};
-</script>
-
-</head>
-
-<body>
-
-<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <symbol id="icon-search" viewBox="0 0 32 32">
 <title>search</title>
@@ -130,6 +60,15 @@ window.onclick = function(event) {
 
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="icon-tree" viewBox="0 0 32 32">
+<title>Options</title>
+<path d="M30.5 24h-0.5v-6.5c0-1.93-1.57-3.5-3.5-3.5h-8.5v-4h0.5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5h-5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h0.5v4h-8.5c-1.93 0-3.5 1.57-3.5 3.5v6.5h-0.5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5h-0.5v-6h8v6h-0.5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5h-0.5v-6h8v6h-0.5c-0.825 0-1.5 0.675-1.5 1.5v5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-5c0-0.825-0.675-1.5-1.5-1.5zM6 30h-4v-4h4v4zM18 30h-4v-4h4v4zM14 8v-4h4v4h-4zM30 30h-4v-4h4v4z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
 <symbol id="icon-linkedin" viewBox="0 0 32 32">
 <title>LinkedIn</title>
 <path d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3zM12 26h-4v-14h4v14zM10 10c-1.106 0-2-0.894-2-2s0.894-2 2-2c1.106 0 2 0.894 2 2s-0.894 2-2 2zM26 26h-4v-8c0-1.106-0.894-2-2-2s-2 0.894-2 2v8h-4v-14h4v2.481c0.825-1.131 2.087-2.481 3.5-2.481 2.488 0 4.5 2.238 4.5 5v9z"></path>
@@ -137,7 +76,26 @@ window.onclick = function(event) {
 </defs>
 </svg>
 
-	<div class="navbar  navbar-dark navbar-expand-md fixed-top">
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-stack" viewBox="0 0 32 32">
+<title>stack</title>
+<path d="M32 10l-16-8-16 8 16 8 16-8zM16 4.655l10.689 5.345-10.689 5.345-10.689-5.345 10.689-5.345zM28.795 14.398l3.205 1.602-16 8-16-8 3.205-1.602 12.795 6.398zM28.795 20.398l3.205 1.602-16 8-16-8 3.205-1.602 12.795 6.398z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-stats-bars" viewBox="0 0 32 32">
+<title>Statistics</title>
+<path d="M0 26h32v4h-32zM4 18h4v6h-4zM10 10h4v14h-4zM16 16h4v8h-4zM22 4h4v20h-4z"></path>
+</symbol>
+</defs>
+</svg>
+
+    <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
 			<a class="navbar-brand" href="/home.php">
@@ -171,18 +129,25 @@ window.onclick = function(event) {
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
-        <img class="back-image" src="./images/background.jpg" />
+        <img class="back-image" src="./images/b.jpg" />
+        </div>
 		<div class="layer">	
              <div class="head" >
-                    <div class="title-line" ><h1>Career Tree</h1> </div>
+                    <div class="title-line" ><b><h1>Career TreeWay</h1></b> </div>
 
               </div>
 <h5>We empower the unemployed</h5>
-             <div class="subhead1" ><h4>Improve your employability. Change career like a pro.</h4>
-<h4>Let us help you discover your choices for a career change.</h4>
-</div>
 
-<div class="search">
+<div class = "part">
+
+             <div class="subhead1" >
+
+
+<div class="left2"><h4><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg>&nbsp;Career Options</h4></div>
+<div class="left1"><h4><svg class="icon icon-stats-bars"><use xlink:href="#icon-stats-bars"></use></svg>&nbsp;Career Statistics</h4></div>
+<div class="left"><h4><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg>&nbsp;Enhance Skill Set</h4></div>
+</div>
+<div class="search"><div class="right">
 <label for="category"></label>
 <form method="post" action="skillset.php">
     <?php
@@ -215,200 +180,31 @@ window.onclick = function(event) {
     Where  Occ.occid in (select distinct a.occid from Career_Changer_Matrix a inner join occupation_abs b on a.relatedoccid = b.occid )
     Order by ABSName";
     $result = pg_query($dbconn4, $sql);
-    echo '<select class="chosen-select" id="category" name="occ" style="height:auto;width:500px;">';
-    echo '<option disabled selected value>Please enter your previous occupation</option>';
+        echo '<div class="searchicon"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>';
+
+    echo '<select class="chosen-select" id="category" name="occ" style="width: 450px;height:140px;padding-right: 20px;">';
+    echo '<option disabled selected value>Enter your previous occupation name</option>';
         while ($res = pg_fetch_row($result)) {
             $result1 = $res[0];
             echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
         }
         echo '</select>';
+        echo '</div>';
     pg_close($dbconn4);
     ?>
     <button type="submit" class="button button-rounded-small" name="submit" id="searchsubmit" onclick="return validate_submit()">
-        <span>
-            <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
-        </span>
+      Search
     </button>
-</form>
-<!-- <div id="hover-content">
-        "Big things have small beginnings." ~ Prometheus
-    </div> -->
-
-</div>
-
-             <div id="section01" class="demo">
- 
-  <a href="#section02"><span></span><span></span><span></span>Know More</a>
-  </div>
-</div>
-        </div>
-       
-        </section> 
-        <section class="section2" id="section02"> 
-		<main role="main">
-			<div class="mid-section">
-           
-				<h1 data-aos="fade-down"><div class="title-line1" >How Career Tree Works</div></h1>
-                
-			</div>
-
-			<div class="grid">
-				<div class="col-sm-2 i1">
-					
-                    <div class="column" id="s1">
-                    <img src="./images/Picture1.png"  class="hover-shadow" data-aos="fade-right"/>
-                    <div class="caption">
-                        <p data-aos="fade-right">Choose your previous career</p>
-                    </div>
-                    </div>
-            
-                    
-				</div>
-
-				<div class="col-sm-2 i2">
-					
-                <div class="column" id="s2">
-                    <img src="./images/Picture2.png" class="hover-shadow" data-aos="fade-up"/>
-                    <div class="caption">
-                        <p data-aos="fade-up">Select your skills and knowledge</p>
-                    </div>
-                </div>
-
-                   
-				</div>
-
-				<div class="col-sm-2 i3">
-                    <div class="column" id="s3">
-                        <img src="./images/Picture3.png"  class="hover-shadow" data-aos="fade-left"/>
-                    <div class="caption" data-aos="fade-left">
-                        <p >Explore suggested occupations</p>
-                    </div>
-                    </div>
-				</div>
-
-                           
-               </div>
-
-				
-                 <div class="btn" data-aos="fade-up">
-                    <input type="button" value="Get Started" onclick="start()" >
-				</div>
-			
-                        
-            <!--    <button id="s1">Open Modal</button>
-                 <button id="s2">Open Modal</button>
-                  <button id="s3">Open Modal</button> -->
-                
-		</main>
-
-<div class="foot">
-<!-- <div class="contact"><a href="/home.php"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg></a></div> -->
-<footer class="footer"><p>
-  &#169; Copyright 2018 Career Tree </p>
-</footer>
-
-<!-- Trigger/Open The Modal -->
-
-
-<!-- The Modal -->
-<div id="myModal1" class="modal">
-
-  <!-- Modal content for step 1-->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close1">&times;</span>
-      <h2>Career Tree</h2>
-    </div>
-    <div class="modal-body">
-    <div class="step-img">
-    <img class="step1" src="./images/s1.jpg" />
-    </div>
-      <h3>Step 1</h3>
-      <p>To provide you the best possible career recommendations, let us know your previous work industry and occupation</p>
-      <div class="btn-align">
-      <div class="btn2" >
-                    <input type="button" value="Get Started" onclick="start()" >
-				</div>
-                </div>
-    </div>
-    
-  </div>
-
-</div>
-
-
-<!-- The Modal for step 2-->
-<div id="myModal2" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close2">&times;</span>
-      <h2>Career Tree</h2>
-    </div>
-    <div class="modal-body">
-    <div class="step-img">
-    <img class="step1" src="./images/s2.jpg" />
-    </div>
-     <h3>Step 2</h3>
-      <p>To empower your journey of career change, let us know the skills you possess from our set of skills</p>
-      <div class="btn-align">
-      <div class="btn2" >
-                    <input type="button" value="Get Started" onclick="start()" >
-				</div>
-                </div>
-    </div>
-    
-  </div>
-
-</div>
-
-
-<!-- The Modal for step 3-->
-<div id="myModal3" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close3">&times;</span>
-      <h2>Career Tree</h2>
-    </div>
-    <div class="modal-body">
-    <div class="step-img">
-    <img class="step1" src="./images/s3.jpg" />
-    </div>
-        <h3>Step 3</h3>
-      <p>Explore the range of recommended occupations best suited to your skill set, and choose your new career with the knowledge of the duties, skills required and employment statistics of the occupation</p>
-      <div class="btn-align">
-      <div class="btn2" >
-                    <input type="button" value="Get Started" onclick="start()" >
-				</div>
-                </div>
-    </div>
-    
-  </div>
-
-</div>
-
-</div>
-
-        </section>
-
-       
-
-        </section>
-
-		
-	</div>
-	
    
-<script>
-AOS.init({
-  duration: 1100,
-})
-</script>
-</body>
+</form>
+</div>
+ <div class="eg">Eg: Mining Engineers, Baristas</div>
+</div>
 
-</html>
+</div>
 
-
+</div>
+</div>
+</section></section>
+    </body>
+    </html>

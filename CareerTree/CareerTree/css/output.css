@@ -653,3 +653,9 @@ height: 1px;
 position: absolute;
 width: 90px;
 }
+
+@media (min-width: 1200px) {
+   .container {
+        width: 100% !important;
+    }
+}

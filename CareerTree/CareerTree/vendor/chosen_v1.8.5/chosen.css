@@ -373,14 +373,14 @@ cursor: default;
 border: 1.35px solid #A22631;
 border-radius: 10px 10px 10px 10px;
 font-size: 18px;
-padding: 5px;
+
 }
 
 .chosen-container-active.chosen-with-drop .chosen-single {
 border: 1.35px solid #A22631;
 border-radius: 10px 10px 10px 10px;
 font-size: 18px;
-padding: 5px;
+
 border-bottom-right-radius: 0;
 border-bottom-left-radius: 0;
     
