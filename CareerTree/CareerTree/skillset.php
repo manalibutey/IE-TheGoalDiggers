@@ -18,6 +18,7 @@
         function validate_submit2() {
             var result = false;
             ////////////////Skill/////////////////////////////
+            $('.core').css('display', 'block');
             var element = $("#skills").find(".value");
             var i;
             var skillValue = '';
@@ -26,7 +27,7 @@
                 
             }
             skillValue = skillValue.replace(/,+$/, '');
-            alert(skillValue);
+            //alert(skillValue);
             $("#skill").val(skillValue);
             ////////////////Knowledge/////////////////////////////
             //element = $("#knowledge-box").find(".value");
