@@ -94,7 +94,7 @@ iframe {
     }
     .yes1:hover, .no1:hover, .yes2:hover, .no2:hover, .yes3:hover, .no3:hover {
         cursor: pointer;
-        transform: scale(1.1);
+        transform: scale(1.025);
         outline: none !important;
     }
 

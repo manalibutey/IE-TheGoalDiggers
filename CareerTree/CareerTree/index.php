@@ -36,7 +36,7 @@ return " ";
 } 
 </SCRIPT>
 <CENTER>
-<h1 style="padding-top: 60px;">Welcome to Career Tree</h1>
+<h1 style="padding-top: 60px;">Welcome to Career TreeWay</h1>
 <h4>Please enter the protected area to access the website</h4>
 <FORM style="
     padding-top: 50px;

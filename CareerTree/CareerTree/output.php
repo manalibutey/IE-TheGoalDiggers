@@ -442,9 +442,9 @@ for(let i=0;i<modal.length;i++){
                                 </select>
                           </div>
                            <div class="ques1" id="ques1">
-                              <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+                           <!--   <h3>Would you consider relocating within Australia for better oppourtinuties</h3> -->
 
-                                 <div class="yes1" id="yes1"><h3>Yes</h3></div>
+                                 <div class="yes1" id="yes1" style="display:none"><h3>Yes</h3></div>
 
                                   <div class="no1" id="no1" > 
 
@@ -454,7 +454,7 @@ for(let i=0;i<modal.length;i++){
                                         <input type="hidden" name="currentState" id="currentState1" />
                                         <input type="hidden" name="futureState" id="futureState1" />
 
-                                         <h3>No</h3>
+                                         <h3>Get Statistics</h3>
             
                                     </div>
 
@@ -521,9 +521,9 @@ for(let i=0;i<modal.length;i++){
                                 </select>
                           </div>
                            <div class="ques2" id="ques2">
-                              <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+                          <!--    <h3>Would you consider relocating within Australia for better oppourtinuties</h3> -->
 
-                                 <div class="yes2" id="yes2"><h3>Yes</h3></div>
+                                 <div class="yes2" id="yes2"  style="display:none"><h3>Yes</h3></div>
 
                                   <div class="no2" id="no2"> 
 
@@ -533,7 +533,7 @@ for(let i=0;i<modal.length;i++){
                                         <input type="hidden" name="currentState" id="currentState2" />
                                         <input type="hidden" name="futureState" id="futureState2" />
                     
-                                          <h3>No</h3>
+                                          <h3>Get Statistics</h3>
             
                                     </div>
 
@@ -598,10 +598,10 @@ for(let i=0;i<modal.length;i++){
                                     <option value="Western Australia">Western Australia</option>
                                 </select>
                           </div>
-                           <div class="ques3" id="ques3">
-                              <h3>Would you consider relocating within Australia for better oppourtinuties</h3>
+                           <div class="ques3" id="ques3" >
+                       <!--       <h3>Would you consider relocating within Australia for better oppourtinuties</h3> -->
 
-                                 <div class="yes3" id="yes3"><h3>Yes</h3></div>
+                                 <div class="yes3" id="yes3"  style="display:none"><h3>Yes</h3></div>
 
                                   <div class="no3" id="no3" > 
 
@@ -612,7 +612,7 @@ for(let i=0;i<modal.length;i++){
                                         <input type="hidden" name="futureState" id="futureState3" />
 
                     
-                                        <h3>No</h3>
+                                        <h3>Get Statistics</h3>
             
                                     </div>
 
