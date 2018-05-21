@@ -129,7 +129,7 @@
     <section class="section1"> 
 	<div class="full">
 		<div class="back">
-        <img class="back-image" src="./images/background.jpg" />
+        <img class="back-image" src="./images/b.jpg" />
         </div>
 		<div class="layer">	
              <div class="head" >
