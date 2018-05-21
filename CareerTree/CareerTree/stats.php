@@ -251,6 +251,8 @@ if(show == 1){
         if ($currentNo == $futureNo){
             $futureNo = null;
         }
+        $currentNo = null;
+        $futureNo = null
         //--------------------------------------------------
         ?>
 <div class="navbar  navbar-dark navbar-expand-md fixed-top">
@@ -309,7 +311,7 @@ if(show == 1){
     <?php //---------Assign Data to Google Chart
      //---------Extract Data for Job Vacancy Trend
 
-     $sql = "select year, month, day,act, nsw, nt, qld, sa, tas, vic, wa
+    $sql = "select year, month, day,act, nsw, nt, qld, sa, tas, vic, wa, aust
             from abs_job_vacancy_state
             where occname = '$para'
             and year > (select distinct year as year
@@ -330,7 +332,7 @@ if(show == 1){
          //   $entryVacancy .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".round($row{'vacancy'},0).",null],";
          //}
 
-         $entryVacancy1 .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".$row{'act'}.",".$row{'nsw'}.",".$row{'nt'}.",".$row{'qld'}.",".$row{'sa'}.",".$row{'tas'}.",".$row{'vic'}.",".$row{'wa'}."],";
+         $entryVacancy1 .= "[new Date(".$row{'year'}.",".$month.",".$row{'day'}."),".$row{'act'}.",".$row{'nsw'}.",".$row{'nt'}.",".$row{'qld'}.",".$row{'sa'}.",".$row{'tas'}.",".$row{'vic'}.",".$row{'wa'}.",".$row{'aust'}."],";
 
          //if($row{'current'}){
          //    $currentYear = $row{'year'};
@@ -701,7 +703,7 @@ if(show == 1){
          }
   function drawChart () {
    var data = google.visualization.arrayToDataTable([
-                 ['Time', 'Australian Capital Territory', 'New South Wales','Northern Territory','Queensland','South Australia','Tasmania','Victoria','Western Australia'],
+                 ['Time', 'Australian Capital Territory', 'New South Wales','Northern Territory','Queensland','South Australia','Tasmania','Victoria','Western Australia', 'Australia (All States)'],
                  <?php echo $entryVacancy1 ?>
              ]);
 
@@ -716,7 +718,16 @@ if(show == 1){
         //initState.selectedValues.push(data.getColumnLabel(i));
     }
     // you can set individual columns to be the default columns (instead of populating via the loop above) like this:
-     initState.selectedValues.push(data.getColumnLabel(<?php echo $currentNo ?>));
+     var current = '';
+     current = '<?php echo $currentNo ?>'
+     if(current != ''){
+     initState.selectedValues.push(data.getColumnLabel(Number(current)));
+     }
+     else{
+     initState.selectedValues.push(data.getColumnLabel(9)); 
+     }
+    //initState.selectedValues.push(data.getColumnLabel(9)); 
+    //initState.selectedValues.push(data.getColumnLabel(<?php echo $currentNo ?>));
      var future = '';
      future = '<?php echo $futureNo ?>';
      if(future != ''){
