@@ -16,7 +16,7 @@
      <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="./vendor/chosen_v1.8.5/chosen.jquery.min.js"></script>
     <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
-     <script src="./js/modal.js"></script>
+     <script src="./js/pass.js"></script>
     <script>
     $(document).ready(function () {
     $('.chosen-select').chosen();
@@ -115,6 +115,51 @@ for(let i=0;i<modal.length;i++){
 <title>NO</title>
 <path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z"></path>
 <path d="M21 8l-5 5-5-5-3 3 5 5-5 5 3 3 5-5 5 5 3-3-5-5 5-5z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-briefcase" viewBox="0 0 32 32">
+<title>Work</title>
+<path d="M30 8h-8v-2c0-1.1-0.9-2-2-2h-8c-1.1 0-2 0.9-2 2v2h-8c-1.1 0-2 0.9-2 2v18c0 1.1 0.9 2 2 2h28c1.1 0 2-0.9 2-2v-18c0-1.1-0.9-2-2-2zM12 6.004c0.001-0.001 0.002-0.003 0.004-0.004h7.993c0.001 0.001 0.003 0.002 0.004 0.004v1.996h-8v-1.996zM30 16h-4v3c0 0.55-0.45 1-1 1h-2c-0.55 0-1-0.45-1-1v-3h-12v3c0 0.55-0.45 1-1 1h-2c-0.55 0-1-0.45-1-1v-3h-4v-2h28v2z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-stack" viewBox="0 0 32 32">
+<title>stack</title>
+<path d="M32 10l-16-8-16 8 16 8 16-8zM16 4.655l10.689 5.345-10.689 5.345-10.689-5.345 10.689-5.345zM28.795 14.398l3.205 1.602-16 8-16-8 3.205-1.602 12.795 6.398zM28.795 20.398l3.205 1.602-16 8-16-8 3.205-1.602 12.795 6.398z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-stats-bars" viewBox="0 0 32 32">
+<title>Statistics</title>
+<path d="M0 26h32v4h-32zM4 18h4v6h-4zM10 10h4v14h-4zM16 16h4v8h-4zM22 4h4v20h-4z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-stats-dots" viewBox="0 0 32 32">
+<title>stats-dots</title>
+<path d="M4 28h28v4h-32v-32h4zM9 26c-1.657 0-3-1.343-3-3s1.343-3 3-3c0.088 0 0.176 0.005 0.262 0.012l3.225-5.375c-0.307-0.471-0.487-1.033-0.487-1.638 0-1.657 1.343-3 3-3s3 1.343 3 3c0 0.604-0.179 1.167-0.487 1.638l3.225 5.375c0.086-0.007 0.174-0.012 0.262-0.012 0.067 0 0.133 0.003 0.198 0.007l5.324-9.316c-0.329-0.482-0.522-1.064-0.522-1.691 0-1.657 1.343-3 3-3s3 1.343 3 3c0 1.657-1.343 3-3 3-0.067 0-0.133-0.003-0.198-0.007l-5.324 9.316c0.329 0.481 0.522 1.064 0.522 1.691 0 1.657-1.343 3-3 3s-3-1.343-3-3c0-0.604 0.179-1.167 0.487-1.638l-3.225-5.375c-0.086 0.007-0.174 0.012-0.262 0.012s-0.176-0.005-0.262-0.012l-3.225 5.375c0.307 0.471 0.487 1.033 0.487 1.637 0 1.657-1.343 3-3 3z"></path>
+</symbol>
+</defs>
+</svg>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-stats-bars2" viewBox="0 0 32 32">
+<title>stats-bars2</title>
+<path d="M9 12h-6c-0.55 0-1 0.45-1 1v18c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-18c0-0.55-0.45-1-1-1zM9 30h-6v-8h6v8zM19 8h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM19 30h-6v-10h6v10zM29 4h-6c-0.55 0-1 0.45-1 1v26c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-26c0-0.55-0.45-1-1-1zM29 30h-6v-12h6v12z"></path>
 </symbol>
 </defs>
 </svg>
@@ -355,6 +400,7 @@ for(let i=0;i<modal.length;i++){
                 limit 3";
             $relatedOccupation = pg_query($dbconn4, $sql);
             $occCount = 1;
+
      while ($relatedOcc = pg_fetch_row($relatedOccupation)) {
 
          if($relatedOcc[2] <> 0){
@@ -365,23 +411,38 @@ for(let i=0;i<modal.length;i++){
             else{
            // echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
             }
-            echo    '<div class="card" id="card">
-                    <div class="title"><h3>'.$relatedOcc[1].'</h3></div>
-                    <div class="percentage"><h4>Skill Meter - '.$relatedOcc[2].'%</h4></div>
+            echo    '<div class="card'.$occCount.'" id="card">
+                    
+                                        <div class="title"><h3>'.$relatedOcc[1].'</h3></div>
+                                        <div class="percentage"><h4>Skill Meter - '.$relatedOcc[2].'%</h4></div>
                     <div class="progress-bar__bar">
                     <div class="progress-bar__bar__active" style="width: '.$relatedOcc[2].'%">
-                    </div></div>
-                    <div class="img__description_layer">
-                    <h3 class="img__description">    <img class="img__img" src="./images/logomin.png" />
-                    <div class="more">Know More</div>
-                    </h3>
-                    </div>
-                    </div>';
+                    </div></div>';
+
             $occid[$occCount] = $relatedOcc[8];
             $tranID = $relatedOcc[3];
             $para[$occCount] = $relatedOcc[12];
-         }
 
+         }
+       //  for($j = 1;j<=)
+      echo  '<div class="more'.$occCount.'">Know More</div>';
+       echo'  <form   name="statistics'.$occCount.'" method="post" action="/stats.php">
+
+                 
+                   <div class="exp'.$occCount.'" id="exp'.$occCount.'" style="display:none;"> 
+
+                                        <input type="hidden" name="id" value="'. $tranID .'" />
+                                        <input type="hidden" name="occid" value="'. $occid[$occCount].'" />
+                                        <input type="hidden" name="para" value="'.$para[$occCount].'" />
+                                        
+             <div class="c1"><svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg><h3>&nbsp;Tasks</h3></div>
+            <div class="c2"> <svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg><h3>&nbsp;Job Vacancy</h3></div>                  
+            <div class="c3"> <svg class="icon icon-stats-bars2"><use xlink:href="#icon-stats-bars2"></use></svg><h3>&nbsp;Salary </h3></div>
+            <div class="c4"><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg><h3>&nbsp;Upskill</h3></div>
+                                         
+            
+                                    </div>
+                                    </form>  </div>';
          $occCount++;
      }
 
@@ -412,239 +473,7 @@ for(let i=0;i<modal.length;i++){
   </div>
   </section>
 
-<!-- Trigger/Open The Modal -->
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h3><img class="img__img1" src="./images/logomin.png" />   Know More</h3>
-    </div>
-    <div class="modal-body">
-        <form   name="statistics1" method="post" action="/stats.php">
-            <div class=state> 
-                 <h3>Let us know you better</h3>
-                        <div class="statecurrent">
-       <!-- <h4>State you currently reside in</h4> -->
-                             <select class="chosen-select" id="statecurrent1" name="statelist">
-                                  <option disabled selected value>Please enter your current residential state</option>
-                                    <option value="Australian Capital Territory">Australian Capital Territory</option>
-                                    <option value="New South Wales">New South Wales</option>
-                                    <option value="Northern Territory">Northern Territory</option>
-                                    <option value="Queensland">Queensland</option>
-                                    <option value="South Australia">South Australia</option>
-                                    <option value="Tasmania">Tasmania</option>
-                                    <option value="Victoria">Victoria</option>
-                                    <option value="Western Australia">Western Australia</option>
-                                </select>
-                          </div>
-                           <div class="ques1" id="ques1">
-                           <!--   <h3>Would you consider relocating within Australia for better oppourtinuties</h3> -->
-
-                                 <div class="yes1" id="yes1" style="display:none"><h3>Yes</h3></div>
-
-                                  <div class="no1" id="no1" > 
-
-                                        <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
-                                        <input type="hidden" name="occid" value="<?php echo $occid[1]; ?>" />
-                                        <input type="hidden" name="para" value="<?php echo $para[1]; ?>" />
-                                        <input type="hidden" name="currentState" id="currentState1" />
-                                        <input type="hidden" name="futureState" id="futureState1" />
-
-                                         <h3>Get Statistics</h3>
-            
-                                    </div>
-
-                           </div>
-    
-
-                           <div class="statefuture1" style="display:none">
-     
-                              <!--  <h4>State you would like to reloacte to</h4>  -->
-                               <select class="chosen-select" id="statefuture1" name="statelist1">
-                                   <option disabled selected value>Please enter your future residential state</option>
-                                   <option value="Australian Capital Territory">Australian Capital Territory</option>
-                                   <option value="New South Wales">New South Wales</option>
-                                   <option value="Northern Territory">Northern Territory</option>
-                                   <option value="Queensland">Queensland</option>
-                                   <option value="South Australia">South Australia</option>
-                                   <option value="Tasmania">Tasmania</option>
-                                   <option value="Victoria">Victoria</option>
-                                   <option value="Western Australia">Western Australia</option>
-                               </select>
-                        </div>
-                        <div class="btn1" id="btn1" style="display:none">
-                                <h4> Get Statistics</h4>
-                        </div>
-     
-            </div>
-              </form>
-    </div>
-  
-  </div>
-
-</div>
-
-
-
-<!-- Trigger/Open The Modal -->
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h3><img class="img__img1" src="./images/logomin.png" />   Know More</h3>
-    </div>
-    <div class="modal-body">
-            <form   name="statistics2" method="post" action="/stats.php">
-
-            <div class=state> 
-                 <h3>Let us know you better</h3>
-                        <div class="statecurrent">
-       <!-- <h4>State you currently reside in</h4> -->
-                             <select class="chosen-select" id="statecurrent2" name="statelist">
-                                  <option disabled selected value>Please enter your current residential state</option>
-                                    <option value="Australian Capital Territory">Australian Capital Territory</option>
-                                    <option value="New South Wales">New South Wales</option>
-                                    <option value="Northern Territory">Northern Territory</option>
-                                    <option value="Queensland">Queensland</option>
-                                    <option value="South Australia">South Australia</option>
-                                    <option value="Tasmania">Tasmania</option>
-                                    <option value="Victoria">Victoria</option>
-                                    <option value="Western Australia">Western Australia</option>
-                                </select>
-                          </div>
-                           <div class="ques2" id="ques2">
-                          <!--    <h3>Would you consider relocating within Australia for better oppourtinuties</h3> -->
-
-                                 <div class="yes2" id="yes2"  style="display:none"><h3>Yes</h3></div>
-
-                                  <div class="no2" id="no2"> 
-
-                                        <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
-                                        <input type="hidden" name="occid" value="<?php echo $occid[2]; ?>" />
-                                        <input type="hidden" name="para" value="<?php echo $para[2]; ?>" />
-                                        <input type="hidden" name="currentState" id="currentState2" />
-                                        <input type="hidden" name="futureState" id="futureState2" />
-                    
-                                          <h3>Get Statistics</h3>
-            
-                                    </div>
-
-                           </div>
-    
-
-                           <div class="statefuture2" style="display:none">
-     
-                              <!--  <h4>State you would like to reloacte to</h4>  -->
-                               <select class="chosen-select" id="statefuture2" name="statelist1">
-                                   <option disabled selected value>Please enter your future residential state</option>
-                                   <option value="Australian Capital Territory">Australian Capital Territory</option>
-                                   <option value="New South Wales">New South Wales</option>
-                                   <option value="Northern Territory">Northern Territory</option>
-                                   <option value="Queensland">Queensland</option>
-                                   <option value="South Australia">South Australia</option>
-                                   <option value="Tasmania">Tasmania</option>
-                                   <option value="Victoria">Victoria</option>
-                                   <option value="Western Australia">Western Australia</option>
-                               </select>
-                        </div>
-                        <div class="btn2" id="btn2" style="display:none">
-                                <h4> Get Statistics</h4>
-                        </div>
-     
-            </div>
-            </form>
-    </div>
-  
-  </div>
-
-</div>
-
-
-<!-- Trigger/Open The Modal -->
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h3><img class="img__img1" src="./images/logomin.png" />   Know More</h3>
-    </div>
-    <div class="modal-body">
-            <form   name="statistics3" method="post" action="/stats.php">
-
-            <div class=state> 
-                 <h3>Let us know you better</h3>
-                        <div class="statecurrent">
-       <!-- <h4>State you currently reside in</h4> -->
-                             <select class="chosen-select" id="statecurrent3" name="statelist">
-                                  <option disabled selected value>Please enter your current residential state</option>
-                                    <option value="Australian Capital Territory">Australian Capital Territory</option>
-                                    <option value="New South Wales">New South Wales</option>
-                                    <option value="Northern Territory">Northern Territory</option>
-                                    <option value="Queensland">Queensland</option>
-                                    <option value="South Australia">South Australia</option>
-                                    <option value="Tasmania">Tasmania</option>
-                                    <option value="Victoria">Victoria</option>
-                                    <option value="Western Australia">Western Australia</option>
-                                </select>
-                          </div>
-                           <div class="ques3" id="ques3" >
-                       <!--       <h3>Would you consider relocating within Australia for better oppourtinuties</h3> -->
-
-                                 <div class="yes3" id="yes3"  style="display:none"><h3>Yes</h3></div>
-
-                                  <div class="no3" id="no3" > 
-
-                                     <input type="hidden" name="id" value="<?php echo $tranID; ?>" />
-                                        <input type="hidden" name="occid" value="<?php echo $occid[3]; ?>" />
-                                        <input type="hidden" name="para" value="<?php echo $para[3]; ?>" />
-                                        <input type="hidden" name="currentState" id="currentState3" />
-                                        <input type="hidden" name="futureState" id="futureState3" />
-
-                    
-                                        <h3>Get Statistics</h3>
-            
-                                    </div>
-
-                           </div>
-    
-
-                           <div class="statefuture3" style="display:none">
-     
-                              <!--  <h4>State you would like to reloacte to</h4>  -->
-                               <select class="chosen-select" id="statefuture3" name="statelist1">
-                                   <option disabled selected value>Please enter your future residential state</option>
-                                   <option value="Australian Capital Territory">Australian Capital Territory</option>
-                                   <option value="New South Wales">New South Wales</option>
-                                   <option value="Northern Territory">Northern Territory</option>
-                                   <option value="Queensland">Queensland</option>
-                                   <option value="South Australia">South Australia</option>
-                                   <option value="Tasmania">Tasmania</option>
-                                   <option value="Victoria">Victoria</option>
-                                   <option value="Western Australia">Western Australia</option>
-                               </select>
-                        </div>
-                        <div class="btn3" id="btn3" style="display:none">
-                                <h4> Get Statistics</h4>
-                        </div>
-     
-            </div>
-         </form>
-    </div>
-  
-  </div>
-
-</div>
 
 
     <div class=foot>
