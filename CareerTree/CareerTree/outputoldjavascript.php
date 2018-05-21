@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -252,7 +252,7 @@ for(let i=0;i<modal.length;i++){
 <div class="col-sm-12 col-md-8">
 <div class="skill-slider owl-carousel" >
 
-    <?php
+  <?php
 
         include 'db_connection.php';
         $dbconn4 = OpenCon();
@@ -412,7 +412,7 @@ for(let i=0;i<modal.length;i++){
            // echo '<a href="/details.php?id='.$relatedOcc[3].'&occid='.$relatedOcc[8].'">';
             }
             echo    '<div class="card'.$occCount.'" id="card">
-
+                    
                                         <div class="title"><h3>'.$relatedOcc[1].'</h3></div>
                                         <div class="percentage"><h4>Skill Meter - '.$relatedOcc[2].'%</h4></div>
                     <div class="progress-bar__bar">
@@ -426,21 +426,21 @@ for(let i=0;i<modal.length;i++){
          }
        //  for($j = 1;j<=)
       echo  '<div class="more'.$occCount.'">Know More</div>';
-      echo'  <form   name="statistics'.$occCount.'" id="statistics'.$occCount.'" method="post" action="/stats.php" target="_blank">
+       echo'  <form   name="statistics'.$occCount.'" method="post" action="/stats.php">
 
-
-                   <div class="exp'.$occCount.'" id="exp'.$occCount.'" style="display:none;">
+                 
+                   <div class="exp'.$occCount.'" id="exp'.$occCount.'" style="display:none;"> 
 
                                         <input type="hidden" name="id" value="'. $tranID .'" />
                                         <input type="hidden" name="occid" value="'. $occid[$occCount].'" />
                                         <input type="hidden" name="para" value="'.$para[$occCount].'" />
-
-             <div class="c1exp'.$occCount.'" id="c1exp'.$occCount.'"><div class="c1"><svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg><h3>&nbsp;Tasks</h3></div></div>
-             <div class="c2exp'.$occCount.'" id="c2exp'.$occCount.'"><div class="c2"> <svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg><h3>&nbsp;Job Vacancy</h3></div></div>
-             <div class="c3exp'.$occCount.'" id="c3exp'.$occCount.'"><div class="c3"> <svg class="icon icon-stats-bars2"><use xlink:href="#icon-stats-bars2"></use></svg><h3>&nbsp;Salary </h3></div></div>
-             <div class="c4exp'.$occCount.'" id="c4exp'.$occCount.'"><div class="c4"><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg><h3>&nbsp;Upskill</h3></div></div>
-
-
+                                        
+             <div class="c1"><svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg><h3>&nbsp;Tasks</h3></div>
+            <div class="c2"> <svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg><h3>&nbsp;Job Vacancy</h3></div>                  
+            <div class="c3"> <svg class="icon icon-stats-bars2"><use xlink:href="#icon-stats-bars2"></use></svg><h3>&nbsp;Salary </h3></div>
+            <div class="c4"><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg><h3>&nbsp;Upskill</h3></div>
+                                         
+            
                                     </div>
                                     </form>  </div>';
          $occCount++;
@@ -449,7 +449,7 @@ for(let i=0;i<modal.length;i++){
 
      pg_close($dbconn4);
 
-    ?>
+  ?>
 
 </div>
 </div>

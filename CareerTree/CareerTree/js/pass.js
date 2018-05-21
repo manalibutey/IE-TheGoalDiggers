@@ -1,15 +1,132 @@
 $(document).ready(function () {
-$('.exp1').click(function () {
-   
+    $('.c1exp1').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "task");
+        document.getElementById("statistics1").appendChild(input);
+
         document.statistics1.submit();
 
     });
-    $('.exp2').click(function () {
+    $('.c2exp1').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "jobvacancy");
+        document.getElementById("statistics1").appendChild(input);
+
+        document.statistics1.submit();
+
+    });
+    $('.c3exp1').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "salary");
+        document.getElementById("statistics1").appendChild(input);
+
+        document.statistics1.submit();
+
+    });
+    $('.c4exp1').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "upskill");
+        document.getElementById("statistics1").appendChild(input);
+
+        document.statistics1.submit();
+
+    });
+    $('.c1exp2').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "task");
+        document.getElementById("statistics2").appendChild(input);
 
         document.statistics2.submit();
 
     });
-    $('.exp3').click(function () {
+    $('.c2exp2').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "jobvacancy");
+        document.getElementById("statistics2").appendChild(input);
+
+        document.statistics2.submit();
+
+    });
+    $('.c3exp2').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "salary");
+        document.getElementById("statistics2").appendChild(input);
+
+        document.statistics2.submit();
+
+    });
+    $('.c4exp2').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "upskill");
+        document.getElementById("statistics2").appendChild(input);
+
+        document.statistics2.submit();
+
+    });
+    $('.c1exp3').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "task");
+        document.getElementById("statistics3").appendChild(input);
+
+        document.statistics3.submit();
+
+    });
+    $('.c2exp3').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "jobvacancy");
+        document.getElementById("statistics3").appendChild(input);
+
+        document.statistics3.submit();
+
+    });
+    $('.c3exp3').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "salary");
+        document.getElementById("statistics3").appendChild(input);
+
+        document.statistics3.submit();
+
+    });
+    $('.c4exp3').click(function () {
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "myparam");
+        input.setAttribute("value", "upskill");
+        document.getElementById("statistics3").appendChild(input);
 
         document.statistics3.submit();
 

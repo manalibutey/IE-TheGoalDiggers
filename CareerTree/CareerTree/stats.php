@@ -17,49 +17,7 @@
     <link href="./vendor/chosen_v1.8.5/chosen.css" rel="stylesheet" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
-    <script>
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-       
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-window.onload =function(){
-document.getElementById('London').style.display = "block";
-document.getElementById("1").className += " active";
-  document.getElementById("show_1").style.display = "block";
-  document.getElementById("show_2").style.display = "none";
-  document.getElementById("chart1").style.backgroundColor = "#111E62";
-  document.getElementById("chart1").style.color = "#fff";
-}
-function switch_div(show) {  
-if(show == 1){
-  document.getElementById("show_"+show).style.display = "block";
-  document.getElementById("show_"+((show==1)?2:1)).style.display = "none";
-   document.getElementById("chart1").style.backgroundColor = "#111E62";
-  document.getElementById("chart1").style.color = "#fff";
-   document.getElementById("chart2").style.backgroundColor = "transparent";
-  document.getElementById("chart2").style.color = "#111E62";
-  }
-  else{
-   document.getElementById("show_"+show).style.display = "flex";
-  document.getElementById("show_"+((show==1)?2:1)).style.display = "none";
-   document.getElementById("chart2").style.backgroundColor = "#111E62";
-  document.getElementById("chart2").style.color = "#fff";
-   document.getElementById("chart1").style.backgroundColor = "transparent";
-  document.getElementById("chart1").style.color = "#111E62";
-}
-} 
-
-</script>
+ 
     </head>
     <body>
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -174,6 +132,7 @@ if(show == 1){
         $occID = $_POST['occid'];
         $tranID = $_POST['id'];
         $para = $_POST['para'];
+        $showParam = $_POST['myparam'];
         $currentState = $_POST['currentState'];
         $futureState = $_POST['futureState'];
         //-------Receive ABS Name from parameter ------------//updated 29/04/2018
@@ -297,8 +256,8 @@ if(show == 1){
                <section id="tabs">
 <div class="tab">
   <button class="tablinks" id="1" onclick="openCity(event, 'London')"><svg class="icon icon-stats-bars"><use xlink:href="#icon-stats-bars"></use></svg><h3>&nbsp;Statistics</h3></button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')"><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg><h3>&nbsp;Upskill</h3></button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')"><svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg><h3>&nbsp;Tasks</h3></button>
+  <button class="tablinks" id="2"onclick="openCity(event, 'Paris')"><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg><h3>&nbsp;Upskill</h3></button>
+  <button class="tablinks" id="3"onclick="openCity(event, 'Tokyo')"><svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg><h3>&nbsp;Tasks</h3></button>
 </div>
 
 <div id="London" class="tabcontent">
@@ -786,6 +745,73 @@ if(show == 1){
     setChartView();
     columnFilter.draw();
 }
-        </script>
+</script>
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+window.onload =function(){
+  var showParam = '';
+  showParam = '<?php echo $showParam ?>';
+  if(showParam == 'task'){
+  document.getElementById('Tokyo').style.display = "block";
+  document.getElementById("3").className += " active";
+  document.getElementById("show_1").style.display = "block";
+  document.getElementById("show_2").style.display = "none";
+  document.getElementById("chart1").style.backgroundColor = "#111E62";
+  document.getElementById("chart1").style.color = "#fff";
+  }
+  else if (showParam == 'jobvacancy'){
+  document.getElementById('London').style.display = "block";
+  document.getElementById("1").className += " active";
+  document.getElementById("show_1").style.display = "block";
+  document.getElementById("show_2").style.display = "none";
+  document.getElementById("chart1").style.backgroundColor = "#111E62";
+  document.getElementById("chart1").style.color = "#fff";
+  }
+  else if (showParam == 'salary'){
+  document.getElementById('London').style.display = "block";
+  document.getElementById("1").className += " active";
+  document.getElementById("show_2").style.display = "flex";
+  document.getElementById("show_1").style.display = "none";
+  document.getElementById("chart2").style.backgroundColor = "#111E62";
+  document.getElementById("chart2").style.color = "#fff";
+  }
+  else if (showParam == 'upskill'){
+  document.getElementById('Paris').style.display = "block";
+  document.getElementById("2").className += " active";
+  }
+}
+function switch_div(show) {
+if(show == 1){
+  document.getElementById("show_"+show).style.display = "block";
+  document.getElementById("show_"+((show==1)?2:1)).style.display = "none";
+   document.getElementById("chart1").style.backgroundColor = "#111E62";
+  document.getElementById("chart1").style.color = "#fff";
+   document.getElementById("chart2").style.backgroundColor = "transparent";
+  document.getElementById("chart2").style.color = "#111E62";
+  }
+  else{
+   document.getElementById("show_"+show).style.display = "flex";
+  document.getElementById("show_"+((show==1)?2:1)).style.display = "none";
+   document.getElementById("chart2").style.backgroundColor = "#111E62";
+  document.getElementById("chart2").style.color = "#fff";
+   document.getElementById("chart1").style.backgroundColor = "transparent";
+  document.getElementById("chart1").style.color = "#111E62";
+}
+}
+
+    </script>
 </body>
 </html>
