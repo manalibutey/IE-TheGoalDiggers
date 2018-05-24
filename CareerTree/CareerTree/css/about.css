@@ -12,7 +12,7 @@ footer {
 }
 
 .foot {
-	padding-top: 130px;
+	padding-top: 50px;
 }
 
 .footer p {
@@ -67,7 +67,10 @@ footer {
 }
 
 .icon-space {
-	padding-top: 7px;
+    padding-top: 7px;
+    display: inline-block;
+    /* margin: 0 auto; */
+    padding-right: 10px;
 }
 
 .icon:hover {
@@ -170,9 +173,14 @@ body {
 }
 
 .sub-heading {
-	padding: 10px 150px 0px 150px;
+	padding: 10px 100px 0px 100px;
 	text-align: center;
 	color: #A22631;
+}
+
+.sub-heading p{
+    color: #111E6C;
+    font-size: 20px;
 }
 
 .mid-section::after {
@@ -240,3 +248,38 @@ html {
     .button:hover {
         background-color: #555;
     }
+
+    .contact{
+        display:flex;
+        margin-bottom: 10px;
+    }
+.icon-mail1 {
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    stroke-width: 0;
+    stroke: #CE3E2D;
+    fill: #CE3E2D;
+    transition: all .3s ease-in-out;
+}
+
+.icon-linkedin1 {
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    stroke-width: 0;
+    stroke: #0077B5;
+    fill: #0077B5;
+    transition: all .3s ease-in-out;
+}
+
+.logoteam {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logoteam  img{
+    width: 30%;
+    height: 30%;
+    /* margin: 0 auto; */
+}

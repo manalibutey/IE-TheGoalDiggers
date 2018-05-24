@@ -1,10 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1">
-    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta name="viewport" content=" initial-scale=1 , maximum-scale=1">
     <title>CareerTree</title>
     <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -436,7 +435,7 @@ for(let i=0;i<modal.length;i++){
                                         <input type="hidden" name="para" value="'.$para[$occCount].'" />
 
              <div class="c1exp'.$occCount.'" id="c1exp'.$occCount.'"><div class="c1"><svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg><h3>&nbsp;Tasks</h3></div></div>
-             <div class="c2exp'.$occCount.'" id="c2exp'.$occCount.'"><div class="c2"> <svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg><h3>&nbsp;Job Vacancy</h3></div></div>
+             <div class="c2exp'.$occCount.'" id="c2exp'.$occCount.'"><div class="c2"> <svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg><h3>&nbsp;Vacancies</h3></div></div>
              <div class="c3exp'.$occCount.'" id="c3exp'.$occCount.'"><div class="c3"> <svg class="icon icon-stats-bars2"><use xlink:href="#icon-stats-bars2"></use></svg><h3>&nbsp;Salary </h3></div></div>
              <div class="c4exp'.$occCount.'" id="c4exp'.$occCount.'"><div class="c4"><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg><h3>&nbsp;Upskill</h3></div></div>
 
@@ -478,7 +477,7 @@ for(let i=0;i<modal.length;i++){
 
     <div class=foot>
 <footer class="footer">
-    <p>&#169; Copyright 2018 Career Tree </p>
+    <p>&#169; Copyright 2018 Career TreeWay </p>
 </footer>
 </div>
    

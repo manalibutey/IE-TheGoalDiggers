@@ -332,13 +332,14 @@ position: relative;
 }
 
 .container .navbar-brand img {
-height: 60px;
+    height: 70px;
+    width: 40%;
 }
 
 .container .nav-item {
 font-weight: 400;
 font-style: normal;
-font-size: 15px;
+font-size: 20px;
 letter-spacing: 0.05em !important;
 text-decoration: none;
 line-height: 1em;
@@ -603,4 +604,23 @@ label{
 .chart1 h4, .chart2 h4 {
     /* margin: 0px; */
     padding: 0px 10px;
+}
+
+#chart_div{
+    height: 400px;
+    width: 800px;
+}
+#column_chart {
+    height: 400px;
+    width: 800px;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    #chart_div {
+        height: 400px;
+        width: 600px;
+    }
+    #column_chart {
+        width: 500px;
+    }
 }

@@ -628,13 +628,14 @@ position: relative;
 }
 
 .container .navbar-brand img {
-height: 60px;
+    height: 70px;
+    width: 40%;
 }
 
 .container .nav-item {
 font-weight: 400;
 font-style: normal;
-font-size: 15px;
+font-size: 20px;
 letter-spacing: 0.05em !important;
 text-decoration: none;
 line-height: 1em;
@@ -736,15 +737,16 @@ width: 90px;
 }
 
 .c1, .c2, .c3, .c4 {
-    text-align: center;
     width: fit-content;
-    margin: 0 auto;
+    /* margin: 0 auto;
+         text-align: center;   */
+    margin-left: 20px;
 }
 
 .more1, .more2, .more3 {
     text-align: center;
     font-size: 18px;
-    color: #111a6c;
+    color: #A22631;
     padding-top: 20px;
     text-decoration: underline;
 }
@@ -755,7 +757,7 @@ width: 90px;
 }
 .more1:hover, .more2:hover, .more3:hover {
     cursor: pointer;
-    color: #A22631;
+    color: #111E6C;
     /*  transform: scaleY(1.1);*/
 }
 
@@ -787,3 +789,13 @@ width: 90px;
     .c4:hover .icon-stack {
         color: #111E6C;
     }
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    iframe {
+        
+        width: 500px;
+    }
+    .viz{
+        width: 500px;
+    }
+}

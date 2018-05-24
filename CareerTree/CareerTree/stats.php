@@ -239,11 +239,11 @@
 		</div>
 	</div>
  
-    <div class="sidebar">
+ <!--   <div class="sidebar"> -->
  <!--<div class="icon-space"><a href="/shiny?id= --><?php //echo $randID; ?><!-- "><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg></a></div> -->
-<div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
+<!--<div class="icon-space"><a href="/home.php"><svg class="icon icon-home3"><use xlink:href="#icon-home3"></use></svg><span class="name"></span></a></div> 
 <div class="icon-space"><a href="javascript:window.history.back()"><svg class="icon icon-circle-left"><use xlink:href="#icon-circle-left"></use></svg></a></div>
-</div>
+</div> -->
 
  <div class="full">
 
@@ -311,7 +311,7 @@
        if($entryVacancy1){
      echo '<div class="vac" id="show_1">';
      echo '<div id="colFilter_div"></div>';
-     echo '<div id="chart_div" style="width: 900px; height: 300px"></div>';
+     echo '<div id="chart_div" ></div>';
 
      echo '</div>';
      }
@@ -345,7 +345,7 @@
      if($entrySalary)
      {
 
-         echo '<div id="column_chart" style="width:900px;  height: 400px"></div>';
+         echo '<div id="column_chart"></div>';
          $profit = $avgSalary - $prvSalary;
          if($avgSalary > $prvSalary){
             echo '<div><h4>Average Weekly Salary Increase for You<br><br><svg class="icon icon-point-up"><use xlink:href="#icon-point-up"></use></svg> AU$'.$profit.'<br></h4></div>';
@@ -559,7 +559,7 @@
 
 <div class="foot">
 <footer class="footer"><p>
-  &#169; Copyright 2018 Career Tree </p>
+  &#169; Copyright 2018 Career TreeWay </p>
 </footer>
 
         <script type="text/javascript">
@@ -598,7 +598,7 @@
              var options = {
                  title: 'Average Weekly Salary for  <?php echo $para ?> \n Compared to Your Previous and All Australian Occupations',
                  titleTextStyle: { fontSize: 12, bold: true},
-                 width:900,
+               
                  height:400,
                  legend: { position: 'none' },
                  vAxis: {title: 'Weekly Salary ($)'},
@@ -700,6 +700,8 @@
         options: {
             title: 'Job Vacancy Trend for  <?php echo $para ?>',
             curveType: 'function',
+            
+            height:400,
             hAxis: {title: 'Time'},
             vAxis: {title: 'Job Vacancy'},
             pointSize: 5

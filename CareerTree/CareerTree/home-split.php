@@ -120,7 +120,7 @@
 						<a class="nav-item active" href="#" style="margin-top: 7px;">Home</a>
 					</li>
 					<li>
-						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
+						<a class="nav-item" href="/about.php" style="margin-top: 7px;">About Us</a>
 					</li>
 				</ul>
 			</div>
@@ -134,10 +134,9 @@
 
 		<div class="layer">	
              <div class="head" >
-                    <div class="title-line" ><b><h1>Career TreeWay</h1></b> </div>
+                    <div class="title-line" ><b><h1>We <br> Empower <br> the <br> Unemployed.</h1></b> </div>
 
               </div>
-<h5>Branching your skills into career oppourtunities</h5>
 
 
 <div class = "part">
@@ -179,7 +178,7 @@
         echo '<div class="searchicon"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>';
 
     echo '<select class="chosen-select" id="category" name="occ" style="width: 450px;height:140px;padding-right: 20px;">';
-    echo '<option disabled selected value>Please enter your previous occupation</option>';
+    echo '<option disabled selected value>Enter your previous occupation name</option>';
         while ($res = pg_fetch_row($result)) {
             $result1 = $res[0];
             echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
@@ -204,7 +203,6 @@
 
 
  <div class="subhead1" >
-<!-- <div class="service"><h4>Our Services</h4></div>
  <div id="mf-loader-container">
 
   <div id="mf-loader">
@@ -228,7 +226,7 @@
   </div>
 </div>
 
-</div> -->
+</div>
 
 
 

@@ -95,13 +95,6 @@
 </defs>
 </svg>
 
-
-    <section class="section">
-    <section class="section1"> 
-	<div class="full">
-		<div class="back">
-        <img class="back-image" src="./images/background.jpg" />
-        </div>
     <div class="navbar  navbar-dark navbar-expand-md fixed-top">
 
 		<div class="container">
@@ -120,7 +113,7 @@
 						<a class="nav-item active" href="#" style="margin-top: 7px;">Home</a>
 					</li>
 					<li>
-						<a class="nav-item" href="/aboutus.php" style="margin-top: 7px;">About Us</a>
+						<a class="nav-item" href="/about.php" style="margin-top: 7px;">About Us</a>
 					</li>
 				</ul>
 			</div>
@@ -132,13 +125,18 @@
 
     </div>
 
+    <section class="section">
+    <section class="section1"> 
+	<div class="full">
+		<div class="back">
+        <img class="back-image" src="./images/background.jpg" />
+        </div>
 		<div class="layer">	
              <div class="head" >
                     <div class="title-line" ><b><h1>Career TreeWay</h1></b> </div>
 
               </div>
-<h5>Branching your skills into career oppourtunities</h5>
-
+<h5>We empower the unemployed</h5>
 
 <div class = "part">
 
@@ -179,7 +177,7 @@
         echo '<div class="searchicon"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>';
 
     echo '<select class="chosen-select" id="category" name="occ" style="width: 450px;height:140px;padding-right: 20px;">';
-    echo '<option disabled selected value>Please enter your previous occupation</option>';
+    echo '<option disabled selected value>Enter your previous occupation name</option>';
         while ($res = pg_fetch_row($result)) {
             $result1 = $res[0];
             echo '<option value = "'. $result1 .'">'. $result1 .'</option>';
@@ -198,14 +196,15 @@
 </div>
 
 </div>
+ <div class="subhead1" >
 
+
+<div class="left2"><h4><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg>&nbsp;Career Options</h4></div>
+<div class="left1"><h4><svg class="icon icon-stats-bars"><use xlink:href="#icon-stats-bars"></use></svg>&nbsp;Career Statistics</h4></div>
+<div class="left"><h4><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg>&nbsp;Enhance Skill Set</h4></div>
 </div>
 
-
-
- <div class="subhead1" >
-<!-- <div class="service"><h4>Our Services</h4></div>
- <div id="mf-loader-container">
+<div id="mf-loader-container">
 
   <div id="mf-loader">
     <div class="mf-loader-circle" id="one">
@@ -216,23 +215,18 @@
     <div class="mf-loader-circle" id="three">
     </div>
     <div class="mf-loader-text" id="one-text">
-    <div class="left2"><h4><svg class="icon icon-tree"><use xlink:href="#icon-tree"></use></svg>&nbsp;Career Options</h4></div>
-
+      Each day will be better than last.
+      <br>This one especially
     </div>
     <div class="mf-loader-text" id="two-text">
-<div class="left1"><h4><svg class="icon icon-stats-bars"><use xlink:href="#icon-stats-bars"></use></svg>&nbsp;Career Statistics</h4></div>
+      Subscribing .. Thank you for subscribing. We appreciate it!
     </div>
     <div class="mf-loader-text" id="three-text">
-<div class="left"><h4><svg class="icon icon-stack"><use xlink:href="#icon-stack"></use></svg>&nbsp;Enhance Skill Set</h4></div>
+      DONE
     </div>
   </div>
 </div>
-
-</div> -->
-
-
-
-
+</div>
 </div>
 </section></section>
     </body>

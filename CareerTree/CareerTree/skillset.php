@@ -157,10 +157,10 @@ timesClicked++;
 
 if (timesClicked%2==0) {
 //run second function
-$('.core').css('display','none');
+$('.core').css('display','block');
 } else {
 //run first function
-$('.core').css('display','block');
+$('.core').css('display','none');
 }
 
 }
@@ -180,7 +180,7 @@ $('.core').css('display','block');
   var c = $('.skillgroup#'+group).children().length;
  // alert(c);
     if( c == 1){
-    $('.skillgroup#'+group).hide();.
+    $('.skillgroup#'+group).hide();
     }
  
 }
@@ -295,6 +295,70 @@ $('.core').css('display','block');
 </div>
          
 <div class="boxes">
+
+<div class="skill-box">
+<div class="select-box-heading">
+<div class="mid-section"><h4>Your Skill Set</h4></div>
+ <div class="sub-heading">
+<h4>All your core skills as <b><?php echo $occp; ?></b> and additional skills you possess  </h5>
+</div>
+</div>
+            <div class="skill-box-backgnd" id="skills">
+          
+                       <div class="core-skill"  >       <div class="coreskill" id="core-skill" onclick="core();"><h4>Core Skills</h4>  </div>
+
+                <!-- <p></p> -->
+            <div class="core" id="core"  style="display:block;">
+        <?php
+        
+        //----------Select Onet Occupation Name -------------////updated query 29/04/2018
+        $sql = "Select Occ.occname
+                From occupation as Occ
+                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
+                Where OccABS.abs_name = '$occp'
+                or Occ.occname = '$occp'";
+                $resultOccp = pg_query($dbconn4, $sql);
+                $fetchOccp = pg_fetch_row($resultOccp);
+                $Onetoccp = $fetchOccp[0];
+                $sql = "Select * from (
+                        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked, d.group_name
+                        From skill_Occupation as a, skill as b, Occupation as c, skill_knowledge_group as d
+                        Where a.skID = b.skID and c.OccID = a.OccID
+                        And b.skid = d.relatedid	
+                        And c.OccName = '$Onetoccp'
+                        Order by c.OccName, a.Rank desc
+                        Limit 10) as selectedSkill
+                         union
+                        Select * from (
+                        Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked, d.group_name
+                        From knowledge_Occupation as a, knowledge as b, Occupation as c, skill_knowledge_group as d
+                        Where a.knwID = b.knwID and c.OccID = a.OccID
+                        And b.knwid = d.relatedid	
+                        And c.OccName = '$Onetoccp'
+                        And b.knwname <> 'Mathematics'
+                        Order by c.OccName, a.Rank desc
+                        Limit 10) as selectedKnowledge
+                        order by name";
+                 $result = pg_query($dbconn4, $sql);
+                // echo '<ui>';
+                 while ($res = pg_fetch_row($result)) {
+                   
+
+                    //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
+                    echo '<div  class="value" onclick="cancel(this);" id="'. $res[4].'" value="'. $res[1].'"><a style="display:none;">'.$res[4].'</a><p ><label for="'. $res[2].'" title="'. $res[2].'" style="font-weight:400;">'. $res[1].'<span class="cross"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span> </label></p></div>';
+                    
+                }
+                ?>
+               </div>
+               </div>
+                <div class="extra" id="skill-box">
+                  <div ><h4>Additional Skills</h4>  </div>
+            </div>
+</div>
+      
+   
+      
+</div>
 
  <div class="select-box">
        
@@ -412,69 +476,6 @@ $('.core').css('display','block');
              
         </div>
 
-<div class="skill-box">
-<div class="select-box-heading">
-<div class="mid-section"><h4>Your Skill Set</h4></div>
- <div class="sub-heading">
-<h4>All your core skills as <b><?php echo $occp; ?></b> and additional skills you possess  </h5>
-</div>
-</div>
-            <div class="skill-box-backgnd" id="skills">
-          
-                       <div class="core-skill"  >       <div class="coreskill" id="core-skill" onclick="core();"><h4>Core Skills</h4>  </div>
-
-                <!-- <p></p> -->
-            <div class="core" id="core"  style="display:none;">
-        <?php
-        
-        //----------Select Onet Occupation Name -------------////updated query 29/04/2018
-        $sql = "Select Occ.occname
-                From occupation as Occ
-                Left outer join Occupation_ABS as OccABS on Occ.occid = OccABS.occid
-                Where OccABS.abs_name = '$occp'
-                or Occ.occname = '$occp'";
-                $resultOccp = pg_query($dbconn4, $sql);
-                $fetchOccp = pg_fetch_row($resultOccp);
-                $Onetoccp = $fetchOccp[0];
-                $sql = "Select * from (
-                        Select b.skid as ID,b.skName as name, b.description as description, 1 as checked, d.group_name
-                        From skill_Occupation as a, skill as b, Occupation as c, skill_knowledge_group as d
-                        Where a.skID = b.skID and c.OccID = a.OccID
-                        And b.skid = d.relatedid	
-                        And c.OccName = '$Onetoccp'
-                        Order by c.OccName, a.Rank desc
-                        Limit 10) as selectedSkill
-                         union
-                        Select * from (
-                        Select b.knwid as ID,b.knwName as name, b.description as description, 1 as checked, d.group_name
-                        From knowledge_Occupation as a, knowledge as b, Occupation as c, skill_knowledge_group as d
-                        Where a.knwID = b.knwID and c.OccID = a.OccID
-                        And b.knwid = d.relatedid	
-                        And c.OccName = '$Onetoccp'
-                        And b.knwname <> 'Mathematics'
-                        Order by c.OccName, a.Rank desc
-                        Limit 10) as selectedKnowledge
-                        order by name";
-                 $result = pg_query($dbconn4, $sql);
-                // echo '<ui>';
-                 while ($res = pg_fetch_row($result)) {
-                   
-
-                    //echo '<button type="button" onclick="cancel();"><div  class="value"><p>'.$resultsk.' <span> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg><span></p></div></button>';
-                    echo '<div  class="value" onclick="cancel(this);" id="'. $res[4].'" value="'. $res[1].'"><a style="display:none;">'.$res[4].'</a><p ><label for="'. $res[2].'" title="'. $res[2].'" style="font-weight:400;">'. $res[1].'<span class="cross"> <svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg></span> </label></p></div>';
-                    
-                }
-                ?>
-               </div>
-               </div>
-                <div class="extra" id="skill-box">
-                  <div ><h4>Additional Skills</h4>  </div>
-            </div>
-</div>
-      
-   
-      
-</div>
 
 
 </div>
@@ -492,7 +493,7 @@ $('.core').css('display','block');
 <!-- <div class="contact"><a href="/home.php"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg></a></div> -->
 
 <footer class="footer"><p>
-  &#169; Copyright 2018 Career Tree </p>
+  &#169; Copyright 2018 Career TreeWay </p>
 </footer>
 
 </div>
