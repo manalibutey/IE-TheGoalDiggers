@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content=" initial-scale=1 , maximum-scale=1">
-    <title>CareerTree</title>
+    <title>CareerTreeWay</title>
     <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/output.css">

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1">
     <meta name="viewport" content="width=device-width initial-scale=1">
-    <title>CareerTree</title>
+    <title>CareerTreeWay</title>
     <link rel="icon" href="./images/tab.ico" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/about.css">
@@ -132,8 +132,8 @@ lasting solutions to better our society by digging deeper where nobody would hav
 <h4 style="color:#a22631">Technical - </h4> <h4>Analysis and Design, Documentation<br></h4>
 
 <h4 style="color:#a22631">Non-technical - </h4><h4>Time Management, Teamwork, Hard work, Positive attitude<br> </h4>
-          <div class="contact">         <div class="icon-space"><a href="mailto:haha@gmail.com"><svg class="icon icon-mail1"><use xlink:href="#icon-mail"></use></svg><span class="name"></span></a></div> 
-        <div class="icon-space"><a href="https://www.linkedin.com/in/manali-butey"><svg class="icon icon-linkedin1"><use xlink:href="#icon-linkedin"></use></svg></use></svg></a></div>
+          <div class="contact">         <div class="icon-space"><a href="mailto:suwichsr@outlook.com"><svg class="icon icon-mail1"><use xlink:href="#icon-mail"></use></svg><span class="name"></span></a></div> 
+        <div class="icon-space"><a href="https://www.linkedin.com/in/suwicha-srichantra"><svg class="icon icon-linkedin1"><use xlink:href="#icon-linkedin"></use></svg></use></svg></a></div>
 
        </div>
       </div>
@@ -155,8 +155,8 @@ lasting solutions to better our society by digging deeper where nobody would hav
 <h4 style="color:#a22631">Technical - </h4> <h4>Data Wrangling, Modelling, Analysis, Visualization<br></h4>
 
 <h4 style="color:#a22631">Non-technical - </h4><h4>Teamwork, Accountability, Cooperation, Hard work, Punctuality<br> </h4>
-           <div class="contact">         <div class="icon-space"><a href="mailto:haha@gmail.com"><svg class="icon icon-mail1"><use xlink:href="#icon-mail"></use></svg><span class="name"></span></a></div> 
-        <div class="icon-space"><a href="https://www.linkedin.com/in/manali-butey"><svg class="icon icon-linkedin1"><use xlink:href="#icon-linkedin"></use></svg></use></svg></a></div>
+           <div class="contact">         <div class="icon-space"><a href="mailto:arane86.yl@gmail.com"><svg class="icon icon-mail1"><use xlink:href="#icon-mail"></use></svg><span class="name"></span></a></div> 
+        <div class="icon-space"><a href="https://www.linkedin.com/in/yiran-li-ab524b95"><svg class="icon icon-linkedin1"><use xlink:href="#icon-linkedin"></use></svg></use></svg></a></div>
 
        </div>
       </div>
@@ -177,8 +177,8 @@ lasting solutions to better our society by digging deeper where nobody would hav
 <h4 style="color:#a22631">Technical - </h4> <h4>SQL, Data Warehousing, Documentation<br></h4>
 
 <h4 style="color:#a22631">Non-technical - </h4><h4>Team cooperation, supporting other group members<br> </h4>
-       <div class="contact">         <div class="icon-space"><a href="mailto:haha@gmail.com"><svg class="icon icon-mail1"><use xlink:href="#icon-mail"></use></svg><span class="name"></span></a></div> 
-        <div class="icon-space"><a href="https://www.linkedin.com/in/manali-butey"><svg class="icon icon-linkedin1"><use xlink:href="#icon-linkedin"></use></svg></use></svg></a></div>
+       <div class="contact">         <div class="icon-space"><a href="mailto:deron.nash@gmail.com"><svg class="icon icon-mail1"><use xlink:href="#icon-mail"></use></svg><span class="name"></span></a></div> 
+        <div class="icon-space"><a href="https://www.linkedin.com/in/卿儒-钏-080269164/"><svg class="icon icon-linkedin1"><use xlink:href="#icon-linkedin"></use></svg></use></svg></a></div>
 
        </div>
       </div>
